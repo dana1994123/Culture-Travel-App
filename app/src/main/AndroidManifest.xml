@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
-            android:name=".HomeActivity2"
+            android:name=".views.HomeActivity2"
             android:label="@string/title_activity_home2"
             android:theme="@style/Theme.MyApplication.NoActionBar">
             <intent-filter>
@@ -19,11 +19,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SignUpActivity" />
-        <activity android:name=".SignInActivity">
+        <activity android:name=".views.SignUpActivity" />
+        <activity android:name=".views.SignInActivity">
 
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".views.MainActivity" />
     </application>
 
 </manifest>
