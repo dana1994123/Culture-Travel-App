@@ -95,7 +95,7 @@ class SignInActivity : AppCompatActivity() ,View.OnClickListener {
     private fun checkRemember(){
         if (swtRemember.isChecked){
             //save the credentials in shared preferences
-            SharedPreferencesManager.write(SharedPreferencesManager.EMAIL, edtUsername.text.toString())
+            SharedPreferencesManager.write(SharedPreferencesManager.EMAIL, edtEmail.text.toString())
             SharedPreferencesManager.write(SharedPreferencesManager.PASSWORD, edtPassword.text.toString())
         }else{
             //remove the credentials from shared preferences
@@ -108,7 +108,7 @@ class SignInActivity : AppCompatActivity() ,View.OnClickListener {
 
 
     private fun fetchPreferences(){
-        edtUsername.setText(SharedPreferencesManager.read(SharedPreferencesManager.EMAIL, ""))
+        edtEmail.setText(SharedPreferencesManager.read(SharedPreferencesManager.EMAIL, ""))
         edtPassword.setText(SharedPreferencesManager.read(SharedPreferencesManager.PASSWORD,""))
     }
 
