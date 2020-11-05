@@ -39,6 +39,8 @@ class SignInActivity : AppCompatActivity() ,View.OnClickListener {
                 loginBtn.id ->{
                     if(this.validateData()){
                         this.validateUser()
+                        //we have to send the guest information to the home
+                        // fragment as well using shared prefrence
                         this.goToHome()
                     }
                 }
@@ -60,6 +62,11 @@ class SignInActivity : AppCompatActivity() ,View.OnClickListener {
     private fun validateData() : Boolean {
 
 
+        if (edtEmail.text.isEmpty()&& edtPassword.text.isEmpty()){
+            edtPassword.setError("Password cannot be empty")
+            edtEmail.setError("Email cannot be empty")
+            return false
+        }
         if (edtEmail.text.isEmpty()){
             edtEmail.setError("Email cannot be empty")
             return false
@@ -70,6 +77,8 @@ class SignInActivity : AppCompatActivity() ,View.OnClickListener {
             return false
         }
 
+
+
         if (!DataValidations().validateEmail(edtEmail.text.toString())){
             edtEmail.setError("Please provide valid email address")
             return false
@@ -77,12 +86,6 @@ class SignInActivity : AppCompatActivity() ,View.OnClickListener {
 
         return true
     }
-
-
-
-
-
-
 
     fun goToHome(){
         val intentGoToHome = Intent(this, HomeActivity2::class.java)

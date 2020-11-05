@@ -31,7 +31,7 @@
 
 
     <EditText
-        android:id="@+id/edtFullName"
+        android:id="@+id/edtName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
@@ -48,7 +48,7 @@
 
 
     <EditText
-        android:id="@+id/edtemail"
+        android:id="@+id/edtEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
@@ -60,12 +60,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edtFullName" />
+        app:layout_constraintTop_toBottomOf="@id/edtName" />
 
 
 
     <EditText
-        android:id="@+id/edtpass"
+        android:id="@+id/edtPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -79,14 +79,14 @@
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edtemail" />
+        app:layout_constraintTop_toBottomOf="@id/edtEmail" />
 
 
 
 
 
     <EditText
-        android:id="@+id/edtConfirmpass"
+        android:id="@+id/edtConfirmPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -100,7 +100,7 @@
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edtpass" />
+        app:layout_constraintTop_toBottomOf="@id/edtPassword" />
 
 
 
@@ -108,7 +108,7 @@
 
     <Button
 
-        android:id="@+id/create_btn"
+        android:id="@+id/btnSignUp"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
@@ -119,7 +119,7 @@
         android:text="@string/sign_up"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edtConfirmpass"
+        app:layout_constraintTop_toBottomOf="@id/edtConfirmPassword"
         android:background="@color/black"/>
 
 
@@ -130,8 +130,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/im_already_a_member_sign_in"
-        app:layout_constraintStart_toStartOf="@id/create_btn"
-        app:layout_constraintEnd_toEndOf="@id/create_btn"
+        app:layout_constraintStart_toStartOf="@id/btnSignUp"
+        app:layout_constraintEnd_toEndOf="@id/btnSignUp"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="70dp"
