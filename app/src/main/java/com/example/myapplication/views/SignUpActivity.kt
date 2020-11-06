@@ -9,6 +9,7 @@ import android.widget.TextView
 import com.example.myapplication.R
 import com.example.myapplication.models.Guest
 import com.example.myapplication.utils.DataValidations
+import com.example.myapplication.viewmodels.ViewModels
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
 class SignUpActivity : AppCompatActivity(), View.OnClickListener {
@@ -65,7 +66,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
 
 
     fun saveGuestToDB(){
-        // we have to save the guest data in the cloud
+        ViewModels().addGuest(guest)
     }
 
 
