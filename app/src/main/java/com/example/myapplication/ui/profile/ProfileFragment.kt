@@ -5,9 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Spinner
+import android.widget.*
 import com.example.myapplication.R
 import com.example.myapplication.managers.SharedPreferencesManager
 import com.example.myapplication.models.Guest
@@ -42,6 +40,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
     lateinit var spnLang :Spinner
     lateinit var fabEditProfile: FloatingActionButton
     lateinit var existingGuest: Guest
+    var selectedLang: String = ""
     var currentGuestrEmail = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL, "")
 
 
@@ -54,7 +53,18 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         }
 
 
+
         this.populateProfile()
+    }
+
+
+
+    fun initializeSpinner(){
+        val langAdapter = ArrayAdapter(requireActivity(),
+            android.R.layout.simple_spinner_item,
+            resources.getStringArray(R.array.language_array))
+
+        spnLang.adapter = langAdapter
     }
 
 
@@ -78,6 +88,22 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         spnLang = root.spnLang
         fabEditProfile = root.fabEditProfile
         this.disableEdit()
+        this.initializeSpinner()
+        selectedLang = resources.getStringArray(R.array.language_array).get(0)
+        spnLang.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                selectedLang = resources.getStringArray(R.array.language_array).get(position)
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                selectedLang = resources.getStringArray(R.array.language_array).get(0)
+            }
+        }
         return  root
     }
 
