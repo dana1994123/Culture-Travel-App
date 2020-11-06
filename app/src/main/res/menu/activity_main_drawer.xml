@@ -4,17 +4,36 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_menu_camera"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/nav_verified_user"
+            android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_verified_user"
             android:title="Verified User" />
         <item
-            android:id="@+id/nav_my_trip"
+            android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_my_trip"
             android:title="My Trip" />
     </group>
+
+    <item android:title="Support">
+        <menu>
+            <item
+                android:id="@+id/nav_about_us"
+                android:icon="@android:drawable/ic_menu_help"
+                android:title="@string/about_us" />
+            <item
+                android:id="@+id/nav_contact"
+                android:icon="@android:drawable/ic_menu_call"
+                android:title="@string/contact_us" />
+
+        </menu>
+    </item>
+
+
+
+
 </menu>

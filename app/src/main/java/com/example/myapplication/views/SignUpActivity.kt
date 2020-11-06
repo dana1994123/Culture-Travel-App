@@ -72,9 +72,9 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
     fun fetchData(){
         //fetch the guest info from the user input
         //we have to add the properety to our guest class to resolve the error
-        //guest.name = edtName.text.toString()
-        //guest.email = edtEmail.text.toString()
-        //guest.password = DataValidations().encryptPassword(edtPassword.text.toString())
+        guest.name = edtName.text.toString()
+        guest.email = edtEmail.text.toString()
+        guest.password = DataValidations().encryptPassword(edtPassword.text.toString())
 
     }
 

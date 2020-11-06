@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
 import com.example.myapplication.managers.SharedPreferencesManager
@@ -41,6 +42,7 @@ class SignInActivity : AppCompatActivity() ,View.OnClickListener {
                         this.validateUser()
                         //we have to send the guest information to the home
                         // fragment as well using shared prefrence
+                        SharedPreferencesManager.write(SharedPreferencesManager.EMAIL, edtEmail.text.toString())
                         this.goToHome()
                     }
                 }
@@ -55,6 +57,21 @@ class SignInActivity : AppCompatActivity() ,View.OnClickListener {
     private fun validateUser(){
         // we have to validate the information that the user has been input by
         // searching our database
+
+        val email = edtEmail.text.toString()
+        val password = DataValidations().encryptPassword(edtPassword.text.toString())
+
+        if(true){
+            //if it is match
+            this.checkRemember()
+            //this@SignInActivity.finishAndRemoveTask()
+
+
+        }else{
+            //invalid login
+            Toast.makeText(this, "Incorrect Login/Password. Try again!", Toast.LENGTH_LONG).show()
+        }
+
     }
 
 
@@ -90,19 +107,19 @@ class SignInActivity : AppCompatActivity() ,View.OnClickListener {
     fun goToHome(){
         val intentGoToHome = Intent(this, HomeActivity2::class.java)
         startActivity(intentGoToHome)
+        this@SignInActivity.finishAffinity()
 
     }
 
 
 
     private fun checkRemember(){
+        SharedPreferencesManager.write(SharedPreferencesManager.EMAIL, edtEmail.text.toString())
         if (swtRemember.isChecked){
             //save the credentials in shared preferences
-            SharedPreferencesManager.write(SharedPreferencesManager.EMAIL, edtEmail.text.toString())
             SharedPreferencesManager.write(SharedPreferencesManager.PASSWORD, edtPassword.text.toString())
         }else{
             //remove the credentials from shared preferences
-            SharedPreferencesManager.remove(SharedPreferencesManager.EMAIL)
             SharedPreferencesManager.remove(SharedPreferencesManager.PASSWORD)
         }
     }
