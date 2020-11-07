@@ -8,6 +8,7 @@
     android:orientation="vertical">
 
 <LinearLayout
+    android:id="@+id/layout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.event.EventFragment"
@@ -20,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_marginTop="0dp">
     <LinearLayout
-        android:id="@+id/linearLayout4"
+        android:id="@+id/linearLayout2"
         android:layout_width="wrap_content"
         android:layout_height="270dp"
         android:orientation="horizontal">
@@ -43,6 +44,7 @@
 </HorizontalScrollView>
 
     <TextView
+        android:id="@+id/event_name_tv"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:fontFamily="cursive"
@@ -83,6 +85,7 @@
             />
 
         <TextView
+            android:id="@+id/time_tv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textAlignment="center"
@@ -100,6 +103,7 @@
                 android:src="@drawable/language_logo" />
 
             <TextView
+                android:id="@+id/lang_tv"
                 android:layout_width="325dp"
                 android:layout_height="match_parent"
                 android:textAlignment="center"
@@ -115,7 +119,7 @@
         android:layout_height="50dp"
         android:fontFamily="cursive"
         android:textAlignment="center"
-        android:text="What You Will Do?"
+        android:text="@string/what_you_will_do"
         android:textColor="#120404"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -138,15 +142,15 @@ Join our event!! It's a wonderful opportunity"
                 android:layout_height="40dp"
                 android:background="#1D8F85"
                 android:textSize="24sp"
-                android:text="Frpm $31/Person"
+                android:text="@string/from_31_person"
                 android:textColor="#FAF7F7" />
 
             <Button
+                android:id="@+id/btn_date"
                 android:layout_width="212dp"
                 android:layout_height="50dp"
-                android:text="see date"
+                android:text="@string/see_date"
                 android:textAllCaps="false"
-
                 android:textSize="21sp"
                 app:backgroundTint="#1D8F85" />
         </TableRow>

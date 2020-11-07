@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
-        android:text="Select Dates"
+        android:text="@string/select_dates"
         android:textAlignment="center"
         android:textColor="#040000"
         android:textSize="24sp"
@@ -30,7 +30,7 @@
 <TextView
     android:layout_width="match_parent"
     android:layout_height="31dp"
-    android:text="Thur, Dec 3"
+    android:text="@string/thur_dec_3"
     android:textColor="#050101"
     android:textSize="24sp"
      />
@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/rb1"
-            android:text="6:00 AM - 8:00 AM"
+            android:text="@string/_6_00_am_8_00_am"
             android:textSize="24sp"/>
         <TableLayout
             android:layout_width="match_parent"
@@ -49,7 +49,7 @@
             android:layout_height="match_parent"
                 android:textColor="#050101"
                 android:textSize="24sp"
-            android:text="$35/Person"/>
+            android:text="@string/_35_person"/>
             </TableRow>
             <TableRow>
 
@@ -57,7 +57,7 @@
                     android:layout_width="84dp"
 
                     android:layout_height="wrap_content"
-                    android:text="include"
+                    android:text="@string/include"
                     android:textColor="#050101" />
 
                 <Button
@@ -80,14 +80,14 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="31dp"
-            android:text="Fri, Dec "
+            android:text="@string/fri_dec_4"
             android:textColor="#050101"
             android:textSize="24sp"
             />
         <RadioButton
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="6:00 AM - 8:00 AM"
+            android:text="@string/_6_00_am_8_00_am"
             android:id="@+id/rb2"
             android:textSize="24sp"/>
         <TableLayout
@@ -99,7 +99,7 @@
                     android:layout_height="match_parent"
                     android:textColor="#050101"
                     android:textSize="24sp"
-                    android:text="$35/Person"/>
+                    android:text="@string/_35_person"/>
             </TableRow>
             <TableRow>
 
@@ -107,7 +107,7 @@
                     android:layout_width="84dp"
 
                     android:layout_height="wrap_content"
-                    android:text="include"
+                    android:text="@string/include"
                     android:textColor="#050101" />
 
                 <Button
@@ -128,7 +128,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="31dp"
-                android:text="Mon, Dec 7"
+                android:text="@string/mon_dec_7"
                 android:textColor="#050101"
                 android:textSize="24sp"
                 />
@@ -136,7 +136,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/rb3"
-                android:text="6:00 AM - 8:00 AM"
+                android:text="@string/_6_00_am_8_00_am"
                 android:textSize="24sp"/>
             <TableLayout
                 android:layout_width="match_parent"
@@ -147,18 +147,18 @@
                         android:layout_height="match_parent"
                         android:textColor="#050101"
                         android:textSize="24sp"
-                        android:text="$35/Person"/>
+                        android:text="@string/_35_person"/>
                 </TableRow>
                 <TableRow>
 
                     <TextView
                         android:layout_width="84dp"
                         android:layout_height="wrap_content"
-                        android:text="include"
+                        android:text="@string/include"
                         android:textColor="#050101" />
 
                     <Button
-                        android:text="mystery &amp; culture box"
+                        android:text="@string/mystery_amp_culture_box"
                         android:textAllCaps="false"
                         android:textColor="#050101"
                         android:id="@+id/time3_button"
@@ -175,7 +175,7 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="CONFIRM &amp; PAY"
+                android:text="@string/confirm_amp_pay"
                 android:id="@+id/confirm_btn"
                 android:textColor="#F6EA7A"
                 app:backgroundTint="#090202" />

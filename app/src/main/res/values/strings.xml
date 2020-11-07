@@ -59,6 +59,18 @@
     <string name="support">Support</string>
     <string name="about_us">About </string>
     <string name="pasta_making_lasagne">Pasta Making: Lasagne</string>
+    <string name="what_you_will_do">What You Will Do?</string>
+    <string name="see_date">see date</string>
+    <string name="from_31_person">From $31/Person</string>
+    <string name="select_dates">Select Dates</string>
+    <string name="confirm_amp_pay"><![CDATA[CONFIRM & PAY]]></string>
+    <string name="thur_dec_3">Thur, Dec 3</string>
+]]]    <string name="fri_dec_4">Fri, Dec 4</string>
+    <string name="mon_dec_7">Mon, Dec 7</string>
+    <string name="_6_00_am_8_00_am">6:00 AM - 8:00 AM</string>
+    <string name="_35_person">$35/Person</string>
+    <string name="include">include</string>
+    <string name="mystery_amp_culture_box"><![CDATA[mystery & culture box]]></string>
 
 
     <string-array name="language_array">
