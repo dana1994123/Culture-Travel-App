@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.event.DatesFragment"
+     >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.event.EventFragment"
+        android:orientation="vertical">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:text="Select Dates"
+        android:textAlignment="center"
+        android:textColor="#040000"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="31dp"
+    android:text="Thur, Dec 3"
+    android:textColor="#050101"
+    android:textSize="24sp"
+     />
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/rb1"
+            android:text="6:00 AM - 8:00 AM"
+            android:textSize="24sp"/>
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TableRow>
+            <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+                android:textColor="#050101"
+                android:textSize="24sp"
+            android:text="$35/Person"/>
+            </TableRow>
+            <TableRow>
+
+                <TextView
+                    android:layout_width="84dp"
+
+                    android:layout_height="wrap_content"
+                    android:text="include"
+                    android:textColor="#050101" />
+
+                <Button
+                    android:text="mystery &amp; culture box"
+                    android:textAllCaps="false"
+                    android:id="@+id/time1_button"
+                    android:textColor="#050101"
+                    app:backgroundTint="#FAF8F8" />
+            </TableRow>
+    </TableLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:id="@+id/linearLayout5"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="31dp"
+            android:text="Fri, Dec "
+            android:textColor="#050101"
+            android:textSize="24sp"
+            />
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="6:00 AM - 8:00 AM"
+            android:id="@+id/rb2"
+            android:textSize="24sp"/>
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TableRow>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="#050101"
+                    android:textSize="24sp"
+                    android:text="$35/Person"/>
+            </TableRow>
+            <TableRow>
+
+                <TextView
+                    android:layout_width="84dp"
+
+                    android:layout_height="wrap_content"
+                    android:text="include"
+                    android:textColor="#050101" />
+
+                <Button
+                    android:text="mystery &amp; culture box"
+                    android:textAllCaps="false"
+                    android:textColor="#050101"
+                    android:id="@+id/time2_button"
+                    app:backgroundTint="#FAF8F8" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+        <LinearLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="31dp"
+                android:text="Mon, Dec 7"
+                android:textColor="#050101"
+                android:textSize="24sp"
+                />
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/rb3"
+                android:text="6:00 AM - 8:00 AM"
+                android:textSize="24sp"/>
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TableRow>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textColor="#050101"
+                        android:textSize="24sp"
+                        android:text="$35/Person"/>
+                </TableRow>
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="84dp"
+                        android:layout_height="wrap_content"
+                        android:text="include"
+                        android:textColor="#050101" />
+
+                    <Button
+                        android:text="mystery &amp; culture box"
+                        android:textAllCaps="false"
+                        android:textColor="#050101"
+                        android:id="@+id/time3_button"
+                        app:backgroundTint="#FAF8F8" />
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="CONFIRM &amp; PAY"
+                android:id="@+id/confirm_btn"
+                android:textColor="#F6EA7A"
+                app:backgroundTint="#090202" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
