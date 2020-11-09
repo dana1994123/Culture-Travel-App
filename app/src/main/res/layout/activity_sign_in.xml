@@ -118,7 +118,7 @@
         app:layout_constraintTop_toBottomOf="@id/swtRemember"
         android:layout_marginTop="8dp"
         android:layout_marginLeft="32dp"
-        android:clickable="true"/>
+        />
 
 
 

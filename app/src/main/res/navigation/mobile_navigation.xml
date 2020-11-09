@@ -19,9 +19,9 @@
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.example.myapplication.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:name="com.example.myapplication.ui.bookinglist.BookingListFragment"
+        android:label="Booking List"
+        tools:layout="@layout/fragment_booking_list" />
     <fragment
         android:id="@+id/nav_profile"
         android:name="com.example.myapplication.ui.profile.ProfileFragment"

@@ -1,4 +1,9 @@
 package com.example.myapplication.models
 
-class Host {
-}
+data class Host (
+    var name :String = "" ,
+    var about :String = "",
+    var language : String = "",
+    var location :String ="",
+    var workExperience :String = ""
+)

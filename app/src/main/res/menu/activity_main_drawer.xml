@@ -14,7 +14,7 @@
             android:icon="@drawable/ic_verified_user"
             android:title="Verified User" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_trip_history"
             android:icon="@drawable/ic_my_trip"
             android:title="My Trip" />
     </group>

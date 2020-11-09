@@ -8,7 +8,7 @@
     android:orientation="vertical">
 
 <LinearLayout
-    android:id="@+id/layout1"
+    android:id="@+id/layout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.event.EventFragment"
@@ -21,41 +21,42 @@
         android:layout_width="wrap_content"
         android:layout_marginTop="0dp">
     <LinearLayout
-        android:id="@+id/linearLayout2"
+        android:id="@+id/linearLayout3"
         android:layout_width="wrap_content"
         android:layout_height="270dp"
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="195dp"
+            android:layout_width="500dp"
+            android:layout_height="300dp"
             android:layout_gravity="center"
             android:src="@drawable/pasta" />
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="195dp"
+            android:layout_width="500dp"
+            android:layout_height="300dp"
             android:layout_gravity="center"
-
             android:src="@drawable/pasta_lasagne" />
 
 
     </LinearLayout>
 </HorizontalScrollView>
 
+
+
     <TextView
-        android:id="@+id/event_name_tv"
+        android:id="@+id/eventNameTv"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:fontFamily="cursive"
-        android:text="@string/pasta_making_lasagne"
+        android:layout_height="wrap_content"
+        android:text="@string/event_name"
         android:textColor="#E10751"
-        android:textSize="24sp"
+        android:textSize="30sp"
         android:textStyle="bold" />
     <TextView
+        android:id="@+id/eventLocation"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:text="439, University Avenue, Toronto"
+        android:layout_height="wrap_content"
+        android:text="@string/event_location"
         android:textAlignment="center"
         android:gravity="center_horizontal" />
 
@@ -66,7 +67,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Hosted By Chef Karen "
+        android:text="@string/event_host"
         android:textColor="#E10751"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -85,12 +86,12 @@
             />
 
         <TextView
-            android:id="@+id/time_tv"
+            android:id="@+id/edtEventDuration"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textAlignment="center"
             android:textSize="24sp"
-            android:text="2 Hours"
+            android:text="@string/event_duration"
             android:layout_margin="12dp"
             android:gravity="center_horizontal" />
     </TableRow>
@@ -103,13 +104,13 @@
                 android:src="@drawable/language_logo" />
 
             <TextView
-                android:id="@+id/lang_tv"
+                android:id="@+id/edtLang"
                 android:layout_width="325dp"
                 android:layout_height="match_parent"
                 android:textAlignment="center"
                 android:textSize="24sp"
                 android:layout_margin="12dp"
-                android:text="Hosted in English"
+                android:text="@string/event_language"
                 android:gravity="center_horizontal" />
         </TableRow>
     </TableLayout>
@@ -125,11 +126,10 @@
         android:textStyle="bold"
         android:gravity="center_horizontal" />
     <TextView
+        android:id="@+id/edtEventDesc"
         android:layout_height="100dp"
         android:layout_width="match_parent"
-        android:text="In a 2 hour long session learn making some interesting Ita
-lian recipes from our expert chef Karen. You will learn to make Lasagne. Want to know more???
-Join our event!! It's a wonderful opportunity"
+        android:text="@string/event_desc"
         />
 
     <TableLayout
@@ -137,22 +137,23 @@ Join our event!! It's a wonderful opportunity"
         android:layout_height="match_parent">
         <TableRow>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="#1D8F85"
+            <Button
+                android:id="@+id/eventPrice"
                 android:textSize="24sp"
                 android:text="@string/from_31_person"
-                android:textColor="#FAF7F7" />
+                android:textColor="#FAF7F7"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_margin="50dp"/>
 
-            <Button
-                android:id="@+id/btn_date"
-                android:layout_width="212dp"
-                android:layout_height="50dp"
-                android:text="@string/see_date"
-                android:textAllCaps="false"
-                android:textSize="21sp"
-                app:backgroundTint="#1D8F85" />
+<!--            <Button-->
+<!--                android:id="@+id/btnDate"-->
+<!--                android:layout_width="212dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:text="@string/see_date"-->
+<!--                android:textAllCaps="false"-->
+<!--                android:textSize="21sp"-->
+<!--                app:backgroundTint="#1D8F85" />-->
         </TableRow>
 </TableLayout>
 </LinearLayout>
