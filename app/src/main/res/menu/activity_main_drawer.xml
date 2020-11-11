@@ -10,7 +10,7 @@
             android:icon="@drawable/ic_menu_camera"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_verified_user"
             android:icon="@drawable/ic_verified_user"
             android:title="Verified User" />
         <item
@@ -22,7 +22,7 @@
     <item android:title="Support">
         <menu>
             <item
-                android:id="@+id/nav_about_us"
+                android:id="@+id/nav_about"
                 android:icon="@android:drawable/ic_menu_help"
                 android:title="@string/about_us" />
             <item
@@ -32,8 +32,5 @@
 
         </menu>
     </item>
-
-
-
 
 </menu>
