@@ -11,6 +11,10 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true"
         >
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDolsLEpqrhdW4FRY2BK4UZP1pV4UxdRlk"
+            />
         <activity
             android:name=".views.HomeActivity2"
             android:label="@string/title_activity_home2"
