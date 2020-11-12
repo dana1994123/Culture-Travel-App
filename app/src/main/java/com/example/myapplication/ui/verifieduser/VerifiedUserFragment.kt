@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.gallery
+package com.example.myapplication.ui.verifieduser
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.R
 
-class GalleryFragment : Fragment() {
+class VerifiedUserFragment : Fragment() {
 
-    private lateinit var galleryViewModel: GalleryViewModel
+    private lateinit var verifiedUserViewModel: VerifiedUserViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        galleryViewModel =
-                ViewModelProvider(this).get(GalleryViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_gallery, container, false)
+        verifiedUserViewModel =
+                ViewModelProvider(this).get(VerifiedUserViewModel::class.java)
+        val root = inflater.inflate(R.layout.verified_user, container, false)
         val textView: TextView = root.findViewById(R.id.text_gallery)
-        galleryViewModel.text.observe(viewLifecycleOwner, Observer {
+        verifiedUserViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

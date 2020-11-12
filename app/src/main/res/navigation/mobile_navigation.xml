@@ -12,13 +12,13 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.myapplication.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_verified_user"
+        android:name="com.example.myapplication.ui.verifieduser.VerifiedUserFragment"
+        android:label="Verified User"
+        tools:layout="@layout/verified_user" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
+        android:id="@+id/nav_trip_history"
         android:name="com.example.myapplication.ui.bookinglist.BookingListFragment"
         android:label="Booking List"
         tools:layout="@layout/fragment_booking_list" />
@@ -27,4 +27,14 @@
         android:name="com.example.myapplication.ui.profile.ProfileFragment"
         android:label="View Profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/nav_about"
+        android:name="com.example.myapplication.ui.support.AboutFragment"
+        android:label="About Us"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/nav_contact"
+        android:name="com.example.myapplication.ui.support.ContactFragment"
+        android:label="Contact Us"
+        tools:layout="@layout/fragment_contact" />
 </navigation>
