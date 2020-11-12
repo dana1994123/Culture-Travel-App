@@ -5,7 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
 import com.example.myapplication.R
+import kotlinx.android.synthetic.main.fragment_event.view.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -17,10 +21,22 @@ private const val ARG_PARAM2 = "param2"
  * Use the [EventFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class EventFragment : Fragment() {
+@Suppress("UNSAFE_CALL_ON_PARTIALLY_DEFINED_RESOURCE")
+class EventFragment : Fragment() , View.OnClickListener{
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    lateinit var edtFirstImage : ImageView
+    lateinit var edtSecondImage :ImageView
+    lateinit var edtEventName :TextView
+    lateinit var edtEventLocation :TextView
+    lateinit var edtEventHost :TextView
+    lateinit var edtEventDuration :TextView
+    lateinit var edtLang :TextView
+    lateinit var edtDate : TextView
+    lateinit var edtEventDesc :TextView
+    lateinit var btnEventPrice :Button
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +51,24 @@ class EventFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_event, container, false)
+        val root =inflater.inflate(R.layout.fragment_event, container, false)
+        edtFirstImage = root.edtFirstImage
+        edtSecondImage = root.edtSecondImage
+        edtEventName = root.edtEventName
+        edtEventLocation = root.edtEventLocation
+        edtEventHost = root.edtEventHost
+        edtEventDuration = root.edtEventDuration
+        edtLang = root.edtLang
+        edtDate = root.edtDate
+        edtEventDesc = root.edtEventDesc
+        btnEventPrice = root.btnEventPrice
+
+        //create a method to populate the event by fetching the event to the fragment
+        this.populateEvent ()
+
+        root.btnEventPrice.setOnClickListener(this)
+
+        return  root
     }
 
     companion object {
@@ -56,5 +89,23 @@ class EventFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+
+    private fun populateEvent(){
+        //create a method to populate the event by fetching the event to the fragment
+    }
+    private fun goToPayment(){
+        //navigate to the payment page and send the event price along
+    }
+    override fun onClick(v: View?) {
+        if (v!=null ){
+            when(v.id){
+                btnEventPrice.id->{
+                    //navigate to the payment page and send the event price along
+                    this.goToPayment()
+                }
+            }
+        }
     }
 }

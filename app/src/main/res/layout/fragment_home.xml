@@ -14,6 +14,71 @@
     android:layout_marginTop="50dp"
     >
 
+    <View
+        android:layout_marginTop="7dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+
+
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/explore_nearby_event"
+            android:textSize="30sp"
+            android:layout_marginLeft="10dp"
+            android:textColor="#eb5180"
+            android:layout_marginStart="10dp" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageButton
+                        android:id="@+id/imgFirstEvent"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:src="@drawable/infest"
+                        android:layout_margin="20dp"/>
+                    <ImageButton
+                        android:id="@+id/imgSecondEvent"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:src="@drawable/infest"
+                        android:layout_margin="20dp"/>
+                    <ImageButton
+                        android:id="@+id/imgThirdEvent"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:src="@drawable/infest"
+                        android:layout_margin="20dp"/>
+                    <ImageButton
+                        android:id="@+id/imgFourthEvent"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:src="@drawable/infest"
+                        android:layout_margin="20dp"/>
+
+                </LinearLayout>
+            </HorizontalScrollView>
+        </LinearLayout>
+        <View
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+    </LinearLayout>
 
     <ImageView
         android:layout_width="393dp"
@@ -32,50 +97,26 @@
         android:layout_height="wrap_content"
         android:text="We offer an exclusive experience that you will absoloutly\n enjoy by learning about other cultures as you travel to the country. "
         android:layout_marginLeft="10dp"
-        android:layout_marginBottom="40dp"
+
         />
+    <Button
+        android:id="@+id/btnReadMore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/read_more"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:textSize="14sp"
+        android:layout_marginBottom="40dp"/>
 
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Join Free Event"
-            android:textSize="35dp"
-            android:layout_marginLeft="10dp"
-            android:textColor="#eb5180"/>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <HorizontalScrollView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <ImageButton
-                        android:layout_width="200dp"
-                        android:layout_height="200dp"
-                        android:src="@drawable/infest"
-                        android:layout_margin="20dp"/>
-
-                </LinearLayout>
-            </HorizontalScrollView>
-        </LinearLayout>
-    </LinearLayout>
-
-
-
-    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ffe57d"
         android:orientation="vertical">
+
 
 
         <!--to insert elements before the horizentalview-->
@@ -91,8 +132,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="@string/sub_title_hori" />
+            android:text="you can now have the apportunity to live other culture in your community" />
 
+        <View
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
 
     </LinearLayout>
 
@@ -141,10 +187,6 @@
                     android:src="@drawable/french"
 
                     />
-
-
-
-
                 <TextView
                     android:id="@+id/indianText"
                     android:layout_width="wrap_content"
@@ -185,21 +227,29 @@
         </LinearLayout>
 
     </HorizontalScrollView>
+
     <LinearLayout
         android:layout_height="match_parent"
         android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
         android:gravity="center"
-        android:background="#ffe57d">
+        android:background="#ffe57d"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/exploreBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Explore All"
+            android:text="@string/explore_all"
             android:layout_gravity="center"
             android:background="#eb5180"/>
     </LinearLayout>
+
+    <View
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
 </LinearLayout>
 
 
