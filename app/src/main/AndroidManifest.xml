@@ -16,7 +16,7 @@
         >
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDolsLEpqrhdW4FRY2BK4UZP1pV4UxdRlk"
+            android:value="AIzaSyCuBECuGbhBGTJTcOyqndx5thecomn9fHM"
             />
         <activity
             android:name=".views.HomeActivity2"
@@ -27,7 +27,6 @@
         <activity android:name=".views.SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
