@@ -27,7 +27,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 
     <TextView
         android:id="@+id/text_view"
-        android:layout_width="404dp"
+        android:layout_width="700dp"
         android:layout_height="95dp"
         android:fontFamily="cursive"
         android:gravity="center_horizontal"
@@ -40,7 +40,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:layout_width="404dp"
+        android:layout_width="700dp"
         android:id="@+id/tv_2"
         android:layout_height="250dp"
         android:fontFamily="sans-serif-thin"
@@ -55,7 +55,7 @@ We are extremely resolute towards our goal and this CulturalTravel App is a smal
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:layout_width="404dp"
+        android:layout_width="700dp"
         android:layout_height="250dp"
         android:src="@drawable/world"
         app:layout_constraintEnd_toEndOf="parent"
