@@ -2,6 +2,7 @@ package com.example.myapplication.ui.payment
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,9 @@ import android.widget.Button
 import android.widget.EditText
 import com.example.myapplication.R
 import com.example.myapplication.managers.SharedPreferencesManager
+import com.example.myapplication.models.Payment
+import com.example.myapplication.utils.DataValidations
+import com.example.myapplication.viewmodels.PaymentViewModel
 import com.example.myapplication.views.HomeActivity2
 import com.example.myapplication.views.SignInActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -31,7 +35,6 @@ class ProfileFragment : Fragment(), View.OnClickListener {
     private var param2: String? = null
 
     lateinit var edtName: EditText
-    lateinit var edtCarPlateNumber: EditText
     lateinit var edtPhoneNumber: EditText
     lateinit var edtCreditCardNum: EditText
     lateinit var edtCvv: EditText
@@ -43,6 +46,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
     var currentUserEmail = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL, "")
 
+    private lateinit var paymentViewModel : PaymentViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,6 +54,8 @@ class ProfileFragment : Fragment(), View.OnClickListener {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+        paymentViewModel = PaymentViewModel()
+        newPayment.email = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL,"").toString()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -64,7 +70,6 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         edtCreditCardNum = root.edtCreditCardNum
         edtCvv = root.edtCvv
         edtPhoneNumber = root.edtPhoneNumber
-
         btnPayment = root.btnPayment
 
 
@@ -90,6 +95,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
                         putString(ARG_PARAM2, param2)
                     }
                 }
+        var newPayment = Payment()
     }
 
     override fun onClick(v: View?) {
@@ -98,6 +104,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
                 //we have to check the validity of the entered information
                 if (this.validateDate()){
                     this.saveTripToDb()
+                    this.savePurchaseToDB()
                     //navigate to the home page
                     this.goToHome()
 
@@ -109,12 +116,42 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
     private fun validateDate():Boolean{
         //put payment validation :
+        if(DataValidations().validateName(edtName.text.toString())){
+            edtName.error = "Please enter a valid name"
+            return false
+        }
+        if(DataValidations().validatePhonenNum(edtPhoneNumber.text.toString())){
+            edtPhoneNumber.error = "Please provide a valid phone number"
+            return false
+        }
+        if(edtCreditCardNum.text.toString().isEmpty() || edtCreditCardNum.text.toString().length<15){
+            edtPhoneNumber.error = "Please enter a valid credit card number"
+            return false
+        }
+        if(DataValidations().validateName(edtNameOnCard.text.toString())){
+            edtNameOnCard.error = "Please provide a valid name that belongs to the credit card"
+            return false
+        }
+        if(edtCvv.text.toString().isEmpty()){
+            edtCvv.error = "Please provide the credit card's cvv"
+            return false
+        }
+        if(DataValidations().validateExpiryDate(edtExpiry.text.toString())){
+            edtExpiry.error = "Please add the expiry date"
+            return false
+        }
+
         return true
     }
 
+    private fun savePurchaseToDB(){
+        //adds the purchase to the database
+        paymentViewModel.addPayment(newPayment)
 
+    }
 
     private fun saveTripToDb(){
+
         // if the payment is correct we have to save the trip in guest history
     }
 
