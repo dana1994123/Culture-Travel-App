@@ -2,6 +2,7 @@ package com.example.myapplication.ui.payment
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import android.widget.Button
 import android.widget.EditText
 import com.example.myapplication.R
 import com.example.myapplication.managers.SharedPreferencesManager
+import com.example.myapplication.utils.DataValidations
 import com.example.myapplication.views.HomeActivity2
 import com.example.myapplication.views.SignInActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -109,12 +111,38 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
     private fun validateDate():Boolean{
         //put payment validation :
+        if(DataValidations().validateName(edtName.text.toString())){
+            edtName.error = "Please enter a valid name"
+            return false
+        }
+        if(DataValidations().validatePhonenNum(edtPhoneNumber.text.toString())){
+            edtPhoneNumber.error = "Please provide a valid phone number"
+            return false
+        }
+        if(edtCreditCardNum.text.toString().isEmpty() || edtCreditCardNum.text.toString().length<15){
+            edtPhoneNumber.error = "Please enter a valid credit card number"
+            return false
+        }
+        if(DataValidations().validateName(edtNameOnCard.text.toString())){
+            edtNameOnCard.error = "Please provide a valid name that belongs to the credit card"
+            return false
+        }
+        if(edtCvv.text.toString().isEmpty()){
+            edtCvv.error = "Please provide the credit card's cvv"
+            return false
+        }
+        if(DataValidations().validateExpiryDate(edtExpiry.text.toString())){
+            edtExpiry.error = "Please add the expiry date"
+            return false
+        }
+
         return true
     }
 
 
 
     private fun saveTripToDb(){
+
         // if the payment is correct we have to save the trip in guest history
     }
 
