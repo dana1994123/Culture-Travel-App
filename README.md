@@ -1,6 +1,6 @@
 # androidAppProject
-![Screenshot_20201115_010328](https://user-images.githubusercontent.com/72468026/99178421-ec110400-26e0-11eb-81b3-32349b5d8cc6.png)
-![Screenshot_20201115_010414](https://user-images.githubusercontent.com/72468026/99178422-ef0bf480-26e0-11eb-9abc-717e57205f2f.png)
+
+
 <img width="272" alt="Screen Shot 2020-11-15 at 01 04 56" src="https://user-images.githubusercontent.com/72468026/99178425-f3d0a880-26e0-11eb-92cf-0527792b0111.png">
 <img width="253" alt="Screen Shot 2020-11-15 at 01 05 22" src="https://user-images.githubusercontent.com/72468026/99178429-f7fcc600-26e0-11eb-94d9-0f96f3e24d5e.png">
 <img width="279" alt="Screen Shot 2020-11-15 at 01 20 19" src="https://user-images.githubusercontent.com/72468026/99178436-0a76ff80-26e1-11eb-870e-d819ff97de28.png">
@@ -24,12 +24,12 @@ Sign in activity :
 When the user clicks the sign-in button it should verify the sign-in by looking to the DB if the user is available or not. 
 The shared preference is done already. 
 
-
+![Screenshot_20201115_010328](https://user-images.githubusercontent.com/72468026/99178421-ec110400-26e0-11eb-81b3-32349b5d8cc6.png)
 
 Sign up activity : 
 We have added the data validation. We have to save the user to the DB when he clicks to sign up and we. 
 
-
+![Screenshot_20201115_010414](https://user-images.githubusercontent.com/72468026/99178422-ef0bf480-26e0-11eb-9abc-717e57205f2f.png)
 
 Event Fragment : 
 We have to fetch the selected event from the Db that the user has chosen from the home Activity. We will add the quantity button where the user will choose how many tickets he needs and calculate the price and send it to the payment fragment when the user clicks the buy button.
