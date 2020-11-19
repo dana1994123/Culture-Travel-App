@@ -20,7 +20,7 @@ Sign in activity :
 When the user clicks the sign-in button it should verify the sign-in by looking to the DB if the user is available or not. 
 The shared preference is done already. 
 
-<img width="272" src="https://user-images.githubusercontent.com/72468026/99178421-ec110400-26e0-11eb-81b3-32349b5d8cc6.png"
+<img width="272" src="https://user-images.githubusercontent.com/72468026/99178421-ec110400-26e0-11eb-81b3-32349b5d8cc6.png">
 
 Sign up activity : 
 We have added the data validation. We have to save the user to the DB when he clicks to sign up and we. 
