@@ -6,7 +6,6 @@
 <img width="274" alt="Screen Shot 2020-11-15 at 01 19 58" src="https://user-images.githubusercontent.com/72468026/99178441-0f3bb380-26e1-11eb-8b7d-ca7cd2908947.png">
 <img width="273" alt="Screen Shot 2020-11-15 at 01 20 57" src="https://user-images.githubusercontent.com/72468026/99178445-1662c180-26e1-11eb-811c-93039305f608.png">
 <img width="275" alt="Screen Shot 2020-11-15 at 01 10 11" src="https://user-images.githubusercontent.com/72468026/99178447-195db200-26e1-11eb-948d-14553aca0196.png">
-<img width="270" alt="Screen Shot 2020-11-15 at 01 05 50" src="https://user-images.githubusercontent.com/72468026/99178449-1bc00c00-26e1-11eb-92bf-24bf8be00600.png">
 
 StayOver fragment : 
 We have to create the UI for it similar to the event fragment with these attribute : 
@@ -62,7 +61,7 @@ Create the UI Write some information on how the user can be verified by attachin
 About us fragment :
 Just the Ui or anything you think it is useful
 
-
+<img width="270" alt="Screen Shot 2020-11-15 at 01 05 50" src="https://user-images.githubusercontent.com/72468026/99178449-1bc00c00-26e1-11eb-92bf-24bf8be00600.png">
 
 NearByEvent Fragment :
 This fragment will be accessed from the Home Activity when the user clicks explore all. Where in this fragment we will show the user a map with markup for where exactly each of the 4 events happening. We have to create the Ui for this fragment I will be sending the picture. 
