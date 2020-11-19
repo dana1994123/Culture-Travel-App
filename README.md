@@ -2,7 +2,6 @@
 
 
 <img width="272" alt="Screen Shot 2020-11-15 at 01 04 56" src="https://user-images.githubusercontent.com/72468026/99178425-f3d0a880-26e0-11eb-92cf-0527792b0111.png">
-<img width="253" alt="Screen Shot 2020-11-15 at 01 05 22" src="https://user-images.githubusercontent.com/72468026/99178429-f7fcc600-26e0-11eb-94d9-0f96f3e24d5e.png">
 <img width="274" alt="Screen Shot 2020-11-15 at 01 19 58" src="https://user-images.githubusercontent.com/72468026/99178441-0f3bb380-26e1-11eb-8b7d-ca7cd2908947.png">
 <img width="273" alt="Screen Shot 2020-11-15 at 01 20 57" src="https://user-images.githubusercontent.com/72468026/99178445-1662c180-26e1-11eb-811c-93039305f608.png">
 <img width="275" alt="Screen Shot 2020-11-15 at 01 10 11" src="https://user-images.githubusercontent.com/72468026/99178447-195db200-26e1-11eb-948d-14553aca0196.png">
@@ -66,6 +65,7 @@ Just the Ui or anything you think it is useful
 NearByEvent Fragment :
 This fragment will be accessed from the Home Activity when the user clicks explore all. Where in this fragment we will show the user a map with markup for where exactly each of the 4 events happening. We have to create the Ui for this fragment I will be sending the picture. 
 
+<img width="253" alt="Screen Shot 2020-11-15 at 01 05 22" src="https://user-images.githubusercontent.com/72468026/99178429-f7fcc600-26e0-11eb-94d9-0f96f3e24d5e.png">
 
 Host Fragment :
 We create UI similar to the guest fragment added these field to it :
