@@ -25,7 +25,7 @@ The shared preference is done already.
 Sign up activity : 
 We have added the data validation. We have to save the user to the DB when he clicks to sign up and we. 
 
-<img width="272" = src="https://user-images.githubusercontent.com/72468026/99178422-ef0bf480-26e0-11eb-9abc-717e57205f2f.png">
+<img width="272" src="https://user-images.githubusercontent.com/72468026/99178422-ef0bf480-26e0-11eb-9abc-717e57205f2f.png">
 
 Event Fragment : 
 We have to fetch the selected event from the Db that the user has chosen from the home Activity. We will add the quantity button where the user will choose how many tickets he needs and calculate the price and send it to the payment fragment when the user clicks the buy button.
