@@ -13,6 +13,7 @@ import com.google.android.gms.location.LocationRequest
 
 class LocationManager(var context :Context) {
     private val TAG = this.toString()
+
     //perform further services
     var fusedLocationProviderClient : FusedLocationProviderClient? = null
 
