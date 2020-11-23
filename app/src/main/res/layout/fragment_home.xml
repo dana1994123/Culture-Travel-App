@@ -95,7 +95,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="We offer an exclusive experience that you will absoloutly\n enjoy by learning about other cultures as you travel to the country. "
+        android:text="@string/about_home"
         android:layout_marginLeft="10dp"
 
         />
