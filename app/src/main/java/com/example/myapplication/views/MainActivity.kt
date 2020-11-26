@@ -2,9 +2,13 @@ package com.example.myapplication.views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.example.myapplication.R
 import com.example.myapplication.models.Event
 import com.google.gson.Gson
+import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 
 class MainActivity : AppCompatActivity() {
     private lateinit var gson :Gson
@@ -12,17 +16,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        gson = Gson()
-
-        val event1 = Event("indian foof" ,"Toronto" , "2" , "english" , "sss" , "dddd" , 5 , "hkghj")
-
-        var json :String = gson.toJson(event1)
-
-
-
-
-
-
-
     }
+
+
+
 }

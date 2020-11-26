@@ -2,7 +2,6 @@ package com.example.myapplication.ui.payment
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,9 +12,8 @@ import com.example.myapplication.R
 import com.example.myapplication.managers.SharedPreferencesManager
 import com.example.myapplication.models.Payment
 import com.example.myapplication.utils.DataValidations
-import com.example.myapplication.viewmodels.PaymentViewModel
+import com.example.myapplication.viewmodels.ViewModels
 import com.example.myapplication.views.HomeActivity2
-import com.example.myapplication.views.SignInActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.fragment_payment.view.*
 
@@ -46,7 +44,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
     var currentUserEmail = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL, "")
 
-    private lateinit var paymentViewModel : PaymentViewModel
+    private lateinit var paymentViewModel : ViewModels
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,7 +52,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
-        paymentViewModel = PaymentViewModel()
+        paymentViewModel = ViewModels()
         newPayment.email = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL,"").toString()
     }
 
