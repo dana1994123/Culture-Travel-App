@@ -1,6 +1,7 @@
 package com.example.myapplication.ui.profile
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -40,10 +41,12 @@ class ProfileFragment : Fragment(), View.OnClickListener {
     lateinit var btnSave: Button
     lateinit var spnLang :Spinner
     lateinit var fabEditProfile: FloatingActionButton
-    var existingGuest: Guest? = null
+
     var selectedLang: String = ""
     var currentGuestrEmail = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL, "")
     lateinit var viewModel :ViewModels
+
+
 
 
 
@@ -53,10 +56,50 @@ class ProfileFragment : Fragment(), View.OnClickListener {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+    }
+    companion object {
+        /**
+         * Use this factory method to create a new instance of
+         * this fragment using the provided parameters.
+         *
+         * @param param1 Parameter 1.
+         * @param param2 Parameter 2.
+         * @return A new instance of fragment ProfileFragment.
+         */
+        // TODO: Rename and change types and number of parameters
+        @JvmStatic
+        fun newInstance(param1: String, param2: String) =
+            ProfileFragment().apply {
+                arguments = Bundle().apply {
+                    putString(ARG_PARAM1, param1)
+                    putString(ARG_PARAM2, param2)
+                }
+            }
+        var existingGuest = Guest()
+    }
+
+    override fun onResume() {
+        super.onResume()
         viewModel = ViewModels()
         viewModel.fetchAllGuest()
-
         this.populateProfile()
+
+    }
+    fun populateProfile() {
+        //create a method to fetch the guest information from the DB
+        // and populate it in the ui
+        this.viewModel.guest.observe(viewLifecycleOwner) { guest ->
+            if (guest != null) {
+                existingGuest = guest
+            }
+        }
+        Log.e("userphone number" , existingGuest.phoneNumber.toString())
+        edtEmail.setText(currentGuestrEmail)
+        edtName.setText(existingGuest.name)
+        edtPhoneNumber.setText(existingGuest.phoneNumber)
+
+
     }
 
 
@@ -70,16 +113,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
     }
 
 
-    fun populateProfile() {
-        //create a method to fetch the guest information from the DB
-        // and populate it in the ui
-        this.viewModel.guest.observe(viewLifecycleOwner) { guest ->
-            if (guest != null) {
-                this.existingGuest = guest
-            }
 
-        }
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -129,25 +163,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         edtPhoneNumber.isEnabled = true
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ProfileFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-                ProfileFragment().apply {
-                    arguments = Bundle().apply {
-                        putString(ARG_PARAM1, param1)
-                        putString(ARG_PARAM2, param2)
-                    }
-                }
-    }
+
 
     override fun onClick(v: View?) {
         when(v?.id){
