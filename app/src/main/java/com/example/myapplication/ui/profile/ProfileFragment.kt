@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.lifecycle.observe
 import com.example.myapplication.R
 import com.example.myapplication.managers.SharedPreferencesManager
 import com.example.myapplication.models.Guest
@@ -14,7 +13,6 @@ import com.example.myapplication.viewmodels.ViewModels
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.activity_sign_up.view.*
 import kotlinx.android.synthetic.main.activity_sign_up.view.edtName
-import kotlinx.android.synthetic.main.fragment_event.*
 import kotlinx.android.synthetic.main.fragment_profile.view.*
 import kotlinx.android.synthetic.main.fragment_profile.view.edtEmail as edtEmail1
 
@@ -44,8 +42,9 @@ class ProfileFragment : Fragment(), View.OnClickListener {
     lateinit var fabEditProfile: FloatingActionButton
     var existingGuest: Guest? = null
     var selectedLang: String = ""
-    //var currentGuestEmail = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL, "")
-    lateinit var viewModel: ViewModels
+    var currentGuestrEmail = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL, "")
+    lateinit var viewModel :ViewModels
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,32 +54,31 @@ class ProfileFragment : Fragment(), View.OnClickListener {
             param2 = it.getString(ARG_PARAM2)
         }
         viewModel = ViewModels()
-        viewModel.fetchAllGuests()
+        viewModel.fetchAllGuest()
+
         this.populateProfile()
     }
+
 
 
     fun initializeSpinner(){
         val langAdapter = ArrayAdapter(requireActivity(),
             android.R.layout.simple_spinner_item,
             resources.getStringArray(R.array.language_array))
+
         spnLang.adapter = langAdapter
     }
 
 
-    fun populateProfile(){
+    fun populateProfile() {
         //create a method to fetch the guest information from the DB
         // and populate it in the ui
         this.viewModel.guest.observe(viewLifecycleOwner) { guest ->
             if (guest != null) {
                 this.existingGuest = guest
             }
-        }
-        edtEmail.setText(existingGuest?.email)
-        edtName.setText(existingGuest?.name)
-        edtPhoneNumber.setText(existingGuest?.phoneNumber.toString())
-        edtLang.setText(existingGuest?.language)
 
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,

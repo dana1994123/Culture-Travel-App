@@ -84,6 +84,8 @@
     <string name="explore_all">Explore All</string>
     <string name="read_more">Read More</string>
     <string name="about_home">We offer an exclusive experience that you will absoloutly enjoy by learning about other cultures as you travel to the country.</string>
+    <string name="dd_mm_yyyy">DD/MM/YYYY</string>
+    <string name="s">##</string>
 
 
     <string-array name="language_array">

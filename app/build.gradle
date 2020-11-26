@@ -29,6 +29,7 @@ android {
     compileOptions {
         sourceCompatibility kotlin_version
         targetCompatibility kotlin_version
+
     }
     kotlinOptions {
         jvmTarget = '1.8'
@@ -68,8 +69,9 @@ dependencies {
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
 
 
+
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
-    implementation 'com.squareup.moshi:moshi-kotlin:1.11.0'
+    implementation "com.squareup.moshi:moshi-kotlin:1.11.0"
     implementation "com.squareup.retrofit2:converter-moshi:2.9.0"
 }
 
