@@ -31,7 +31,7 @@
             android:layout_width="500dp"
             android:layout_height="300dp"
             android:layout_gravity="center"
-            android:src="@drawable/pasta" />
+            android:src="@drawable/indian_cooking1" />
 
         <ImageView
             android:id="@+id/edtSecondImage"

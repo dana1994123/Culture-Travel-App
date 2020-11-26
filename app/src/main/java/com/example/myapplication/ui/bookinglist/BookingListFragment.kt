@@ -22,7 +22,7 @@ class BookingListFragment : Fragment() {
         slideshowViewModel =
                 ViewModelProvider(this).get(BookingListViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_booking_list, container, false)
-        val textView: TextView = root.findViewById(R.id.text_slideshow)
+        val textView: TextView = root.findViewById(R.id.nav_trip_history)
         slideshowViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
