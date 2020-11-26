@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="133dp"
-        android:layout_height="122dp"
+        android:layout_height="140dp"
         android:src="@drawable/logo"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp"
@@ -38,7 +38,7 @@
 
     <TextView
         android:layout_width="408dp"
-        android:layout_height="129dp"
+        android:layout_height="100dp"
         android:textAlignment="center"
         android:text="We are here to help you.\nGet in touch with our customer support team."
         android:textColor="#65AFEA"
