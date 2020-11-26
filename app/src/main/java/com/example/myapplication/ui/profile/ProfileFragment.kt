@@ -42,9 +42,9 @@ class ProfileFragment : Fragment(), View.OnClickListener {
     lateinit var btnSave: Button
     lateinit var spnLang :Spinner
     lateinit var fabEditProfile: FloatingActionButton
-    lateinit var existingGuest: Guest
+    var existingGuest: Guest? = null
     var selectedLang: String = ""
-    var currentGuestEmail = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL, "")
+    //var currentGuestEmail = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL, "")
     lateinit var viewModel: ViewModels
 
 
@@ -56,11 +56,6 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         }
         viewModel = ViewModels()
         viewModel.fetchAllGuests()
-        viewModel.guest.observe(this.requireActivity(),{ matchedGuest ->
-            if(matchedGuest != null){
-                this.existingGuest = matchedGuest
-            }
-        })
         this.populateProfile()
     }
 
@@ -76,6 +71,11 @@ class ProfileFragment : Fragment(), View.OnClickListener {
     fun populateProfile(){
         //create a method to fetch the guest information from the DB
         // and populate it in the ui
+        this.viewModel.guest.observe(viewLifecycleOwner) { guest ->
+            if (guest != null) {
+                this.existingGuest = guest
+            }
+        }
         edtEmail.setText(existingGuest?.email)
         edtName.setText(existingGuest?.name)
         edtPhoneNumber.setText(existingGuest?.phoneNumber.toString())
