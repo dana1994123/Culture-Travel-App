@@ -22,13 +22,13 @@
             android:name=".views.HomeActivity2"
             android:label="@string/title_activity_home2"
             android:theme="@style/Theme.MyApplication.NoActionBar">
+        </activity>
+        <activity android:name=".views.SignUpActivity" />
+        <activity android:name=".views.SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".views.SignUpActivity" />
-        <activity android:name=".views.SignInActivity">
         </activity>
         <activity android:name=".views.MainActivity" >
 

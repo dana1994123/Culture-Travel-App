@@ -9,6 +9,7 @@ import android.widget.*
 import com.example.myapplication.R
 import com.example.myapplication.managers.SharedPreferencesManager
 import com.example.myapplication.models.Guest
+import com.example.myapplication.viewmodels.ViewModels
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.activity_sign_up.view.*
 import kotlinx.android.synthetic.main.activity_sign_up.view.edtName
@@ -39,9 +40,10 @@ class ProfileFragment : Fragment(), View.OnClickListener {
     lateinit var btnSave: Button
     lateinit var spnLang :Spinner
     lateinit var fabEditProfile: FloatingActionButton
-    lateinit var existingGuest: Guest
+    var existingGuest: Guest? = null
     var selectedLang: String = ""
     var currentGuestrEmail = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL, "")
+    lateinit var viewModel :ViewModels
 
 
 
@@ -51,6 +53,8 @@ class ProfileFragment : Fragment(), View.OnClickListener {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+        viewModel = ViewModels()
+        viewModel.fetchAllGuest()
 
         this.populateProfile()
     }
@@ -66,10 +70,15 @@ class ProfileFragment : Fragment(), View.OnClickListener {
     }
 
 
-    fun populateProfile(){
+    fun populateProfile() {
         //create a method to fetch the guest information from the DB
         // and populate it in the ui
+        this.viewModel.guest.observe(viewLifecycleOwner) { guest ->
+            if (guest != null) {
+                this.existingGuest = guest
+            }
 
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,

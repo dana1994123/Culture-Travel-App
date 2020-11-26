@@ -12,6 +12,7 @@ import com.example.myapplication.R
 import com.example.myapplication.managers.SharedPreferencesManager
 import com.example.myapplication.models.Payment
 import com.example.myapplication.utils.DataValidations
+import com.example.myapplication.viewmodels.PaymentViewModel
 import com.example.myapplication.viewmodels.ViewModels
 import com.example.myapplication.views.HomeActivity2
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -44,7 +45,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
     var currentUserEmail = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL, "")
 
-    private lateinit var paymentViewModel : ViewModels
+    private lateinit var paymentViewModel : PaymentViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +53,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
-        paymentViewModel = ViewModels()
+        paymentViewModel = PaymentViewModel()
         newPayment.email = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL,"").toString()
     }
 
