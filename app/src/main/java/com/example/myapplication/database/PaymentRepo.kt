@@ -6,6 +6,12 @@ import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
+/*
+user dana
+Student ID  991541439
+Name : Dana Aljamal 
+Date 2020-11-26
+*/
 class PaymentRepo {
     private val COLLECTION_NAME = "Payments"
     private val db = Firebase.firestore
@@ -17,14 +23,14 @@ class PaymentRepo {
             .document(payment.id.toString())
             .set(payment)
             .addOnSuccessListener { Log.e(TAG,"Document added successfully")
-            status = "Success"
+                status = "Success"
             }
             .addOnFailureListener {error ->
                 Log.e(TAG,"Unable to add a document ${error.localizedMessage}")
-            status = error.localizedMessage.toString()
+                status = error.localizedMessage.toString()
             }
     }
-    fun getAllPayments():CollectionReference{
+    fun getAllPayments(): CollectionReference {
         val collectionReference = db.collection(COLLECTION_NAME)
         Log.e(TAG,"Collection Reference ${collectionReference.id}")
         return collectionReference

@@ -7,13 +7,18 @@ import com.example.myapplication.database.PaymentRepo
 import com.example.myapplication.managers.SharedPreferencesManager
 import com.example.myapplication.models.Payment
 import com.google.firebase.firestore.DocumentChange
-import com.google.firebase.firestore.Query
 
-class PaymentViewModel:ViewModel() {
+/*
+user dana
+Student ID  991541439
+Name : Dana Aljamal 
+Date 2020-11-26
+*/
+class PaymentViewModel: ViewModel() {
     private val TAG = this@PaymentViewModel.toString()
     private val paymentRepo = PaymentRepo()
     private var paymentList: MutableLiveData<List<Payment>> = MutableLiveData()
-    fun addPayment(payment:Payment){
+    fun addPayment(payment: Payment){
         val status = paymentRepo.addPaymentMethod(payment)
         Log.e("payment view model","addPayment status ${status}")
         Log.e("payment view model", "addPayment ${payment.toString()}")
@@ -48,4 +53,5 @@ class PaymentViewModel:ViewModel() {
 
             }
     }
+
 }

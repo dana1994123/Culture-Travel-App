@@ -52,8 +52,6 @@ class ProfileFragment : Fragment(), View.OnClickListener {
             param2 = it.getString(ARG_PARAM2)
         }
 
-
-
         this.populateProfile()
     }
 
