@@ -17,6 +17,7 @@ class ViewModels : ViewModel() {
     private val TAG  = this@ViewModels.toString()
     private val guestEmail = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL,"").toString()
 
+    var guest: MutableLiveData<Guest> = MutableLiveData()
 
     fun addGuest(guest :Guest){
         repo.addGuest(guest)
@@ -33,13 +34,14 @@ class ViewModels : ViewModel() {
         repo.fetchAllGuest()
             .whereEqualTo("email" , guestEmail)
             .addSnapshotListener{snapshot , error ->
+                var modifiedGuest: Guest? = null
                 if (error != null){
                     Log.e(TAG, "LISTING FAILED")
                     return@addSnapshotListener
                 }
                 if (snapshot != null){
                     for(documentChange in snapshot.documentChanges){
-                        val guest = documentChange.document.toObject(Guest::class.java)
+                        modifiedGuest= documentChange.document.toObject(Guest::class.java)
                         Log.e(TAG, "GUEST DOC CHANGED ")
                         when(documentChange.type){
                             DocumentChange.Type.ADDED ->{
@@ -54,8 +56,13 @@ class ViewModels : ViewModel() {
                             }
                         }
                     }
-
+                    if(modifiedGuest!=null){
+                        guest.value = modifiedGuest
+                    }else{
+                        Log.e(TAG,"Guest not found")
+                    }
                 }
+
                 else {
                     Log.e(TAG, "CURRENT DATA IS NULL")
                 }
