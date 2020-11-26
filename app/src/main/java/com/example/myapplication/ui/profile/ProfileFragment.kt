@@ -12,10 +12,8 @@ import com.example.myapplication.managers.SharedPreferencesManager
 import com.example.myapplication.models.Guest
 import com.example.myapplication.viewmodels.ViewModels
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import kotlinx.android.synthetic.main.activity_sign_up.view.*
 import kotlinx.android.synthetic.main.activity_sign_up.view.edtName
 import kotlinx.android.synthetic.main.fragment_profile.view.*
-import kotlinx.android.synthetic.main.fragment_profile.view.edtEmail as edtEmail1
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -89,15 +87,15 @@ class ProfileFragment : Fragment(), View.OnClickListener {
     fun populateProfile() {
         //create a method to fetch the guest information from the DB
         // and populate it in the ui
-        this.viewModel.guest.observe(viewLifecycleOwner) { guest ->
-            if (guest != null) {
-                existingGuest = guest
+        this.viewModel.guestList.observe(this.requireActivity(), { matchedGuest ->
+            if (matchedGuest != null) {
+                existingGuest = matchedGuest[0]
             }
-        }
+            edtEmail.setText(existingGuest.email)
+            edtName.setText(existingGuest.name)
+            edtPhoneNumber.setText(existingGuest.phoneNumber)
+        })
         Log.e("userphone number" , existingGuest.phoneNumber.toString())
-        edtEmail.setText(currentGuestrEmail)
-        edtName.setText(existingGuest.name)
-        edtPhoneNumber.setText(existingGuest.phoneNumber)
 
 
     }
