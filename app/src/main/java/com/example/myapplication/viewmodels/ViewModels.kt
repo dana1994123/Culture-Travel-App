@@ -1,6 +1,8 @@
 package com.example.myapplication.viewmodels
 
 import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.myapplication.database.Repo
 import com.example.myapplication.managers.SharedPreferencesManager
@@ -13,7 +15,7 @@ class ViewModels : ViewModel() {
     private val repo = Repo()
     private val TAG  = this@ViewModels.toString()
     private val guestEmail = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL,"").toString()
-
+    var guest: MutableLiveData<Guest> = MutableLiveData()
 
     fun addGuest(guest :Guest){
         repo.addGuest(guest)
@@ -25,18 +27,18 @@ class ViewModels : ViewModel() {
         repo.deleteGuest(email)
     }
 
-
-    fun fetchAllGuest(){
+    fun fetchAllGuests(){
         repo.fetchAllGuest()
                 .whereEqualTo("email" , guestEmail)
                 .addSnapshotListener{snapshot , error ->
+                    var modifiedGuest: Guest? = null
                     if (error != null){
                         Log.e(TAG, "LISTING FAILED")
                         return@addSnapshotListener
                     }
                     if (snapshot != null){
                         for(documentChange in snapshot.documentChanges){
-                            val guest = documentChange.document.toObject(Guest::class.java)
+                            modifiedGuest= documentChange.document.toObject(Guest::class.java)
                             Log.e(TAG, "GUEST DOC CHANGED ")
                             when(documentChange.type){
                                 DocumentChange.Type.ADDED ->{
@@ -51,8 +53,13 @@ class ViewModels : ViewModel() {
                                 }
                             }
                         }
-
+                        if(modifiedGuest!=null){
+                            guest.value = modifiedGuest
+                        }else{
+                            Log.e(TAG,"Guest not found")
+                        }
                     }
+
                     else {
                         Log.e(TAG, "CURRENT DATA IS NULL")
                     }
