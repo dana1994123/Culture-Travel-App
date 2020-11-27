@@ -8,6 +8,7 @@ import com.example.myapplication.managers.SharedPreferencesManager
 import com.example.myapplication.models.Event
 import com.example.myapplication.models.StayOver
 import com.example.myapplication.models.Guest
+import com.example.myapplication.models.Host
 import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.Query
 
@@ -17,8 +18,8 @@ class ViewModels : ViewModel() {
     private val guestEmail = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL,"").toString()
     var guestList: MutableLiveData<List<Guest>> = MutableLiveData()
     var eventList: MutableLiveData<List<Event>> = MutableLiveData()
+    var hostList: MutableLiveData<List<Host>> = MutableLiveData()
     var stayOverList: MutableLiveData<List<StayOver>> = MutableLiveData()
-
     //we have to save the event name in the shared prefrence so we can use it to fetch event name
     private val eventName  = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL,"").toString()
     private val stayOverName  = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL,"").toString()
@@ -33,8 +34,41 @@ class ViewModels : ViewModel() {
     fun deleteGuest (email:String ){
         repo.deleteGuest(email)
     }
+    fun fetchAllHosts(){
+        repo.fetchAllHosts()
+            .addSnapshotListener{snapshot , error ->
+                var modifiedHostList: MutableList<Host> = mutableListOf()
+                if (error != null){
+                    Log.e(TAG, "LISTING FAILED")
+                    return@addSnapshotListener
+                }
+                if (snapshot != null){
+                    for(documentChange in snapshot.documentChanges){
+                        var modifiedHost = documentChange.document.toObject(Host::class.java)
+                        Log.e(TAG, "Host DOC CHANGED ")
+                        when(documentChange.type){
+                            DocumentChange.Type.ADDED ->{
+                                modifiedHostList.add(modifiedHost)
+                                Log.e(TAG, "Host DOC added ")
+                            }
+                            DocumentChange.Type.MODIFIED->{
 
+                                Log.e(TAG, "Host DOC modified ")
 
+                            }
+                            DocumentChange.Type.REMOVED ->{
+                                modifiedHostList.remove(modifiedHost)
+                                Log.e(TAG, "Host DOC removed")
+                            }
+                        }
+                    }
+                    this.hostList.value = modifiedHostList
+                }else{
+                    Log.e(TAG,"Host not found")
+                }
+            }
+
+    }
     fun fetchAllGuest(){
         repo.fetchAllGuest()
             .whereEqualTo("email" , guestEmail)

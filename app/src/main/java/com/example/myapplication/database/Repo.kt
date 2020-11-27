@@ -12,10 +12,14 @@ class Repo {
     private val COLLECTION_TWO = "BookingHistory"
     private val COLLECTTION_THREE = "Event"
     private val COLLECTTION_FOUR = "StayOver"
-
+    private val COLLECTION_FIVE = "Host"
     private val TAG = this.toString()
 
-
+    fun addHost(host: Host){
+        db.collection(COLLECTION_FIVE).document(host.id.toString()).set(host)
+            .addOnSuccessListener { Log.e(TAG , "Host DOC succseefully added") }
+            .addOnFailureListener { error -> Log.e(TAG,"Host DOC Failure") }
+    }
 
     fun addGuest(guest: Guest){
         db.collection(COLLECTION_ONE).document(guest.id.toString()).set(guest)
@@ -29,7 +33,11 @@ class Repo {
         Log.e ("Collection refrence :" , collectionRefrence.id)
         return  collectionRefrence
     }
-
+    fun fetchAllHosts() : CollectionReference{
+        val collectionRefrence  :CollectionReference = db.collection(COLLECTION_FIVE)
+        Log.e ("Collection refrence :" , collectionRefrence.id)
+        return  collectionRefrence
+    }
 
 
 
