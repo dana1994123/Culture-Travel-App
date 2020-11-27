@@ -49,12 +49,22 @@ class HomeActivity2 : AppCompatActivity(), View.OnClickListener {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.home_activity2, menu)
         btnReadMore.setOnClickListener(this)
+        btnFirstEvent.setOnClickListener(this)
+        btnSecondEvent.setOnClickListener(this)
+        btnThirdEvent.setOnClickListener(this)
+        btnFourthEvent.setOnClickListener(this)
+        btnFivthEvent.setOnClickListener(this)
+        italyStayOverBtn.setOnClickListener(this)
+        frenchStayOverBtn.setOnClickListener(this)
+        indianStayOverBtn.setOnClickListener(this)
         return true
     }
 
@@ -82,36 +92,50 @@ class HomeActivity2 : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         if (v!=null){
             when(v.id){
-                indianImg.id->{
-
-                }
-                frenchImg.id->{
-
-                }
-                italyImg.id->{
-                }
-//                //exploreBtn.id ->{
-//                    //open the stayOver fragment
-//                }
                 btnReadMore.id ->{
                     //navigate to about us page
                     navController.navigate(R.id.nav_about)
                 }
-                imgFirstEvent.id->{
-                    //navController.navigate(R.id.)
+                btnFirstEvent.id->{
+                    //save the event name in the shared prefrence
+                    navController.navigate(R.id.eventFragment)
                 }
-                imgSecondEvent.id->{
+                btnSecondEvent.id->{
+                    //save the event name in the shared prefrence
+                    navController.navigate(R.id.eventFragment)
 
                 }
-                imgThirdEvent.id->{
+                btnThirdEvent.id->{
+                    //save the event name in the shared prefrence
+                    navController.navigate(R.id.eventFragment)
 
                 }
-                imgFourthEvent.id->{
+                btnFourthEvent.id->{
+                    //save the event name in the shared prefrence
+                    navController.navigate(R.id.eventFragment)
 
                 }
-                imgFivthEvent.id->{
+                btnFivthEvent.id->{
+                    //save the event name in the shared prefrence
+                    navController.navigate(R.id.eventFragment)
 
                 }
+                italyStayOverBtn.id->{
+                    //save stayover name in shared prefrence
+                    navController.navigate(R.id.stayOverFragment)
+
+                }
+                frenchStayOverBtn.id->{
+                    //save stayover name in shared prefrence
+                    navController.navigate(R.id.stayOverFragment)
+
+                }
+                indianStayOverBtn.id->{
+                    //save stayover name in shared prefrence
+                    navController.navigate(R.id.stayOverFragment)
+
+                }
+
 
             }
         }
