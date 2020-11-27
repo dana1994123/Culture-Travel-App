@@ -86,6 +86,11 @@
     <string name="about_home">We offer an exclusive experience that you will absoloutly enjoy by learning about other cultures as you travel to the country.</string>
     <string name="dd_mm_yyyy">DD/MM/YYYY</string>
     <string name="s">##</string>
+    <string name="afrikadey">Afrikadey Festival</string>
+    <string name="festival_du_voyageur">Festival du Voyageur</string>
+    <string name="winter_light">Winter Light Festival</string>
+    <string name="tabestoon_festival">Tabestoon Festival</string>
+    <string name="northern_lights_festival">Northern Lights Festival</string>
 
 
     <string-array name="language_array">
