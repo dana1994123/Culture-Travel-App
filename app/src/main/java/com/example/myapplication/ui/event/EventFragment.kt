@@ -1,6 +1,7 @@
 package com.example.myapplication.ui.event
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,8 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.myapplication.R
+import com.example.myapplication.models.Host
+import com.example.myapplication.viewmodels.ViewModels
 import kotlinx.android.synthetic.main.fragment_event.view.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -36,7 +39,8 @@ class EventFragment : Fragment() , View.OnClickListener{
     lateinit var edtDate : TextView
     lateinit var edtEventDesc :TextView
     lateinit var btnEventPrice :Button
-
+    lateinit var viewModel: ViewModels
+    private lateinit var hostListFetched: MutableList<Host>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,6 +54,7 @@ class EventFragment : Fragment() , View.OnClickListener{
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        viewModel = ViewModels()
         // Inflate the layout for this fragment
         val root =inflater.inflate(R.layout.fragment_event, container, false)
         edtFirstImage = root.edtFirstImage
@@ -62,7 +67,6 @@ class EventFragment : Fragment() , View.OnClickListener{
         edtDate = root.edtDate
         edtEventDesc = root.edtEventDesc
         btnEventPrice = root.btnEventPrice
-
         //create a method to populate the event by fetching the event to the fragment
         this.populateEvent ()
 
@@ -89,11 +93,19 @@ class EventFragment : Fragment() , View.OnClickListener{
                     putString(ARG_PARAM2, param2)
                 }
             }
+        var hostList: MutableList<Host> = mutableListOf()
     }
 
 
     private fun populateEvent(){
         //create a method to populate the event by fetching the event to the fragment
+        this.viewModel.getAllHosts()
+        this.viewModel.hostList.observe(viewLifecycleOwner,{fetchedHost ->
+            if(fetchedHost!=null){
+                hostListFetched.clear()
+                hostListFetched.addAll(fetchedHost)
+            }
+        })
     }
     private fun goToPayment(){
         //navigate to the payment page and send the event price along
