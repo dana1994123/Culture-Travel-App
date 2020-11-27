@@ -29,6 +29,7 @@ class ViewModels : ViewModel() {
         Log.e(TAG , "addGuest"  + guest.toString())
     }
 
+
     fun deleteGuest (email:String ){
         repo.deleteGuest(email)
     }
@@ -72,56 +73,6 @@ class ViewModels : ViewModel() {
             }
 
 
-    fun addAppointment (appointment: StayOver){
-        repo.addAppointment(appointment)
-        Log.e(TAG , "addAppointment"  + appointment.toString())
-    }
-
-
-    fun fetcAllAppointment(){
-        repo.fetchAllAppointment()
-            .whereEqualTo("email" , guestEmail)
-            .orderBy("eventDate" , Query.Direction.ASCENDING)
-            .addSnapshotListener { snapshot, error ->
-                if (error != null) {
-                    Log.e(TAG, "LISTING FAILED")
-                    return@addSnapshotListener
-                }
-                if (snapshot != null) {
-                    for (documentChange in snapshot.documentChanges) {
-
-                        val guest = documentChange.document.toObject(StayOver::class.java)
-                        Log.e(TAG, "Appointment DOC CHANGED ")
-
-                        when (documentChange.type) {
-                            DocumentChange.Type.ADDED -> {
-
-                                Log.e(TAG, "Appointment DOC added ")
-
-                            }
-                            DocumentChange.Type.MODIFIED -> {
-                                Log.e(TAG, "Appointment DOC modified ")
-
-                            }
-                            DocumentChange.Type.REMOVED -> {
-                                Log.e(TAG, "Appointment DOC removed")
-                            }
-                        }
-                    }
-
-                } else {
-                    Log.e(TAG, "CURRENT DATA IS NULL")
-
-                }
-            }
-    }
-
-
-    fun deleteAppointment (appointId: String){
-        repo.deleteAppointment(appointId)
-
-    }
-
     fun fetchAllEvent(){
         repo.fetchAlEvent()
             .whereEqualTo("name" , eventName)
@@ -163,6 +114,9 @@ class ViewModels : ViewModel() {
             }
 
     }
+
+
+
     fun fetchAllStayOver(){
         repo.fetchAlStayOver()
             .whereEqualTo("name" , stayOverName)
