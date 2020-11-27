@@ -1,60 +1,101 @@
 package com.example.myapplication.ui.support
 
+import android.Manifest
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.example.myapplication.R
+import com.example.myapplication.managers.SharedPreferencesManager
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class ContactFragment : Fragment(), View.OnClickListener {
+    lateinit var btnCall: FloatingActionButton
+    lateinit var btnEmail: FloatingActionButton
+    val REQUEST_CALL = 101
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ContactFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class ContactFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val root = inflater.inflate(R.layout.fragment_contact, container, false)
+
+        btnCall = root.findViewById(R.id.fabCall)
+        btnCall.setOnClickListener(this)
+
+        btnEmail = root.findViewById(R.id.fabEmail)
+        btnEmail.setOnClickListener(this)
+
+        return root
+    }
+
+    override fun onClick(v: View?) {
+        when(v?.id){
+            R.id.fabEmail -> {
+                this.sendEmail()
+            }
+            R.id.fabCall -> {
+                this.makeCall()
+            }
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_contact, container, false)
+    private fun sendEmail(){
+
+        Log.d("Support Fragment", "sendEmail() called")
+
+        val user_email = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL, "").toString()
+
+        val emailIntent = Intent(Intent.ACTION_SENDTO).apply {
+            data = Uri.parse("mailto:") //to indicate that only email apps should handle this
+            putExtra(Intent.EXTRA_EMAIL, arrayOf("jigisha.sheridan@gmail.com"))
+            putExtra(Intent.EXTRA_SUBJECT, "Support Request by " + user_email)
+        }
+
+        if (emailIntent.resolveActivity(this.requireActivity().packageManager) != null){
+            startActivity(emailIntent)
+        }
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ContactFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ContactFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    private fun makeCall(){
+        val phoneNumber = "123456789"
+        val callIntent = Intent(Intent.ACTION_CALL).apply {
+            data = Uri.parse("tel:" + phoneNumber)
+        }
+
+        if (checkPermission()){
+            //if we have permission
+
+            if (callIntent.resolveActivity(this.requireActivity().packageManager) != null){
+                startActivity(callIntent)
             }
+        }else{
+            //if we don't have the permission
+            this.requestPermission()
+        }
     }
+
+
+    private fun checkPermission() : Boolean{
+        return (ContextCompat.checkSelfPermission(requireActivity().applicationContext, Manifest.permission.CALL_PHONE)
+                == PackageManager.PERMISSION_GRANTED)
+
+    }
+
+    private fun requestPermission(){
+        ActivityCompat.requestPermissions(this.requireActivity(), arrayOf(Manifest.permission.CALL_PHONE), REQUEST_CALL)
+        this.makeCall()
+    }
+
+
 }
