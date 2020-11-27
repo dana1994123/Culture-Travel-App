@@ -114,29 +114,27 @@ class EventFragment : Fragment() , View.OnClickListener{
             edtEventName.setText(existingEvent.name)
             edtEventLocation.setText(existingEvent.location)
             edtLang.setText(existingEvent.language)
-//            edtFirstImage = root.edtFirstImage
-//            edtSecondImage.setImageResource(R.id.)
-
             edtEventHost.setText(existingEvent.hostName)
             edtEventDuration.setText(existingEvent.duration)
             edtDate.setText(existingEvent.date)
             edtEventDesc.setText(existingEvent.cate)
 
 
+            //we need to fetch the image from the data base
+            //edtFirstImage = root.edtFirstImage
+            //edtSecondImage.setImageResource(R.id.)
+
+
+
 
         })
 
     }
-    private fun goToPayment(){
-        //navigate to the payment page and send the event price along
-    }
+
     override fun onClick(v: View?) {
         if (v!=null ){
             when(v.id){
-                btnEventPrice.id->{
-                    //navigate to the payment page and send the event price along
-                    this.goToPayment()
-                }
+
             }
         }
     }
