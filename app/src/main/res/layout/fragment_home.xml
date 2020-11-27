@@ -45,30 +45,120 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
-                    <ImageButton
-                        android:id="@+id/imgFirstEvent"
-                        android:layout_width="200dp"
-                        android:layout_height="200dp"
-                        android:src="@drawable/infest"
-                        android:layout_margin="20dp"/>
-                    <ImageButton
-                        android:id="@+id/imgSecondEvent"
-                        android:layout_width="200dp"
-                        android:layout_height="200dp"
-                        android:src="@drawable/infest"
-                        android:layout_margin="20dp"/>
-                    <ImageButton
-                        android:id="@+id/imgThirdEvent"
-                        android:layout_width="200dp"
-                        android:layout_height="200dp"
-                        android:src="@drawable/infest"
-                        android:layout_margin="20dp"/>
-                    <ImageButton
-                        android:id="@+id/imgFourthEvent"
-                        android:layout_width="200dp"
-                        android:layout_height="200dp"
-                        android:src="@drawable/infest"
-                        android:layout_margin="20dp"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/afrikadey"
+                            android:layout_marginStart="16dp"
+                            android:textSize="25sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="0dp"
+                            />
+                        <ImageButton
+                            android:id="@+id/imgFirstEvent"
+                            android:layout_width="200dp"
+                            android:layout_height="200dp"
+                            android:src="@drawable/afrikadey"
+                            android:layout_margin="20dp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/festival_du_voyageur"
+                            android:layout_marginStart="16dp"
+                            android:textSize="25sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="0dp"
+                            />
+
+                        <ImageButton
+                            android:id="@+id/imgSecondEvent"
+                            android:layout_width="200dp"
+                            android:layout_height="200dp"
+                            android:layout_margin="20dp"
+                            android:src="@drawable/du" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/winter_light"
+                            android:layout_marginStart="8dp"
+                            android:textSize="25sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="0dp"
+                            />
+                        <ImageButton
+                            android:id="@+id/imgThirdEvent"
+                            android:layout_width="200dp"
+                            android:layout_height="200dp"
+                            android:src="@drawable/winter_light"
+                            android:layout_margin="20dp"/>
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/northern_lights_festival"
+                            android:layout_marginStart="16dp"
+                            android:textSize="25sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="0dp"
+                            />
+                        <ImageButton
+                            android:id="@+id/imgFourthEvent"
+                            android:layout_width="200dp"
+                            android:layout_height="200dp"
+                            android:src="@drawable/northern_lights2"
+                            android:layout_margin="20dp"/>
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/tabestoon_festival"
+                            android:layout_marginStart="16dp"
+                            android:textSize="25sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="0dp"
+                            />
+                        <ImageButton
+                            android:id="@+id/imgFivthEvent"
+                            android:layout_width="200dp"
+                            android:layout_height="200dp"
+                            android:src="@drawable/tabestoon_festival2"
+                            android:layout_margin="20dp"/>
+                    </LinearLayout>
+
+
 
                 </LinearLayout>
             </HorizontalScrollView>
