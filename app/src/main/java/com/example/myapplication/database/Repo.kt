@@ -49,9 +49,6 @@ class Repo {
     }
 
 
-
-
-
     fun bookEvent (bookingEvent : BookingEvent){
         db.collection(COLLECTTION_THREE).document(bookingEvent.id.toString()).set(bookingEvent)
             .addOnSuccessListener { Log.e(TAG , "Event DOC succseefully added") }

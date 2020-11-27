@@ -62,12 +62,12 @@
     <fragment
         android:id="@+id/eventFragment"
         android:name="com.example.myapplication.ui.event.EventFragment"
-        android:label="EventFragment"
+        android:label="Event"
         tools:layout="@layout/fragment_event" />
     <fragment
         android:id="@+id/stayOverFragment"
         android:name="com.example.myapplication.ui.stay_over.StayOverFragment"
-        android:label="fragment_stay_over"
+        android:label="Explore Culture"
         tools:layout="@layout/fragment_stay_over" >
         <action
             android:id="@+id/action_stayOverFragment_to_profileFragment"
@@ -76,6 +76,6 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.myapplication.ui.payment.ProfileFragment"
-        android:label="fragment_payment"
+        android:label="Payment"
         tools:layout="@layout/fragment_payment" />
 </navigation>

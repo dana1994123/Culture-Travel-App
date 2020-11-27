@@ -90,9 +90,9 @@ class HomeActivity2 : AppCompatActivity(), View.OnClickListener {
                 }
                 italyImg.id->{
                 }
-                exploreBtn.id ->{
-                    //open the stayOver fragment
-                }
+//                //exploreBtn.id ->{
+//                    //open the stayOver fragment
+//                }
                 btnReadMore.id ->{
                     //navigate to about us page
                     navController.navigate(R.id.nav_about)

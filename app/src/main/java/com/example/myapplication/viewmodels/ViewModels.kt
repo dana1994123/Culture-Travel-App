@@ -105,8 +105,6 @@ class ViewModels : ViewModel() {
                 }
 
             }
-
-
     fun fetchAllEvent(){
         repo.fetchAlEvent()
             .whereEqualTo("name" , eventName)
@@ -148,9 +146,6 @@ class ViewModels : ViewModel() {
             }
 
     }
-
-
-
     fun fetchAllStayOver(){
         repo.fetchAlStayOver()
             .whereEqualTo("name" , stayOverName)
