@@ -62,7 +62,8 @@
     <fragment
         android:id="@+id/eventFragment"
         android:name="com.example.myapplication.ui.event.EventFragment"
-        android:label="EventFragment" />
+        android:label="EventFragment"
+        tools:layout="@layout/fragment_event" />
     <fragment
         android:id="@+id/stayOverFragment"
         android:name="com.example.myapplication.ui.stay_over.StayOverFragment"
