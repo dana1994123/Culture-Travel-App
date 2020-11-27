@@ -58,7 +58,7 @@ class ContactFragment : Fragment(), View.OnClickListener {
 
         val emailIntent = Intent(Intent.ACTION_SENDTO).apply {
             data = Uri.parse("mailto:") //to indicate that only email apps should handle this
-            putExtra(Intent.EXTRA_EMAIL, arrayOf("jigisha.sheridan@gmail.com"))
+            putExtra(Intent.EXTRA_EMAIL, arrayOf("roop@gmail.com"))
             putExtra(Intent.EXTRA_SUBJECT, "Support Request by " + user_email)
         }
 
@@ -68,7 +68,7 @@ class ContactFragment : Fragment(), View.OnClickListener {
     }
 
     private fun makeCall(){
-        val phoneNumber = "123456789"
+        val phoneNumber = "4372456236"
         val callIntent = Intent(Intent.ACTION_CALL).apply {
             data = Uri.parse("tel:" + phoneNumber)
         }
