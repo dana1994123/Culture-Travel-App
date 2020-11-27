@@ -91,6 +91,7 @@
     <string name="winter_light">Winter Light Festival</string>
     <string name="tabestoon_festival">Tabestoon Festival</string>
     <string name="northern_lights_festival">Northern Lights Festival</string>
+    <string name="event_date">Event Date</string>
 
 
     <string-array name="language_array">

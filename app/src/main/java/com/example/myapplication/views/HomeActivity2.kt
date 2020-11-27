@@ -31,7 +31,7 @@ class HomeActivity2 : AppCompatActivity(){
     private val TAG = this@HomeActivity2.toString()
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var navController: NavController
-//    private val currentUser = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL,"").toString()
+    private val currentUser = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL,"").toString()
     private lateinit var locationManager :LocationManager
 
     override fun onCreate(savedInstanceState: Bundle?) {

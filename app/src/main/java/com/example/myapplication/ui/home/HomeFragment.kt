@@ -14,12 +14,13 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
+import com.example.myapplication.locationmanager.LocationManager
 import com.example.myapplication.managers.SharedPreferencesManager
 import kotlinx.android.synthetic.main.activity_sign_in.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment(),View.OnClickListener{
-
+    private val currentUser = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL,"").toString()
     private lateinit var homeViewModel: HomeViewModel
     private lateinit var btnReadMe :Button
     private lateinit var btnFirstEvent :Button
@@ -85,25 +86,25 @@ class HomeFragment : Fragment(),View.OnClickListener{
                 }
                 btnSecondEvent.id->{
                     //save the event name in the shared prefrence
-                    SharedPreferencesManager.write(SharedPreferencesManager.EVENT_NAME, txtSecondEvent.toString())
+                    SharedPreferencesManager.write(SharedPreferencesManager.EVENT_NAME, txtSecondEvent.text.toString())
                     findNavController().navigate(R.id.eventFragment)
 
                 }
                 btnThirdEvent.id->{
                     //save the event name in the shared prefrence
-                    SharedPreferencesManager.write(SharedPreferencesManager.EVENT_NAME, txtThirdEvent.toString())
+                    SharedPreferencesManager.write(SharedPreferencesManager.EVENT_NAME, txtThirdEvent.text.toString())
                     findNavController().navigate(R.id.eventFragment)
 
                 }
                 btnFourthEvent.id->{
                     //save the event name in the shared prefrence
-                    SharedPreferencesManager.write(SharedPreferencesManager.EVENT_NAME, txtFourthEvent.toString())
+                    SharedPreferencesManager.write(SharedPreferencesManager.EVENT_NAME, txtFourthEvent.text.toString())
                     findNavController().navigate(R.id.eventFragment)
 
                 }
                 btnFivthEvent.id->{
                     //save the event name in the shared prefrence
-                    SharedPreferencesManager.write(SharedPreferencesManager.EVENT_NAME, txtFivthEvent.toString())
+                    SharedPreferencesManager.write(SharedPreferencesManager.EVENT_NAME, txtFivthEvent.text.toString())
                     findNavController().navigate(R.id.eventFragment)
 
                 }

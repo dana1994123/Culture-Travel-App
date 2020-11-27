@@ -7,10 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.myapplication.R
+import com.example.myapplication.managers.SharedPreferencesManager
+import com.example.myapplication.models.Event
 import com.example.myapplication.models.Host
+import com.example.myapplication.ui.profile.ProfileFragment
 import com.example.myapplication.viewmodels.ViewModels
 import kotlinx.android.synthetic.main.fragment_event.view.*
 
@@ -41,6 +45,7 @@ class EventFragment : Fragment() , View.OnClickListener{
     lateinit var btnEventPrice :Button
     lateinit var viewModel: ViewModels
     private lateinit var hostListFetched: MutableList<Host>
+    var currentEvent = SharedPreferencesManager.read(SharedPreferencesManager.EVENT_NAME,"")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,13 +53,13 @@ class EventFragment : Fragment() , View.OnClickListener{
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = ViewModels()
         // Inflate the layout for this fragment
         val root =inflater.inflate(R.layout.fragment_event, container, false)
         edtFirstImage = root.edtFirstImage
@@ -67,8 +72,8 @@ class EventFragment : Fragment() , View.OnClickListener{
         edtDate = root.edtDate
         edtEventDesc = root.edtEventDesc
         btnEventPrice = root.btnEventPrice
-        //create a method to populate the event by fetching the event to the fragment
-        //this.populateEvent ()
+
+
 
         root.btnEventPrice.setOnClickListener(this)
 
@@ -93,19 +98,34 @@ class EventFragment : Fragment() , View.OnClickListener{
                     putString(ARG_PARAM2, param2)
                 }
             }
-        var hostList: MutableList<Host> = mutableListOf()
+        var existingEvent = Event()
     }
 
 
     private fun populateEvent(){
         //create a method to populate the event by fetching the event to the fragment
-        this.viewModel.getAllHosts()
-        this.viewModel.hostList.observe(viewLifecycleOwner,{fetchedHost ->
-            if(fetchedHost!=null){
-                hostListFetched.clear()
-                hostListFetched.addAll(fetchedHost)
+        Log.e("collection jftyhjghj" ,currentEvent.toString())
+        this.viewModel.eventList.observe(this.requireActivity(), { eventsList ->
+            if (eventsList != null) {
+                existingEvent = eventsList[0]
             }
+
+
+            edtEventName.setText(existingEvent.name)
+            edtEventLocation.setText(existingEvent.location)
+            edtLang.setText(existingEvent.language)
+//            edtFirstImage = root.edtFirstImage
+//            edtSecondImage.setImageResource(R.id.)
+
+            edtEventHost.setText(existingEvent.hostName)
+            edtEventDuration.setText(existingEvent.duration)
+            edtDate.setText(existingEvent.date)
+            edtEventDesc.setText(existingEvent.cate)
+
+
+
         })
+
     }
     private fun goToPayment(){
         //navigate to the payment page and send the event price along
@@ -119,5 +139,13 @@ class EventFragment : Fragment() , View.OnClickListener{
                 }
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel = ViewModels()
+        viewModel.fetchAllEvent()
+        //create a method to populate the event by fetching the event to the fragment
+        this.populateEvent ()
     }
 }

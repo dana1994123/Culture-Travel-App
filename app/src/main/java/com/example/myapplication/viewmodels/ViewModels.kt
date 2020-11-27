@@ -21,8 +21,8 @@ class ViewModels : ViewModel() {
     var hostList: MutableLiveData<List<Host>> = MutableLiveData()
     var stayOverList: MutableLiveData<List<StayOverBooking>> = MutableLiveData()
     //we have to save the event name in the shared prefrence so we can use it to fetch event name
-    private val eventName  = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL,"").toString()
-    private val stayOverName  = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL,"").toString()
+    private val eventName  = SharedPreferencesManager.read(SharedPreferencesManager.EVENT_NAME,"").toString()
+    private val stayOverName  = SharedPreferencesManager.read(SharedPreferencesManager.STAY_OVER_NAME,"").toString()
 
     fun addGuest(guest :Guest){
         repo.addGuest(guest)
@@ -35,8 +35,6 @@ class ViewModels : ViewModel() {
         repo.deleteGuest(email)
     }
     fun getAllHosts(){
-
-
         repo.fetchAllHosts()
             .orderBy("maximumGuests", Query.Direction.DESCENDING)
             .addSnapshotListener { snapshot, error ->
@@ -102,7 +100,7 @@ class ViewModels : ViewModel() {
                             }
                         }
                     }
-                    guestList.value = modifiedGuestList
+                    this.guestList.value = modifiedGuestList
                     }else{
                         Log.e(TAG,"Guest not found")
                     }
@@ -125,8 +123,6 @@ class ViewModels : ViewModel() {
                     for(documentChange in snapshot.documentChanges){
                         var event = documentChange.document.toObject(Event::class.java)
                         Log.e(TAG, "event DOC CHANGED ")
-
-
                         when(documentChange.type){
                             DocumentChange.Type.ADDED ->{
                                 modifiedEventList.add(event)
@@ -150,6 +146,7 @@ class ViewModels : ViewModel() {
             }
 
     }
+
     fun fetchAllStayOver(){
         repo.fetchAlStayOver()
             .whereEqualTo("name" , stayOverName)

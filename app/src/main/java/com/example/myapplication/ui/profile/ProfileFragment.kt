@@ -56,6 +56,41 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         }
 
     }
+
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
+        // Inflate the layout for this fragment
+        val root = inflater.inflate(R.layout.fragment_profile, container, false)
+
+        root.fabEditProfile.setOnClickListener(this)
+        root.btnSave.setOnClickListener(this)
+        edtName = root.edtName
+        edtEmail = root.edtEmail
+        edtPhoneNumber = root.edtPhoneNumber
+        btnSave = root.btnSave
+        spnLang = root.spnLang
+        fabEditProfile = root.fabEditProfile
+        this.disableEdit()
+        this.initializeSpinner()
+        selectedLang = resources.getStringArray(R.array.language_array).get(0)
+        spnLang.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                selectedLang = resources.getStringArray(R.array.language_array).get(position)
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                selectedLang = resources.getStringArray(R.array.language_array).get(0)
+            }
+        }
+        return  root
+    }
+
     companion object {
         /**
          * Use this factory method to create a new instance of
@@ -96,8 +131,6 @@ class ProfileFragment : Fragment(), View.OnClickListener {
             edtPhoneNumber.setText(existingGuest.phoneNumber)
         })
         Log.e("userphone number" , existingGuest.phoneNumber.toString())
-
-
     }
 
 
@@ -113,38 +146,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
 
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        val root = inflater.inflate(R.layout.fragment_profile, container, false)
 
-        root.fabEditProfile.setOnClickListener(this)
-        root.btnSave.setOnClickListener(this)
-        edtName = root.edtName
-        edtEmail = root.edtEmail
-        edtPhoneNumber = root.edtPhoneNumber
-        btnSave = root.btnSave
-        spnLang = root.spnLang
-        fabEditProfile = root.fabEditProfile
-        this.disableEdit()
-        this.initializeSpinner()
-        selectedLang = resources.getStringArray(R.array.language_array).get(0)
-        spnLang.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                selectedLang = resources.getStringArray(R.array.language_array).get(position)
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-                selectedLang = resources.getStringArray(R.array.language_array).get(0)
-            }
-        }
-        return  root
-    }
 
 
 

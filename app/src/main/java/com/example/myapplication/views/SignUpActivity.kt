@@ -1,16 +1,22 @@
 package com.example.myapplication.views
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.util.Log
 import android.view.View
 import android.widget.TextView
 import com.example.myapplication.R
+import com.example.myapplication.managers.SharedPreferencesManager
 import com.example.myapplication.models.Guest
 import com.example.myapplication.utils.DataValidations
 import com.example.myapplication.viewmodels.ViewModels
+import kotlinx.android.synthetic.main.activity_sign_in.*
 import kotlinx.android.synthetic.main.activity_sign_up.*
+import kotlinx.android.synthetic.main.activity_sign_up.edtEmail
+import kotlinx.android.synthetic.main.activity_sign_up.edtPassword
 
 class SignUpActivity : AppCompatActivity(), View.OnClickListener {
     val TAG : String = this@SignUpActivity.toString()
@@ -40,10 +46,12 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
                         this.fetchData()
                         // save the information in DB
                         this.saveGuestToDB()
+                        //save the user email in the shared prefrence
+                        SharedPreferencesManager.write(SharedPreferencesManager.EMAIL, edtEmail.text.toString())
+                        var current = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL,"")
                         //navigate to home fragment
+                        Log.e("email user" ,current.toString() )
                         this.goToHome()
-                        //we have to send the guest information to the home
-                        // fragment as well using shared prefrence
                     }
                 }
                 signInTxt.id ->{
