@@ -13,6 +13,7 @@ object SharedPreferencesManager {
     val PASSWORD = "KEY_PASSWORD"
     val EVENT_NAME = "KEY_EVENT"
     val STAY_OVER_NAME = "STAYOVERNAME"
+    var HOST_NAME = "HOST_NAME"
 
     fun init (context: Context) {
         if (sharedPreferences == null){
@@ -49,6 +50,7 @@ object SharedPreferencesManager {
             remove(PASSWORD)
             remove(EVENT_NAME)
             remove(STAY_OVER_NAME)
+            remove(HOST_NAME)
             apply()
         }
     }
