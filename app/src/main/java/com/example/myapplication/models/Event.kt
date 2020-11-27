@@ -11,8 +11,8 @@ data class Event (
     var location :String = "",
     var duration :String = "" ,
     var language :String = "",
-    var desc : String = "",
-    var price : Long = 0,
+    var cate : String = "",
     var icon1 : Image,
-    var icon2 : Image
+    var icon2 : Image,
+    var date :String
 )

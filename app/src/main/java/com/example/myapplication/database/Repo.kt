@@ -14,6 +14,8 @@ class Repo {
     private val  COLLECTION_ONE = "Guest"
     private val COLLECTION_TWO = "Appointment"
     private val COLLECTTION_THREE = "Event"
+    private val COLLECTTION_FOUR = "StayOver"
+
     private val TAG = this.toString()
 
 
@@ -30,6 +32,8 @@ class Repo {
         Log.e ("Collection refrence :" , collectionRefrence.id)
         return  collectionRefrence
     }
+
+
 
 
 
@@ -74,6 +78,21 @@ class Repo {
         db.collection(COLLECTTION_THREE).document(event.id.toString()).set(event)
             .addOnSuccessListener { Log.e(TAG , "Event DOC succseefully added") }
             .addOnFailureListener { error -> Log.e(TAG,"Event DOC Failure") }
+
+    }
+
+    fun fetchAlEvent() : CollectionReference{
+        val collectionRefrence  :CollectionReference = db.collection(COLLECTTION_THREE)
+        Log.e ("Collection refrence :" , collectionRefrence.id)
+        return  collectionRefrence
+    }
+
+
+    fun fetchAlStayOver(): CollectionReference{
+        val collectionRefrence  :CollectionReference = db.collection(COLLECTTION_FOUR)
+        Log.e ("Collection refrence :" , collectionRefrence.id)
+        return  collectionRefrence
+
 
     }
 
