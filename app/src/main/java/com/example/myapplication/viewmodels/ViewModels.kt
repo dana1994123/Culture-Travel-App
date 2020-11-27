@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.example.myapplication.database.Repo
 import com.example.myapplication.managers.SharedPreferencesManager
 import com.example.myapplication.models.Event
-import com.example.myapplication.models.StayOver
+import com.example.myapplication.models.StayOverBooking
 import com.example.myapplication.models.Guest
 import com.example.myapplication.models.Host
 import com.google.firebase.firestore.DocumentChange
@@ -19,7 +19,7 @@ class ViewModels : ViewModel() {
     var guestList: MutableLiveData<List<Guest>> = MutableLiveData()
     var eventList: MutableLiveData<List<Event>> = MutableLiveData()
     var hostList: MutableLiveData<List<Host>> = MutableLiveData()
-    var stayOverList: MutableLiveData<List<StayOver>> = MutableLiveData()
+    var stayOverList: MutableLiveData<List<StayOverBooking>> = MutableLiveData()
     //we have to save the event name in the shared prefrence so we can use it to fetch event name
     private val eventName  = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL,"").toString()
     private val stayOverName  = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL,"").toString()
@@ -160,11 +160,11 @@ class ViewModels : ViewModel() {
                     this.stayOverList.value = null
                     return@addSnapshotListener
                 }
-                var modifiedStayOver: MutableList<StayOver> = mutableListOf()
+                var modifiedStayOver: MutableList<StayOverBooking> = mutableListOf()
 
                 if (snapshot != null){
                     for(documentChange in snapshot.documentChanges){
-                        var stayOver = documentChange.document.toObject(StayOver::class.java)
+                        var stayOver = documentChange.document.toObject(StayOverBooking::class.java)
                         Log.e(TAG, "stay ovaer CHANGED ")
 
 

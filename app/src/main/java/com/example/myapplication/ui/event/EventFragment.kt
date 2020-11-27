@@ -68,7 +68,7 @@ class EventFragment : Fragment() , View.OnClickListener{
         edtEventDesc = root.edtEventDesc
         btnEventPrice = root.btnEventPrice
         //create a method to populate the event by fetching the event to the fragment
-        this.populateEvent ()
+        //this.populateEvent ()
 
         root.btnEventPrice.setOnClickListener(this)
 

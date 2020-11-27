@@ -10,5 +10,4 @@ data class Host (
     var languageSpoken : String = "",
     var location :String ="",
     var workExperience :String = "",
-    var maximumGuests: Int
 )
