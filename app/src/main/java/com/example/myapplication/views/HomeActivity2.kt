@@ -26,7 +26,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.nav_header_main.*
 import kotlinx.android.synthetic.main.nav_header_main.edtEmail
 
-class HomeActivity2 : AppCompatActivity(), View.OnClickListener {
+class HomeActivity2 : AppCompatActivity(){
 
     private val TAG = this@HomeActivity2.toString()
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -68,18 +68,7 @@ class HomeActivity2 : AppCompatActivity(), View.OnClickListener {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-    override fun onResume() {
-        super.onResume()
-        btnReadMore.setOnClickListener(this)
-        btnFirstEvent.setOnClickListener(this)
-        btnSecondEvent.setOnClickListener(this)
-        btnThirdEvent.setOnClickListener(this)
-        btnFourthEvent.setOnClickListener(this)
-        btnFivthEvent.setOnClickListener(this)
-        italyStayOverBtn.setOnClickListener(this)
-        frenchStayOverBtn.setOnClickListener(this)
-        indianStayOverBtn.setOnClickListener(this)
-    }
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
@@ -96,67 +85,6 @@ class HomeActivity2 : AppCompatActivity(), View.OnClickListener {
         return super.onOptionsItemSelected(item)
     }
 
-    override fun onClick(v: View?) {
-        if (v!=null){
-            when(v.id){
-                btnReadMore.id ->{
-                    //navigate to about us page
-                    navController.navigate(R.id.nav_about)
-                }
-                btnFirstEvent.id->{
-                    //save the event name in the shared prefrence
-                    SharedPreferencesManager.write(SharedPreferencesManager.EVENT_NAME, txtFirstEvent.text.toString())
-                    val currentEvent = SharedPreferencesManager.read(SharedPreferencesManager.EVENT_NAME, "")
-                    Log.e ("SHARED PREFRENCES" ,currentEvent.toString() )
-                    navController.navigate(R.id.eventFragment)
-                }
-                btnSecondEvent.id->{
-                    //save the event name in the shared prefrence
-                    SharedPreferencesManager.write(SharedPreferencesManager.EVENT_NAME, txtSecondEvent.toString())
-                    navController.navigate(R.id.eventFragment)
 
-                }
-                btnThirdEvent.id->{
-                    //save the event name in the shared prefrence
-                    SharedPreferencesManager.write(SharedPreferencesManager.EVENT_NAME, txtThirdEvent.toString())
-                    navController.navigate(R.id.eventFragment)
-
-                }
-                btnFourthEvent.id->{
-                    //save the event name in the shared prefrence
-                    SharedPreferencesManager.write(SharedPreferencesManager.EVENT_NAME, txtFourthEvent.toString())
-                    navController.navigate(R.id.eventFragment)
-
-                }
-                btnFivthEvent.id->{
-                    //save the event name in the shared prefrence
-                    SharedPreferencesManager.write(SharedPreferencesManager.EVENT_NAME, txtFivthEvent.toString())
-                    navController.navigate(R.id.eventFragment)
-
-                }
-                italyStayOverBtn.id->{
-                    //save stayover name in shared prefrence
-                    SharedPreferencesManager.write(SharedPreferencesManager.EVENT_NAME, txtFirstEvent.text.toString())
-                    val currentEvent = SharedPreferencesManager.read(SharedPreferencesManager.EVENT_NAME, "")
-                    Log.e ("SHARED PREFRENCES" ,currentEvent.toString() )
-                    navController.navigate(R.id.stayOverFragment)
-
-                }
-                frenchStayOverBtn.id->{
-
-                    //save stayover name in shared prefrence
-                    navController.navigate(R.id.stayOverFragment)
-
-                }
-                indianStayOverBtn.id->{
-                    //save stayover name in shared prefrence
-                    navController.navigate(R.id.stayOverFragment)
-
-                }
-
-
-            }
-        }
-    }
 
 }
