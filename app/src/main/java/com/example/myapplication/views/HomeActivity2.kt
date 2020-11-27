@@ -97,6 +97,22 @@ class HomeActivity2 : AppCompatActivity(), View.OnClickListener {
                     //navigate to about us page
                     navController.navigate(R.id.nav_about)
                 }
+                imgFirstEvent.id->{
+                    //navController.navigate(R.id.)
+                }
+                imgSecondEvent.id->{
+
+                }
+                imgThirdEvent.id->{
+
+                }
+                imgFourthEvent.id->{
+
+                }
+                imgFivthEvent.id->{
+
+                }
+
             }
         }
     }

@@ -25,6 +25,12 @@
         <action
             android:id="@+id/action_nav_home_to_nav_contact"
             app:destination="@id/nav_contact" />
+        <action
+            android:id="@+id/action_nav_home_to_stayOverFragment"
+            app:destination="@id/stayOverFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_eventFragment"
+            app:destination="@id/eventFragment" />
     </fragment>
 
     <fragment
@@ -53,4 +59,22 @@
         android:name="com.example.myapplication.ui.support.ContactFragment"
         android:label="Contact Us"
         tools:layout="@layout/fragment_contact" />
+    <fragment
+        android:id="@+id/eventFragment"
+        android:name="com.example.myapplication.ui.event.EventFragment"
+        android:label="EventFragment" />
+    <fragment
+        android:id="@+id/stayOverFragment"
+        android:name="com.example.myapplication.ui.stay_over.StayOverFragment"
+        android:label="fragment_stay_over"
+        tools:layout="@layout/fragment_stay_over" >
+        <action
+            android:id="@+id/action_stayOverFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.myapplication.ui.payment.ProfileFragment"
+        android:label="fragment_payment"
+        tools:layout="@layout/fragment_payment" />
 </navigation>
