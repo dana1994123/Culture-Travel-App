@@ -34,40 +34,44 @@ class ViewModels : ViewModel() {
     fun deleteGuest (email:String ){
         repo.deleteGuest(email)
     }
-    fun fetchAllHosts(){
+    fun getAllHosts(){
+
+
         repo.fetchAllHosts()
-            .addSnapshotListener{snapshot , error ->
-                var modifiedHostList: MutableList<Host> = mutableListOf()
-                if (error != null){
-                    Log.e(TAG, "LISTING FAILED")
+            .orderBy("maximumGuests", Query.Direction.DESCENDING)
+            .addSnapshotListener { snapshot, error ->
+                var modifiedHostList : MutableList<Host> = mutableListOf()
+                if(error != null){
+                    Log.e(TAG,"Listening failed. No connection available")
+                    this.hostList.value = null
                     return@addSnapshotListener
                 }
                 if (snapshot != null){
-                    for(documentChange in snapshot.documentChanges){
-                        var modifiedHost = documentChange.document.toObject(Host::class.java)
-                        Log.e(TAG, "Host DOC CHANGED ")
-                        when(documentChange.type){
-                            DocumentChange.Type.ADDED ->{
-                                modifiedHostList.add(modifiedHost)
-                                Log.e(TAG, "Host DOC added ")
-                            }
-                            DocumentChange.Type.MODIFIED->{
+                    for (documentChange in snapshot.documentChanges){
+                        val host = documentChange.document.toObject(Host::class.java)
+//                        Log.e(TAG, "Parking document change : " + parking.toString())
 
-                                Log.e(TAG, "Host DOC modified ")
-
+                        when (documentChange.type){
+                            DocumentChange.Type.ADDED -> {
+                                modifiedHostList.add(host)
+                                Log.e(TAG, "Document added to collection " + host.toString())
                             }
-                            DocumentChange.Type.REMOVED ->{
-                                modifiedHostList.remove(modifiedHost)
-                                Log.e(TAG, "Host DOC removed")
+                            DocumentChange.Type.MODIFIED -> {
+
+                                Log.e(TAG, "Document modified " + host.toString())
+                            }
+                            DocumentChange.Type.REMOVED -> {
+                                modifiedHostList.remove(host)
+                                Log.e(TAG, "Document deleted " + host.toString())
                             }
                         }
+
                     }
                     this.hostList.value = modifiedHostList
                 }else{
-                    Log.e(TAG,"Host not found")
+                    Log.e(TAG, "Current data is null")
                 }
             }
-
     }
     fun fetchAllGuest(){
         repo.fetchAllGuest()
