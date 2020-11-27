@@ -1,7 +1,10 @@
 package com.example.myapplication.views
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.AttributeSet
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -18,8 +21,10 @@ import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.locationmanager.LocationManager
 import com.example.myapplication.managers.SharedPreferencesManager
+import kotlinx.android.synthetic.main.activity_sign_in.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.nav_header_main.*
+import kotlinx.android.synthetic.main.nav_header_main.edtEmail
 
 class HomeActivity2 : AppCompatActivity(), View.OnClickListener {
 
@@ -37,6 +42,7 @@ class HomeActivity2 : AppCompatActivity(), View.OnClickListener {
 
 
 
+
         locationManager = LocationManager(this@HomeActivity2)
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
@@ -49,13 +55,21 @@ class HomeActivity2 : AppCompatActivity(), View.OnClickListener {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.home_activity2, menu)
+        return true
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment)
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    override fun onResume() {
+        super.onResume()
         btnReadMore.setOnClickListener(this)
         btnFirstEvent.setOnClickListener(this)
         btnSecondEvent.setOnClickListener(this)
@@ -65,14 +79,7 @@ class HomeActivity2 : AppCompatActivity(), View.OnClickListener {
         italyStayOverBtn.setOnClickListener(this)
         frenchStayOverBtn.setOnClickListener(this)
         indianStayOverBtn.setOnClickListener(this)
-        return true
     }
-
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment)
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
-    }
-
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
@@ -98,34 +105,45 @@ class HomeActivity2 : AppCompatActivity(), View.OnClickListener {
                 }
                 btnFirstEvent.id->{
                     //save the event name in the shared prefrence
+                    SharedPreferencesManager.write(SharedPreferencesManager.EVENT_NAME, txtFirstEvent.text.toString())
+                    val currentEvent = SharedPreferencesManager.read(SharedPreferencesManager.EVENT_NAME, "")
+                    Log.e ("SHARED PREFRENCES" ,currentEvent.toString() )
                     navController.navigate(R.id.eventFragment)
                 }
                 btnSecondEvent.id->{
                     //save the event name in the shared prefrence
+                    SharedPreferencesManager.write(SharedPreferencesManager.EVENT_NAME, txtSecondEvent.toString())
                     navController.navigate(R.id.eventFragment)
 
                 }
                 btnThirdEvent.id->{
                     //save the event name in the shared prefrence
+                    SharedPreferencesManager.write(SharedPreferencesManager.EVENT_NAME, txtThirdEvent.toString())
                     navController.navigate(R.id.eventFragment)
 
                 }
                 btnFourthEvent.id->{
                     //save the event name in the shared prefrence
+                    SharedPreferencesManager.write(SharedPreferencesManager.EVENT_NAME, txtFourthEvent.toString())
                     navController.navigate(R.id.eventFragment)
 
                 }
                 btnFivthEvent.id->{
                     //save the event name in the shared prefrence
+                    SharedPreferencesManager.write(SharedPreferencesManager.EVENT_NAME, txtFivthEvent.toString())
                     navController.navigate(R.id.eventFragment)
 
                 }
                 italyStayOverBtn.id->{
                     //save stayover name in shared prefrence
+                    SharedPreferencesManager.write(SharedPreferencesManager.EVENT_NAME, txtFirstEvent.text.toString())
+                    val currentEvent = SharedPreferencesManager.read(SharedPreferencesManager.EVENT_NAME, "")
+                    Log.e ("SHARED PREFRENCES" ,currentEvent.toString() )
                     navController.navigate(R.id.stayOverFragment)
 
                 }
                 frenchStayOverBtn.id->{
+
                     //save stayover name in shared prefrence
                     navController.navigate(R.id.stayOverFragment)
 

@@ -11,6 +11,8 @@ object SharedPreferencesManager {
 
     val EMAIL = "KEY_EMAIL"
     val PASSWORD = "KEY_PASSWORD"
+    val EVENT_NAME = "KEY_EVENT"
+    val STAY_OVER_NAME = "STAYOVERNAME"
 
     fun init (context: Context) {
         if (sharedPreferences == null){
@@ -43,9 +45,10 @@ object SharedPreferencesManager {
 
     fun removeAll(){
         with(sharedPreferences!!.edit()){
-
             remove(EMAIL)
             remove(PASSWORD)
+            remove(EVENT_NAME)
+            remove(STAY_OVER_NAME)
             apply()
         }
     }
