@@ -72,7 +72,7 @@
     <string name="mystery_amp_culture_box"><![CDATA[mystery & culture box]]></string>
     <string name="event_name">Event Name</string>
     <string name="event_location">event location</string>
-    <string name="event_host">event host</string>
+    <string name="event_host">Meet the Host: </string>
     <string name="event_duration">Event Duration</string>
     <string name="event_language">Event language</string>
     <string name="event_desc">event desc</string>
@@ -83,7 +83,7 @@
     <string name="explore_nearby_event">Explore NearBy Event</string>
     <string name="explore_all">Explore All</string>
     <string name="read_more">Read More</string>
-    <string name="about_home">We offer an exclusive experience that you will absoloutly enjoy by learning about other cultures as you travel to the country.</string>
+    <string name="about_home">We offer an exclusive experience that you will absolutely enjoy by learning about other cultures as you travel to the country.</string>
     <string name="dd_mm_yyyy">DD/MM/YYYY</string>
     <string name="s">##</string>
     <string name="afrikadey">Afrikadey Festival</string>
@@ -92,6 +92,9 @@
     <string name="tabestoon_festival">Tabestoon Festival</string>
     <string name="northern_lights_festival">Northern Lights Festival</string>
     <string name="event_date">Event Date</string>
+    <string name="location">Location:</string>
+    <string name="event_category">Event Category:</string>
+    <string name="book_now">Book Now</string>
 
 
     <string-array name="language_array">

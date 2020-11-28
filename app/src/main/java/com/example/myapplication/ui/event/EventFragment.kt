@@ -11,11 +11,13 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.myapplication.R
+import com.example.myapplication.locationmanager.LocationManager
 import com.example.myapplication.managers.SharedPreferencesManager
 import com.example.myapplication.models.Event
 import com.example.myapplication.models.Host
 import com.example.myapplication.ui.profile.ProfileFragment
 import com.example.myapplication.viewmodels.ViewModels
+import com.google.android.gms.maps.model.LatLng
 import kotlinx.android.synthetic.main.fragment_event.view.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -42,10 +44,15 @@ class EventFragment : Fragment() , View.OnClickListener{
     lateinit var edtLang :TextView
     lateinit var edtDate : TextView
     lateinit var edtEventDesc :TextView
-    lateinit var btnEventPrice :Button
+    lateinit var btnBooking :Button
     lateinit var viewModel: ViewModels
     private lateinit var hostListFetched: MutableList<Host>
     var currentEvent = SharedPreferencesManager.read(SharedPreferencesManager.EVENT_NAME,"")
+    var currentHost = SharedPreferencesManager.read(SharedPreferencesManager.HOST_NAME,"")
+    private lateinit var locationManager : LocationManager
+
+    var longLocation = SharedPreferencesManager.read(SharedPreferencesManager.LONG_LOCATION,"")
+    var latitLocation = SharedPreferencesManager.read(SharedPreferencesManager.LATIT_LOCATION,"")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,6 +69,7 @@ class EventFragment : Fragment() , View.OnClickListener{
     ): View? {
         // Inflate the layout for this fragment
         val root =inflater.inflate(R.layout.fragment_event, container, false)
+        locationManager = LocationManager(this.requireContext())
         edtFirstImage = root.edtFirstImage
         edtSecondImage = root.edtSecondImage
         edtEventName = root.edtEventName
@@ -71,11 +79,9 @@ class EventFragment : Fragment() , View.OnClickListener{
         edtLang = root.edtLang
         edtDate = root.edtDate
         edtEventDesc = root.edtEventDesc
-        btnEventPrice = root.btnEventPrice
+        btnBooking = root.btnBooking
 
-
-
-        root.btnEventPrice.setOnClickListener(this)
+        btnBooking.setOnClickListener(this)
 
         return  root
     }
@@ -134,6 +140,9 @@ class EventFragment : Fragment() , View.OnClickListener{
     override fun onClick(v: View?) {
         if (v!=null ){
             when(v.id){
+                R.id.btnBooking ->{
+                    //save the booking in the db as a history booking list
+                }
 
             }
         }

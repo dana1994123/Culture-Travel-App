@@ -91,6 +91,8 @@ class ViewModels : ViewModel() {
                             }
                             DocumentChange.Type.MODIFIED->{
 
+
+
                                 Log.e(TAG, "GUEST DOC modified ")
 
                             }

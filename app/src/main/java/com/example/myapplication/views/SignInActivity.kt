@@ -7,6 +7,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
+import com.example.myapplication.locationmanager.LocationManager
 import com.example.myapplication.managers.SharedPreferencesManager
 import com.example.myapplication.utils.DataValidations
 import kotlinx.android.synthetic.main.activity_sign_in.*
@@ -19,9 +20,13 @@ class SignInActivity : AppCompatActivity() ,View.OnClickListener {
     lateinit var tvCreateAccount: TextView
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
+
+
+
 
 
         tvCreateAccount = findViewById(R.id.createAccount)

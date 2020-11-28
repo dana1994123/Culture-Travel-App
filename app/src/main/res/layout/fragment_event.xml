@@ -9,8 +9,8 @@
 
 <LinearLayout
     android:id="@+id/layout2"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     tools:context=".ui.event.EventFragment"
     android:orientation="vertical">
 
@@ -39,13 +39,9 @@
             android:layout_height="300dp"
             android:layout_gravity="center"
             android:src="@drawable/pasta_lasagne" />
-
-
     </LinearLayout>
+
 </HorizontalScrollView>
-
-
-
     <TextView
         android:id="@+id/edtEventName"
         android:layout_width="match_parent"
@@ -53,28 +49,88 @@
         android:text="@string/event_name"
         android:textColor="#E10751"
         android:textSize="30sp"
+        android:padding="10dp"
         android:textStyle="bold" />
-    <TextView
-        android:id="@+id/edtEventLocation"
+    <View
+        android:layout_marginBottom="20dp"
         android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/purple_700"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/event_location"
-        android:textAlignment="center"
-        android:gravity="center_horizontal" />
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/location"
+            android:textSize="24sp"
+            android:layout_marginLeft="30dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:id="@+id/edtEventLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/event_location"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"
+            android:layout_marginLeft="10dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@string/event_host"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="45dp"/>
+        <TextView
+            android:id="@+id/edtEventHost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="event host"
+            android:textColor="@color/black"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="45dp"/>
+        <ImageView
+
+            android:id="@+id/hostImg"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/winter_light"
+            android:layout_marginStart="5dp"/>
+
+
+    </LinearLayout>
+    <View
+        android:layout_marginBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/purple_700"/>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
-    <TextView
-        android:id="@+id/edtEventHost"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="@string/event_host"
-        android:textColor="#E10751"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        />
 </LinearLayout>
 
     <TableLayout
@@ -99,7 +155,8 @@
             android:gravity="center_horizontal" />
     </TableRow>
 
-        <TableRow android:layout_width="match_parent">
+        <TableRow
+            android:layout_width="match_parent">
 
             <ImageView
                 android:layout_width="70dp"
@@ -115,6 +172,7 @@
                 android:layout_margin="12dp"
                 android:text="@string/event_language"
                 android:gravity="center_horizontal" />
+
         </TableRow>
         <TableRow android:layout_width="match_parent">
 
@@ -136,53 +194,55 @@
 
     </TableLayout>
     <View
-        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/darker_gray"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:fontFamily="cursive"
-        android:textAlignment="center"
-        android:text="@string/what_you_will_do"
-        android:layout_marginTop="50dp"
-        android:textColor="#120404"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:gravity="center_horizontal" />
-    <TextView
-        android:id="@+id/edtEventDesc"
-        android:layout_height="100dp"
-        android:layout_width="match_parent"
-        android:text="@string/event_desc"
-        />
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TableRow>
-
-            <Button
-                android:id="@+id/btnEventPrice"
+        android:layout_height="2dp"
+        android:background="@color/purple_700"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textAlignment="center"
+                android:text="@string/event_category"
+                android:textColor="#120404"
+                android:textSize="23sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/edtEventDesc"
+                android:layout_width="wrap_content"
+                android:text="@string/event_desc"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="70dp"
-                android:text="@string/from_31_person"
-                android:textSize="24sp"
-                android:layout_marginLeft="50dp" />
+                android:textSize="20dp"
+                android:layout_marginLeft="10dp"/>
+        </LinearLayout>
 
-            <!--            <Button-->
-<!--                android:id="@+id/btnDate"-->
-<!--                android:layout_width="212dp"-->
-<!--                android:layout_height="50dp"-->
-<!--                android:text="@string/see_date"-->
-<!--                android:textAllCaps="false"-->
-<!--                android:textSize="21sp"-->
-<!--                app:backgroundTint="#1D8F85" />-->
-        </TableRow>
-</TableLayout>
+        <!--we have to add the map fragment here -->
+        <fragment
+            android:id="@+id/mapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+    <View
+        android:layout_marginBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/purple_700"/>
+
+
+    <Button
+        android:id="@+id/btnBooking"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="@string/book_now" />
 </LinearLayout>
 </ScrollView>
 

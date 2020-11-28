@@ -14,6 +14,8 @@ object SharedPreferencesManager {
     val EVENT_NAME = "KEY_EVENT"
     val STAY_OVER_NAME = "STAYOVERNAME"
     var HOST_NAME = "HOST_NAME"
+    var LONG_LOCATION = "LONG_LOCATION"
+    var LATIT_LOCATION = "LATIT_LOCATION"
 
     fun init (context: Context) {
         if (sharedPreferences == null){
@@ -51,6 +53,8 @@ object SharedPreferencesManager {
             remove(EVENT_NAME)
             remove(STAY_OVER_NAME)
             remove(HOST_NAME)
+            remove(LONG_LOCATION)
+            remove(LATIT_LOCATION)
             apply()
         }
     }
