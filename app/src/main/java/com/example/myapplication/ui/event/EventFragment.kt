@@ -14,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
 import com.example.myapplication.locationmanager.LocationManager
 import com.example.myapplication.managers.SharedPreferencesManager
+import com.example.myapplication.models.BookingEvent
 import com.example.myapplication.models.Event
 import com.example.myapplication.models.Host
 import com.example.myapplication.viewmodels.ViewModels
@@ -51,6 +52,7 @@ class EventFragment : Fragment() , View.OnClickListener{
     private lateinit var hostListFetched: MutableList<Host>
     var currentEvent = SharedPreferencesManager.read(SharedPreferencesManager.EVENT_NAME, "")
     var currentHost = SharedPreferencesManager.read(SharedPreferencesManager.HOST_NAME, "")
+    var currentEmail = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL,"")
 
 
     private var map: GoogleMap? = null
@@ -121,6 +123,7 @@ class EventFragment : Fragment() , View.OnClickListener{
                 }
             }
         var existingEvent = Event()
+        var bookingEvent = BookingEvent()
     }
 
 
@@ -156,6 +159,9 @@ class EventFragment : Fragment() , View.OnClickListener{
             when(v.id){
                 R.id.btnBooking -> {
                     //save the booking in the db as a BookingEvent obj
+                    bookingEvent.email = currentEmail.toString()
+                    bookingEvent.event = existingEvent
+                    viewModel.addBookingEvent(bookingEvent)
                     //navigate to confirmation fragment
                     findNavController().navigate(R.id.bookingConfirmation2)
                 }

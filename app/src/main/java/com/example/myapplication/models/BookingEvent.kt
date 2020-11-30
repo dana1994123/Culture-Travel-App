@@ -1,5 +1,6 @@
 package com.example.myapplication.models
 
+import android.provider.ContactsContract
 import java.util.*
 
 /*
@@ -10,10 +11,6 @@ Date 2020-11-26
 */
 data class BookingEvent (
     var id :String = UUID.randomUUID().toString(),
-    var email :String ="",
-    var eventName : String ="",
-    var eventLocation :String = "",
-    var eventDuration :String = "",
-    var eventLanguage :String = "",
-    var eventDate :String =""
+    var email: String = "",
+    var event :Event = Event()
 )
