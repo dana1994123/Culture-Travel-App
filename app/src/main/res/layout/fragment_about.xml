@@ -18,11 +18,11 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="133dp"
-        android:layout_height="180dp"
+        android:layout_height="140dp"
         android:src="@drawable/logo"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout_editor_absoluteY="54dp" />
 
 
     <TextView

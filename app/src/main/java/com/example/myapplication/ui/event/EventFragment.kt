@@ -154,7 +154,8 @@ class EventFragment : Fragment() , View.OnClickListener{
         if (v!=null ){
             when(v.id){
                 R.id.btnBooking -> {
-                    //save the booking in the db as a history booking list
+                    //save the booking in the db as a BookingEvent obj
+                    //navigate to
                 }
 
             }

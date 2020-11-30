@@ -63,19 +63,36 @@
         android:id="@+id/eventFragment"
         android:name="com.example.myapplication.ui.event.EventFragment"
         android:label="Event"
-        tools:layout="@layout/fragment_event" />
+        tools:layout="@layout/fragment_event" >
+        <action
+            android:id="@+id/action_eventFragment_to_bookingConfirmation2"
+            app:destination="@id/bookingConfirmation2" />
+    </fragment>
     <fragment
         android:id="@+id/stayOverFragment"
         android:name="com.example.myapplication.ui.stay_over.StayOverFragment"
         android:label="Explore Culture"
         tools:layout="@layout/fragment_stay_over" >
         <action
-            android:id="@+id/action_stayOverFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
+            android:id="@+id/action_stayOverFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
     </fragment>
     <fragment
-        android:id="@+id/profileFragment"
+        android:id="@+id/bookingConfirmation2"
+        android:name="com.example.myapplication.ui.bookingconfirmation.BookingConfirmation"
+        android:label="fragment_booking_confirmation"
+        tools:layout="@layout/fragment_booking_confirmation" >
+        <action
+            android:id="@+id/action_bookingConfirmation2_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentFragment"
         android:name="com.example.myapplication.ui.payment.ProfileFragment"
-        android:label="Payment"
-        tools:layout="@layout/fragment_payment" />
+        android:label="fragment_payment"
+        tools:layout="@layout/fragment_payment" >
+        <action
+            android:id="@+id/action_paymentFragment_to_bookingConfirmation2"
+            app:destination="@id/bookingConfirmation2" />
+    </fragment>
 </navigation>

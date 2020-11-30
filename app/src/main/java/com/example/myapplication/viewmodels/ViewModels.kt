@@ -5,10 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.myapplication.database.Repo
 import com.example.myapplication.managers.SharedPreferencesManager
-import com.example.myapplication.models.Event
-import com.example.myapplication.models.StayOverBooking
-import com.example.myapplication.models.Guest
-import com.example.myapplication.models.Host
+import com.example.myapplication.models.*
 import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.Query
 
@@ -18,6 +15,7 @@ class ViewModels : ViewModel() {
     private val guestEmail = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL,"").toString()
     var guestList: MutableLiveData<List<Guest>> = MutableLiveData()
     var eventList: MutableLiveData<List<Event>> = MutableLiveData()
+    var guestBookingEventList: MutableLiveData<List<Event>> = MutableLiveData()
     var hostList: MutableLiveData<List<Host>> = MutableLiveData()
     var stayOverList: MutableLiveData<List<StayOverBooking>> = MutableLiveData()
     //we have to save the event name in the shared prefrence so we can use it to fetch event name
@@ -142,6 +140,55 @@ class ViewModels : ViewModel() {
                         }
                     }
                     this.eventList.value = modifiedEventList
+                }else{
+                    Log.e(TAG,"Guest not found")
+                }
+            }
+
+    }
+
+    //method to book the event add it to the guest booking event
+    fun addBookingEvent(bookingEvent :BookingEvent){
+        repo.addBookingEvent(bookingEvent)
+
+        Log.e(TAG , "addbookingEvent"  + bookingEvent.toString())
+    }
+
+
+    //method to get all the guest booking event in the booking list fragment when we create a reycler view
+    fun getBookingEvent(){
+        repo.getBookingEvent()
+            .whereEqualTo("email" , guestEmail)
+            .addSnapshotListener{snapshot , error ->
+
+                if (error != null){
+                    Log.e(TAG, "LISTING FAILED")
+                    this.guestBookingEventList.value = null
+                    return@addSnapshotListener
+                }
+                var modifiedBookingEventList: MutableList<Event> = mutableListOf()
+
+                if (snapshot != null){
+                    for(documentChange in snapshot.documentChanges){
+                        var event = documentChange.document.toObject(Event::class.java)
+                        Log.e(TAG, "event DOC CHANGED ")
+                        when(documentChange.type){
+                            DocumentChange.Type.ADDED ->{
+                                modifiedBookingEventList.add(event)
+                                Log.e(TAG, "event DOC added ")
+                            }
+                            DocumentChange.Type.MODIFIED->{
+
+                                Log.e(TAG, "event DOC modified ")
+
+                            }
+                            DocumentChange.Type.REMOVED ->{
+                                modifiedBookingEventList.remove(event)
+                                Log.e(TAG, "event DOC removed")
+                            }
+                        }
+                    }
+                    this.guestBookingEventList.value = modifiedBookingEventList
                 }else{
                     Log.e(TAG,"Guest not found")
                 }

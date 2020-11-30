@@ -95,6 +95,8 @@
     <string name="location">Location:</string>
     <string name="event_category">Event Category:</string>
     <string name="book_now">Book Now</string>
+    <string name="thank_you">Thank You!</string>
+    <string name="booking_history">Booking History</string>
 
 
     <string-array name="language_array">

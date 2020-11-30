@@ -177,8 +177,6 @@ class HomeFragment : Fragment(),View.OnClickListener{
 //                val d = SharedPreferencesManager.read(SharedPreferencesManager.LONG_LOCATION,"")
 //
 //                Log.e(TAG , "CURRENTlocationLongtituide " + d)
-
-
                 //display the location in the map by saving it in the sared prefrence
             }
         })

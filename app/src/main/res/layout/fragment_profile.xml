@@ -112,19 +112,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        android:layout_marginTop="88dp"
         android:clickable="true"
+        android:padding="40dp"
         android:src="@android:drawable/ic_menu_edit"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"/>
-
-
-
+        app:layout_constraintHorizontal_bias="0.806"
+        app:layout_constraintStart_toEndOf="@id/profileImg"
+        app:layout_constraintBottom_toTopOf="@id/edtName"/>
 
 
     <Button
-
         android:id="@+id/btnSave"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
