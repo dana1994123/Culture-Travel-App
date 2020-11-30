@@ -32,7 +32,10 @@ class AboutFragment : Fragment(){
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
-     //       onClickRating()
+            //rating is id from xml file
+//            rating.setOnRatingBarChangeListener { ratingBar, fl, b ->
+//                tv_4.setText("$fl")
+//            }
 
         }
 
