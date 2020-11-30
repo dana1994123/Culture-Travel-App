@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.SignUpActivity" >
+    tools:context=".ui.support.AboutFragment" >
 
 <androidx.constraintlayout.widget.ConstraintLayout
 xmlns:android="http://schemas.android.com/apk/res/android"
@@ -54,6 +54,17 @@ We are extremely resolute towards our goal and this CulturalTravel App is a smal
         app:layout_constraintTop_toBottomOf="@+id/text_view"
         tools:ignore="MissingConstraints" />
 
+    <RatingBar
+        android:id="@+id/rating"
+        android:layout_width="245dp"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:progressTint="@color/purple_200"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_2"
+        tools:ignore="MissingConstraints" />
+
     <ImageView
         android:layout_width="700dp"
         android:layout_height="250dp"
@@ -61,7 +72,7 @@ We are extremely resolute towards our goal and this CulturalTravel App is a smal
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_2"
+        app:layout_constraintTop_toBottomOf="@id/rating"
         tools:ignore="MissingConstraints" />
 
 
