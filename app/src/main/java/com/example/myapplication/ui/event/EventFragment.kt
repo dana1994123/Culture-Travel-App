@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
 import com.example.myapplication.locationmanager.LocationManager
 import com.example.myapplication.managers.SharedPreferencesManager
@@ -155,7 +156,8 @@ class EventFragment : Fragment() , View.OnClickListener{
             when(v.id){
                 R.id.btnBooking -> {
                     //save the booking in the db as a BookingEvent obj
-                    //navigate to
+                    //navigate to confirmation fragment
+                    findNavController().navigate(R.id.bookingConfirmation2)
                 }
 
             }

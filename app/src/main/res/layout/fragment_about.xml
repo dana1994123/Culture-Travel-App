@@ -19,10 +19,12 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/imageView"
         android:layout_width="133dp"
         android:layout_height="140dp"
+        android:layout_marginTop="24dp"
         android:src="@drawable/logo"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="54dp" />
+        android:text="@string/login"
+        android:textSize="60sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView

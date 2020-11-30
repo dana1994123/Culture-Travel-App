@@ -80,11 +80,14 @@
     <fragment
         android:id="@+id/bookingConfirmation2"
         android:name="com.example.myapplication.ui.bookingconfirmation.BookingConfirmation"
-        android:label="fragment_booking_confirmation"
+        android:label="Confirmation"
         tools:layout="@layout/fragment_booking_confirmation" >
         <action
             android:id="@+id/action_bookingConfirmation2_to_nav_home"
             app:destination="@id/nav_home" />
+        <action
+            android:id="@+id/action_bookingConfirmation2_to_nav_trip_history"
+            app:destination="@id/nav_trip_history" />
     </fragment>
     <fragment
         android:id="@+id/paymentFragment"

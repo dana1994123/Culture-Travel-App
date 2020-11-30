@@ -11,17 +11,19 @@
         android:id="@+id/imageView"
         android:layout_width="133dp"
         android:layout_height="140dp"
+        android:layout_marginTop="24dp"
         android:src="@drawable/logo"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="54dp" />
+        android:text="@string/login"
+        android:textSize="60sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/thankTxt"
-        android:layout_width="240dp"
-        android:layout_height="76dp"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="176dp"
         android:gravity="center_horizontal"
         android:text="@string/thank_you"
         android:textAlignment="center"
@@ -29,11 +31,9 @@
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@id/imageView"
+        app:layout_constraintHorizontal_bias="0.343"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-
 
     <ImageView
         android:id="@+id/thanksImg"
@@ -64,6 +64,7 @@
 
 
     <Button
+        android:id="@+id/bookingHistoryBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -71,7 +72,7 @@
         android:text="@string/booking_history"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="645dp"
-        app:layout_constraintTop_toBottomOf="@+id/view"/>
+        app:layout_constraintTop_toBottomOf="@+id/confTxt"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

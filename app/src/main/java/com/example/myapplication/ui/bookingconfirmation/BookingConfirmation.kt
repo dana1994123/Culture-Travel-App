@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -17,10 +19,11 @@ private const val ARG_PARAM2 = "param2"
  * Use the [BookingConfirmation.newInstance] factory method to
  * create an instance of this fragment.
  */
-class BookingConfirmation : Fragment() {
+class BookingConfirmation : Fragment(), View.OnClickListener {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var bookingHistoryBtn : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +38,10 @@ class BookingConfirmation : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_booking_confirmation, container, false)
+        val root  = inflater.inflate(R.layout.fragment_booking_confirmation, container, false)
+        bookingHistoryBtn = root.findViewById(R.id.bookingHistoryBtn)
+        bookingHistoryBtn.setOnClickListener(this)
+        return root
     }
 
     companion object {
@@ -56,5 +62,17 @@ class BookingConfirmation : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    override fun onClick(v: View?) {
+        if(v!=null){
+            when(v.id){
+                R.id.bookingHistoryBtn ->{
+                    findNavController().navigate(R.id.action_bookingConfirmation2_to_nav_trip_history)
+
+                }
+
+            }
+        }
     }
 }
