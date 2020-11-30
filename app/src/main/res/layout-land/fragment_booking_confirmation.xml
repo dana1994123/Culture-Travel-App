@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.bookingconfirmation.BookingConfirmation">
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="133dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/logo"
+            android:text="@string/login"
+            android:textSize="60sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/thankTxt"
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="176dp"
+            android:gravity="center_horizontal"
+            android:text="@string/thank_you"
+            android:textAlignment="center"
+            android:textColor="#266698"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.343"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/thanksImg"
+            android:layout_width="480dp"
+            android:layout_height="250dp"
+            android:layout_marginTop="28dp"
+            android:src="@drawable/thanks"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.507"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/thankTxt" />
+
+
+        <TextView
+            android:id="@+id/confTxt"
+            android:layout_width="408dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="4dp"
+            android:gravity="center_horizontal"
+            android:text="Rock On! \nYour booking has been added successfully"
+            android:textAlignment="center"
+            android:textColor="#65AFEA"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.557"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/thanksImg" />
+
+        <Button
+            android:id="@+id/bookingHistoryBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_marginStart="8dp"
+            android:text="@string/booking_history"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/confTxt"
+            tools:layout_editor_absoluteY="645dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
