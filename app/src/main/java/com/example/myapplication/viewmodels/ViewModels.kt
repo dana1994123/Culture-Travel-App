@@ -32,6 +32,9 @@ class ViewModels : ViewModel() {
     fun deleteGuest (email:String ){
         repo.deleteGuest(email)
     }
+    fun updateGuest(name:String,phoneNumber:String,language:String){
+        repo.updateGuest(name,guestEmail,phoneNumber,language)
+    }
     fun getAllHosts(){
         repo.fetchAllHosts()
             .orderBy("maximumGuests", Query.Direction.DESCENDING)
@@ -88,8 +91,6 @@ class ViewModels : ViewModel() {
                                 Log.e(TAG, "GUEST DOC added ")
                             }
                             DocumentChange.Type.MODIFIED->{
-
-
 
                                 Log.e(TAG, "GUEST DOC modified ")
 

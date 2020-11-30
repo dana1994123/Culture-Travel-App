@@ -329,7 +329,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_margin="16dp"
-                        android:text="French \nCulture"
+                        android:text="@string/french_culture"
                         android:textColor="#eb5180"
                         android:textSize="40dp" />
                     <Button
@@ -361,7 +361,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="India \nCulture"
+                        android:text="@string/indian_culture"
                         android:layout_margin="16dp"
                         android:textColor="#eb5180"
                         android:textSize="40dp" />
@@ -393,7 +393,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Italy \nCulture"
+                        android:text="@string/italian_culture"
                         android:textColor="#eb5180"
                         android:layout_margin="16dp"
                         android:textSize="40dp" />

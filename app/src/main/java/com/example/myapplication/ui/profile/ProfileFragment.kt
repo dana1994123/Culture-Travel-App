@@ -185,5 +185,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
     private fun saveToDB(){
         //WE have to fetch the data that the user has been
         // change and update his profile on the DB
+        viewModel.updateGuest(edtName.text.toString(),edtPhoneNumber.text.toString(),spnLang.selectedItem.toString())
+
     }
 }

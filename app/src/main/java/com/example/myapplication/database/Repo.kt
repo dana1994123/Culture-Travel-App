@@ -2,6 +2,7 @@ package com.example.myapplication.database
 
 import android.util.Log
 import com.example.myapplication.models.*
+import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -39,7 +40,20 @@ class Repo {
         Log.e ("Collection refrence :" , collectionRefrence.id)
         return  collectionRefrence
     }
+    fun updateGuest(name:String,email:String,phoneNumber:String,language:String) {
+        val updatedUser = db.collection(COLLECTION_ONE).document(email)
+        updatedUser.update("name",name)
+            .addOnSuccessListener { Log.d(TAG,"name successfully updated") }
+            .addOnFailureListener { e -> Log.w(TAG,"Error updating the name",e) }
 
+        updatedUser.update("language",language)
+            .addOnSuccessListener { Log.d(TAG,"language successfully updated") }
+            .addOnFailureListener { e -> Log.w(TAG,"Error updating the language",e) }
+
+        updatedUser.update("phoneNumber",phoneNumber)
+            .addOnSuccessListener { Log.d(TAG,"phoneNumber successfully updated") }
+            .addOnFailureListener { e -> Log.w(TAG,"Error updating the phoneNumber",e) }
+    }
 
 
     fun addBookingEvent(bookingEvent: BookingEvent){
