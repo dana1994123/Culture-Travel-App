@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginTop="50dp"
+    >
+
+    <View
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/purple_700"/>
+
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/explore_nearby_event"
+            android:textSize="30sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="#eb5180"
+            android:layout_marginStart="10dp" />
+        <View
+
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/purple_700"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/txtFirstEvent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/afrikadey"
+                            android:layout_marginStart="16dp"
+                            android:textSize="20sp"
+                            android:padding="20dp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="0dp"
+                            />
+                        <ImageButton
+                            android:id="@+id/imgFirstEvent"
+                            android:layout_width="200dp"
+                            android:layout_height="200dp"
+                            android:src="@drawable/afrikadey"
+                            android:layout_margin="20dp" />
+                        <Button
+                            android:id="@+id/btnFirstEvent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="60dp"
+                            android:text="Book Now"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/txtSecondEvent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/festival_du_voyageur"
+                            android:layout_marginStart="16dp"
+                            android:textSize="25sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="0dp"
+                            android:padding="20dp"
+                            />
+
+                        <ImageButton
+                            android:id="@+id/imgSecondEvent"
+                            android:layout_width="200dp"
+                            android:layout_height="200dp"
+                            android:layout_margin="20dp"
+                            android:src="@drawable/du"
+                            android:clickable="true"/>
+                        <Button
+                            android:id="@+id/btnSecondEvent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="60dp"
+                            android:text="Book Now"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/txtThirdEvent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/winter_light"
+                            android:layout_marginStart="8dp"
+                            android:textSize="25sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="0dp"
+                            android:padding="20dp"
+                            />
+                        <ImageButton
+                            android:id="@+id/imgThirdEvent"
+                            android:layout_width="200dp"
+                            android:layout_height="200dp"
+                            android:src="@drawable/winter_light"
+                            android:layout_margin="20dp"/>
+                        <Button
+                            android:id="@+id/btnThirdEvent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="60dp"
+                            android:text="Book Now"/>
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/txtFourthEvent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/northern_lights_festival"
+                            android:layout_marginStart="16dp"
+                            android:textSize="25sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="0dp"
+                            android:padding="20dp"
+                            />
+                        <ImageButton
+                            android:id="@+id/imgFourthEvent"
+                            android:layout_width="200dp"
+                            android:layout_height="200dp"
+                            android:src="@drawable/northern_lights2"
+                            android:layout_margin="20dp" />
+                        <Button
+                            android:id="@+id/btnFourthEvent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="60dp"
+                            android:text="Book Now"/>
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/txtFivthEvent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/tabestoon_festival"
+                            android:layout_marginStart="16dp"
+                            android:textSize="25sp"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="0dp"
+                            android:padding="20dp"
+                            />
+                        <ImageButton
+                            android:id="@+id/imgFivthEvent"
+                            android:layout_width="200dp"
+                            android:layout_height="200dp"
+                            android:src="@drawable/tabestoon_festival2"
+                            android:layout_margin="20dp"
+                            />
+                        <Button
+                            android:id="@+id/btnFivthEvent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="60dp"
+                            android:text="Book Now"/>
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+            </HorizontalScrollView>
+        </LinearLayout>
+        <View
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+    </LinearLayout>
+
+    <View
+
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@color/purple_700"/>
+
+    <ImageView
+        android:layout_width="393dp"
+        android:layout_height="125dp"
+        android:src="@drawable/logo" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/the_sky_is_the_limit"
+        android:textSize="35sp"
+        android:layout_marginLeft="10dp"
+        android:textColor="#eb5180"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/about_home"
+        android:layout_marginLeft="10dp"
+
+        />
+    <Button
+        android:id="@+id/btnReadMore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/read_more"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:textSize="14sp"
+        android:layout_marginBottom="40dp"/>
+    <View
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@color/purple_700"/>
+
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffe57d"
+        android:orientation="vertical">
+
+
+
+        <!--to insert elements before the horizentalview-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="70dp"
+            android:text="@string/explore_culture_with_fun"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="you can now have the apportunity to live other culture in your community"
+            android:textColor="@color/black"
+            />
+
+        <View
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+
+    </LinearLayout>
+
+
+
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView1"
+        android:layout_height="wrap_content"
+        android:scrollbars="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="0dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:id="@+id/linearLayout1"
+            android:background="#ffe57d"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="bottom">
+
+
+
+            <LinearLayout
+                android:id="@+id/linearLayout4"
+                android:layout_width="wrap_content"
+                android:layout_height="270dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop = "16dp">
+                    <TextView
+                        android:id="@+id/frenchText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="16dp"
+                        android:text="French \nCulture"
+                        android:textColor="#eb5180"
+                        android:textSize="40dp" />
+                    <Button
+                        android:id="@+id/frenchStayOverBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="25dp"
+                        android:text="Explore "
+                        />
+
+                </LinearLayout>
+
+
+                <ImageButton
+                    android:id="@+id/frenchImg"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="32dp"
+                    android:src="@drawable/french" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop = "16dp">
+                    <TextView
+                        android:id="@+id/indianText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="India \nCulture"
+                        android:layout_margin="16dp"
+                        android:textColor="#eb5180"
+                        android:textSize="40dp" />
+                    <Button
+                        android:id="@+id/indianStayOverBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="25dp"
+                        android:text="Explore " />
+                </LinearLayout>
+
+
+
+                <ImageButton
+                    android:id="@+id/indianImg"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/indian" />
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop = "16dp">
+                    <TextView
+                        android:id="@+id/italyText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Italy \nCulture"
+                        android:textColor="#eb5180"
+                        android:layout_margin="16dp"
+                        android:textSize="40dp" />
+                    <Button
+                        android:id="@+id/italyStayOverBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="25dp"
+                        android:text="Explore " />
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/italyImg"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/italy" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+
+    <View
+        android:layout_marginTop="32dp"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@color/purple_700"/>
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout5"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/shadoweffect"
+            android:layout_width="600dp"
+            android:layout_height="wrap_content"
+            android:padding="32dp"
+            android:text=" Strength lies in differences, not in similarities. \nby Stephen R. Covey." />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:text="© 2020 Culture App All Rights Reserved"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@android:color/darker_gray"/>
+
+</LinearLayout>
+
+</ScrollView>
