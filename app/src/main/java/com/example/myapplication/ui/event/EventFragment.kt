@@ -1,22 +1,23 @@
 package com.example.myapplication.ui.event
 
+import android.location.Location
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import com.example.myapplication.R
 import com.example.myapplication.locationmanager.LocationManager
 import com.example.myapplication.managers.SharedPreferencesManager
 import com.example.myapplication.models.Event
 import com.example.myapplication.models.Host
-import com.example.myapplication.ui.profile.ProfileFragment
 import com.example.myapplication.viewmodels.ViewModels
+import com.google.android.gms.location.LocationCallback
+import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.LatLng
 import kotlinx.android.synthetic.main.fragment_event.view.*
 
@@ -47,12 +48,22 @@ class EventFragment : Fragment() , View.OnClickListener{
     lateinit var btnBooking :Button
     lateinit var viewModel: ViewModels
     private lateinit var hostListFetched: MutableList<Host>
-    var currentEvent = SharedPreferencesManager.read(SharedPreferencesManager.EVENT_NAME,"")
-    var currentHost = SharedPreferencesManager.read(SharedPreferencesManager.HOST_NAME,"")
+    var currentEvent = SharedPreferencesManager.read(SharedPreferencesManager.EVENT_NAME, "")
+    var currentHost = SharedPreferencesManager.read(SharedPreferencesManager.HOST_NAME, "")
+
+
+    private var map: GoogleMap? = null
+    private val DEFAULT_ZOOM : Float = 15.0F  //1: world, 5: landmass/continent, 10: city, 15: streets, 20: building
+    private lateinit var locationCallback: LocationCallback
+
     private lateinit var locationManager : LocationManager
 
-    var longLocation = SharedPreferencesManager.read(SharedPreferencesManager.LONG_LOCATION,"")
-    var latitLocation = SharedPreferencesManager.read(SharedPreferencesManager.LATIT_LOCATION,"")
+    var longLocation = SharedPreferencesManager.read(SharedPreferencesManager.LONG_LOCATION, "")
+    var latitLocation = SharedPreferencesManager.read(SharedPreferencesManager.LATIT_LOCATION, "")
+
+    private lateinit var location: Location
+    private lateinit var currentLocation : LatLng
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -80,8 +91,12 @@ class EventFragment : Fragment() , View.OnClickListener{
         edtDate = root.edtDate
         edtEventDesc = root.edtEventDesc
         btnBooking = root.btnBooking
-
         btnBooking.setOnClickListener(this)
+
+        //val latit = longLocation?.toDouble()
+        //val longitude = latitLocation?.toDouble()
+
+
 
         return  root
     }
@@ -110,7 +125,7 @@ class EventFragment : Fragment() , View.OnClickListener{
 
     private fun populateEvent(){
         //create a method to populate the event by fetching the event to the fragment
-        Log.e("collection jftyhjghj" ,currentEvent.toString())
+        Log.e("collection jftyhjghj", currentEvent.toString())
         this.viewModel.eventList.observe(this.requireActivity(), { eventsList ->
             if (eventsList != null) {
                 existingEvent = eventsList[0]
@@ -131,8 +146,6 @@ class EventFragment : Fragment() , View.OnClickListener{
             //edtSecondImage.setImageResource(R.id.)
 
 
-
-
         })
 
     }
@@ -140,7 +153,7 @@ class EventFragment : Fragment() , View.OnClickListener{
     override fun onClick(v: View?) {
         if (v!=null ){
             when(v.id){
-                R.id.btnBooking ->{
+                R.id.btnBooking -> {
                     //save the booking in the db as a history booking list
                 }
 

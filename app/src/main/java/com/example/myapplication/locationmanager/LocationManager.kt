@@ -80,8 +80,6 @@ class LocationManager(var context :Context) {
                             location.value = loc }
                     }
                     .addOnFailureListener { Log.e(TAG , "ERROR GETING LAST LOCATION")  }
-
-
             }
             catch (ex :SecurityException){
                 Log.e(TAG,"SECURITY EXCEPTION :" + ex.localizedMessage)

@@ -35,9 +35,7 @@ class HomeActivity2 : AppCompatActivity(){
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var navController: NavController
     private val currentUser = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL,"").toString()
-    private lateinit var locationManager :LocationManager
-    private lateinit var location: Location
-    private lateinit var currentLocation: LatLng
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,10 +46,9 @@ class HomeActivity2 : AppCompatActivity(){
 
 
 
-        locationManager = LocationManager(this@HomeActivity2)
-        if(LocationManager.locationPermissionsGranted){
-            this.getLastLocation()
-        }
+
+
+
 
 
 
@@ -64,6 +61,8 @@ class HomeActivity2 : AppCompatActivity(){
                 R.id.nav_home, R.id.nav_about, R.id.nav_trip_history,R.id.nav_contact,R.id.nav_verified_user,R.id.eventFragment,R.id.stayOverFragment,R.id.action_viewProfile), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+
 
 
     }
@@ -96,37 +95,7 @@ class HomeActivity2 : AppCompatActivity(){
         return super.onOptionsItemSelected(item)
     }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        when(requestCode){
-            LocationManager.LOCATION_PERMISSION_REQUEST_CODE ->{
-                LocationManager.locationPermissionsGranted = (grantResults.isNotEmpty()
-                        && grantResults[0] ==PackageManager.PERMISSION_GRANTED)
-                if(LocationManager.locationPermissionsGranted){
-                    //we can fetch the location
-                    this.getLastLocation()
-                }
-            }
-        }
-    }
 
-
-    private fun getLastLocation (){
-        this.locationManager.getlastLocation()?.observe(this,{loc : Location? ->
-            if(loc != null){
-                this.location = loc
-                SharedPreferencesManager.write(SharedPreferencesManager.LONG_LOCATION , location.longitude.toString())
-                SharedPreferencesManager.write(SharedPreferencesManager.LATIT_LOCATION , location.latitude.toString())
-
-                Log.e(TAG , "CURRENTlocation " + currentLocation.toString())
-
-                //display the location in the map by saving it in the sared prefrence
-            }
-        })
-    }
 
 
 

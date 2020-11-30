@@ -220,22 +220,24 @@
                 android:text="@string/event_desc"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="20dp"/>
         </LinearLayout>
 
-        <!--we have to add the map fragment here -->
-        <fragment
-            android:id="@+id/mapFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+<!--        &lt;!&ndash;we have to add the map fragment here &ndash;&gt;-->
+<!--        <fragment-->
+<!--            android:id="@+id/mapFragment"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"/>-->
 
 
     </LinearLayout>
     <View
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="40dp"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="@color/purple_700"/>
+        android:background="@color/purple_700"
+        />
 
 
     <Button
