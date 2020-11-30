@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.SignUpActivity" >
+    tools:context=".ui.support.AboutFragment" >
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
@@ -39,15 +39,15 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:layout_width="404dp"
         android:id="@+id/tv_2"
+        android:layout_width="404dp"
         android:layout_height="200dp"
         android:fontFamily="sans-serif-thin"
         android:gravity="center_horizontal"
         android:text="We are a group of ambitious individuals\n trying to make the lives of people across the world more peaceful by bringing together the cultures of the world.
 We are extremely resolute towards our goal and this CulturalTravel App is a small beginning for achieving it. This app will provides you the opportunity to connect with other people and enjoy their traditional and cultural activities occuring in your nearby places."
         android:textAlignment="center"
-        android:textColor="#130101"
+        android:textColor="#816D6D"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/text_view"
@@ -60,11 +60,12 @@ We are extremely resolute towards our goal and this CulturalTravel App is a smal
         android:layout_width="245dp"
         android:layout_height="wrap_content"
         android:numStars="5"
+        android:onClick="onClickRating"
         android:progressTint="@color/purple_200"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_2"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints,OnClick" />
 
 <!--    <Button-->
 <!--        android:id="@+id/tv_3"-->
@@ -86,6 +87,7 @@ We are extremely resolute towards our goal and this CulturalTravel App is a smal
         android:layout_width="404dp"
         android:layout_height="40dp"
         android:textColor="#082AE4"
+        android:textAlignment="center"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/rating"
         tools:ignore="MissingConstraints"
