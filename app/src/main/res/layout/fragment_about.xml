@@ -8,11 +8,8 @@
     tools:context=".views.SignUpActivity" >
 
 <androidx.constraintlayout.widget.ConstraintLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.support.AboutFragment">
 
     <ImageView
@@ -30,7 +27,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     <TextView
         android:id="@+id/text_view"
         android:layout_width="404dp"
-        android:layout_height="95dp"
+        android:layout_height="50dp"
         android:fontFamily="cursive"
         android:gravity="center_horizontal"
         android:text="WHO ARE WE ?"
@@ -44,26 +41,65 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     <TextView
         android:layout_width="404dp"
         android:id="@+id/tv_2"
-        android:layout_height="250dp"
+        android:layout_height="200dp"
         android:fontFamily="sans-serif-thin"
         android:gravity="center_horizontal"
         android:text="We are a group of ambitious individuals\n trying to make the lives of people across the world more peaceful by bringing together the cultures of the world.
 We are extremely resolute towards our goal and this CulturalTravel App is a small beginning for achieving it. This app will provides you the opportunity to connect with other people and enjoy their traditional and cultural activities occuring in your nearby places."
         android:textAlignment="center"
         android:textColor="#130101"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/text_view"
         tools:ignore="MissingConstraints" />
 
+
+
+    <RatingBar
+        android:id="@+id/rating"
+        android:layout_width="245dp"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:progressTint="@color/purple_200"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_2"
+        tools:ignore="MissingConstraints" />
+
+<!--    <Button-->
+<!--        android:id="@+id/tv_3"-->
+<!--        android:layout_width="404dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:gravity="center_horizontal"-->
+<!--        android:text="Rate Us"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textColor="#072AEA"-->
+<!--        android:textSize="24sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/rating"-->
+<!--        tools:ignore="MissingConstraints" />-->
+
+
+
+    <TextView
+        android:id="@+id/tv_4"
+        android:layout_width="404dp"
+        android:layout_height="40dp"
+        android:textColor="#082AE4"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/rating"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
+
     <ImageView
         android:layout_width="404dp"
-        android:layout_height="200dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="40dp"
         android:src="@drawable/world"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_2"
+        app:layout_constraintTop_toBottomOf="@id/tv_4"
         tools:ignore="MissingConstraints" />
 
 
