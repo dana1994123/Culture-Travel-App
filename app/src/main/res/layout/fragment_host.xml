@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.stay_over.StayOverFragment">
+    tools:context=".HostFragment">
 
-<!-- Change the layout for stay over fragment-->
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="190dp"
