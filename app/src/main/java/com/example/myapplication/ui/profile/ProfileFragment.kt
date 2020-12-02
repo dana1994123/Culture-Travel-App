@@ -14,6 +14,7 @@ import com.example.myapplication.viewmodels.ViewModels
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.activity_sign_up.view.edtName
 import kotlinx.android.synthetic.main.fragment_profile.view.*
+import java.lang.Exception
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -130,6 +131,9 @@ class ProfileFragment : Fragment(), View.OnClickListener {
             edtName.setText(existingGuest.name)
             edtPhoneNumber.setText(existingGuest.phoneNumber)
         })
+
+
+
         Log.e("userphone number" , existingGuest.phoneNumber.toString())
     }
 
@@ -139,7 +143,6 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         val langAdapter = ArrayAdapter(requireActivity(),
             android.R.layout.simple_spinner_item,
             resources.getStringArray(R.array.language_array))
-
         spnLang.adapter = langAdapter
     }
 
@@ -185,7 +188,23 @@ class ProfileFragment : Fragment(), View.OnClickListener {
     private fun saveToDB(){
         //WE have to fetch the data that the user has been
         // change and update his profile on the DB
-        viewModel.updateGuest(edtName.text.toString(),edtPhoneNumber.text.toString(),spnLang.selectedItem.toString())
+
+        //viewModel.updateGuest(edtName.text.toString(),edtPhoneNumber.text.toString(),spnLang.selectedItem.toString())
+        existingGuest.phoneNumber = edtPhoneNumber.text.toString()
+        existingGuest.name = edtName.text.toString()
+        existingGuest.language = spnLang.selectedItem.toString()
+        try{
+            viewModel.addGuest(existingGuest)
+        }
+        catch(ex: Exception){
+            Log.e("CATCH EDIT PROFILE" , "an error occur ")
+
+        }
+
+
+
+
+
 
     }
 }

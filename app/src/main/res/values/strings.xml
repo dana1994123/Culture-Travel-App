@@ -70,11 +70,10 @@
     <string name="_35_person">$35/Person</string>
     <string name="include">include</string>
     <string name="mystery_amp_culture_box"><![CDATA[mystery & culture box]]></string>
-    <string name="event_name">Event Name</string>
-    <string name="event_location">event location</string>
+    <string name="event_location">Event Location</string>
     <string name="event_host">Meet the Host: </string>
     <string name="event_duration">Event Duration</string>
-    <string name="event_language">Event language</string>
+    <string name="event_language">Event Language</string>
     <string name="event_desc">event desc</string>
     <string name="username">UserName</string>
     <string name="support">Support</string>
@@ -100,6 +99,9 @@
     <string name="french_culture">French\nCulture</string>
     <string name="italian_culture">Italian\nCulture</string>
     <string name="indian_culture">Indian\nCulture</string>
+    <string name="event_name">Event Name</string>
+    <string name="remove_booking">Remove Booking</string>
+    <string name="upcoming_event">Upcoming Event</string>
 
     <string-array name="language_array">
         <item>English</item>

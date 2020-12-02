@@ -12,35 +12,34 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_marginTop="50dp"
+
     >
 
-    <View
-        android:layout_marginTop="50dp"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/purple_700"/>
+
 
 
     <LinearLayout
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="#FFE57D">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/explore_nearby_event"
-            android:textSize="30sp"
-            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:paddingStart="8dp"
             android:layout_marginBottom="10dp"
-            android:textColor="#eb5180"
-            android:layout_marginStart="10dp" />
+            android:text="@string/upcoming_event"
+            android:textColor="@color/teal_700"
+            android:textSize="40sp" />
+
         <View
 
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@color/purple_700"/>
+            android:background="@color/black"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -63,7 +62,7 @@
                             android:layout_marginStart="16dp"
                             android:textSize="20sp"
                             android:padding="20dp"
-                            android:textColor="@color/black"
+                            android:textColor="#E91E63"
                             android:layout_marginTop="16dp"
                             android:layout_marginBottom="0dp"
                             />
@@ -91,7 +90,7 @@
                             android:text="@string/festival_du_voyageur"
                             android:layout_marginStart="16dp"
                             android:textSize="25sp"
-                            android:textColor="@color/black"
+                            android:textColor="#E91E63"
                             android:layout_marginTop="16dp"
                             android:layout_marginBottom="0dp"
                             android:padding="20dp"
@@ -102,8 +101,9 @@
                             android:layout_width="200dp"
                             android:layout_height="200dp"
                             android:layout_margin="20dp"
-                            android:src="@drawable/du"
-                            android:clickable="true"/>
+                            android:clickable="true"
+                            android:src="@drawable/du" />
+
                         <Button
                             android:id="@+id/btnSecondEvent"
                             android:layout_width="wrap_content"
@@ -123,7 +123,7 @@
                             android:text="@string/winter_light"
                             android:layout_marginStart="8dp"
                             android:textSize="25sp"
-                            android:textColor="@color/black"
+                            android:textColor="#E91E63"
                             android:layout_marginTop="16dp"
                             android:layout_marginBottom="0dp"
                             android:padding="20dp"
@@ -154,7 +154,7 @@
                             android:text="@string/northern_lights_festival"
                             android:layout_marginStart="16dp"
                             android:textSize="25sp"
-                            android:textColor="@color/black"
+                            android:textColor="#E91E63"
                             android:layout_marginTop="16dp"
                             android:layout_marginBottom="0dp"
                             android:padding="20dp"
@@ -186,7 +186,7 @@
                             android:text="@string/tabestoon_festival"
                             android:layout_marginStart="16dp"
                             android:textSize="25sp"
-                            android:textColor="@color/black"
+                            android:textColor="#E91E63"
                             android:layout_marginTop="16dp"
                             android:layout_marginBottom="0dp"
                             android:padding="20dp"
@@ -222,7 +222,7 @@
 
         android:layout_width="match_parent"
         android:layout_height="5dp"
-        android:background="@color/purple_700"/>
+        android:background="@color/black"/>
 
     <ImageView
         android:layout_width="393dp"
@@ -234,7 +234,7 @@
         android:text="@string/the_sky_is_the_limit"
         android:textSize="35sp"
         android:layout_marginLeft="10dp"
-        android:textColor="#eb5180"/>
+        android:textColor="#00BCD4"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -256,7 +256,7 @@
         android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="5dp"
-        android:background="@color/purple_700"/>
+        android:background="@color/black"/>
 
 
     <LinearLayout
@@ -275,7 +275,8 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="70dp"
             android:text="@string/explore_culture_with_fun"
-            android:textSize="30dp" />
+            android:textSize="30sp"
+            android:textColor="@color/teal_700"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -337,7 +338,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="25dp"
-                        android:text="Explore "
+                        android:text="@string/explore"
                         />
 
                 </LinearLayout>
@@ -421,7 +422,7 @@
         android:layout_marginTop="32dp"
         android:layout_width="match_parent"
         android:layout_height="5dp"
-        android:background="@color/purple_700"/>
+        android:background="@color/black"/>
 
     <LinearLayout
         android:layout_height="wrap_content"
