@@ -101,4 +101,20 @@ class Repo {
 
     }
 
+
+    fun deleteBookingEvent(id : String){
+        db.collection(COLLECTION_SIX)
+            .document(id)
+            .delete()
+            .addOnSuccessListener { Log.e(TAG, "Document successfully deleted") }
+            .addOnFailureListener{error -> Log.e(TAG, "Unable to delete a document" + error.localizedMessage)}
+
+
+    }
+
+
+
+
+
+
 }

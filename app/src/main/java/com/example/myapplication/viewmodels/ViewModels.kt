@@ -15,7 +15,7 @@ class ViewModels : ViewModel() {
     private val guestEmail = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL,"").toString()
     var guestList: MutableLiveData<List<Guest>> = MutableLiveData()
     var eventList: MutableLiveData<List<Event>> = MutableLiveData()
-    var guestBookingEventList: MutableLiveData<List<Event>> = MutableLiveData()
+    var eventBookingsList: MutableLiveData<List<BookingEvent>> = MutableLiveData()
     var hostList: MutableLiveData<List<Host>> = MutableLiveData()
     var stayOverList: MutableLiveData<List<StayOverBooking>> = MutableLiveData()
     //we have to save the event name in the shared prefrence so we can use it to fetch event name
@@ -92,6 +92,8 @@ class ViewModels : ViewModel() {
                             }
                             DocumentChange.Type.MODIFIED->{
 
+
+
                                 Log.e(TAG, "GUEST DOC modified ")
 
                             }
@@ -161,21 +163,20 @@ class ViewModels : ViewModel() {
         repo.getBookingEvent()
             .whereEqualTo("email" , guestEmail)
             .addSnapshotListener{snapshot , error ->
-
                 if (error != null){
                     Log.e(TAG, "LISTING FAILED")
-                    this.guestBookingEventList.value = null
+                    this.eventBookingsList.value = null
                     return@addSnapshotListener
                 }
-                var modifiedBookingEventList: MutableList<Event> = mutableListOf()
+                var modifiedBookingEventList: MutableList<BookingEvent> = mutableListOf()
 
                 if (snapshot != null){
                     for(documentChange in snapshot.documentChanges){
-                        var event = documentChange.document.toObject(Event::class.java)
+                        var bookingEvent = documentChange.document.toObject(BookingEvent::class.java)
                         Log.e(TAG, "event DOC CHANGED ")
                         when(documentChange.type){
                             DocumentChange.Type.ADDED ->{
-                                modifiedBookingEventList.add(event)
+                                modifiedBookingEventList.add(bookingEvent)
                                 Log.e(TAG, "event DOC added ")
                             }
                             DocumentChange.Type.MODIFIED->{
@@ -184,17 +185,20 @@ class ViewModels : ViewModel() {
 
                             }
                             DocumentChange.Type.REMOVED ->{
-                                modifiedBookingEventList.remove(event)
+                                modifiedBookingEventList.remove(bookingEvent)
                                 Log.e(TAG, "event DOC removed")
                             }
                         }
                     }
-                    this.guestBookingEventList.value = modifiedBookingEventList
+                    this.eventBookingsList.value = modifiedBookingEventList
                 }else{
-                    Log.e(TAG,"Guest not found")
+                    Log.e(TAG,"BOOKING EVENT not found")
                 }
             }
 
+    }
+    fun deleteBookingEvent(eventId: String){
+        repo.deleteBookingEvent(eventId)
     }
 
     fun fetchAllStayOver(){
