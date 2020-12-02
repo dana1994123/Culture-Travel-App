@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.lifecycle.MutableLiveData
 import com.example.myapplication.R
 import com.example.myapplication.managers.SharedPreferencesManager
 import com.example.myapplication.models.Guest
@@ -111,6 +112,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
                 }
             }
         var existingGuest = Guest()
+
     }
 
     override fun onResume() {
@@ -174,6 +176,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
                 this.enableEdit()
                 fabEditProfile.visibility = View.GONE
                 btnSave.visibility = View.VISIBLE
+                Log.e("before guest" , existingGuest.toString())
             }
             btnSave.id -> {
                 this.disableEdit()
@@ -188,23 +191,10 @@ class ProfileFragment : Fragment(), View.OnClickListener {
     private fun saveToDB(){
         //WE have to fetch the data that the user has been
         // change and update his profile on the DB
-
-        //viewModel.updateGuest(edtName.text.toString(),edtPhoneNumber.text.toString(),spnLang.selectedItem.toString())
         existingGuest.phoneNumber = edtPhoneNumber.text.toString()
         existingGuest.name = edtName.text.toString()
         existingGuest.language = spnLang.selectedItem.toString()
-        try{
-            viewModel.addGuest(existingGuest)
-        }
-        catch(ex: Exception){
-            Log.e("CATCH EDIT PROFILE" , "an error occur ")
-
-        }
-
-
-
-
-
-
+        viewModel.updateGuest2(existingGuest)
+        Log.e("the current user" , existingGuest.toString())
     }
 }
