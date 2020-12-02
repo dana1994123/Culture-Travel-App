@@ -32,8 +32,11 @@ class ViewModels : ViewModel() {
     fun deleteGuest (email:String ){
         repo.deleteGuest(email)
     }
-    fun updateGuest(name:String,phoneNumber:String,language:String){
-        repo.updateGuest(name,guestEmail,phoneNumber,language)
+//    fun updateGuest(name:String,phoneNumber:String,language:String){
+//        repo.updateGuest(name,guestEmail,phoneNumber,language)
+//    }
+    fun updateGuest2(currentGuest : Guest){
+        repo.updateGuest2(currentGuest )
     }
     fun getAllHosts(){
         repo.fetchAllHosts()
@@ -56,6 +59,7 @@ class ViewModels : ViewModel() {
                                 Log.e(TAG, "Document added to collection " + host.toString())
                             }
                             DocumentChange.Type.MODIFIED -> {
+
 
                                 Log.e(TAG, "Document modified " + host.toString())
                             }
@@ -88,11 +92,10 @@ class ViewModels : ViewModel() {
                         when(documentChange.type){
                             DocumentChange.Type.ADDED ->{
                                 modifiedGuestList.add(modifiedGuest)
+                                this.guestList.value = modifiedGuestList
                                 Log.e(TAG, "GUEST DOC added ")
                             }
                             DocumentChange.Type.MODIFIED->{
-
-
 
                                 Log.e(TAG, "GUEST DOC modified ")
 
@@ -103,7 +106,7 @@ class ViewModels : ViewModel() {
                             }
                         }
                     }
-                    this.guestList.value = modifiedGuestList
+
                     }else{
                         Log.e(TAG,"Guest not found")
                     }
@@ -200,6 +203,7 @@ class ViewModels : ViewModel() {
     fun deleteBookingEvent(eventId: String){
         repo.deleteBookingEvent(eventId)
     }
+
 
     fun fetchAllStayOver(){
         repo.fetchAlStayOver()
