@@ -132,7 +132,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
             edtEmail.setText(existingGuest.email)
             edtName.setText(existingGuest.name)
             edtPhoneNumber.setText(existingGuest.phoneNumber)
-                spnLang.setSelection(resources.getStringArray(R.array.language_array).indexOf(existingGuest.language))
+            spnLang.setSelection(resources.getStringArray(R.array.language_array).indexOf(existingGuest.language))
 
         })
 

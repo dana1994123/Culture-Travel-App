@@ -4,9 +4,7 @@ import java.util.*
 
 data class StayOverBooking (
         var guestEmail :String = "",
-        var dates :String = "" ,
+        var startDate: String="",
         var hostName : String = "",
-
-
-
+        var maxDuration: String = ""
 )

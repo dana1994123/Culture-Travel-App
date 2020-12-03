@@ -102,7 +102,9 @@
     <string name="event_name">Event Name</string>
     <string name="remove_booking">Remove Booking</string>
     <string name="upcoming_event">Upcoming Event</string>
-
+    <string name="explore_french">Explore the French culture</string>
+    <string name="explore_indian">Explore the Indian culture</string>
+    <string name="explore_italian">Explore the Italian culture</string>
     <string-array name="language_array">
         <item>English</item>
         <item>Indian</item>
