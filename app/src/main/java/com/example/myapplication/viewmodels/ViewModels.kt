@@ -207,7 +207,7 @@ class ViewModels : ViewModel() {
 
     fun fetchAllStayOver(){
         repo.fetchAlStayOver()
-            .whereEqualTo("culture" , stayOverName)
+            .whereEqualTo("name" , stayOverName)
             .addSnapshotListener{snapshot , error ->
 
                 if (error != null){
