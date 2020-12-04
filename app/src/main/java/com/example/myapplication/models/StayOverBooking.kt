@@ -6,5 +6,6 @@ data class StayOverBooking (
         var guestEmail :String = "",
         var startDate: String="",
         var hostName : String = "",
-        var maxDuration: String = ""
+        var maxDuration: String = "",
+        var culture: String = "",
 )

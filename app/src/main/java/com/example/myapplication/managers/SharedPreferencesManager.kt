@@ -14,6 +14,7 @@ object SharedPreferencesManager {
     val EVENT_NAME = "KEY_EVENT"
     val STAY_OVER_NAME = "STAYOVERNAME"
     var HOST_NAME = "HOST_NAME"
+    var CULTURE = "CULTURE"
     var LONG_LOCATION = "LONG_LOCATION"
     var LATIT_LOCATION = "LATIT_LOCATION"
 

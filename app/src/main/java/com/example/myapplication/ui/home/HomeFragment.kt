@@ -88,7 +88,7 @@ class HomeFragment : Fragment(),View.OnClickListener{
                 }
                 R.id.btnFirstEvent->{
                     //save the event name in the shared prefrence
-                    SharedPreferencesManager.write(SharedPreferencesManager.EVENT_NAME, txtFirstEvent.text.toString())
+                    SharedPreferencesManager.write(SharedPreferencesManager.HOST_NAME, txtFirstEvent.text.toString())
                     val currentEvent = SharedPreferencesManager.read(SharedPreferencesManager.EVENT_NAME, "")
                     Log.e ("SHARED PREFRENCES" ,currentEvent.toString() )
                     findNavController().navigate(R.id.eventFragment)
@@ -128,7 +128,7 @@ class HomeFragment : Fragment(),View.OnClickListener{
                 frenchStayOverBtn.id->{
 
                     //save stayover name in shared prefrence
-                    SharedPreferencesManager.write(SharedPreferencesManager.STAY_OVER_NAME, frenchText.text.toString())
+                    SharedPreferencesManager.write(SharedPreferencesManager.CULTURE, frenchText.text.toString())
                     val currentStayOver = SharedPreferencesManager.read(SharedPreferencesManager.STAY_OVER_NAME, "")
                     Log.e ("SHARED PREFRENCES" ,currentStayOver.toString() )
                     findNavController().navigate(R.id.stayOverFragment)

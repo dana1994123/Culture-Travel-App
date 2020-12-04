@@ -96,15 +96,17 @@
     <string name="book_now">Book Now</string>
     <string name="thank_you">Thank You!</string>
     <string name="booking_history">Booking History</string>
-    <string name="french_culture">French\nCulture</string>
-    <string name="italian_culture">Italian\nCulture</string>
-    <string name="indian_culture">Indian\nCulture</string>
+    <string name="french_culture">French</string>
+    <string name="italian_culture">Italian</string>
+    <string name="indian_culture">Indian</string>
     <string name="event_name">Event Name</string>
     <string name="remove_booking">Remove Booking</string>
     <string name="upcoming_event">Upcoming Event</string>
     <string name="explore_french">Explore the French culture</string>
     <string name="explore_indian">Explore the Indian culture</string>
     <string name="explore_italian">Explore the Italian culture</string>
+    <string name="guests_allowed">Guests allowed</string>
+    <string name="from_date">From</string>
     <string-array name="language_array">
         <item>English</item>
         <item>Indian</item>

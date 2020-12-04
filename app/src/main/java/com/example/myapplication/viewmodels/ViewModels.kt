@@ -12,8 +12,10 @@ import com.google.firebase.firestore.Query
 class ViewModels : ViewModel() {
     private val repo = Repo()
     private val TAG  = this@ViewModels.toString()
+    private val hostName = SharedPreferencesManager.read(SharedPreferencesManager.HOST_NAME,"").toString()
     private val guestEmail = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL,"").toString()
     var guestList: MutableLiveData<List<Guest>> = MutableLiveData()
+    private val stayOverCulture = SharedPreferencesManager.read(SharedPreferencesManager.CULTURE,"").toString()
     var eventList: MutableLiveData<List<Event>> = MutableLiveData()
     var eventBookingsList: MutableLiveData<List<BookingEvent>> = MutableLiveData()
     var hostList: MutableLiveData<List<Host>> = MutableLiveData()
@@ -40,6 +42,7 @@ class ViewModels : ViewModel() {
     }
     fun getAllHosts(){
         repo.fetchAllHosts()
+            .whereEqualTo("name",hostName)
             .orderBy("maximumGuests", Query.Direction.DESCENDING)
             .addSnapshotListener { snapshot, error ->
                 var modifiedHostList : MutableList<Host> = mutableListOf()
@@ -75,6 +78,47 @@ class ViewModels : ViewModel() {
                     Log.e(TAG, "Current data is null")
                 }
             }
+    }
+    fun fetchStayoverByCulture(){
+        repo.fetchAlStayOver()
+            .whereEqualTo("culture",stayOverCulture)
+            .addSnapshotListener { snapshot, error ->
+
+                if (error != null) {
+                    Log.e(TAG, "LISTING FAILED")
+                    this.stayOverList.value = null
+                    return@addSnapshotListener
+                }
+                var modifiedStayOver: MutableList<StayOverBooking> = mutableListOf()
+
+                if (snapshot != null) {
+                    for (documentChange in snapshot.documentChanges) {
+                        var stayOver = documentChange.document.toObject(StayOverBooking::class.java)
+                        Log.e(TAG, "stay ovaer CHANGED ")
+
+
+                        when (documentChange.type) {
+                            DocumentChange.Type.ADDED -> {
+                                modifiedStayOver.add(stayOver)
+                                Log.e(TAG, "stay ovaer DOC added ")
+                            }
+                            DocumentChange.Type.MODIFIED -> {
+
+                                Log.e(TAG, "stay ovaer DOC modified ")
+
+                            }
+                            DocumentChange.Type.REMOVED -> {
+                                modifiedStayOver.remove(stayOver)
+                                Log.e(TAG, "stay ovaer DOC removed")
+                            }
+                        }
+                    }
+                    this.stayOverList.value = modifiedStayOver
+                } else {
+                    Log.e(TAG, "Guest not found")
+                }
+            }
+
     }
     fun fetchAllGuest(){
         repo.fetchAllGuest()

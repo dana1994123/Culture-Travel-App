@@ -7,7 +7,9 @@ data class Host (
     var email: String = "",
     var name :String = "",
     var about :String = "",
+    var culture: String = "",
     var languageSpoken : String = "",
     var location :String ="",
+    var maximumGuests: String = "",
     var workExperience :String = "",
 )

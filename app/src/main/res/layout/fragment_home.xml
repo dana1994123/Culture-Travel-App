@@ -350,7 +350,8 @@
                     android:layout_height="250dp"
                     android:layout_gravity="center"
                     android:layout_margin="32dp"
-                    android:src="@drawable/french" />
+                    android:src="@drawable/french"
+                    />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
