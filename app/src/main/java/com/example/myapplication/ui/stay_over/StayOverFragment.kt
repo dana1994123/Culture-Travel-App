@@ -33,7 +33,6 @@ class StayOverFragment : Fragment(),View.OnClickListener {
     private var daysSelected = 0
     lateinit var btnPlus: FloatingActionButton
     lateinit var btnMinus: FloatingActionButton
-    lateinit var existingHost: Host
     lateinit var viewModel: ViewModels
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,8 +60,8 @@ class StayOverFragment : Fragment(),View.OnClickListener {
         viewModel = ViewModels()
         viewModel.fetchStayoverByCulture()
         this.populateStayOver()
-//        viewModel.getAllHosts()
-//        this.fetchHostDetails()
+        viewModel.getAllHosts()
+        this.fetchHostDetails()
         super.onResume()
     }
 
@@ -84,6 +83,7 @@ class StayOverFragment : Fragment(),View.OnClickListener {
                     putString(ARG_PARAM2, param2)
                 }
             }
+        var exisitingHost = Host()
         var existingStayOver =StayOverBooking()
     }
     override fun onClick(v: View?) {
@@ -116,8 +116,8 @@ class StayOverFragment : Fragment(),View.OnClickListener {
     }
     fun fetchHostDetails(){
         this.viewModel.hostList.observe(viewLifecycleOwner,{ host->
-            existingHost = host[0]
-            tvAllowedGuests.text = existingHost.maximumGuests
+            exisitingHost = host[0]
+            tvAllowedGuests.text = exisitingHost.maximumGuests
         })
     }
 }

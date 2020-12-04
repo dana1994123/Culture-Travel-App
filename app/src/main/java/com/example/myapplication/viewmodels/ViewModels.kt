@@ -40,7 +40,7 @@ class ViewModels : ViewModel() {
     }
     fun getAllHosts(){
         repo.fetchAllHosts()
-            .orderBy("maximumGuests", Query.Direction.DESCENDING)
+            .whereEqualTo("culture",culture)
             .addSnapshotListener { snapshot, error ->
                 var modifiedHostList : MutableList<Host> = mutableListOf()
                 if(error != null){
