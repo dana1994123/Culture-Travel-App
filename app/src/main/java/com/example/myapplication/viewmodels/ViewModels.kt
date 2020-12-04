@@ -21,7 +21,7 @@ class ViewModels : ViewModel() {
     //we have to save the event name in the shared prefrence so we can use it to fetch event name
     private val eventName  = SharedPreferencesManager.read(SharedPreferencesManager.EVENT_NAME,"").toString()
     private val stayOverName  = SharedPreferencesManager.read(SharedPreferencesManager.STAY_OVER_NAME,"").toString()
-
+    private val culture = SharedPreferencesManager.read(SharedPreferencesManager.CULTURE,"").toString()
     fun addGuest(guest :Guest){
         repo.addGuest(guest)
 
@@ -73,6 +73,46 @@ class ViewModels : ViewModel() {
                     this.hostList.value = modifiedHostList
                 }else{
                     Log.e(TAG, "Current data is null")
+                }
+            }
+    }
+    fun fetchStayoverByCulture(){
+        repo.fetchAlStayOver()
+            .whereEqualTo("culture" ,culture )
+            .addSnapshotListener{snapshot , error ->
+
+                if (error != null){
+                    Log.e(TAG, "LISTING FAILED")
+                    this.stayOverList.value = null
+                    return@addSnapshotListener
+                }
+                var modifiedStayOver: MutableList<StayOverBooking> = mutableListOf()
+
+                if (snapshot != null){
+                    for(documentChange in snapshot.documentChanges){
+                        var stayOver = documentChange.document.toObject(StayOverBooking::class.java)
+                        Log.e(TAG, "stay ovaer CHANGED ")
+
+
+                        when(documentChange.type){
+                            DocumentChange.Type.ADDED ->{
+                                modifiedStayOver.add(stayOver)
+                                Log.e(TAG, "stay ovaer DOC added ")
+                            }
+                            DocumentChange.Type.MODIFIED->{
+
+                                Log.e(TAG, "stay ovaer DOC modified ")
+
+                            }
+                            DocumentChange.Type.REMOVED ->{
+                                modifiedStayOver.remove(stayOver)
+                                Log.e(TAG, "stay ovaer DOC removed")
+                            }
+                        }
+                    }
+                    this.stayOverList.value = modifiedStayOver
+                }else{
+                    Log.e(TAG,"Guest not found")
                 }
             }
     }
