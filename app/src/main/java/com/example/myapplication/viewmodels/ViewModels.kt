@@ -76,6 +76,8 @@ class ViewModels : ViewModel() {
                 }
             }
     }
+
+
     fun fetchAllGuest(){
         repo.fetchAllGuest()
             .whereEqualTo("email" , guestEmail)

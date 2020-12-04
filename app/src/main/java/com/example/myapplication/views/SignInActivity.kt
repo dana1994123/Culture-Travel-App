@@ -2,6 +2,7 @@ package com.example.myapplication.views
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
@@ -10,6 +11,7 @@ import com.example.myapplication.R
 import com.example.myapplication.locationmanager.LocationManager
 import com.example.myapplication.managers.SharedPreferencesManager
 import com.example.myapplication.utils.DataValidations
+import com.example.myapplication.viewmodels.ViewModels
 import kotlinx.android.synthetic.main.activity_sign_in.*
 
 
@@ -20,10 +22,13 @@ class SignInActivity : AppCompatActivity() ,View.OnClickListener {
     lateinit var tvCreateAccount: TextView
 
 
+    lateinit var viewModels: ViewModels
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
+
 
 
 
@@ -40,20 +45,26 @@ class SignInActivity : AppCompatActivity() ,View.OnClickListener {
         this.fetchPreferences()
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModels = ViewModels()
+        viewModels.fetchAllGuest()
+        Log.e("resume working" , "resume")
+
+    }
+
     override fun onClick(v: View?) {
 
-        if (v!=null){
-            when (v.id){
-                loginBtn.id ->{
-                    if(this.validateData()){
-                        this.validateUser()
-                        //we have to send the guest information to the home
-                        // fragment as well using shared prefrence
+        if (v != null) {
+            when (v.id) {
+                loginBtn.id -> {
+                    if (this.validateData()) {
                         SharedPreferencesManager.write(SharedPreferencesManager.EMAIL, edtEmail.text.toString())
-                        this.goToHome()
+                        this.validateUser()
+
                     }
                 }
-                tvCreateAccount.id ->{
+                tvCreateAccount.id -> {
                     this.goToSignUp()
                 }
             }
@@ -61,25 +72,35 @@ class SignInActivity : AppCompatActivity() ,View.OnClickListener {
     }
 
 
-    private fun validateUser(){
+    private fun validateUser() {
         // we have to validate the information that the user has been input by
         // searching our database
-
         val email = edtEmail.text.toString()
         val password = DataValidations().encryptPassword(edtPassword.text.toString())
 
-        if(true){
-            //if it is match
-            this.checkRemember()
-            //this@SignInActivity.finishAndRemoveTask()
+        viewModels.guestList.observe(this,{matchedGuestList ->
+            if(matchedGuestList != null){
+                if(matchedGuestList[0].password == password){
+                    //correct credential
+                    Log.e("correct current Guest",SharedPreferencesManager.read(SharedPreferencesManager.EMAIL,"").toString() )
+                    this.checkRemember()
+                    this.goToHome()
+
+                }
+                else{
+                    Toast.makeText(this, "Incorrect Login/Password. Try again!", Toast.LENGTH_LONG).show()
+                }
+            }
+        })
 
 
-        }else{
-            //invalid login
-            Toast.makeText(this, "Incorrect Login/Password. Try again!", Toast.LENGTH_LONG).show()
-        }
+
+
+
+
 
     }
+
 
 
 

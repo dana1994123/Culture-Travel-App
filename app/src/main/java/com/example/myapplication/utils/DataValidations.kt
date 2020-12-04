@@ -4,6 +4,8 @@ import android.text.TextUtils
 import android.util.Base64
 import android.util.Log
 import android.util.Patterns
+import java.io.ByteArrayInputStream
+import java.io.ObjectInputStream
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 
@@ -40,5 +42,8 @@ class DataValidations {
 
         return ""
     }
+
+
+
 
 }
