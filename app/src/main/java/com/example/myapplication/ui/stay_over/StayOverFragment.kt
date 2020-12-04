@@ -39,6 +39,8 @@ class StayOverFragment : Fragment(), View.OnClickListener {
     private var daysSelected = 0
     private var selectedAdults = 0
     private var selectedChildren = 0
+    private var totalPay = 0
+    private var mysteryBox: Boolean = false
     lateinit var viewModel: ViewModels
 
     val currentCulture = SharedPreferencesManager.read(SharedPreferencesManager.CULTURE, "")
@@ -117,7 +119,7 @@ class StayOverFragment : Fragment(), View.OnClickListener {
         super.onResume()
         //tvDaysValue.text = daysSelected.toString()
         viewModel = ViewModels()
-
+        txtTotal.text = "${getString(R.string.total_233)}${totalPay}"
         viewModel.fetchStayoverByCulture()
 
 
@@ -177,42 +179,57 @@ class StayOverFragment : Fragment(), View.OnClickListener {
                 }
                 txtCMB.id ->{
                     //show alert box have some information about it
-
                 }
                 btnPlus.id ->{
                     if(daysSelected < existingStayOver.maxDuration.toInt()){
                         tvDurationValue.text = (++daysSelected).toString()
+                        totalPay = this.calculateTotal(selectedChildren,selectedAdults,daysSelected)
+                        txtTotal.text = "${getString(R.string.total_233)}${totalPay}"
                     }
                 }
                 btnMinus.id->{
                     if(daysSelected > 0){
                         tvDurationValue.text = (--daysSelected).toString()
+                        totalPay = this.calculateTotal(selectedChildren,selectedAdults,daysSelected)
+                        txtTotal.text = "${getString(R.string.total_233)}${totalPay}"
                     }
                 }
                 adultPlusBtn.id->{
                     if(selectedAdults < existingStayOver.maxAdult.toInt()){
                         adultValue.text = (++selectedAdults).toString()
+                        totalPay = this.calculateTotal(selectedChildren,selectedAdults,daysSelected)
+                        txtTotal.text = "${getString(R.string.total_233)}${totalPay}"
+
                     }
                 }
                 adultMinusBtn.id->{
                     if(selectedAdults > 0){
                         adultValue.text = (--selectedAdults).toString()
+                        totalPay = this.calculateTotal(selectedChildren,selectedAdults,daysSelected)
+                        txtTotal.text = "${getString(R.string.total_233)}${totalPay}"
+
                     }
                 }
                 childMinusBtn.id->{
                     if(selectedChildren > 0){
                         childrenValue.text = (--selectedChildren).toString()
+                        totalPay = this.calculateTotal(selectedChildren,selectedAdults,daysSelected)
+                        txtTotal.text = "${getString(R.string.total_233)}${totalPay}"
+
                     }
                 }
                 childPlusBtn.id->{
                     if(selectedChildren < existingStayOver.maxChild.toInt()){
                         childrenValue.text = (++selectedChildren).toString()
+                        totalPay = this.calculateTotal(selectedChildren,selectedAdults,daysSelected)
+                        txtTotal.text = "${getString(R.string.total_233)}${totalPay}"
+
                     }
                 }
             }
         }
-    }
 
+    }
 
 //            if(existingStayOver.culture == "French") {
 //                tvCulture.text = getString(R.string.french_culture)
@@ -229,5 +246,9 @@ class StayOverFragment : Fragment(), View.OnClickListener {
 //            tvAllowedGuests.text = exisitingHost.maximumGuests
 //        })
 //    }
-
+    private fun calculateTotal(children:Int,adults:Int,days:Int):Int{
+    if()
+        if(days>0 && (adults>0 || children > 0)) return (children+adults+days)*60
+    else return 0
+    }
 }
