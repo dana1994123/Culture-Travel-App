@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
@@ -50,9 +51,10 @@ class EventFragment : Fragment() , View.OnClickListener{
     lateinit var btnBooking :Button
     lateinit var viewModel: ViewModels
     private lateinit var hostListFetched: MutableList<Host>
-    var currentEvent = SharedPreferencesManager.read(SharedPreferencesManager.EVENT_NAME, "")
+    var currentEventName = SharedPreferencesManager.read(SharedPreferencesManager.EVENT_NAME, "")
     var currentHost = SharedPreferencesManager.read(SharedPreferencesManager.HOST_NAME, "")
     var currentEmail = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL,"")
+    private var bookingStatus :Boolean = true
 
 
     private var map: GoogleMap? = null
@@ -75,6 +77,7 @@ class EventFragment : Fragment() , View.OnClickListener{
             param2 = it.getString(ARG_PARAM2)
         }
 
+
     }
 
     override fun onCreateView(
@@ -96,8 +99,10 @@ class EventFragment : Fragment() , View.OnClickListener{
         btnBooking = root.btnBooking
         btnBooking.setOnClickListener(this)
 
+        //this.disableBookingEvent()
         //val latit = longLocation?.toDouble()
         //val longitude = latitLocation?.toDouble()
+
 
 
 
@@ -129,7 +134,7 @@ class EventFragment : Fragment() , View.OnClickListener{
 
     private fun populateEvent(){
         //create a method to populate the event by fetching the event to the fragment
-        Log.e("collection jftyhjghj", currentEvent.toString())
+        Log.e("collection jftyhjghj", currentEventName.toString())
         this.viewModel.eventList.observe(this.requireActivity(), { eventsList ->
             if (eventsList != null) {
                 existingEvent = eventsList[0]
@@ -158,12 +163,14 @@ class EventFragment : Fragment() , View.OnClickListener{
         if (v!=null ){
             when(v.id){
                 R.id.btnBooking -> {
-                    //save the booking in the db as a BookingEvent obj
+                    //this.disableBookingEvent()
                     bookingEvent.email = currentEmail.toString()
                     bookingEvent.event = existingEvent
                     viewModel.addBookingEvent(bookingEvent)
-                    //navigate to confirmation fragment
                     findNavController().navigate(R.id.bookingConfirmation2)
+
+
+
                 }
 
             }
@@ -172,9 +179,34 @@ class EventFragment : Fragment() , View.OnClickListener{
 
     override fun onResume() {
         super.onResume()
+        Log.e("the fragmnt" , "resume")
         viewModel = ViewModels()
         viewModel.fetchAllEvent()
+
         //create a method to populate the event by fetching the event to the fragment
         this.populateEvent ()
+        viewModel.getBookingEvent()
+        bookingStatus =true
+
     }
+
+
+    fun disableBookingEvent()  {
+        //check if the user has booked this event before and if yes show a toast msg
+        viewModel.eventBookingsList.observe(this.requireActivity(), {bookingEventHistory ->
+            if(bookingEventHistory != null){
+                for(i in bookingEventHistory ){
+                    if(i.event.name == currentEventName){
+                        //the user has already book the event
+                        Toast.makeText(this.requireContext(), "You have already book this event. Please check your booking history", Toast.LENGTH_SHORT).show()
+                        bookingStatus = false
+                        break
+                    }
+
+                }
+            }
+        })
+
+    }
+
 }

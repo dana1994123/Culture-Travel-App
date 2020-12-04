@@ -107,6 +107,16 @@
     <string name="explore_italian">Explore the Italian culture</string>
     <string name="guests_allowed">Guests allowed</string>
     <string name="from_date">From</string>
+    <string name="meet_your_host">Meet your host,</string>
+    <string name="dana">Dana</string>
+    <string name="number_of_days">Number of Days</string>
+    <string name="frequently_booked_together">Frequently Booked Together</string>
+    <string name="what_is_cmb">What is CMB?!</string>
+    <string name="guests">Guests</string>
+    <string name="book_now">Book Now</string>
+    <string name="total_233">Total : $233</string>
+    <string name="adult">Adult</string>
+    <string name="children">Children</string>
     <string-array name="language_array">
         <item>English</item>
         <item>Indian</item>

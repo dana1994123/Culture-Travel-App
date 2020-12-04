@@ -86,40 +86,7 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="@string/event_host"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="45dp"/>
-        <TextView
-            android:id="@+id/edtEventHost"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="event host"
-            android:textColor="@color/black"
-            android:gravity="center_horizontal"
-            android:textSize="20sp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="45dp"/>
-        <ImageView
-
-            android:id="@+id/hostImg"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/winter_light"
-            android:layout_marginStart="5dp"/>
-
-
-    </LinearLayout>
     <View
         android:layout_marginBottom="20dp"
         android:layout_width="match_parent"

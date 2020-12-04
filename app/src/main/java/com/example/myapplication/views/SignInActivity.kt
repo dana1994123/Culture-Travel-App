@@ -84,6 +84,7 @@ class SignInActivity : AppCompatActivity() ,View.OnClickListener {
                     //correct credential
                     Log.e("correct current Guest",SharedPreferencesManager.read(SharedPreferencesManager.EMAIL,"").toString() )
                     this.checkRemember()
+                    this@SignInActivity.finishAndRemoveTask()
                     this.goToHome()
 
                 }

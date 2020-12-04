@@ -66,7 +66,8 @@
         tools:layout="@layout/fragment_event" >
         <action
             android:id="@+id/action_eventFragment_to_bookingConfirmation2"
-            app:destination="@id/bookingConfirmation2" />
+            app:destination="@id/bookingConfirmation2"
+            app:popUpTo="@id/nav_home" />
     </fragment>
     <fragment
         android:id="@+id/stayOverFragment"
@@ -81,10 +82,7 @@
         android:id="@+id/bookingConfirmation2"
         android:name="com.example.myapplication.ui.bookingconfirmation.BookingConfirmation"
         android:label="Confirmation"
-        tools:layout="@layout/fragment_booking_confirmation" >
-        <action
-            android:id="@+id/action_bookingConfirmation2_to_nav_home"
-            app:destination="@id/nav_home" />
+        tools:layout="@layout/fragment_booking_confirmation">
         <action
             android:id="@+id/action_bookingConfirmation2_to_nav_trip_history"
             app:destination="@id/nav_trip_history" />
@@ -96,6 +94,7 @@
         tools:layout="@layout/fragment_payment" >
         <action
             android:id="@+id/action_paymentFragment_to_bookingConfirmation2"
-            app:destination="@id/bookingConfirmation2" />
+            app:destination="@id/bookingConfirmation2"
+            app:popUpTo="@id/nav_home" />
     </fragment>
 </navigation>
