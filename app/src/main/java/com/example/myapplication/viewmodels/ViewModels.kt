@@ -108,6 +108,7 @@ class ViewModels : ViewModel() {
 
                         when(documentChange.type){
                             DocumentChange.Type.ADDED ->{
+                                stayOver.dates = documentChange.document.get("Dates") as ArrayList<String>
                                 modifiedStayOver.add(stayOver)
                                 Log.e(TAG, "stay ovaer DOC added ")
                             }
@@ -122,6 +123,7 @@ class ViewModels : ViewModel() {
                             }
                         }
                     }
+
                     this.stayOverList.value = modifiedStayOver
                 }else{
                     Log.e(TAG,"Guest not found")

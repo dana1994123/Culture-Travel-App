@@ -35,9 +35,10 @@ class StayOverFragment : Fragment(), View.OnClickListener {
     private var param1: String? = null
     private var param2: String? = null
 
-
     private lateinit var hostName: String
     private var daysSelected = 0
+    private var selectedAdults = 0
+    private var selectedChildren = 0
     lateinit var viewModel: ViewModels
 
     val currentCulture = SharedPreferencesManager.read(SharedPreferencesManager.CULTURE, "")
@@ -55,6 +56,8 @@ class StayOverFragment : Fragment(), View.OnClickListener {
     private lateinit var adultPlusBtn: FloatingActionButton
     private lateinit var childMinusBtn: FloatingActionButton
     private lateinit var childPlusBtn: FloatingActionButton
+    private lateinit var btnPlus: FloatingActionButton
+    private lateinit var btnMinus: FloatingActionButton
     private lateinit var childrenValue: TextView
     private lateinit var txtCMB: TextView
     private lateinit var txtTotal: TextView
@@ -88,15 +91,24 @@ class StayOverFragment : Fragment(), View.OnClickListener {
         childMinusBtn = root.findViewById(R.id.childMinusBtn)
         childPlusBtn = root.findViewById(R.id.childPlusBtn)
         childrenValue = root.findViewById(R.id.childrenValue)
+        btnMinus = root.findViewById(R.id.btnDurationMinus)
+        btnPlus = root.findViewById(R.id.btnDurationPlus)
         txtCMB = root.findViewById(R.id.txtCMB)
         txtTotal = root.findViewById(R.id.txtTotal)
         bookBtn = root.findViewById(R.id.bookBtn)
         mystryCheckBox = root.findViewById(R.id.mystryCheckBox)
 
+
         Log.e("current culture" , currentCulture.toString())
 
-       bookBtn.setOnClickListener(this)
+        bookBtn.setOnClickListener(this)
         mystryCheckBox.setOnClickListener(this)
+        btnPlus.setOnClickListener(this)
+        btnMinus.setOnClickListener(this)
+        adultPlusBtn.setOnClickListener(this)
+        adultMinusBtn.setOnClickListener(this)
+        childMinusBtn.setOnClickListener(this)
+        childPlusBtn.setOnClickListener(this)
         return root
     }
 
@@ -141,6 +153,10 @@ class StayOverFragment : Fragment(), View.OnClickListener {
                 existingStayOver = stayOverList[0]
                 Log.e("current stay Over" , existingStayOver.stayOverName)
             }
+            dateRb1.text = existingStayOver.dates[0]
+            dateRb2.text = existingStayOver.dates[1]
+            dateRb3.text = existingStayOver.dates[2]
+
             tvCulture.setText(existingStayOver.stayOverName.toString())
             //fetch the image from the Db
 
@@ -161,8 +177,38 @@ class StayOverFragment : Fragment(), View.OnClickListener {
                 }
                 txtCMB.id ->{
                     //show alert box have some information about it
-                }
 
+                }
+                btnPlus.id ->{
+                    if(daysSelected < existingStayOver.maxDuration.toInt()){
+                        tvDurationValue.text = (++daysSelected).toString()
+                    }
+                }
+                btnMinus.id->{
+                    if(daysSelected > 0){
+                        tvDurationValue.text = (--daysSelected).toString()
+                    }
+                }
+                adultPlusBtn.id->{
+                    if(selectedAdults < existingStayOver.maxAdult.toInt()){
+                        adultValue.text = (++selectedAdults).toString()
+                    }
+                }
+                adultMinusBtn.id->{
+                    if(selectedAdults > 0){
+                        adultValue.text = (--selectedAdults).toString()
+                    }
+                }
+                childMinusBtn.id->{
+                    if(selectedChildren > 0){
+                        childrenValue.text = (--selectedChildren).toString()
+                    }
+                }
+                childPlusBtn.id->{
+                    if(selectedChildren < existingStayOver.maxChild.toInt()){
+                        childrenValue.text = (++selectedChildren).toString()
+                    }
+                }
             }
         }
     }

@@ -1,6 +1,7 @@
 package com.example.myapplication.models
 
 import java.util.*
+import kotlin.collections.ArrayList
 
 /*
 user dana
@@ -11,7 +12,7 @@ Date 2020-12-04
     var id :String = UUID.randomUUID().toString(),
     var stayOverName :String ="",
     var maxDuration: String = "",
-    var dates :Array<String> = arrayOf(),
+    var dates :ArrayList<String> = arrayListOf(),
     var culture: String = "",
     var price :String = "",
     var maxAdult :String ="",
