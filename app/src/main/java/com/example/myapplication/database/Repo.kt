@@ -29,6 +29,12 @@ class Repo {
             .addOnFailureListener { error -> Log.e(TAG,"Guest DOC Failure") }
     }
 
+    fun addStayOver(stayOver: StayOver){
+        db.collection(COLLECTTION_FOUR).document(stayOver.id.toString()).set(stayOver)
+            .addOnSuccessListener { Log.e(TAG , "STAYOVER DOC succseefully added") }
+            .addOnFailureListener { error -> Log.e(TAG,"STAYOVER DOC Failure") }
+    }
+
 
     fun fetchAllGuest() : CollectionReference{
         val collectionRefrence  :CollectionReference = db.collection(COLLECTION_ONE)
@@ -61,7 +67,6 @@ class Repo {
             .update("name" , currentGuest.name , "language" , currentGuest.language , "phoneNumber" , currentGuest.phoneNumber)
             .addOnSuccessListener { Log.e(TAG, "Document successfully deleted") }
             .addOnFailureListener{error -> Log.e(TAG, "Unable to delete a document" + error.localizedMessage)}
-
     }
 
 

@@ -23,13 +23,20 @@ import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.locationmanager.LocationManager
 import com.example.myapplication.managers.SharedPreferencesManager
+import com.example.myapplication.models.StayOver
+import com.example.myapplication.viewmodels.ViewModels
 import com.google.android.gms.maps.model.LatLng
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_sign_in.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.nav_header_main.*
 import kotlinx.android.synthetic.main.nav_header_main.edtEmail
 
 class HomeActivity2 : AppCompatActivity(){
+
+    private lateinit var viewModel : ViewModels
+
+
 
     private val TAG = this@HomeActivity2.toString()
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -45,11 +52,7 @@ class HomeActivity2 : AppCompatActivity(){
         setSupportActionBar(toolbar)
 
 
-
-
-
-
-
+        viewModel = ViewModels()
 
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
@@ -95,6 +98,7 @@ class HomeActivity2 : AppCompatActivity(){
         }
         return super.onOptionsItemSelected(item)
     }
+
 
 
 

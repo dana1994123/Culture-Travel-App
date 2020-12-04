@@ -12,20 +12,32 @@ import com.google.firebase.firestore.Query
 class ViewModels : ViewModel() {
     private val repo = Repo()
     private val TAG  = this@ViewModels.toString()
+
     private val guestEmail = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL,"").toString()
+    private val eventName  = SharedPreferencesManager.read(SharedPreferencesManager.EVENT_NAME,"").toString()
+    private val culture = SharedPreferencesManager.read(SharedPreferencesManager.CULTURE,"").toString()
+
+
+
     var guestList: MutableLiveData<List<Guest>> = MutableLiveData()
     var eventList: MutableLiveData<List<Event>> = MutableLiveData()
     var eventBookingsList: MutableLiveData<List<BookingEvent>> = MutableLiveData()
     var hostList: MutableLiveData<List<Host>> = MutableLiveData()
-    var stayOverList: MutableLiveData<List<StayOverBooking>> = MutableLiveData()
-    //we have to save the event name in the shared prefrence so we can use it to fetch event name
-    private val eventName  = SharedPreferencesManager.read(SharedPreferencesManager.EVENT_NAME,"").toString()
-    private val stayOverName  = SharedPreferencesManager.read(SharedPreferencesManager.STAY_OVER_NAME,"").toString()
-    private val culture = SharedPreferencesManager.read(SharedPreferencesManager.CULTURE,"").toString()
+    var stayOverList: MutableLiveData<List<StayOver>> = MutableLiveData()
+
+
+
     fun addGuest(guest :Guest){
         repo.addGuest(guest)
 
         Log.e(TAG , "addGuest"  + guest.toString())
+    }
+
+
+    fun addStayOver(stayOver: StayOver ){
+        repo.addStayOver(stayOver)
+
+        Log.e(TAG , "addStayOver"  + stayOver.toString())
     }
 
 
@@ -86,11 +98,11 @@ class ViewModels : ViewModel() {
                     this.stayOverList.value = null
                     return@addSnapshotListener
                 }
-                var modifiedStayOver: MutableList<StayOverBooking> = mutableListOf()
+                var modifiedStayOver: MutableList<StayOver> = mutableListOf()
 
                 if (snapshot != null){
                     for(documentChange in snapshot.documentChanges){
-                        var stayOver = documentChange.document.toObject(StayOverBooking::class.java)
+                        var stayOver = documentChange.document.toObject(StayOver::class.java)
                         Log.e(TAG, "stay ovaer CHANGED ")
 
 
@@ -116,6 +128,8 @@ class ViewModels : ViewModel() {
                 }
             }
     }
+
+
     fun fetchAllGuest(){
         repo.fetchAllGuest()
             .whereEqualTo("email" , guestEmail)
@@ -245,45 +259,45 @@ class ViewModels : ViewModel() {
     }
 
 
-    fun fetchAllStayOver(){
-        repo.fetchAlStayOver()
-            .whereEqualTo("name" , stayOverName)
-            .addSnapshotListener{snapshot , error ->
-
-                if (error != null){
-                    Log.e(TAG, "LISTING FAILED")
-                    this.stayOverList.value = null
-                    return@addSnapshotListener
-                }
-                var modifiedStayOver: MutableList<StayOverBooking> = mutableListOf()
-
-                if (snapshot != null){
-                    for(documentChange in snapshot.documentChanges){
-                        var stayOver = documentChange.document.toObject(StayOverBooking::class.java)
-                        Log.e(TAG, "stay ovaer CHANGED ")
-
-
-                        when(documentChange.type){
-                            DocumentChange.Type.ADDED ->{
-                                modifiedStayOver.add(stayOver)
-                                Log.e(TAG, "stay ovaer DOC added ")
-                            }
-                            DocumentChange.Type.MODIFIED->{
-
-                                Log.e(TAG, "stay ovaer DOC modified ")
-
-                            }
-                            DocumentChange.Type.REMOVED ->{
-                                modifiedStayOver.remove(stayOver)
-                                Log.e(TAG, "stay ovaer DOC removed")
-                            }
-                        }
-                    }
-                    this.stayOverList.value = modifiedStayOver
-                }else{
-                    Log.e(TAG,"Guest not found")
-                }
-            }
-
-    }
+//    fun fetchAllStayOver(){
+//        repo.fetchAlStayOver()
+//            .whereEqualTo("name" , stayOverName)
+//            .addSnapshotListener{snapshot , error ->
+//
+//                if (error != null){
+//                    Log.e(TAG, "LISTING FAILED")
+//                    this.stayOverList.value = null
+//                    return@addSnapshotListener
+//                }
+//                var modifiedStayOver: MutableList<StayOverBooking> = mutableListOf()
+//
+//                if (snapshot != null){
+//                    for(documentChange in snapshot.documentChanges){
+//                        var stayOver = documentChange.document.toObject(StayOverBooking::class.java)
+//                        Log.e(TAG, "stay ovaer CHANGED ")
+//
+//
+//                        when(documentChange.type){
+//                            DocumentChange.Type.ADDED ->{
+//                                modifiedStayOver.add(stayOver)
+//                                Log.e(TAG, "stay ovaer DOC added ")
+//                            }
+//                            DocumentChange.Type.MODIFIED->{
+//
+//                                Log.e(TAG, "stay ovaer DOC modified ")
+//
+//                            }
+//                            DocumentChange.Type.REMOVED ->{
+//                                modifiedStayOver.remove(stayOver)
+//                                Log.e(TAG, "stay ovaer DOC removed")
+//                            }
+//                        }
+//                    }
+//                    this.stayOverList.value = modifiedStayOver
+//                }else{
+//                    Log.e(TAG,"Guest not found")
+//                }
+//            }
+//
+//    }
 }

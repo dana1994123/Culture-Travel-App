@@ -11,16 +11,17 @@
 
 
     <TextView
+        android:layout_marginTop="70dp"
         android:id="@+id/tvCulture"
         android:layout_width="404dp"
         android:layout_height="80dp"
-        android:text="Exlpore French Culture"
+        android:text="@string/exlpore_french_culture"
         android:textAlignment="center"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
+        app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteY="51dp" />
 
     <HorizontalScrollView
@@ -36,14 +37,23 @@
         android:orientation="horizontal">
 
     <ImageView
-        android:layout_width="530dp"
+        android:id="@+id/stayOverImg1"
+        android:layout_width="match_parent"
         android:layout_height="496dp"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteY="135dp" />
         <ImageView
+            android:id="@+id/stayOverImg2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
+            android:layout_height="496dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="135dp" />
+        <ImageView
+            android:id="@+id/stayOverImg3"
+            android:layout_width="match_parent"
+            android:layout_height="496dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="135dp" />
 
         </LinearLayout>
 
@@ -169,7 +179,7 @@
                 android:layout_marginTop="15dp" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/adultbtnMinus"
+                android:id="@+id/adultMinusBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_margin="16dp"
@@ -179,8 +189,8 @@
 
             <TextView
                 android:id="@+id/adultValue"
-                android:text=""
-                android:textSize="30sp"
+                android:text="0"
+                android:textSize="20sp"
                 android:layout_margin="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -188,7 +198,7 @@
                 />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/adultbtnPlus"
+                android:id="@+id/adultPlusBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_margin="16dp"
@@ -213,7 +223,7 @@
                 android:layout_marginTop="15dp" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/btnMinus"
+                android:id="@+id/childMinusBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_margin="16dp"
@@ -222,8 +232,8 @@
                 app:srcCompat="@drawable/ic_decrease" />
 
             <TextView
-                android:text=""
-                android:textSize="30sp"
+                android:text="0"
+                android:textSize="20sp"
                 android:layout_margin="20dp"
                 android:id="@+id/childrenValue"
                 android:layout_width="wrap_content"
@@ -232,7 +242,7 @@
                 />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/btnPlus"
+                android:id="@+id/childPlusBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_margin="16dp"
@@ -243,68 +253,15 @@
 
         </LinearLayout>
     </LinearLayout>
-    <LinearLayout
-        android:id="@+id/linear5"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.event.EventFragment"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/linear4">
 
-    <TextView
-        android:id="@+id/tv3"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/number_of_days"
-        android:textAlignment="center"
-        android:textColor="#040000"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:background="#DFDEDE"/>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginStart="100dp"
-            >
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/daysbtnMinus"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_margin="16dp"
-                app:maxImageSize="40dp"
-                app:fabSize="mini"
-                app:srcCompat="@drawable/ic_decrease" />
 
-            <TextView
-                android:text=""
-                android:textSize="30sp"
-                android:layout_margin="20dp"
-                android:id="@+id/tvDaysValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                />
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/daysbtnPlus"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_margin="16dp"
-                app:maxImageSize="40dp"
-                app:fabSize="mini"
-                app:srcCompat="@drawable/ic_increase"
-                />
-        </LinearLayout>
-
-    </LinearLayout>
     <LinearLayout
         android:id="@+id/linear6"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.event.EventFragment"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/linear5">
+        app:layout_constraintTop_toBottomOf="@id/linear4">
 
     <TextView
         android:id="@+id/tv4"

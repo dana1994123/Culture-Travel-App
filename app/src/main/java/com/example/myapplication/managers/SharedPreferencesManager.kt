@@ -12,7 +12,6 @@ object SharedPreferencesManager {
     val EMAIL = "KEY_EMAIL"
     val PASSWORD = "KEY_PASSWORD"
     val EVENT_NAME = "KEY_EVENT"
-    val STAY_OVER_NAME = "STAYOVERNAME"
     var HOST_NAME = "HOST_NAME"
     var CULTURE = "CULTURE"
     var LONG_LOCATION = "LONG_LOCATION"
@@ -52,7 +51,6 @@ object SharedPreferencesManager {
             remove(EMAIL)
             remove(PASSWORD)
             remove(EVENT_NAME)
-            remove(STAY_OVER_NAME)
             remove(HOST_NAME)
             remove(LONG_LOCATION)
             remove(LATIT_LOCATION)

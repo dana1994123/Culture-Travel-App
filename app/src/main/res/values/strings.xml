@@ -113,10 +113,10 @@
     <string name="frequently_booked_together">Frequently Booked Together</string>
     <string name="what_is_cmb">What is CMB?!</string>
     <string name="guests">Guests</string>
-    <string name="book_now">Book Now</string>
     <string name="total_233">Total : $233</string>
     <string name="adult">Adult</string>
     <string name="children">Children</string>
+    <string name="exlpore_french_culture">Exlpore French Culture</string>
     <string-array name="language_array">
         <item>English</item>
         <item>Indian</item>

@@ -18,6 +18,8 @@ import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
 import com.example.myapplication.locationmanager.LocationManager
 import com.example.myapplication.managers.SharedPreferencesManager
+import com.example.myapplication.models.StayOver
+import com.example.myapplication.viewmodels.ViewModels
 import com.google.android.gms.maps.model.LatLng
 import kotlinx.android.synthetic.main.activity_sign_in.*
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -35,11 +37,6 @@ class HomeFragment : Fragment(),View.OnClickListener{
     private lateinit var btnFrench :Button
     private lateinit var btnItaly : Button
     private lateinit var btnIndian :Button
-    private lateinit var locationManager :LocationManager
-    private lateinit var location: Location
-    private lateinit var currentLocation: LatLng
-
-
 
 
 
@@ -74,7 +71,6 @@ class HomeFragment : Fragment(),View.OnClickListener{
         btnItaly.setOnClickListener(this)
         btnIndian.setOnClickListener(this)
 
-        currentLocation = LatLng(0.0,0.0)
 
         return root
     }
@@ -119,9 +115,9 @@ class HomeFragment : Fragment(),View.OnClickListener{
                 }
                 italyStayOverBtn.id->{
                     //save stayover name in shared prefrence
-                    SharedPreferencesManager.write(SharedPreferencesManager.STAY_OVER_NAME, italyText.text.toString())
-                    val currentStayOver = SharedPreferencesManager.read(SharedPreferencesManager.STAY_OVER_NAME, "")
-                    Log.e ("SHARED PREFRENCES" ,currentStayOver.toString() )
+                    SharedPreferencesManager.write(SharedPreferencesManager.CULTURE, italyText.text.toString())
+//                    val currentStayOver = SharedPreferencesManager.read(SharedPreferencesManager.STAY_OVER_NAME, "")
+//                    Log.e ("SHARED PREFRENCES" ,currentStayOver.toString() )
                     findNavController().navigate(R.id.stayOverFragment)
 
                 }
@@ -129,16 +125,16 @@ class HomeFragment : Fragment(),View.OnClickListener{
 
                     //save stayover name in shared prefrence
                     SharedPreferencesManager.write(SharedPreferencesManager.CULTURE, frenchText.text.toString())
-                    val currentStayOver = SharedPreferencesManager.read(SharedPreferencesManager.STAY_OVER_NAME, "")
-                    Log.e ("SHARED PREFRENCES" ,currentStayOver.toString() )
+//                    val currentStayOver = SharedPreferencesManager.read(SharedPreferencesManager.STAY_OVER_NAME, "")
+//                    Log.e ("SHARED PREFRENCES" ,currentStayOver.toString() )
                     findNavController().navigate(R.id.stayOverFragment)
 
                 }
                 indianStayOverBtn.id->{
                     //save stayover name in shared prefrence
-                    SharedPreferencesManager.write(SharedPreferencesManager.STAY_OVER_NAME, indianText.text.toString())
-                    val currentStayOver = SharedPreferencesManager.read(SharedPreferencesManager.STAY_OVER_NAME, "")
-                    Log.e ("SHARED PREFRENCES" ,currentStayOver.toString() )
+                    SharedPreferencesManager.write(SharedPreferencesManager.CULTURE, indianText.text.toString())
+//                    val currentStayOver = SharedPreferencesManager.read(SharedPreferencesManager.STAY_OVER_NAME, "")
+//                    Log.e ("SHARED PREFRENCES" ,currentStayOver.toString() )
                     findNavController().navigate(R.id.stayOverFragment)
 
                 }
@@ -149,46 +145,16 @@ class HomeFragment : Fragment(),View.OnClickListener{
     }
 
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        when(requestCode){
-            LocationManager.LOCATION_PERMISSION_REQUEST_CODE ->{
-                LocationManager.locationPermissionsGranted = (grantResults.isNotEmpty()
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED)
-                if(LocationManager.locationPermissionsGranted){
-                    //we can fetch the location
-                    this.getLastLocation()
-                }
-            }
-        }
-    }
 
 
-    private fun getLastLocation (){
-        this.locationManager.getlastLocation()?.observe(this,{loc : Location? ->
-            if(loc != null){
-                this.location = loc
-                SharedPreferencesManager.write(SharedPreferencesManager.LONG_LOCATION , loc.longitude.toString())
-                SharedPreferencesManager.write(SharedPreferencesManager.LATIT_LOCATION , loc.latitude.toString())
 
-//                val d = SharedPreferencesManager.read(SharedPreferencesManager.LONG_LOCATION,"")
-//
-//                Log.e(TAG , "CURRENTlocationLongtituide " + d)
-                //display the location in the map by saving it in the sared prefrence
-            }
-        })
-    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        locationManager = LocationManager(this.requireActivity())
-                if(LocationManager.locationPermissionsGranted){
-            this.getLastLocation()
-        }
+
+
 
     }
 
