@@ -85,7 +85,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
         guest.email = edtEmail.text.toString()
         guest.password = DataValidations().encryptPassword(edtPassword.text.toString())
         guest.language = "English"
-        guest.phoneNumber = "33333333"
+        guest.phoneNumber = "+1"
 
     }
 
