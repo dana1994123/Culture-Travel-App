@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -31,6 +32,7 @@ class HomeFragment : Fragment(),View.OnClickListener{
 
 
 
+
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -50,6 +52,7 @@ class HomeFragment : Fragment(),View.OnClickListener{
         btnFrench = root.findViewById(R.id.frenchStayOverBtn)
         btnItaly = root.findViewById(R.id.italyStayOverBtn)
         btnIndian = root.findViewById(R.id.indianStayOverBtn)
+
 
 
         btnReadMe.setOnClickListener(this)

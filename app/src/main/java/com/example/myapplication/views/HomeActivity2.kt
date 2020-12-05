@@ -1,9 +1,13 @@
 package com.example.myapplication.views
 
 import android.content.Intent
+import android.media.Image
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.ImageView
+import android.widget.TextView
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -16,6 +20,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.managers.SharedPreferencesManager
+import com.example.myapplication.models.Guest
 import com.example.myapplication.viewmodels.ViewModels
 import kotlinx.android.synthetic.main.activity_sign_in.*
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -30,7 +35,12 @@ class HomeActivity2 : AppCompatActivity(){
     private val TAG = this@HomeActivity2.toString()
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var navController: NavController
-    private val currentUser = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL,"").toString()
+    private lateinit var  currentUser :Guest
+    private lateinit var edtUserName : TextView
+    private lateinit var edtEmail : TextView
+    private lateinit var userImage :ImageView
+
+
 
 
 
@@ -40,8 +50,8 @@ class HomeActivity2 : AppCompatActivity(){
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-
         viewModel = ViewModels()
+        viewModel.fetchAllGuest()
 
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
@@ -58,11 +68,20 @@ class HomeActivity2 : AppCompatActivity(){
 
 
 
+        //Ui component of the nav header :
+        val headerLayout :View = navView.getHeaderView(0)
+        edtUserName = headerLayout.findViewById(R.id.edtUserName)
+        edtEmail = headerLayout.findViewById(R.id.edtEmail)
+        userImage = headerLayout.findViewById(R.id.userImage)
+        this.getUserInfo()
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.home_activity2, menu)
+
         return true
     }
 
@@ -89,6 +108,15 @@ class HomeActivity2 : AppCompatActivity(){
     }
 
 
+    fun getUserInfo(){
+        viewModel.guestList.observe(this,{
+            if(it != null){
+                currentUser = it[0]
+                edtUserName.setText(currentUser.name)
+                edtEmail.setText(currentUser.email)
+            }
+        })
+    }
 
 
 
