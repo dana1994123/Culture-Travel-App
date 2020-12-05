@@ -6,6 +6,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.camera_fragment.CameraFragment">
 
+
+<!--    <androidx.camera.view.PreviewView-->
+<!--        android:id="@+id/preview_view_Container"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"/>-->
+
     <ImageButton
         android:id="@+id/btnCameraCapture"
         android:layout_width="80dp"

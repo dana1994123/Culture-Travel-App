@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
 
 class VerifiedUserFragment : Fragment() , View.OnClickListener{
@@ -40,6 +41,7 @@ class VerifiedUserFragment : Fragment() , View.OnClickListener{
                     alertDialog.setTitle("Become Verified User")
                     alertDialog.setItems(actionItems) { dialog, index ->
                         if (actionItems.get(index).equals("Scan your Id")) {
+                            findNavController().navigate(R.id.cameraFragment)
 
 
                         } else if (actionItems.get(index).equals("Choose from Gallery")) {

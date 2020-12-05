@@ -31,6 +31,9 @@
         <action
             android:id="@+id/action_nav_home_to_eventFragment"
             app:destination="@id/eventFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_cameraFragment"
+            app:destination="@id/cameraFragment" />
     </fragment>
 
     <fragment
@@ -104,6 +107,6 @@
     <fragment
         android:id="@+id/cameraFragment"
         android:name="com.example.myapplication.ui.camera_fragment.CameraFragment"
-        android:label="fragment_camera"
+        android:label="Take Picture"
         tools:layout="@layout/fragment_camera" />
 </navigation>
