@@ -7,10 +7,10 @@
     tools:context=".ui.camera_fragment.CameraFragment">
 
 
-<!--    <androidx.camera.view.PreviewView-->
-<!--        android:id="@+id/preview_view_Container"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"/>-->
+    <androidx.camera.view.PreviewView
+        android:id="@+id/preview_view_Container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
     <ImageButton
         android:id="@+id/btnCameraCapture"
