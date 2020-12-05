@@ -117,6 +117,15 @@
     <string name="adult">Adult</string>
     <string name="children">Children</string>
     <string name="exlpore_french_culture">Exlpore French Culture</string>
+    <string name="verified">Verification is how you prove that your account is the authentic presence of a real person.
+
+        You’ve probably seen plenty of verification badges around.
+        </string>
+    <string name="v2">As with Twitter, Facebook and, yes, Tinder, the little blue checkmarks are meant to indicate that the platform has confirmed the account in question is trustworthy, or at least they are who they say they are.
+
+These badges are designed to make the real accounts stand out, so that our host can be sure they are talking with the right person .</string>
+    <string name="become_verified_user">Become Verified User</string>
+    <string name="verified_now">Verified Now</string>
     <string-array name="language_array">
         <item>English</item>
         <item>Indian</item>
