@@ -17,6 +17,7 @@ object SharedPreferencesManager {
     var LONG_LOCATION = "LONG_LOCATION"
     var LATIT_LOCATION = "LATIT_LOCATION"
 
+
     fun init (context: Context) {
         if (sharedPreferences == null){
             sharedPreferences = context.getSharedPreferences(context.packageName,

@@ -1,5 +1,6 @@
 package com.example.myapplication.ui.event
 
+import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Bundle
 import android.util.Log
@@ -13,15 +14,20 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
-import com.example.myapplication.locationmanager.LocationManager
+import com.example.myapplication.managers.LocationManager
 import com.example.myapplication.managers.SharedPreferencesManager
 import com.example.myapplication.models.BookingEvent
 import com.example.myapplication.models.Event
 import com.example.myapplication.models.Host
 import com.example.myapplication.viewmodels.ViewModels
 import com.google.android.gms.location.LocationCallback
+import com.google.android.gms.location.LocationResult
+import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
+import kotlinx.android.synthetic.main.fragment_event.*
 import kotlinx.android.synthetic.main.fragment_event.view.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -35,7 +41,7 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 @Suppress("UNSAFE_CALL_ON_PARTIALLY_DEFINED_RESOURCE")
-class EventFragment : Fragment() , View.OnClickListener{
+class EventFragment : Fragment() , View.OnClickListener, OnMapReadyCallback{
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -54,26 +60,46 @@ class EventFragment : Fragment() , View.OnClickListener{
     var currentHost = SharedPreferencesManager.read(SharedPreferencesManager.HOST_NAME, "")
     var currentEmail = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL,"")
     private var bookingStatus :Boolean = true
+    private lateinit var eventLocation :LatLng
 
 
     private var map: GoogleMap? = null
     private val DEFAULT_ZOOM : Float = 15.0F  //1: world, 5: landmass/continent, 10: city, 15: streets, 20: building
     private lateinit var locationCallback: LocationCallback
-
     private lateinit var locationManager : LocationManager
-
-    var longLocation = SharedPreferencesManager.read(SharedPreferencesManager.LONG_LOCATION, "")
-    var latitLocation = SharedPreferencesManager.read(SharedPreferencesManager.LATIT_LOCATION, "")
-
     private lateinit var location: Location
     private lateinit var currentLocation : LatLng
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
+        }
+
+        this.locationManager = LocationManager(this.requireContext())
+        this.currentLocation = LatLng(0.0, 0.0)
+
+        map_view.onCreate(savedInstanceState)
+        map_view.onResume()
+        map_view.getMapAsync(this)
+
+        if (LocationManager.locationPermissionsGranted){
+            this.getLastLocation()
+        }
+
+        locationCallback = object : LocationCallback(){
+            override fun onLocationResult(locationResult: LocationResult?){
+                locationResult ?: return
+
+                for(location in locationResult.locations){
+                    currentLocation = LatLng(location.latitude, location.longitude)
+                    addMarkerOnMap(currentLocation)
+                }
+            }
         }
 
 
@@ -105,6 +131,12 @@ class EventFragment : Fragment() , View.OnClickListener{
 
 
         return  root
+    }
+
+
+    override fun onPause() {
+        super.onPause()
+        locationManager.fusedLocationProviderClient?.removeLocationUpdates(locationCallback)
     }
 
     companion object {
@@ -176,15 +208,50 @@ class EventFragment : Fragment() , View.OnClickListener{
 
     override fun onResume() {
         super.onResume()
+        locationManager.requestLocationUpdates(locationCallback)
         Log.e("the fragmnt" , "resume")
         viewModel = ViewModels()
-        viewModel.fetchAllEvent()
 
+        viewModel.fetchAllEvent()
+        //eventLocation  = LatLng(existingEvent.longLocation.toDouble(), existingEvent.latitLocation.toDouble())
         //create a method to populate the event by fetching the event to the fragment
         this.populateEvent ()
+
         viewModel.getBookingEvent()
         bookingStatus =true
 
+    }
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        when(requestCode){
+            LocationManager.LOCATION_PERMISSION_REQUEST_CODE -> {
+                LocationManager.locationPermissionsGranted = (grantResults.isNotEmpty() &&
+                        grantResults[0] == PackageManager.PERMISSION_GRANTED)
+
+                if (LocationManager.locationPermissionsGranted){
+                    this.getLastLocation()
+                }
+                return
+            }
+        }
+    }
+
+    private fun getLastLocation(){
+        this.locationManager.getLastLocation()?.observe(viewLifecycleOwner, {loc: Location? ->
+            if (loc != null){
+                this.location = loc
+                this.currentLocation = LatLng(location.latitude, location.longitude)
+
+                Log.e( "current location : " , this.currentLocation.toString())
+
+                //display the current locations and event location
+                this.addMarkerOnMap(this.currentLocation)
+                //this.addMarkerOnMap(this.eventLocation)
+            }
+        })
     }
 
 
@@ -204,6 +271,41 @@ class EventFragment : Fragment() , View.OnClickListener{
             }
         })
 
+    }
+
+    override fun onMapReady(googleMap: GoogleMap?) {
+        if(googleMap!= null){
+            googleMap.mapType = GoogleMap.MAP_TYPE_HYBRID
+            googleMap.uiSettings.isZoomControlsEnabled = true
+            googleMap.uiSettings.isZoomGesturesEnabled = true
+            googleMap.uiSettings.isMyLocationButtonEnabled = true
+            googleMap.uiSettings.isScrollGesturesEnabled = true
+
+            googleMap.addMarker(
+                MarkerOptions().position(this.currentLocation).title("You're Here")
+            )
+//            googleMap.addMarker(
+//                MarkerOptions().position(eventLocation).title("Event Location")
+//            )
+
+            this.map = googleMap
+        }
+
+        else{
+            Log.e( "Map not ready yet" , "failed")
+        }
+
+    }
+
+
+    private fun addMarkerOnMap(location: LatLng){
+        if (this.map != null){
+            this.map!!.addMarker(
+                MarkerOptions().position(location).title("Current Location")
+            )
+
+            this.map!!.animateCamera(CameraUpdateFactory.newLatLngZoom(location, DEFAULT_ZOOM))
+        }
     }
 
 }

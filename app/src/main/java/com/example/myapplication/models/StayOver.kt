@@ -14,7 +14,6 @@ Date 2020-12-04
     var maxDuration: String = "",
     var dates :ArrayList<String> = arrayListOf(),
     var culture: String = "",
-    var price :String = "",
     var maxAdult :String ="",
     var maxChild :String ="",
     var host :Host = Host(),

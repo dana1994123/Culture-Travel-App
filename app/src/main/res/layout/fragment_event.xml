@@ -191,11 +191,11 @@
                 android:layout_marginBottom="20dp"/>
         </LinearLayout>
 
-<!--        &lt;!&ndash;we have to add the map fragment here &ndash;&gt;-->
-<!--        <fragment-->
-<!--            android:id="@+id/mapFragment"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"/>-->
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/map_view"
+            android:layout_width="410dp"
+            android:layout_height="400dp"/>
+
 
 
     </LinearLayout>

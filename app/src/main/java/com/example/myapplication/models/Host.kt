@@ -1,15 +1,14 @@
 package com.example.myapplication.models
 
 import java.util.*
+import kotlin.collections.ArrayList
 
 data class Host (
     var id: String = UUID.randomUUID().toString(),
     var email: String = "",
     var name :String = "",
     var about :String = "",
-    var culture: String = "",
-    var languageSpoken : String = "",
+    //var languageSpoken : ArrayList<String> = arrayListOf(),
     var location :String ="",
-    var maximumGuests: String = "",
     var workExperience :String = "",
 )

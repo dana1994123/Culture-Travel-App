@@ -231,24 +231,13 @@ class StayOverFragment : Fragment(), View.OnClickListener {
 
     }
 
-//            if(existingStayOver.culture == "French") {
-//                tvCulture.text = getString(R.string.french_culture)
-//            }
-//            daysSelected = 0
-//            tvDaysValue.text = daysSelected.toString()
-//            tvDate.text = "${getString(R.string.from_date)} ${existingStayOver.startDate}"
-//
-//        })
-
-//    fun fetchHostDetails(){
-//        this.viewModel.hostList.observe(viewLifecycleOwner,{ host->
-//            exisitingHost = host[0]
-//            tvAllowedGuests.text = exisitingHost.maximumGuests
-//        })
-//    }
     private fun calculateTotal(children:Int,adults:Int,days:Int):Int{
-    if()
-        if(days>0 && (adults>0 || children > 0)) return (children+adults+days)*60
-    else return 0
+            if(days>0 && (adults>0 || children > 0)) return (children+adults+days)*60
+            else return 0
     }
+
+
+
+
+
 }

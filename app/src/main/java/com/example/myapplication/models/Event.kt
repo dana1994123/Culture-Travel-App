@@ -15,5 +15,7 @@ data class Event (
     var icon1 : String ="",
     var icon2 : String="",
     var date :String="",
-    var hostName :String = ""
+    var hostName :String = "",
+    var longLocation :String ="",
+    var latitLocation :String =""
 )
