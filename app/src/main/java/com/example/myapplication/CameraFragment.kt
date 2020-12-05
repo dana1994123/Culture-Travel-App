@@ -117,6 +117,7 @@ class CameraFragment : Fragment(),View.OnClickListener {
             this.bindPreview(cameraProvider)
         },ContextCompat.getMainExecutor(this.requireActivity()))
     }
+    //preview
 
     private fun bindPreview(cameraProvider: ProcessCameraProvider){
         val preview= Preview.Builder().build().also {

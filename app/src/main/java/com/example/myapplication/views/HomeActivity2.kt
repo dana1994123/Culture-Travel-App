@@ -29,7 +29,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.NavController
 import com.example.myapplication.R
-import com.example.myapplication.locationmanager.LocationManager
+//import com.example.myapplication.LocationManager
 import com.example.myapplication.managers.SharedPreferencesManager
 import com.google.android.gms.maps.model.LatLng
 import kotlinx.android.synthetic.main.activity_sign_in.*
