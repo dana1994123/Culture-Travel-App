@@ -29,7 +29,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.NavController
 import com.example.myapplication.R
-import com.example.myapplication.locationmanager.LocationManager
 import com.example.myapplication.managers.SharedPreferencesManager
 import com.google.android.gms.maps.model.LatLng
 import kotlinx.android.synthetic.main.activity_sign_in.*
@@ -44,9 +43,10 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener{
     private lateinit var navController: NavController
     private lateinit var drawerLayout:DrawerLayout
     private lateinit var name : TextView
-    private lateinit var email: TextView
+    private lateinit var email:TextView
     private lateinit var imgProfilePic: ImageView
     private val REQUEST_GALLERY_PICTURE=172
+
     private val currentUser = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL,"").toString()
 
 
@@ -110,7 +110,7 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener{
             when(v.id){
                 R.id.imgProfilePic -> {
                     val actionItems= arrayOf("Take a New Picture","Choose from Gallery","Cancel")
-                    val alertBuilder= AlertDialog.Builder(this)
+                    val alertBuilder=AlertDialog.Builder(this)
                     alertBuilder.setTitle("Select Profile Picture")
                     alertBuilder.setItems(actionItems){dialog, index->
                         if(actionItems.get(index).equals("Take a New Picture")){
@@ -118,7 +118,7 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener{
                             this.navController.navigate(R.id.action_nav_home_to_fragment_camera)
                             this.drawerLayout.closeDrawer(Gravity.LEFT,true)
                         }else if(actionItems.get(index).equals("Choose from Gallery")){
-                            Toast.makeText(this,"Choosing from gallery", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this,"Choosing from gallery",Toast.LENGTH_SHORT).show()
                             this.selectFromGallery()
                         }else if(actionItems.get(index).equals("Cancel")){
                             dialog.dismiss()
@@ -134,6 +134,7 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener{
     private fun selectFromGallery(){
         val pickPhoto = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI).addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         startActivityForResult(pickPhoto, REQUEST_GALLERY_PICTURE)
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -145,4 +146,6 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener{
             }
         }
     }
+
+
 }

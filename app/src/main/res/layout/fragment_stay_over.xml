@@ -115,7 +115,7 @@
                 android:id="@+id/tv1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/dates"
+                android:text="dates"
                 android:textAlignment="center"
                 android:textColor="#040000"
                 android:textSize="20sp"

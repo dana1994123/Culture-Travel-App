@@ -41,7 +41,7 @@ class VerifiedUserFragment : Fragment() , View.OnClickListener{
                     alertDialog.setTitle("Become Verified User")
                     alertDialog.setItems(actionItems) { dialog, index ->
                         if (actionItems.get(index).equals("Scan your Id")) {
-                            findNavController().navigate(R.id.cameraFragment)
+                            //findNavController().navigate(R.id.CameraFragment)
 
 
                         } else if (actionItems.get(index).equals("Choose from Gallery")) {

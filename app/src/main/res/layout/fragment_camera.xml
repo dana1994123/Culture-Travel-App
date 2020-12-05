@@ -4,11 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.camera_fragment.CameraFragment">
-
+    tools:context=".ui.camera.CameraFragment">
 
     <androidx.camera.view.PreviewView
-        android:id="@+id/preview_view_Container"
+        android:id="@+id/preview_view_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

@@ -1,9 +1,10 @@
-package com.example.myapplication
+package com.example.myapplication.ui.camera
 
 import android.Manifest
 import android.content.ContentResolver
 import android.content.ContentValues
 import android.content.pm.PackageManager
+import android.icu.text.SimpleDateFormat
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
@@ -22,12 +23,11 @@ import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
+import com.example.myapplication.R
 import kotlinx.android.synthetic.main.fragment_camera.*
 import kotlinx.android.synthetic.main.nav_header_main.*
 import java.io.File
 import java.io.IOException
-import java.lang.Exception
-import java.text.SimpleDateFormat
 import java.util.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -47,6 +47,7 @@ class CameraFragment : Fragment(),View.OnClickListener {
     private lateinit var btnCameraCapture: ImageButton
     private val REQUIRED_PERMISSIONS= arrayOf(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE)
     private var imageCapture: ImageCapture?=null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -90,8 +91,6 @@ class CameraFragment : Fragment(),View.OnClickListener {
     private fun allPermissionsGranted()=REQUIRED_PERMISSIONS.all{
         ContextCompat.checkSelfPermission(this.requireContext(),it)== PackageManager.PERMISSION_GRANTED
     }
-
-
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -108,7 +107,6 @@ class CameraFragment : Fragment(),View.OnClickListener {
             }
         }
     }
-
     private fun startCamera(){
         this.imageCapture=ImageCapture.Builder().build()
         val cameraProviderFuture= ProcessCameraProvider.getInstance(this.requireActivity())
@@ -117,7 +115,6 @@ class CameraFragment : Fragment(),View.OnClickListener {
             this.bindPreview(cameraProvider)
         },ContextCompat.getMainExecutor(this.requireActivity()))
     }
-
     private fun bindPreview(cameraProvider: ProcessCameraProvider){
         val preview= Preview.Builder().build().also {
             it.setSurfaceProvider(preview_view_container.surfaceProvider)
@@ -141,6 +138,7 @@ class CameraFragment : Fragment(),View.OnClickListener {
             }
         }
     }
+
     private fun takePhoto(){
         if(this.imageCapture!=null){
             val outputDirectory = getOutputDirectory()
