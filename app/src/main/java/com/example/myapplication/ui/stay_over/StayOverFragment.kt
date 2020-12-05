@@ -95,7 +95,7 @@ class StayOverFragment : Fragment(), View.OnClickListener {
 
         Log.e("current culture" , currentCulture.toString())
 
-       bookBtn.setOnClickListener(this)
+        bookBtn.setOnClickListener(this)
         mystryCheckBox.setOnClickListener(this)
         return root
     }
