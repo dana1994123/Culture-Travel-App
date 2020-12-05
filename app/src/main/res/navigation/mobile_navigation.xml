@@ -32,19 +32,17 @@
             android:id="@+id/action_nav_home_to_eventFragment"
             app:destination="@id/eventFragment" />
         <action
-            android:id="@+id/action_nav_home_to_cameraFragment"
-            app:destination="@id/cameraFragment" />
+            android:id="@+id/action_nav_home_to_fragment_camera"
+            app:destination="@+id/fragment_camera"
+
+            />
     </fragment>
 
     <fragment
         android:id="@+id/nav_verified_user"
         android:name="com.example.myapplication.ui.verifieduser.VerifiedUserFragment"
         android:label="Verified User"
-        tools:layout="@layout/verified_user" >
-        <action
-            android:id="@+id/action_nav_verified_user_to_cameraFragment"
-            app:destination="@id/cameraFragment" />
-    </fragment>
+        tools:layout="@layout/verified_user" />
 
     <fragment
         android:id="@+id/nav_trip_history"
@@ -104,9 +102,4 @@
             app:destination="@id/bookingConfirmation2"
             app:popUpTo="@id/nav_home" />
     </fragment>
-    <fragment
-        android:id="@+id/cameraFragment"
-        android:name="com.example.myapplication.ui.camera_fragment.CameraFragment"
-        android:label="Take Picture"
-        tools:layout="@layout/fragment_camera" />
 </navigation>

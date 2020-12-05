@@ -49,6 +49,7 @@ class EventFragment : Fragment() , View.OnClickListener, OnMapReadyCallback{
     lateinit var edtSecondImage :ImageView
     lateinit var edtEventName :TextView
     lateinit var edtEventLocation :TextView
+    lateinit var edtEventHost :TextView
     lateinit var edtEventDuration :TextView
     lateinit var edtLang :TextView
     lateinit var edtDate : TextView
@@ -116,6 +117,7 @@ class EventFragment : Fragment() , View.OnClickListener, OnMapReadyCallback{
         edtSecondImage = root.edtSecondImage
         edtEventName = root.edtEventName
         edtEventLocation = root.edtEventLocation
+        //edtEventHost = root.edtEventHost
         edtEventDuration = root.edtEventDuration
         edtLang = root.edtLang
         edtDate = root.edtDate
@@ -174,6 +176,7 @@ class EventFragment : Fragment() , View.OnClickListener, OnMapReadyCallback{
             edtEventName.setText(existingEvent.name)
             edtEventLocation.setText(existingEvent.location)
             edtLang.setText(existingEvent.language)
+            edtEventHost.setText(existingEvent.hostName)
             edtEventDuration.setText(existingEvent.duration)
             edtDate.setText(existingEvent.date)
             edtEventDesc.setText(existingEvent.cate)
