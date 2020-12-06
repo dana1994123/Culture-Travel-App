@@ -30,6 +30,8 @@ import androidx.appcompat.widget.Toolbar
 import androidx.navigation.NavController
 import com.example.myapplication.R
 import com.example.myapplication.managers.SharedPreferencesManager
+import com.example.myapplication.models.Guest
+import com.example.myapplication.viewmodels.ViewModels
 import com.google.android.gms.maps.model.LatLng
 import kotlinx.android.synthetic.main.activity_sign_in.*
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -46,8 +48,12 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener{
     private lateinit var email:TextView
     private lateinit var imgProfilePic: ImageView
     private val REQUEST_GALLERY_PICTURE=172
+    private lateinit var viewModel : ViewModels
+    private lateinit var  currentUser :Guest
 
-    private val currentUser = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL,"").toString()
+
+
+
 
 
 
@@ -56,6 +62,10 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener{
         setContentView(R.layout.activity_home2)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
+
+
+        viewModel = ViewModels()
+        viewModel.fetchAllGuest()
 
         drawerLayout= findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
@@ -73,6 +83,7 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener{
         name= headerLayout.findViewById(R.id.edtUserName)
         imgProfilePic=headerLayout.findViewById(R.id.imgProfilePic)
         imgProfilePic.setOnClickListener(this)
+        this.getUserInfo()
 
 
     }
@@ -145,6 +156,17 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener{
                 this.imgProfilePic.setImageURI(data?.data)
             }
         }
+    }
+
+
+    fun getUserInfo(){
+        viewModel.guestList.observe(this,{
+            if(it != null){
+                currentUser = it[0]
+                edtUserName.setText(currentUser.name)
+                edtEmail.setText(currentUser.email)
+            }
+        })
     }
 
 
