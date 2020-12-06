@@ -19,6 +19,7 @@ import com.example.myapplication.managers.SharedPreferencesManager
 import com.example.myapplication.models.BookingEvent
 import com.example.myapplication.models.Event
 import com.example.myapplication.models.Host
+import com.example.myapplication.models.Locations
 import com.example.myapplication.viewmodels.ViewModels
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationResult
@@ -49,7 +50,6 @@ class EventFragment : Fragment() , View.OnClickListener, OnMapReadyCallback{
     lateinit var edtSecondImage :ImageView
     lateinit var edtEventName :TextView
     lateinit var edtEventLocation :TextView
-    lateinit var edtEventHost :TextView
     lateinit var edtEventDuration :TextView
     lateinit var edtLang :TextView
     lateinit var edtDate : TextView
@@ -61,7 +61,8 @@ class EventFragment : Fragment() , View.OnClickListener, OnMapReadyCallback{
     var currentHost = SharedPreferencesManager.read(SharedPreferencesManager.HOST_NAME, "")
     var currentEmail = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL,"")
     private var bookingStatus :Boolean = true
-    private lateinit var eventLocation :LatLng
+
+
 
 
     private var map: GoogleMap? = null
@@ -69,7 +70,10 @@ class EventFragment : Fragment() , View.OnClickListener, OnMapReadyCallback{
     private lateinit var locationCallback: LocationCallback
     private lateinit var locationManager : LocationManager
     private lateinit var location: Location
-    private lateinit var currentLocation : LatLng
+    private lateinit var currentLocObj : Locations
+    private lateinit var currentEventObj : Locations
+
+    var locationList : ArrayList<Locations> = arrayListOf()
 
 
 
@@ -82,12 +86,24 @@ class EventFragment : Fragment() , View.OnClickListener, OnMapReadyCallback{
         }
 
         this.locationManager = LocationManager(this.requireContext())
-        this.currentLocation = LatLng(0.0, 0.0)
+
+
+
+        currentLocObj = Locations(LatLng(0.0, 0.0) , "CurrentLocation")
+        currentEventObj = Locations (LatLng(0.0,0.0) , "Event Location")
+
 
         map_view.onCreate(savedInstanceState)
         map_view.onResume()
         map_view.getMapAsync(this)
 
+        locationList.add(currentLocObj)
+        locationList.add(currentEventObj)
+
+
+
+
+        this.addMarkerOnMap(this.locationList)
         if (LocationManager.locationPermissionsGranted){
             this.getLastLocation()
         }
@@ -97,8 +113,13 @@ class EventFragment : Fragment() , View.OnClickListener, OnMapReadyCallback{
                 locationResult ?: return
 
                 for(location in locationResult.locations){
-                    currentLocation = LatLng(location.latitude, location.longitude)
-                    addMarkerOnMap(currentLocation)
+                    currentLocObj.loc = LatLng(location.latitude, location.longitude)
+
+                    addMarkerOnMap(locationList)
+
+                    Log.e( "current location : " , currentLocObj.loc.toString())
+                    Log.e("event location " , currentEventObj.loc.toString())
+
                 }
             }
         }
@@ -117,7 +138,6 @@ class EventFragment : Fragment() , View.OnClickListener, OnMapReadyCallback{
         edtSecondImage = root.edtSecondImage
         edtEventName = root.edtEventName
         edtEventLocation = root.edtEventLocation
-        //edtEventHost = root.edtEventHost
         edtEventDuration = root.edtEventDuration
         edtLang = root.edtLang
         edtDate = root.edtDate
@@ -126,16 +146,24 @@ class EventFragment : Fragment() , View.OnClickListener, OnMapReadyCallback{
         btnBooking.setOnClickListener(this)
 
         //this.disableBookingEvent()
-        //val latit = longLocation?.toDouble()
-        //val longitude = latitLocation?.toDouble()
-
-
-
-
         return  root
     }
 
 
+    override fun onResume() {
+        super.onResume()
+        locationManager.requestLocationUpdates(locationCallback)
+        Log.e("the fragmnt" , "resume")
+        viewModel = ViewModels()
+        viewModel.fetchAllEvent()
+        //create a method to populate the event by fetching the event to the fragment
+        this.populateEvent ()
+
+        viewModel.getBookingEvent()
+        bookingStatus =true
+
+
+    }
     override fun onPause() {
         super.onPause()
         locationManager.fusedLocationProviderClient?.removeLocationUpdates(locationCallback)
@@ -164,32 +192,7 @@ class EventFragment : Fragment() , View.OnClickListener, OnMapReadyCallback{
     }
 
 
-    private fun populateEvent(){
-        //create a method to populate the event by fetching the event to the fragment
-        Log.e("collection jftyhjghj", currentEventName.toString())
-        this.viewModel.eventList.observe(this.requireActivity(), { eventsList ->
-            if (eventsList != null) {
-                existingEvent = eventsList[0]
-            }
 
-
-            edtEventName.setText(existingEvent.name)
-            edtEventLocation.setText(existingEvent.location)
-            edtLang.setText(existingEvent.language)
-            edtEventHost.setText(existingEvent.hostName)
-            edtEventDuration.setText(existingEvent.duration)
-            edtDate.setText(existingEvent.date)
-            edtEventDesc.setText(existingEvent.cate)
-
-
-            //we need to fetch the image from the data base
-            //edtFirstImage = root.edtFirstImage
-            //edtSecondImage.setImageResource(R.id.)
-
-
-        })
-
-    }
 
     override fun onClick(v: View?) {
         if (v!=null ){
@@ -200,30 +203,17 @@ class EventFragment : Fragment() , View.OnClickListener, OnMapReadyCallback{
                     bookingEvent.event = existingEvent
                     viewModel.addBookingEvent(bookingEvent)
                     findNavController().navigate(R.id.bookingConfirmation2)
-
-
-
                 }
 
             }
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-        locationManager.requestLocationUpdates(locationCallback)
-        Log.e("the fragmnt" , "resume")
-        viewModel = ViewModels()
 
-        viewModel.fetchAllEvent()
-        //eventLocation  = LatLng(existingEvent.longLocation.toDouble(), existingEvent.latitLocation.toDouble())
-        //create a method to populate the event by fetching the event to the fragment
-        this.populateEvent ()
 
-        viewModel.getBookingEvent()
-        bookingStatus =true
 
-    }
+
+
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -246,14 +236,80 @@ class EventFragment : Fragment() , View.OnClickListener, OnMapReadyCallback{
         this.locationManager.getLastLocation()?.observe(viewLifecycleOwner, {loc: Location? ->
             if (loc != null){
                 this.location = loc
-                this.currentLocation = LatLng(location.latitude, location.longitude)
+                this.currentLocObj.loc = LatLng(location.latitude, location.longitude)
 
-                Log.e( "current location : " , this.currentLocation.toString())
+                Log.e( "current location : " , this.currentLocObj.loc.toString())
 
                 //display the current locations and event location
-                this.addMarkerOnMap(this.currentLocation)
-                //this.addMarkerOnMap(this.eventLocation)
+                this.addMarkerOnMap(this.locationList)
             }
+        })
+    }
+
+
+
+
+    override fun onMapReady(googleMap: GoogleMap?) {
+        if(googleMap!= null){
+            this.map = googleMap
+            googleMap.mapType = GoogleMap.MAP_TYPE_HYBRID
+            googleMap.uiSettings.isZoomControlsEnabled = true
+            googleMap.uiSettings.isZoomGesturesEnabled = true
+            googleMap.uiSettings.isMyLocationButtonEnabled = true
+            googleMap.uiSettings.isScrollGesturesEnabled = true
+
+
+
+            for (i in locationList){
+                googleMap.addMarker(
+                    MarkerOptions().position(i.loc).title("Marker")
+                )
+            }
+        }
+
+        else{
+            Log.e( "Map not ready yet" , "failed")
+        }
+
+    }
+
+
+    private fun addMarkerOnMap(arrayList: ArrayList<Locations>){
+
+        if (this.map != null){
+            for(i in locationList){
+                this.map!!.addMarker(
+                    MarkerOptions().position(i.loc).title("${i.title}")
+                )
+                this.map!!.animateCamera(CameraUpdateFactory.newLatLngZoom(i.loc, 3.0f))
+
+
+            }
+
+        }
+    }
+
+
+    private fun populateEvent(){
+        //create a method to populate the event by fetching the event to the fragment
+        Log.e("collection jftyhjghj", currentEventName.toString())
+        this.viewModel.eventList.observe(this.requireActivity(), { eventsList ->
+            if (eventsList != null) {
+                existingEvent = eventsList[0]
+            }
+            edtEventName.setText(existingEvent.name)
+            edtEventLocation.setText(existingEvent.location)
+            edtLang.setText(existingEvent.language)
+            edtEventDuration.setText(existingEvent.duration)
+            edtDate.setText(existingEvent.date)
+            edtEventDesc.setText(existingEvent.cate)
+            currentEventObj.loc = LatLng(existingEvent.latitLocation.toDouble(), existingEvent.longLocation.toDouble())
+
+            //locationList.add(currentLocObj)
+
+            //we need to fetch the image from the data base
+            //edtFirstImage = root.edtFirstImage
+            //edtSecondImage.setImageResource(R.id.)
         })
     }
 
@@ -274,41 +330,6 @@ class EventFragment : Fragment() , View.OnClickListener, OnMapReadyCallback{
             }
         })
 
-    }
-
-    override fun onMapReady(googleMap: GoogleMap?) {
-        if(googleMap!= null){
-            googleMap.mapType = GoogleMap.MAP_TYPE_HYBRID
-            googleMap.uiSettings.isZoomControlsEnabled = true
-            googleMap.uiSettings.isZoomGesturesEnabled = true
-            googleMap.uiSettings.isMyLocationButtonEnabled = true
-            googleMap.uiSettings.isScrollGesturesEnabled = true
-
-            googleMap.addMarker(
-                MarkerOptions().position(this.currentLocation).title("You're Here")
-            )
-//            googleMap.addMarker(
-//                MarkerOptions().position(eventLocation).title("Event Location")
-//            )
-
-            this.map = googleMap
-        }
-
-        else{
-            Log.e( "Map not ready yet" , "failed")
-        }
-
-    }
-
-
-    private fun addMarkerOnMap(location: LatLng){
-        if (this.map != null){
-            this.map!!.addMarker(
-                MarkerOptions().position(location).title("Current Location")
-            )
-
-            this.map!!.animateCamera(CameraUpdateFactory.newLatLngZoom(location, DEFAULT_ZOOM))
-        }
     }
 
 }
