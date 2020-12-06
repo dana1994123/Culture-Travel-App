@@ -7,150 +7,211 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.event.EventFragment"
-    android:orientation="vertical">
-
-    <HorizontalScrollView
-        android:id="@+id/horizontalScrollView1"
+    <LinearLayout
+        android:id="@+id/layout2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:scrollbars="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_marginTop="0dp">
-    <LinearLayout
-        android:id="@+id/linearLayout4"
-        android:layout_width="wrap_content"
-        android:layout_height="270dp"
-        android:orientation="horizontal">
+        tools:context=".ui.event.EventFragment"
+        android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="195dp"
-            android:layout_gravity="center"
-            android:src="@drawable/pasta" />
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView1"
+            android:layout_height="wrap_content"
+            android:scrollbars="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="0dp">
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="wrap_content"
+                android:layout_height="270dp"
+                android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="195dp"
-            android:layout_gravity="center"
+                <ImageView
+                    android:id="@+id/edtFirstImage"
+                    android:layout_width="500dp"
+                    android:layout_height="300dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/winter_light2" />
 
-            android:src="@drawable/pasta_lasagne" />
+                <ImageView
+                    android:id="@+id/edtSecondImage"
+                    android:layout_width="500dp"
+                    android:layout_height="300dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/pasta_lasagne" />
+            </LinearLayout>
 
-
-    </LinearLayout>
-</HorizontalScrollView>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:fontFamily="cursive"
-        android:text="@string/pasta_making_lasagne"
-        android:textColor="#E10751"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:text="439, University Avenue, Toronto"
-        android:textAlignment="center"
-        android:gravity="center_horizontal" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Hosted By Chef Karen "
-        android:textColor="#E10751"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        />
-</LinearLayout>
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-<TableRow>
-
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/time"
-            />
-
+        </HorizontalScrollView>
         <TextView
+            android:id="@+id/edtEventName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/event_name"
+            android:textColor="#E10751"
+            android:textSize="30sp"
+            android:padding="10dp"
+            android:textStyle="bold" />
+        <View
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/purple_700"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/location"
+                android:textSize="24sp"
+                android:layout_marginLeft="30dp"
+                android:textAlignment="center"
+                android:textColor="#806F6F"
+                android:gravity="center_horizontal"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:id="@+id/edtEventLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/event_location"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:gravity="center_horizontal"
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"/>
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/purple_700"/>
+
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textAlignment="center"
-            android:textSize="24sp"
-            android:text="2 Hours"
-            android:layout_margin="12dp"
-            android:gravity="center_horizontal" />
-    </TableRow>
+            >
+        </LinearLayout>
 
-        <TableRow android:layout_width="match_parent">
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TableRow>
 
-            <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:src="@drawable/language_logo" />
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/time"
+                    />
 
-            <TextView
-                android:layout_width="325dp"
-                android:layout_height="match_parent"
-                android:textAlignment="center"
-                android:textSize="24sp"
-                android:layout_margin="12dp"
-                android:text="Hosted in English"
-                android:gravity="center_horizontal" />
-        </TableRow>
-    </TableLayout>
+                <TextView
+                    android:id="@+id/edtEventDuration"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAlignment="center"
+                    android:textSize="24sp"
+                    android:text="@string/event_duration"
+                    android:layout_margin="12dp"
+                    android:gravity="center_horizontal" />
+            </TableRow>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:fontFamily="cursive"
-        android:textAlignment="center"
-        android:text="What You Will Do?"
-        android:textColor="#120404"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:gravity="center_horizontal" />
-    <TextView
-        android:layout_height="100dp"
-        android:layout_width="match_parent"
-        android:text="In a 2 hour long session learn making some interesting Ita
-lian recipes from our expert chef Karen. You will learn to make Lasagne. Want to know more???
-Join our event!! It's a wonderful opportunity"
-        />
+            <TableRow
+                android:layout_width="match_parent">
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TableRow>
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/language_logo" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="#1D8F85"
-                android:textSize="24sp"
-                android:text="Frpm $31/Person"
-                android:textColor="#FAF7F7" />
+                <TextView
+                    android:id="@+id/edtLang"
+                    android:layout_width="325dp"
+                    android:layout_height="match_parent"
+                    android:textAlignment="center"
+                    android:textSize="24sp"
+                    android:layout_margin="12dp"
+                    android:text="@string/event_language"
+                    android:gravity="center_horizontal" />
 
-            <Button
-                android:layout_width="212dp"
-                android:layout_height="50dp"
-                android:text="see date"
-                android:textAllCaps="false"
+            </TableRow>
+            <TableRow android:layout_width="match_parent">
 
-                android:textSize="21sp"
-                app:backgroundTint="#1D8F85" />
-        </TableRow>
-</TableLayout>
-</LinearLayout>
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/ic_date" />
+
+                <TextView
+                    android:id="@+id/edtDate"
+                    android:layout_width="325dp"
+                    android:layout_height="match_parent"
+                    android:textAlignment="center"
+                    android:textSize="24sp"
+                    android:layout_margin="12dp"
+                    android:text="@string/event_date"
+                    android:gravity="center_horizontal" />
+            </TableRow>
+
+        </TableLayout>
+        <View
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/purple_700"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:textAlignment="center"
+                    android:text="@string/event_category"
+                    android:textColor="#806F6F"
+                    android:textSize="23sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/edtEventDesc"
+                    android:layout_width="wrap_content"
+                    android:text="@string/event_desc"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="20dp"/>
+            </LinearLayout>
+
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/map_view"
+                android:layout_width="410dp"
+                android:layout_height="400dp"/>
+
+
+
+        </LinearLayout>
+        <View
+            android:layout_marginBottom="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/purple_700"
+            />
+
+
+        <Button
+            android:id="@+id/btnBooking"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="@string/book_now" />
+    </LinearLayout>
 </ScrollView>
 

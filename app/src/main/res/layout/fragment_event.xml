@@ -69,7 +69,7 @@
             android:textSize="24sp"
             android:layout_marginLeft="30dp"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="#806F6F"
             android:gravity="center_horizontal"
             android:textStyle="bold"
             />
@@ -178,7 +178,7 @@
                 android:layout_height="50dp"
                 android:textAlignment="center"
                 android:text="@string/event_category"
-                android:textColor="#120404"
+                android:textColor="#806F6F"
                 android:textSize="23sp"
                 android:textStyle="bold" />
             <TextView
