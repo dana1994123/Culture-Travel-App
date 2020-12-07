@@ -1,7 +1,6 @@
 package com.example.myapplication.models
 
 import android.media.Image
-import com.squareup.moshi.JsonClass
 import java.sql.SQLTransactionRollbackException
 import java.util.*
 

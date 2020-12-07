@@ -32,10 +32,10 @@
             android:id="@+id/action_nav_home_to_eventFragment"
             app:destination="@id/eventFragment" />
         <action
-            android:id="@+id/action_nav_home_to_fragment_camera"
-            app:destination="@+id/fragment_camera"
+            android:id="@+id/action_nav_home_to_camera_fragment"
+            app:destination="@id/fragment_camera"
+            app:popUpTo="@layout/activity_home2"/>
 
-            />
     </fragment>
 
     <fragment
@@ -102,4 +102,10 @@
             app:destination="@id/bookingConfirmation2"
             app:popUpTo="@id/nav_home" />
     </fragment>
+    <fragment
+        android:id="@+id/fragment_camera"
+        android:name="com.example.myapplication.ui.camera.CameraFragment"
+        android:label="fragment_camera"
+        tools:layout="@layout/fragment_camera" />
+
 </navigation>

@@ -7,7 +7,7 @@
     tools:context=".ui.camera.CameraFragment">
 
     <androidx.camera.view.PreviewView
-        android:id="@+id/preview_view_container"
+        android:id="@+id/preview_view_Container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
@@ -23,5 +23,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="40dp"/>
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

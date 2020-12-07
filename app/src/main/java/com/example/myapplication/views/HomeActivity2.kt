@@ -65,12 +65,13 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener{
 
         drawerLayout= findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
+
         navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(setOf(
                 R.id.nav_home, R.id.nav_about, R.id.nav_trip_history,R.id.nav_contact,
-            R.id.nav_verified_user,R.id.eventFragment,R.id.stayOverFragment,R.id.action_viewProfile), drawerLayout)
+            R.id.nav_verified_user,R.id.eventFragment,R.id.stayOverFragment,R.id.action_viewProfile,R.id.fragment_camera), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
@@ -123,11 +124,15 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener{
                     alertBuilder.setItems(actionItems){dialog, index->
                         if(actionItems.get(index).equals("Take a New Picture")){
                             Log.d("HomeActivity","Taking new Picture")
-                            this.navController.navigate(R.id.action_nav_home_to_fragment_camera)
+                            navController.navigate(R.id.action_nav_home_to_camera_fragment)
                             this.drawerLayout.closeDrawer(Gravity.LEFT,true)
+
+
                         }else if(actionItems.get(index).equals("Choose from Gallery")){
                             Toast.makeText(this,"Choosing from gallery", Toast.LENGTH_SHORT).show()
                             this.selectFromGallery()
+
+
                         }else if(actionItems.get(index).equals("Cancel")){
                             dialog.dismiss()
                         }
@@ -164,5 +169,7 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener{
             }
         })
     }
+
+
 
 }

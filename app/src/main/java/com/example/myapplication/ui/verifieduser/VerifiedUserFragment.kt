@@ -17,6 +17,8 @@ class VerifiedUserFragment : Fragment() , View.OnClickListener{
     private lateinit var verifiedBtn : Button
 
     private lateinit var verifiedUserViewModel: VerifiedUserViewModel
+    private lateinit var cameraFragment : Fragment
+
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -28,11 +30,13 @@ class VerifiedUserFragment : Fragment() , View.OnClickListener{
         val root = inflater.inflate(R.layout.verified_user, container, false)
         verifiedBtn = root.findViewById(R.id.verifiedBtn)
         verifiedBtn.setOnClickListener(this)
+
         return root
     }
 
     override fun onClick(v: View?) {
         if(v !=null){
+            var fg : Fragment;
             when (v.id){
                 verifiedBtn.id -> {
                     //take a picture change the verification status for each user and then show the verification sign
@@ -41,7 +45,10 @@ class VerifiedUserFragment : Fragment() , View.OnClickListener{
                     alertDialog.setTitle("Become Verified User")
                     alertDialog.setItems(actionItems) { dialog, index ->
                         if (actionItems.get(index).equals("Scan your Id")) {
-                            //findNavController().navigate(R.id.CameraFragment)
+
+
+                            //findNavController().navigate(R.id.fragment_camera)
+
 
 
                         } else if (actionItems.get(index).equals("Choose from Gallery")) {
