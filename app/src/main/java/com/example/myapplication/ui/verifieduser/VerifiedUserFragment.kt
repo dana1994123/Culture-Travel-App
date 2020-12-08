@@ -15,6 +15,7 @@ import android.widget.Toast
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import coil.api.load
 import com.example.myapplication.R
 import com.example.myapplication.managers.SharedPreferencesManager
 import com.example.myapplication.models.Guest
@@ -49,6 +50,7 @@ class VerifiedUserFragment : Fragment() , View.OnClickListener{
         viewModel = ViewModels()
         viewModel.fetchAllGuest()
         this.getUserInformation()
+
 
         return root
     }
@@ -101,7 +103,7 @@ class VerifiedUserFragment : Fragment() , View.OnClickListener{
             if (matchedGuest != null) {
                 existingGuest = matchedGuest[0]
             }
-            imgId.setImageURI(existingGuest.verifiedImage.toUri())
+            imgId.load(existingGuest.verifiedImage)
         })
     }
 
