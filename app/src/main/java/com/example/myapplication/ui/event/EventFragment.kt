@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import coil.api.load
 import com.example.myapplication.R
 import com.example.myapplication.managers.LocationManager
 import com.example.myapplication.managers.SharedPreferencesManager
@@ -21,6 +22,7 @@ import com.example.myapplication.models.BookingEvent
 import com.example.myapplication.models.Event
 import com.example.myapplication.models.Host
 import com.example.myapplication.models.Locations
+import com.example.myapplication.ui.event.EventFragment.Companion.existingEvent
 import com.example.myapplication.viewmodels.ViewModels
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationResult
@@ -29,6 +31,8 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.fragment_event.*
 import kotlinx.android.synthetic.main.fragment_event.view.*
 import java.net.URI
@@ -68,6 +72,9 @@ class EventFragment : Fragment() , View.OnClickListener, OnMapReadyCallback{
 
 
 
+
+
+
     private var map: GoogleMap? = null
     private val DEFAULT_ZOOM : Float = 15.0F  //1: world, 5: landmass/continent, 10: city, 15: streets, 20: building
     private lateinit var locationCallback: LocationCallback
@@ -89,6 +96,8 @@ class EventFragment : Fragment() , View.OnClickListener, OnMapReadyCallback{
         }
 
         this.locationManager = LocationManager(this.requireContext())
+
+
 
 
 
@@ -308,12 +317,9 @@ class EventFragment : Fragment() , View.OnClickListener, OnMapReadyCallback{
             edtEventDesc.setText(existingEvent.cate)
             currentEventObj.loc = LatLng(existingEvent.latitLocation.toDouble(), existingEvent.longLocation.toDouble())
 
-            edtFirstImage.setImageURI((existingEvent.icon1).toUri())
-            edtSecondImage.setImageURI((existingEvent.icon2).toUri())
-
-            //we need to fetch the image from the data base
-            //edtFirstImage = root.edtFirstImage
-            //edtSecondImage.setImageResource(R.id.)
+            //fetch the image from the data base
+            edtFirstImage.load(existingEvent.icon1)
+            edtSecondImage.load(existingEvent.icon2)
         })
     }
 
