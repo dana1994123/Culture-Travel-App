@@ -227,7 +227,7 @@
     <ImageView
         android:layout_width="393dp"
         android:layout_height="125dp"
-        android:src="@drawable/applogo" />
+        android:src="@drawable/logo_no" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

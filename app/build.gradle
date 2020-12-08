@@ -55,6 +55,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.android.support:support-annotations:28.0.0'
+    implementation 'com.google.firebase:firebase-storage:19.1.1'
     //noinspection GradleDependency
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
@@ -89,6 +90,9 @@ dependencies {
     implementation "androidx.camera:camera-lifecycle:$camerax_version"
 // CameraX View class
     implementation "androidx.camera:camera-view:1.0.0-alpha19"
+
+
+    compile 'me.zhanghai.android.materialprogressbar:library:1.4.2'
 
 }
 

@@ -126,6 +126,7 @@
 These badges are designed to make the real accounts stand out, so that our host can be sure they are talking with the right person .</string>
     <string name="become_verified_user">Become Verified User</string>
     <string name="verified_now">Verified Now</string>
+    <string name="click_to_continue">Click to Continue!</string>
     <string-array name="language_array">
         <item>English</item>
         <item>Indian</item>

@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
@@ -30,6 +31,8 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.android.synthetic.main.fragment_event.*
 import kotlinx.android.synthetic.main.fragment_event.view.*
+import java.net.URI
+import java.util.logging.Level.parse
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -305,7 +308,8 @@ class EventFragment : Fragment() , View.OnClickListener, OnMapReadyCallback{
             edtEventDesc.setText(existingEvent.cate)
             currentEventObj.loc = LatLng(existingEvent.latitLocation.toDouble(), existingEvent.longLocation.toDouble())
 
-            //locationList.add(currentLocObj)
+            edtFirstImage.setImageURI((existingEvent.icon1).toUri())
+            edtSecondImage.setImageURI((existingEvent.icon2).toUri())
 
             //we need to fetch the image from the data base
             //edtFirstImage = root.edtFirstImage
