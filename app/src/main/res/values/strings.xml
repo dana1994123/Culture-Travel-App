@@ -113,10 +113,12 @@
     <string name="frequently_booked_together">Frequently Booked Together</string>
     <string name="what_is_cmb">What is CMB?!</string>
     <string name="guests">Guests</string>
-    <string name="total_233">Total : $233</string>
+    <string name="total_233">Total : </string>
     <string name="adult">Adult</string>
     <string name="children">Children</string>
     <string name="exlpore_french_culture">Explore French Culture</string>
+    <string name="mystery_box_title">Mystery Box</string>
+    <string name="mystery_box_content">for an additional 30$, you can add a special food or clothing based on the culture of your host</string>
     <string name="verified">Verification is how you prove that your account is the authentic presence of a real person.
 
         You’ve probably seen plenty of verification badges around.
