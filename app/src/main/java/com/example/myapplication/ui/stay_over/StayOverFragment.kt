@@ -11,6 +11,8 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.fragment.findNavController
+import coil.api.load
 import com.example.myapplication.R
 import com.example.myapplication.managers.SharedPreferencesManager
 import com.example.myapplication.models.Host
@@ -114,6 +116,7 @@ class StayOverFragment : Fragment(), View.OnClickListener {
         childMinusBtn.setOnClickListener(this)
         childPlusBtn.setOnClickListener(this)
         txtCMB.setOnClickListener(this)
+        hostImg.setOnClickListener(this)
         return root
     }
 
@@ -162,12 +165,17 @@ class StayOverFragment : Fragment(), View.OnClickListener {
             dateRb2.text = existingStayOver.dates[1]
             dateRb3.text = existingStayOver.dates[2]
 
+            //save the host name to use it the host fragment
+            SharedPreferencesManager.write(SharedPreferencesManager.HOST_NAME, existingStayOver.host.name)
+
             tvCulture.setText(existingStayOver.stayOverName.toString())
             //fetch the image from the Db
 
 
             edtHostName.setText(existingStayOver.host.name)
+
             //fetch the host image
+            hostImg.load(existingStayOver.host.img)
 
         })
     }
@@ -246,6 +254,9 @@ class StayOverFragment : Fragment(), View.OnClickListener {
                         txtTotal.text = "${getString(R.string.total_233)}${totalPay}"
 
                     }
+                }
+                hostImg.id->{
+                    findNavController().navigate(R.id.hostFragment)
                 }
             }
         }

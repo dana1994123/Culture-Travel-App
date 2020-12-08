@@ -105,7 +105,7 @@
     <string name="explore_italian">Explore the Italian culture</string>
     <string name="guests_allowed">Guests allowed</string>
     <string name="from_date">From</string>
-    <string name="meet_your_host">Meet your host,</string>
+    <string name="meet_your_host">Meet the Host:</string>
     <string name="dana">Dana</string>
     <string name="number_of_days">Number of Days</string>
     <string name="frequently_booked_together">Frequently Booked Together</string>
@@ -134,6 +134,7 @@ These badges are designed to make the real accounts stand out, so that our host 
     <string name="thanks_for">Thanks for checking out, we are hope that our app can make your day a little more enjoyable.</string>
     <string name="book_now">Book Now</string>
     <string name="explore">Explore</string>
+    <string name="about_me">about me</string>
     <string-array name="language_array">
         <item>English</item>
         <item>Indian</item>

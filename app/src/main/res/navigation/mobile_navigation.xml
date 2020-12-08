@@ -101,11 +101,19 @@
             android:id="@+id/action_paymentFragment_to_bookingConfirmation2"
             app:destination="@id/bookingConfirmation2"
             app:popUpTo="@id/nav_home" />
+        <action
+            android:id="@+id/action_paymentFragment_to_hostFragment"
+            app:destination="@id/hostFragment" />
     </fragment>
     <fragment
         android:id="@+id/fragment_camera"
         android:name="com.example.myapplication.ui.camera.CameraFragment"
         android:label="fragment_camera"
         tools:layout="@layout/fragment_camera" />
+    <fragment
+        android:id="@+id/hostFragment"
+        android:name="com.example.myapplication.ui.host.HostFragment"
+        android:label="fragment_host"
+        tools:layout="@layout/fragment_host" />
 
 </navigation>

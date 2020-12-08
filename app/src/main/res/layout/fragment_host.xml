@@ -8,35 +8,56 @@
 
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/edtEmail"
+        android:layout_width="188dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="68dp"
+        android:text="TextViewdffd"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/edtName"
         android:layout_width="190dp"
         android:layout_height="64dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="18dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
         android:layout_marginBottom="16dp"
-        android:text="TextView"
+        android:text="TextVidddfew"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toStartOf="@+id/imageView3"
+        app:layout_constraintBottom_toTopOf="@id/edtEmail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/edtLocation"
+        android:layout_width="190dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="156dp"
+        android:text="TextViewdddd"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5"
         tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="197dp"
-        android:layout_height="61dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="64dp"
-        android:text="TextView"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:ignore="MissingConstraints" />
-
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/profileImg"
         android:layout_width="142dp"
         android:layout_height="166dp"
         android:layout_marginTop="169dp"
@@ -44,20 +65,18 @@
         android:layout_marginBottom="66dp"
         app:layout_constraintBottom_toTopOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints"
         tools:src="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="125dp"
-        android:layout_height="0dp"
+        android:layout_width="141dp"
+        android:layout_height="142dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="36dp"
         android:layout_marginBottom="15dp"
         android:src="@drawable/applogo"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -66,18 +85,20 @@
         android:layout_width="318dp"
         android:layout_height="55dp"
         android:layout_marginStart="44dp"
-        android:layout_marginBottom="327dp"
-        android:text="Your Experience"
+        android:layout_marginBottom="276dp"
+        android:text="Get to know me"
+        android:textStyle="bold"
         android:textAlignment="center"
         android:textColor="#BF7171"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@id/edtLocation"
+        app:layout_constraintVertical_bias="1.0"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/tv_experience"
+        android:id="@+id/edtAbout"
         android:layout_width="313dp"
         android:layout_height="180dp"
         android:layout_marginStart="53dp"
@@ -87,6 +108,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintVertical_bias="1.0"
+        android:text="@string/about_me"
+        android:textColor="@color/black"
+        android:textSize="18sp"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

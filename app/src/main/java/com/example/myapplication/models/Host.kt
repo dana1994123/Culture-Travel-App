@@ -8,7 +8,7 @@ data class Host (
     var email: String = "",
     var name :String = "",
     var about :String = "",
-    //var languageSpoken : ArrayList<String> = arrayListOf(),
     var location :String ="",
     var workExperience :String = "",
+    var img :String =""
 )
