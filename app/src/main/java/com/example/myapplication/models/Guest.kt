@@ -1,5 +1,7 @@
 package com.example.myapplication.models
 
+import android.net.Uri
+import java.net.URI
 import java.util.*
 
 data class Guest (
@@ -9,5 +11,6 @@ data class Guest (
         var password :String = "",
         var phoneNumber : String? ="",
         var language : String? = "",
-        var verifiedStatus :Boolean = false
+        var verifiedStatus :Boolean = false,
+        var verifiedImage : String = ""
 )

@@ -64,9 +64,9 @@ class Repo {
     fun updateGuest2(currentGuest : Guest){
         db.collection(COLLECTION_ONE)
             .document(currentGuest.id)
-            .update("name" , currentGuest.name , "language" , currentGuest.language , "phoneNumber" , currentGuest.phoneNumber)
-            .addOnSuccessListener { Log.e(TAG, "Document successfully deleted") }
-            .addOnFailureListener{error -> Log.e(TAG, "Unable to delete a document" + error.localizedMessage)}
+            .update("name" , currentGuest.name , "language" , currentGuest.language , "phoneNumber" , currentGuest.phoneNumber ,  "verifiedImage",currentGuest.verifiedImage)
+            .addOnSuccessListener { Log.e(TAG, "Document successfully updated") }
+            .addOnFailureListener{error -> Log.e(TAG, "Unable to update a document" + error.localizedMessage)}
     }
 
 
