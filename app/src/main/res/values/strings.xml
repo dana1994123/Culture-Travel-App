@@ -25,7 +25,6 @@
     <string name="error_empty_password">Password cannot be empty</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
-    <string name="explore">Explore</string>
     <string name="profile">Profile</string>
     <string name="contact_us">Contact us</string>
     <string name="login">Login</string>
@@ -93,7 +92,6 @@
     <string name="event_date">Event Date</string>
     <string name="location">Location:</string>
     <string name="event_category">Event Category:</string>
-    <string name="book_now">Book Now</string>
     <string name="thank_you">Thank You!</string>
     <string name="booking_history">Booking History</string>
     <string name="french_culture">French</string>
@@ -121,12 +119,19 @@
 
         You’ve probably seen plenty of verification badges around.
         </string>
-    <string name="v2">As with Twitter, Facebook and, yes, Tinder, the little blue checkmarks are meant to indicate that the platform has confirmed the account in question is trustworthy, or at least they are who they say they are.
+    <string name="v2"> who  has confirmed their account in question is trustworthy, or at least they are who they say they are.
 
 These badges are designed to make the real accounts stand out, so that our host can be sure they are talking with the right person .</string>
     <string name="become_verified_user">Become Verified User</string>
     <string name="verified_now">Verified Now</string>
     <string name="click_to_continue">Click to Continue!</string>
+    <string name="it_is_in">It is in your hand. Come Join us and have fun</string>
+    <string name="you_can_now_have">you can now have the apportunity to live other culture in your community</string>
+    <string name="_2020_culture_app_all_rights_reserved">© 2020 Culture App All Rights Reserved</string>
+    <string name="you_">You will enjoy every single minute in this event. it is all on us,FREE EVENT, just come and bring your friends</string>
+    <string name="thanks_for">Thanks for checking out, we are hope that our app can make your day a little more enjoyable.</string>
+    <string name="book_now">Book Now</string>
+    <string name="explore">Explore</string>
     <string-array name="language_array">
         <item>English</item>
         <item>Indian</item>
