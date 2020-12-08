@@ -1,5 +1,6 @@
 package com.example.myapplication.ui.stay_over
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -40,8 +41,8 @@ class StayOverFragment : Fragment(), View.OnClickListener {
     private var selectedAdults = 0
     private var selectedChildren = 0
     private var totalPay = 0
-    private var mysteryBox: Boolean = false
     lateinit var viewModel: ViewModels
+    private var isChecked = 0
 
     val currentCulture = SharedPreferencesManager.read(SharedPreferencesManager.CULTURE, "")
 
@@ -101,6 +102,7 @@ class StayOverFragment : Fragment(), View.OnClickListener {
         mystryCheckBox = root.findViewById(R.id.mystryCheckBox)
 
 
+
         Log.e("current culture" , currentCulture.toString())
 
         bookBtn.setOnClickListener(this)
@@ -111,6 +113,7 @@ class StayOverFragment : Fragment(), View.OnClickListener {
         adultMinusBtn.setOnClickListener(this)
         childMinusBtn.setOnClickListener(this)
         childPlusBtn.setOnClickListener(this)
+        txtCMB.setOnClickListener(this)
         return root
     }
 
@@ -172,6 +175,17 @@ class StayOverFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         if(v!=null){
             when(v.id){
+                mystryCheckBox.id-> {
+                    if (mystryCheckBox.isChecked) {
+
+                       isChecked = 30
+                    }
+                        else{
+                            isChecked = 0
+                        }
+                    totalPay = this.calculateTotal(selectedChildren,selectedAdults,daysSelected,isChecked)
+                    txtTotal.text = "${getString(R.string.total_233)}${totalPay}"
+                }
                 bookBtn.id ->{
                     //create an object of the stayOverBooking and save it in the Shared preference so
                     // we can save it in the payment fragment once the user confirm the payment
@@ -179,25 +193,32 @@ class StayOverFragment : Fragment(), View.OnClickListener {
                 }
                 txtCMB.id ->{
                     //show alert box have some information about it
+                    val alertBuilder = AlertDialog.Builder(requireContext())
+                    alertBuilder.setTitle(getString(R.string.mystery_box_title))
+                    alertBuilder.setMessage(getString(R.string.mystery_box_content))
+                    alertBuilder.setPositiveButton(android.R.string.yes){dialog,which ->
+
+                    }
+                    alertBuilder.show()
                 }
                 btnPlus.id ->{
                     if(daysSelected < existingStayOver.maxDuration.toInt()){
                         tvDurationValue.text = (++daysSelected).toString()
-                        totalPay = this.calculateTotal(selectedChildren,selectedAdults,daysSelected)
+                        totalPay = this.calculateTotal(selectedChildren,selectedAdults,daysSelected,isChecked)
                         txtTotal.text = "${getString(R.string.total_233)}${totalPay}"
                     }
                 }
                 btnMinus.id->{
                     if(daysSelected > 0){
                         tvDurationValue.text = (--daysSelected).toString()
-                        totalPay = this.calculateTotal(selectedChildren,selectedAdults,daysSelected)
+                        totalPay = this.calculateTotal(selectedChildren,selectedAdults,daysSelected,isChecked)
                         txtTotal.text = "${getString(R.string.total_233)}${totalPay}"
                     }
                 }
                 adultPlusBtn.id->{
                     if(selectedAdults < existingStayOver.maxAdult.toInt()){
                         adultValue.text = (++selectedAdults).toString()
-                        totalPay = this.calculateTotal(selectedChildren,selectedAdults,daysSelected)
+                        totalPay = this.calculateTotal(selectedChildren,selectedAdults,daysSelected,isChecked)
                         txtTotal.text = "${getString(R.string.total_233)}${totalPay}"
 
                     }
@@ -205,7 +226,7 @@ class StayOverFragment : Fragment(), View.OnClickListener {
                 adultMinusBtn.id->{
                     if(selectedAdults > 0){
                         adultValue.text = (--selectedAdults).toString()
-                        totalPay = this.calculateTotal(selectedChildren,selectedAdults,daysSelected)
+                        totalPay = this.calculateTotal(selectedChildren,selectedAdults,daysSelected,isChecked)
                         txtTotal.text = "${getString(R.string.total_233)}${totalPay}"
 
                     }
@@ -213,7 +234,7 @@ class StayOverFragment : Fragment(), View.OnClickListener {
                 childMinusBtn.id->{
                     if(selectedChildren > 0){
                         childrenValue.text = (--selectedChildren).toString()
-                        totalPay = this.calculateTotal(selectedChildren,selectedAdults,daysSelected)
+                        totalPay = this.calculateTotal(selectedChildren,selectedAdults,daysSelected,isChecked)
                         txtTotal.text = "${getString(R.string.total_233)}${totalPay}"
 
                     }
@@ -221,7 +242,7 @@ class StayOverFragment : Fragment(), View.OnClickListener {
                 childPlusBtn.id->{
                     if(selectedChildren < existingStayOver.maxChild.toInt()){
                         childrenValue.text = (++selectedChildren).toString()
-                        totalPay = this.calculateTotal(selectedChildren,selectedAdults,daysSelected)
+                        totalPay = this.calculateTotal(selectedChildren,selectedAdults,daysSelected,isChecked)
                         txtTotal.text = "${getString(R.string.total_233)}${totalPay}"
 
                     }
@@ -231,8 +252,8 @@ class StayOverFragment : Fragment(), View.OnClickListener {
 
     }
 
-    private fun calculateTotal(children:Int,adults:Int,days:Int):Int{
-            if(days>0 && (adults>0 || children > 0)) return (children+adults+days)*60
+    private fun calculateTotal(children:Int,adults:Int,days:Int,isChecked: Int):Int{
+            if(days>0 && (adults>0 || children > 0)) return (((children+adults+days)*60)+isChecked)
             else return 0
     }
 
