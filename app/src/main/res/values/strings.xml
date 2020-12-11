@@ -137,9 +137,8 @@ These badges are designed to make the real accounts stand out, so that our host 
     <string name="about_me">about me</string>
     <string-array name="language_array">
         <item>English</item>
-        <item>Indian</item>
-        <item>French</item>
-        <item>Italian</item>
-        <item>Arabic</item>
+        <item>भारतीय</item>
+        <item>française</item>
+        <item>italiana</item>
     </string-array>
 </resources>

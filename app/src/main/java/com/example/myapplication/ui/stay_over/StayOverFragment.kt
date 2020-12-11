@@ -7,14 +7,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.navigation.fragment.findNavController
 import coil.api.load
 import com.example.myapplication.R
 import com.example.myapplication.managers.SharedPreferencesManager
+import com.example.myapplication.models.BookingEvent
 import com.example.myapplication.models.Host
 import com.example.myapplication.models.StayOver
 import com.example.myapplication.models.StayOverBooking
@@ -47,6 +45,8 @@ class StayOverFragment : Fragment(), View.OnClickListener {
     private var isChecked = 0
 
     val currentCulture = SharedPreferencesManager.read(SharedPreferencesManager.CULTURE, "")
+    val currentEmail = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL, "")
+
 
 
     //UI Elements
@@ -153,6 +153,7 @@ class StayOverFragment : Fragment(), View.OnClickListener {
             }
 
         var existingStayOver = StayOver()
+        var bookingStayOver = StayOverBooking()
     }
 
     fun populateStayOver() {
@@ -201,6 +202,16 @@ class StayOverFragment : Fragment(), View.OnClickListener {
                 bookBtn.id ->{
                     //create an object of the stayOverBooking and save it in the Shared preference so
                     // we can save it in the payment fragment once the user confirm the payment
+                    if(totalPay != 0 ){
+                        bookingStayOver.stayOver = existingStayOver
+                        bookingStayOver.guestEmail = currentEmail.toString()
+                        bookingStayOver.total = totalPay.toDouble()
+                        findNavController().navigate(R.id.paymentFragment)
+                    }
+                    else{
+                        Toast.makeText(this.requireContext() , "Please Select your reservation's option first" , Toast.LENGTH_SHORT).show()
+                    }
+
 
                 }
                 txtCMB.id ->{

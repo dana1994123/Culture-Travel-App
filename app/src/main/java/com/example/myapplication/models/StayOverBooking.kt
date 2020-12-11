@@ -5,5 +5,5 @@ import java.util.*
 data class StayOverBooking (
         var guestEmail :String = "",
         var stayOver: StayOver = StayOver(),
-        var bookingConfirmation :Boolean = false
+        var total :Double = 0.0
 )

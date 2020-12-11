@@ -168,6 +168,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         edtName.isEnabled = true
         spnLang.isEnabled = true
         edtPhoneNumber.isEnabled = true
+        btnSave.visibility = View.VISIBLE
     }
 
 
