@@ -18,14 +18,14 @@ class DataValidations {
                 Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
     fun validatePhonenNum(phone:String):Boolean{
-        return !TextUtils.isEmpty(phone) && Patterns.PHONE.matcher(phone).matches()
+        return !TextUtils.isEmpty(phone) && phone.matches("^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}\$\n".toRegex())
     }
     fun validateName(name:String):Boolean{
-        return !TextUtils.isEmpty(name) && name.chars().allMatch(Character::isLetter)
+        return !TextUtils.isEmpty(name) && name.matches("[a-zA-Z]".toRegex())
     }
     fun validateExpiryDate(expiryDate:String):Boolean{
-        return !TextUtils.isEmpty(expiryDate) ||
-                expiryDate.matches("(?:0[1-9]|1[0-2])/[0-9]{2}".toRegex())
+        return !TextUtils.isEmpty(expiryDate) &&
+                expiryDate.matches("^/^(0[1-9]|1[0-2])\\/?([0-9]{4}|[0-9]{2})\$/".toRegex())
     }
     fun encryptPassword(password: String) : String{
         try{

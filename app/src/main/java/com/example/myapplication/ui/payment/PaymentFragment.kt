@@ -124,7 +124,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
             return false
         }
         if(edtCreditCardNum.text.toString().isEmpty() || edtCreditCardNum.text.toString().length<15){
-            edtPhoneNumber.error = "Please enter a valid credit card number"
+            edtCreditCardNum.error = "Please enter a valid credit card number"
             return false
         }
         if(DataValidations().validateName(edtNameOnCard.text.toString())){
