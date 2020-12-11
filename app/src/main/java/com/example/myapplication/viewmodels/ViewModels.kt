@@ -217,6 +217,12 @@ class ViewModels : ViewModel() {
     }
 
 
+    //method to book the stayover and add it to the guest booking stayover
+    fun addBookingStayOver(bookingStayOver :StayOverBooking){
+        repo.addBookingStayOver(bookingStayOver)
+    }
+
+
     //method to get all the guest booking event in the booking list fragment when we create a reycler view
     fun getBookingEvent(){
         repo.getBookingEvent()

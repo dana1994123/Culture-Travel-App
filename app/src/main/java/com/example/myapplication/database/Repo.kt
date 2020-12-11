@@ -15,6 +15,7 @@ class Repo {
     private val COLLECTTION_FOUR = "StayOver"
     private val COLLECTION_FIVE = "Host"
     private val COLLECTION_SIX = "BookingEvent"
+    private val COLLECTION_SEVEN = "StayOverBooking"
     private val TAG = this.toString()
 
     fun addHost(host: Host){
@@ -75,6 +76,15 @@ class Repo {
             .addOnSuccessListener { Log.e(TAG , "bookingEvent DOC succseefully added") }
             .addOnFailureListener { error -> Log.e(TAG,"bookingEvent DOC Failure") }
     }
+
+    fun  addBookingStayOver(bookingStayOver: StayOverBooking){
+        db.collection(COLLECTION_SIX).document(bookingStayOver.id.toString()).set(bookingStayOver)
+            .addOnSuccessListener { Log.e(TAG , "bookingStayOver DOC succseefully added") }
+            .addOnFailureListener { error -> Log.e(TAG,"bookingStayOver DOC Failure") }
+    }
+
+
+
 
     fun getBookingEvent() : CollectionReference{
         val collectionRefrence  :CollectionReference = db.collection(COLLECTION_SIX)

@@ -1,19 +1,14 @@
 package com.example.myapplication.views
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.location.Location
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.AttributeSet
 import android.util.Log
 import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -29,17 +24,18 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.NavController
 import com.example.myapplication.R
+import com.example.myapplication.communication.Communicator
 //import com.example.myapplication.LocationManager
-import com.example.myapplication.managers.SharedPreferencesManager
 import com.example.myapplication.models.Guest
+import com.example.myapplication.ui.stay_over.StayOverFragment
 import com.example.myapplication.viewmodels.ViewModels
-import com.google.android.gms.maps.model.LatLng
 import kotlinx.android.synthetic.main.activity_sign_in.*
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.fragment_stay_over.*
 import kotlinx.android.synthetic.main.nav_header_main.*
 import kotlinx.android.synthetic.main.nav_header_main.edtEmail
 
-class HomeActivity2 : AppCompatActivity(),View.OnClickListener{
+class HomeActivity2 : AppCompatActivity(),View.OnClickListener {
 
     private val TAG = this@HomeActivity2.toString()
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -59,6 +55,9 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener{
         setContentView(R.layout.activity_home2)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
+
+
+
 
         viewModel = ViewModels()
         viewModel.fetchAllGuest()
@@ -169,6 +168,7 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener{
             }
         })
     }
+
 
 
 

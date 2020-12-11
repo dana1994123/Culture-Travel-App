@@ -11,6 +11,7 @@ import android.widget.*
 import androidx.navigation.fragment.findNavController
 import coil.api.load
 import com.example.myapplication.R
+import com.example.myapplication.communication.Communicator
 import com.example.myapplication.managers.SharedPreferencesManager
 import com.example.myapplication.models.BookingEvent
 import com.example.myapplication.models.Host
@@ -45,7 +46,6 @@ class StayOverFragment : Fragment(), View.OnClickListener {
     private var isChecked = 0
 
     val currentCulture = SharedPreferencesManager.read(SharedPreferencesManager.CULTURE, "")
-    val currentEmail = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL, "")
 
 
 
@@ -70,6 +70,8 @@ class StayOverFragment : Fragment(), View.OnClickListener {
     private lateinit var mystryCheckBox: CheckBox
 
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -84,6 +86,10 @@ class StayOverFragment : Fragment(), View.OnClickListener {
     ): View? {
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_stay_over, container, false)
+
+
+
+
         tvCulture = root.findViewById(R.id.tvCulture)
         stayOverImg3 = root.findViewById(R.id.stayOverImg3)
         stayOverImg2 = root.findViewById(R.id.stayOverImg2)
@@ -153,7 +159,6 @@ class StayOverFragment : Fragment(), View.OnClickListener {
             }
 
         var existingStayOver = StayOver()
-        var bookingStayOver = StayOverBooking()
     }
 
     fun populateStayOver() {
@@ -203,9 +208,8 @@ class StayOverFragment : Fragment(), View.OnClickListener {
                     //create an object of the stayOverBooking and save it in the Shared preference so
                     // we can save it in the payment fragment once the user confirm the payment
                     if(totalPay != 0 ){
-                        bookingStayOver.stayOver = existingStayOver
-                        bookingStayOver.guestEmail = currentEmail.toString()
-                        bookingStayOver.total = totalPay.toDouble()
+                        //pass the total to the stay over fragment
+                        SharedPreferencesManager.write(SharedPreferencesManager.TOTAL_STAY_OVER , totalPay.toString())
                         findNavController().navigate(R.id.paymentFragment)
                     }
                     else{

@@ -12,10 +12,11 @@ object SharedPreferencesManager {
     val EMAIL = "KEY_EMAIL"
     val PASSWORD = "KEY_PASSWORD"
     val EVENT_NAME = "KEY_EVENT"
-    var HOST_NAME = "HOST_NAME"
-    var CULTURE = "CULTURE"
-    var LONG_LOCATION = "LONG_LOCATION"
-    var LATIT_LOCATION = "LATIT_LOCATION"
+    val HOST_NAME = "HOST_NAME"
+    val CULTURE = "CULTURE"
+    val LONG_LOCATION = "LONG_LOCATION"
+    val LATIT_LOCATION = "LATIT_LOCATION"
+    val TOTAL_STAY_OVER = "TOTAL_STAY_OVER"
 
 
     fun init (context: Context) {
@@ -55,6 +56,7 @@ object SharedPreferencesManager {
             remove(HOST_NAME)
             remove(LONG_LOCATION)
             remove(LATIT_LOCATION)
+            remove(TOTAL_STAY_OVER)
             apply()
         }
     }

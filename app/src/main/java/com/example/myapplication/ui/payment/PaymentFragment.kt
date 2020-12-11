@@ -2,6 +2,7 @@ package com.example.myapplication.ui.payment
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,11 +12,13 @@ import android.widget.EditText
 import com.example.myapplication.R
 import com.example.myapplication.managers.SharedPreferencesManager
 import com.example.myapplication.models.Payment
+import com.example.myapplication.models.StayOver
+import com.example.myapplication.models.StayOverBooking
+import com.example.myapplication.ui.stay_over.StayOverFragment
 import com.example.myapplication.utils.DataValidations
 import com.example.myapplication.viewmodels.PaymentViewModel
 import com.example.myapplication.viewmodels.ViewModels
 import com.example.myapplication.views.HomeActivity2
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.fragment_payment.view.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -25,25 +28,27 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [ProfileFragment.newInstance] factory method to
+ * Use the [PaymentFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class ProfileFragment : Fragment(), View.OnClickListener {
+class PaymentFragment : Fragment(), View.OnClickListener {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
 
-    lateinit var edtName: EditText
-    lateinit var edtPhoneNumber: EditText
-    lateinit var edtCreditCardNum: EditText
-    lateinit var edtCvv: EditText
-    lateinit var edtExpiry: EditText
-    lateinit var edtNameOnCard: EditText
-    lateinit var btnPayment: Button
-    lateinit var fabEditProfile: FloatingActionButton
+    private lateinit var viewModel: ViewModels
+    private lateinit var edtName: EditText
+    private lateinit var edtPhoneNumber: EditText
+    private lateinit var edtCreditCardNum: EditText
+    private lateinit var edtCvv: EditText
+    private lateinit var edtExpiry: EditText
+    private lateinit var edtNameOnCard: EditText
+    private lateinit var btnPayment: Button
 
 
+    var currentTotal = SharedPreferencesManager.read(SharedPreferencesManager.TOTAL_STAY_OVER, "")
     var currentUserEmail = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL, "")
+    var currentCulture = SharedPreferencesManager.read(SharedPreferencesManager.CULTURE, "")
 
     private lateinit var paymentViewModel : PaymentViewModel
 
@@ -54,6 +59,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
             param2 = it.getString(ARG_PARAM2)
         }
         paymentViewModel = PaymentViewModel()
+        viewModel = ViewModels()
         newPayment.email = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL,"").toString()
     }
 
@@ -88,13 +94,15 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-                ProfileFragment().apply {
+                PaymentFragment().apply {
                     arguments = Bundle().apply {
                         putString(ARG_PARAM1, param1)
                         putString(ARG_PARAM2, param2)
                     }
                 }
         var newPayment = Payment()
+        var bookingStayOver = StayOverBooking()
+        var existingStayOver = StayOver()
     }
 
     override fun onClick(v: View?) {
@@ -104,6 +112,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
                 if (this.validateDate()){
                     this.saveTripToDb()
                     this.savePurchaseToDB()
+
                     //navigate to the home page
                     this.goToHome()
 
@@ -150,8 +159,21 @@ class ProfileFragment : Fragment(), View.OnClickListener {
     }
 
     private fun saveTripToDb(){
-
         // if the payment is correct we have to save the trip in guest history
+        //create a stayOverBooking obj
+        this.getCurrentStayOver()
+        bookingStayOver.guestEmail = currentUserEmail.toString()
+        bookingStayOver.stayOver = existingStayOver
+        bookingStayOver.total = currentTotal.toString().toDouble()
+        viewModel.addBookingStayOver(bookingStayOver)
+
+    }
+    private  fun getCurrentStayOver (){
+        this.viewModel.stayOverList.observe(viewLifecycleOwner, { stayOverList ->
+            if (stayOverList != null) {
+                existingStayOver = stayOverList[0]
+            }
+        })
     }
 
 
