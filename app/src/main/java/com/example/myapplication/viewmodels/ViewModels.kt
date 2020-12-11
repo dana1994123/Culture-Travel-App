@@ -24,6 +24,7 @@ class ViewModels : ViewModel() {
     var eventBookingsList: MutableLiveData<List<BookingEvent>> = MutableLiveData()
     var hostList: MutableLiveData<List<Host>> = MutableLiveData()
     var stayOverList: MutableLiveData<List<StayOver>> = MutableLiveData()
+    var stayOverBookinList: MutableLiveData<List<StayOverBooking>> = MutableLiveData()
 
 
 

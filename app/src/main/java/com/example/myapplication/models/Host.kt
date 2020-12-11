@@ -9,6 +9,5 @@ data class Host (
     var name :String = "",
     var about :String = "",
     var location :String ="",
-    var workExperience :String = "",
     var img :String =""
 )

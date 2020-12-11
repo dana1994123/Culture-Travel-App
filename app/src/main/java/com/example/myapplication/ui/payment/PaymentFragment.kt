@@ -68,6 +68,7 @@ class PaymentFragment : Fragment(), View.OnClickListener {
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_payment, container, false)
 
+
         root.btnPayment.setOnClickListener(this)
         edtName = root.edtName
         edtNameOnCard = root.edtNameOnCard
@@ -80,6 +81,12 @@ class PaymentFragment : Fragment(), View.OnClickListener {
 
 
         return root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.fetchStayoverByCulture()
+        this.getCurrentStayOver()
     }
 
     companion object {
@@ -161,17 +168,19 @@ class PaymentFragment : Fragment(), View.OnClickListener {
     private fun saveTripToDb(){
         // if the payment is correct we have to save the trip in guest history
         //create a stayOverBooking obj
-        this.getCurrentStayOver()
+
         bookingStayOver.guestEmail = currentUserEmail.toString()
         bookingStayOver.stayOver = existingStayOver
         bookingStayOver.total = currentTotal.toString().toDouble()
+        Log.e("current bookingStayOver " , bookingStayOver.toString())
         viewModel.addBookingStayOver(bookingStayOver)
 
     }
-    private  fun getCurrentStayOver (){
+    private fun getCurrentStayOver (){
         this.viewModel.stayOverList.observe(viewLifecycleOwner, { stayOverList ->
             if (stayOverList != null) {
                 existingStayOver = stayOverList[0]
+                Log.e("currentStayOver" , existingStayOver.toString())
             }
         })
     }

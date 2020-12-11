@@ -78,7 +78,7 @@ class Repo {
     }
 
     fun  addBookingStayOver(bookingStayOver: StayOverBooking){
-        db.collection(COLLECTION_SIX).document(bookingStayOver.id.toString()).set(bookingStayOver)
+        db.collection(COLLECTION_SEVEN).document(bookingStayOver.id.toString()).set(bookingStayOver)
             .addOnSuccessListener { Log.e(TAG , "bookingStayOver DOC succseefully added") }
             .addOnFailureListener { error -> Log.e(TAG,"bookingStayOver DOC Failure") }
     }
