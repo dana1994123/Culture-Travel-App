@@ -110,8 +110,7 @@ class HomeFragment : Fragment(),View.OnClickListener{
                 italyStayOverBtn.id->{
                     //save stayover name in shared prefrence
                     SharedPreferencesManager.write(SharedPreferencesManager.CULTURE, italyText.text.toString())
-//                    val currentStayOver = SharedPreferencesManager.read(SharedPreferencesManager.STAY_OVER_NAME, "")
-//                    Log.e ("SHARED PREFRENCES" ,currentStayOver.toString() )
+
                     findNavController().navigate(R.id.stayOverFragment)
 
                 }
@@ -119,16 +118,14 @@ class HomeFragment : Fragment(),View.OnClickListener{
 
                     //save stayover name in shared prefrence
                     SharedPreferencesManager.write(SharedPreferencesManager.CULTURE, frenchText.text.toString())
-//                    val currentStayOver = SharedPreferencesManager.read(SharedPreferencesManager.STAY_OVER_NAME, "")
-//                    Log.e ("SHARED PREFRENCES" ,currentStayOver.toString() )
+
                     findNavController().navigate(R.id.stayOverFragment)
 
                 }
                 indianStayOverBtn.id->{
                     //save stayover name in shared prefrence
                     SharedPreferencesManager.write(SharedPreferencesManager.CULTURE, indianText.text.toString())
-//                    val currentStayOver = SharedPreferencesManager.read(SharedPreferencesManager.STAY_OVER_NAME, "")
-//                    Log.e ("SHARED PREFRENCES" ,currentStayOver.toString() )
+
                     findNavController().navigate(R.id.stayOverFragment)
 
                 }

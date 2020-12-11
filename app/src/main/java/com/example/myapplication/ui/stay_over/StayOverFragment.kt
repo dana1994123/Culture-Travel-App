@@ -169,7 +169,11 @@ class StayOverFragment : Fragment(), View.OnClickListener {
             SharedPreferencesManager.write(SharedPreferencesManager.HOST_NAME, existingStayOver.host.name)
 
             tvCulture.setText(existingStayOver.stayOverName.toString())
+
             //fetch the image from the Db
+            stayOverImg1.load(existingStayOver.img1)
+            stayOverImg2.load(existingStayOver.img2)
+            stayOverImg3.load(existingStayOver.img3)
 
 
             edtHostName.setText(existingStayOver.host.name)

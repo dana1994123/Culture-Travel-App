@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
 
     <TextView
@@ -27,39 +27,39 @@
 
     <HorizontalScrollView
         android:id="@+id/horizontalScroll"
-        android:layout_width="413dp"
-        android:layout_height="290dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/tvCulture"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-2dp">
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="500dp"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@+id/tv">
+            android:id="@+id/linearLayout3"
+            android:layout_width="450dp"
+            android:layout_height="300dp"
+            android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/stayOverImg1"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteY="135dp" />
+        <ImageView
+            android:id="@+id/stayOverImg1"
+            android:layout_width="450dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+             />
 
-            <ImageView
-                android:id="@+id/stayOverImg2"
-                android:layout_width="match_parent"
-                android:layout_height="496dp"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteY="135dp" />
+        <ImageView
+            android:id="@+id/stayOverImg2"
+            android:layout_width="450dp"
+            android:layout_height="450dp"
+            android:layout_gravity="center"
+             />
+
 
             <ImageView
                 android:id="@+id/stayOverImg3"
-                android:layout_width="match_parent"
-                android:layout_height="496dp"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteY="135dp" />
-
+                android:layout_width="450dp"
+                android:layout_height="450dp"
+                android:layout_gravity="center"
+                 />
         </LinearLayout>
 
     </HorizontalScrollView>
@@ -78,7 +78,6 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="45dp"
             android:background="#D8D6D6"
             android:text="@string/meet_your_host"
             android:textColor="@color/black"
