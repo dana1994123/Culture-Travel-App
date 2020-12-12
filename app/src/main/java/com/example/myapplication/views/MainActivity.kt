@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() , View.OnClickListener {
         }
 
         override fun onTick(millisUntilFinished: Long) {
-            Log.e("timr","loading")
+            Log.e("timer","loading")
         }
     }
 
