@@ -42,17 +42,18 @@ Date 2020-12-11
     }
 
     inner class BookingStayViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-//        var edtExploreCulture: TextView = itemView.edtExploreCulture
-//        var imgstayover: ImageView = itemView.imgstayover
+        var edtExploreCulture: TextView = itemView.edtExploreCulture
+        var imgstayover: ImageView = itemView.imgstayover
         var edtHostName: TextView = itemView.edtHostName
-        var edtDate :TextView = itemView.edtDate
+        var edtDate :TextView = itemView.edtStayDate
         var edtstayGuestNumber :TextView = itemView.edtstayGuestNumber
 
         fun bind(overBooking: StayOverBooking){
-//            edtExploreCulture.setText(overBooking.culture)
-//            imgstayover.load(overBooking.img1Stay)
+            edtExploreCulture.setText(overBooking.culture)
+            imgstayover.load(overBooking.img1Stay)
             edtstayGuestNumber.setText(overBooking.stayGuestNumber)
             edtHostName.setText(overBooking.hostName)
+            edtDate.setText(overBooking.bookingDate)
         }
     }
 }

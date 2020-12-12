@@ -7,28 +7,49 @@ xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:stretchColumns="2">
-<!--    <LinearLayout-->
-<!--        android:orientation="horizontal">-->
-<!--        <TextView-->
-<!--            android:id="@+id/edtExploreCulture"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="100dp"-->
-<!--            android:gravity="center"-->
-<!--            android:layout_marginStart="8dp"-->
-<!--            android:text="@string/explore_french_culture"-->
-<!--            android:textAlignment="center"-->
-<!--            android:textColor="#266698"-->
-<!--            android:textSize="30sp"-->
-<!--            android:textStyle="bold" />-->
-<!--        <ImageView-->
-<!--            android:id="@+id/imgstayover"-->
-<!--            android:layout_width="100dp"-->
-<!--            android:layout_marginTop="70dp"-->
-<!--            android:layout_height="100dp"-->
-<!--            android:src="@drawable/logo_no" />-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
 
-<!--    </LinearLayout>-->
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="194dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="100dp"
+                android:gravity="center"
+                android:text="@string/exploring_the"
+                android:textAlignment="center"
+                android:textColor="#266698"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/edtExploreCulture"
+                android:layout_width="144dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:gravity="center"
+                android:text="French"
+                android:textAlignment="center"
+                android:textColor="#266698"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/imgstayover"
+            android:layout_width="171dp"
+            android:layout_height="93dp"
+            android:layout_marginTop="90dp"
+            android:src="@drawable/logo_no" />
+    </LinearLayout>
 
 <TableRow
     android:layout_width="match_parent"
@@ -57,7 +78,7 @@ android:stretchColumns="2">
         android:textColor="#eb5180"/>
 
     <TextView
-        android:id="@+id/edtStayName"
+        android:id="@+id/edtStayDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="#####"

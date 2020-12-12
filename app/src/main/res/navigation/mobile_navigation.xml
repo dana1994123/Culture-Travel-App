@@ -46,7 +46,7 @@
     <fragment
         android:id="@+id/nav_trip_history"
         android:name="com.example.myapplication.ui.bookinglist.BookingListFragment"
-        android:label="Booking List"
+        android:label="Booking Event List"
         tools:layout="@layout/fragment_booking_list" />
     <fragment
         android:id="@+id/nav_profile"
@@ -97,12 +97,11 @@
         android:label="fragment_payment"
         tools:layout="@layout/fragment_payment" >
         <action
-            android:id="@+id/action_paymentFragment_to_bookingConfirmation2"
-            app:destination="@id/bookingConfirmation2"
-            app:popUpTo="@id/nav_home" />
-        <action
             android:id="@+id/action_paymentFragment_to_hostFragment"
             app:destination="@id/hostFragment" />
+        <action
+            android:id="@+id/action_paymentFragment_to_stayOverHistoryFragment"
+            app:destination="@id/stayOverHistoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/fragment_camera"
@@ -117,7 +116,7 @@
     <fragment
         android:id="@+id/stayOverHistoryFragment"
         android:name="com.example.myapplication.ui.stayoverhistory.StayOverHistoryFragment"
-        android:label="fragment_stay_over_history"
+        android:label="Exploring Culture History"
         tools:layout="@layout/fragment_stay_over_history" />
 
 </navigation>
