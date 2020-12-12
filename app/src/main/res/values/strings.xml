@@ -138,6 +138,11 @@ These badges are designed to make the real accounts stand out, so that our host 
     <string name="date">Date:</string>
     <string name="host_name">Host Name:</string>
     <string name="explore_french_culture">Explore French Culture</string>
+    <string name="who_are_we">WHO ARE WE ?</string>
+    <string name="we_are_a_group_of_ambitious_individuals_n_trying_to_make_the_lives_of_people_across_the_world_more_peaceful_by_bringing_together_the_cultures_of_the_world_we_are_extremely_resolute_towards_our_goal_and_this_culturaltravel_app_is_a_small_beginning_for_achieving_it_this_app_will_provides_you_the_opportunity_to_connect_with_other_people_and_enjoy_their_traditional_and_cultural_activities_occuring_in_your_nearby_places">We are a group of ambitious individuals\n trying to make the lives of people across the world more peaceful by bringing together the cultures of the world. We are extremely resolute towards our goal and this CulturalTravel App is a small beginning for achieving it. This app will provides you the opportunity to connect with other people and enjoy their traditional and cultural activities occuring in your nearby places.</string>
+    <string name="rate_us">RATE US</string>
+    <string name="support_ncenter">SUPPORT CENTER</string>
+    <string name="we_are_here_to_help_you_nget_in_touch_with_our_customer_support_team">We are here to help you. Get in touch with our customer support team.</string>
     <string-array name="language_array">
         <item>English</item>
         <item>भारतीय</item>
