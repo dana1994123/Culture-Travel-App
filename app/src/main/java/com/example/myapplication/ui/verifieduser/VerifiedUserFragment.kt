@@ -92,11 +92,6 @@ class VerifiedUserFragment : Fragment() , View.OnClickListener{
 
     }
 
-    override fun onResume() {
-        super.onResume()
-
-
-    }
 
     private fun getUserInformation(){
         this.viewModel.guestList.observe(this.requireActivity(), { matchedGuest ->

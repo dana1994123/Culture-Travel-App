@@ -47,25 +47,11 @@ class Repo {
         Log.e ("Collection refrence :" , collectionRefrence.id)
         return  collectionRefrence
     }
-//    fun updateGuest(name:String,email:String,phoneNumber:String,language:String) {
-//        val updatedUser = db.collection(COLLECTION_ONE).document(email)
-//        updatedUser.update("name",name)
-//            .addOnSuccessListener { Log.d(TAG,"name successfully updated") }
-//            .addOnFailureListener { e -> Log.w(TAG,"Error updating the name",e) }
-//
-//        updatedUser.update("language",language)
-//            .addOnSuccessListener { Log.d(TAG,"language successfully updated") }
-//            .addOnFailureListener { e -> Log.w(TAG,"Error updating the language",e) }
-//
-//        updatedUser.update("phoneNumber",phoneNumber)
-//            .addOnSuccessListener { Log.d(TAG,"phoneNumber successfully updated") }
-//            .addOnFailureListener { e -> Log.w(TAG,"Error updating the phoneNumber",e) }
-//    }
 
     fun updateGuest2(currentGuest : Guest){
         db.collection(COLLECTION_ONE)
             .document(currentGuest.id)
-            .update("name" , currentGuest.name , "language" , currentGuest.language , "phoneNumber" , currentGuest.phoneNumber ,  "verifiedImage",currentGuest.verifiedImage)
+            .update("name" , currentGuest.name , "language" , currentGuest.language , "phoneNumber" , currentGuest.phoneNumber ,  "verifiedImage",currentGuest.verifiedImage,"profileImg" , currentGuest.profileImg)
             .addOnSuccessListener { Log.e(TAG, "Document successfully updated") }
             .addOnFailureListener{error -> Log.e(TAG, "Unable to update a document" + error.localizedMessage)}
     }

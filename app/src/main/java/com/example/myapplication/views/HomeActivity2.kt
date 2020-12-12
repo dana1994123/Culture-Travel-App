@@ -23,6 +23,7 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.net.toUri
 import androidx.navigation.NavController
 import coil.api.load
 import com.example.myapplication.R
@@ -49,8 +50,10 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener {
     private lateinit var imgProfilePic: ImageView
     private val REQUEST_GALLERY_PICTURE=172
     private lateinit var viewModel : ViewModels
-    private lateinit var  currentUser : Guest
-    val currentImage = SharedPreferencesManager.read(SharedPreferencesManager.USER_PICTURE , "")
+
+
+
+
 
 
 
@@ -65,6 +68,7 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener {
 
         viewModel = ViewModels()
         viewModel.fetchAllGuest()
+
 
         drawerLayout= findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
@@ -84,8 +88,17 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener {
         imgProfilePic=headerLayout.findViewById(R.id.imgProfilePic)
         imgProfilePic.setOnClickListener(this)
 
-        this.getUserInfo()
 
+
+
+    }
+    companion object{
+         var  currentUser = Guest()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        this.getUserInfo()
 
     }
 
@@ -155,8 +168,11 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener {
         if (resultCode == Activity.RESULT_OK){
             if (requestCode == this.REQUEST_GALLERY_PICTURE){
                 this.imgProfilePic.setImageURI(data?.data)
-                SharedPreferencesManager.write(SharedPreferencesManager.USER_PICTURE ,data?.data.toString() )
-                //then save it in the db
+                currentUser.profileImg = data?.data.toString()
+
+                //update user image  profile
+                viewModel.updateGuest2(currentUser)
+
             }
         }
     }
@@ -168,9 +184,18 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener {
                 currentUser = it[0]
                 edtUserName.setText(currentUser.name)
                 edtEmail.setText(currentUser.email)
-                imgProfilePic.load(currentImage)
+
+
+
+//                var imgUri = currentUser.profileImg.toUri()
+//                Log.e("image uri" , imgUri.toString())
+//                imgProfilePic.setImageURI(imgUri)
+
+
+
             }
         })
+
     }
     //we need to save it in the db by updating the user info
 
