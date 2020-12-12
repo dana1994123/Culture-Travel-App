@@ -46,9 +46,16 @@ class PaymentFragment : Fragment(), View.OnClickListener {
     private lateinit var btnPayment: Button
 
 
+
+    //CREATING A STAYOVER BOOKING OBJ
     var currentTotal = SharedPreferencesManager.read(SharedPreferencesManager.TOTAL_STAY_OVER, "")
     var currentUserEmail = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL, "")
     var currentCulture = SharedPreferencesManager.read(SharedPreferencesManager.CULTURE, "")
+    var currentHost = SharedPreferencesManager.read(SharedPreferencesManager.HOST_NAME, "")
+    var currentiMGStay = SharedPreferencesManager.read(SharedPreferencesManager.IMG_STAY, "")
+    var currentguestNum = SharedPreferencesManager.read(SharedPreferencesManager.STAY_GUEST_NUMBER, "")
+    var currentBookingDate = SharedPreferencesManager.read(SharedPreferencesManager.SELECTED_DATE, "")
+
 
     private lateinit var paymentViewModel : PaymentViewModel
 
@@ -60,7 +67,9 @@ class PaymentFragment : Fragment(), View.OnClickListener {
         }
         paymentViewModel = PaymentViewModel()
         viewModel = ViewModels()
+
         newPayment.email = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL,"").toString()
+        Log.e("current booking information " , "total: ${currentTotal} ,currentguestNum ${currentguestNum} ,currentiMGStay ${currentiMGStay}  ")
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -83,11 +92,7 @@ class PaymentFragment : Fragment(), View.OnClickListener {
         return root
     }
 
-    override fun onResume() {
-        super.onResume()
-        viewModel.fetchStayoverByCulture()
-        this.getCurrentStayOver()
-    }
+
 
     companion object {
         /**
@@ -168,21 +173,17 @@ class PaymentFragment : Fragment(), View.OnClickListener {
     private fun saveTripToDb(){
         // if the payment is correct we have to save the trip in guest history
         //create a stayOverBooking obj
-
         bookingStayOver.guestEmail = currentUserEmail.toString()
-        bookingStayOver.stayOver = existingStayOver
-        bookingStayOver.total = currentTotal.toString().toDouble()
+        bookingStayOver.culture = currentCulture.toString()
+        bookingStayOver.total = " Cost: $ ${currentTotal}"
+        bookingStayOver.guestEmail = currentUserEmail.toString()
+        bookingStayOver.hostName = currentHost.toString()
+        bookingStayOver.img1Stay = currentiMGStay.toString()
+        bookingStayOver.bookingDate = currentBookingDate.toString()
+        bookingStayOver.stayGuestNumber = currentguestNum.toString()
         Log.e("current bookingStayOver " , bookingStayOver.toString())
         viewModel.addBookingStayOver(bookingStayOver)
 
-    }
-    private fun getCurrentStayOver (){
-        this.viewModel.stayOverList.observe(viewLifecycleOwner, { stayOverList ->
-            if (stayOverList != null) {
-                existingStayOver = stayOverList[0]
-                Log.e("currentStayOver" , existingStayOver.toString())
-            }
-        })
     }
 
 

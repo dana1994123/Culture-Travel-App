@@ -4,17 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
-import com.example.myapplication.adapters.EventsAdapter
+import com.example.myapplication.adapters.BookingsAdapter
 import com.example.myapplication.adapters.OnItemClickListener
 import com.example.myapplication.models.BookingEvent
 import com.example.myapplication.models.Event
@@ -27,7 +23,7 @@ class BookingListFragment : Fragment(), OnItemClickListener  , View.OnClickListe
     private lateinit var viewModel : ViewModels
 
     private lateinit var rvBooking : RecyclerView
-    private lateinit var viewAdapter: EventsAdapter
+    private lateinit var viewAdapter: BookingsAdapter
     private lateinit var viewManager: RecyclerView.LayoutManager
     private lateinit var bookingsList: MutableList<BookingEvent>
 
@@ -43,7 +39,7 @@ class BookingListFragment : Fragment(), OnItemClickListener  , View.OnClickListe
         this.rvBooking = root.findViewById(R.id.rvBooking)
         this.bookingsList = mutableListOf()
 
-        this.viewAdapter = EventsAdapter(this.requireContext(), this.bookingsList,this)
+        this.viewAdapter = BookingsAdapter(this.requireContext(), this.bookingsList,this)
         this.rvBooking.adapter = this.viewAdapter
 
         this.viewManager = LinearLayoutManager(this.requireContext())

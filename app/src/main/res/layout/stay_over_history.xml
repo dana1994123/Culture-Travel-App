@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:stretchColumns="2">
+    <LinearLayout
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/edtExploreCulture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:gravity="center"
+            android:layout_marginStart="8dp"
+            android:text="@string/explore_french_culture"
+            android:textAlignment="center"
+            android:textColor="#266698"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/imgstayover"
+            android:layout_width="100dp"
+            android:layout_marginTop="70dp"
+            android:layout_height="100dp"
+            android:src="@drawable/logo_no" />
+
+    </LinearLayout>
+
+<TableRow
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp">
+
+
+</TableRow>
+
+<TableRow
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/date"
+        android:layout_column="1"
+        android:textColor="#eb5180"/>
+
+    <TextView
+        android:id="@+id/edtStayName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="#####"
+        android:layout_column="2"/>
+</TableRow>
+
+<TableRow
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    >
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/host_name"
+        android:layout_column="1"
+        android:textColor="#eb5180"/>
+
+    <TextView
+        android:id="@+id/edtHostName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="2"/>
+</TableRow>
+
+<TableRow
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp">
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:layout_marginEnd="8dp"
+        android:text="@string/guest_number"
+        android:textColor="#eb5180"/>
+
+    <TextView
+        android:id="@+id/edtstayGuestNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="##"
+        android:layout_column="2"/>
+
+</TableRow>
+
+
+
+
+</TableLayout>

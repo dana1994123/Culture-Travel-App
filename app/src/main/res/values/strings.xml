@@ -135,6 +135,10 @@ These badges are designed to make the real accounts stand out, so that our host 
     <string name="book_now">Book Now</string>
     <string name="explore">Explore</string>
     <string name="about_me">about me</string>
+    <string name="guest_number">Guest Number</string>
+    <string name="date">Date:</string>
+    <string name="host_name">Host Name:</string>
+    <string name="explore_french_culture">Explore French Culture</string>
     <string-array name="language_array">
         <item>English</item>
         <item>भारतीय</item>

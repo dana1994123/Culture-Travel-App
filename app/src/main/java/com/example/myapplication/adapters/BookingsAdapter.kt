@@ -16,17 +16,17 @@ Student ID  991541439
 Name : Dana Aljamal 
 Date 2020-12-02
 */
-class EventsAdapter (
+class BookingsAdapter (
     val context: Context,
     val bookingsList: MutableList<BookingEvent>,
     val itemClickListener: OnItemClickListener
 
-) : RecyclerView.Adapter<EventsAdapter.BookingViewHolder>() {
+) : RecyclerView.Adapter<BookingsAdapter.BookingViewHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): EventsAdapter.BookingViewHolder {
+    ): BookingsAdapter.BookingViewHolder {
 
         val view: View = LayoutInflater.from(context).inflate(R.layout.booking_history, null)
         return BookingViewHolder(view)
@@ -36,7 +36,7 @@ class EventsAdapter (
         return bookingsList.size
     }
 
-    override fun onBindViewHolder(holder:EventsAdapter.BookingViewHolder, position: Int) {
+    override fun onBindViewHolder(holder:BookingsAdapter.BookingViewHolder, position: Int) {
         holder.bind(bookingsList[position], itemClickListener)
     }
 

@@ -43,6 +43,7 @@ class StayOverFragment : Fragment(), View.OnClickListener {
     private var selectedChildren = 0
     private var totalPay = 0
     lateinit var viewModel: ViewModels
+    private var selectedDate =""
     private var isChecked = 0
 
     val currentCulture = SharedPreferencesManager.read(SharedPreferencesManager.CULTURE, "")
@@ -159,6 +160,7 @@ class StayOverFragment : Fragment(), View.OnClickListener {
             }
 
         var existingStayOver = StayOver()
+        var stayBooking = StayOverBooking()
     }
 
     fun populateStayOver() {
@@ -209,7 +211,11 @@ class StayOverFragment : Fragment(), View.OnClickListener {
                     // we can save it in the payment fragment once the user confirm the payment
                     if(totalPay != 0 ){
                         //pass the total to the stay over fragment
-                        SharedPreferencesManager.write(SharedPreferencesManager.TOTAL_STAY_OVER , totalPay.toString())
+                         SharedPreferencesManager.write(SharedPreferencesManager.IMG_STAY,existingStayOver.img1)
+                        SharedPreferencesManager.write(SharedPreferencesManager.TOTAL_STAY_OVER,totalPay.toString())
+                        SharedPreferencesManager.write(SharedPreferencesManager.SELECTED_DATE,selectedDate)
+                        SharedPreferencesManager.write(SharedPreferencesManager.STAY_GUEST_NUMBER,"Adult : ${selectedAdults} , Child: ${selectedChildren}")
+
                         findNavController().navigate(R.id.paymentFragment)
                     }
                     else{
