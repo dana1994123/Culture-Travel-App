@@ -308,6 +308,9 @@ class EventFragment : Fragment() , View.OnClickListener, OnMapReadyCallback{
         this.viewModel.eventList.observe(this.requireActivity(), { eventsList ->
             if (eventsList != null) {
                 existingEvent = eventsList[0]
+                //fetch the image from the data base
+                edtFirstImage.load(existingEvent.icon1)
+                edtSecondImage.load(existingEvent.icon2)
             }
             edtEventName.setText(existingEvent.name)
             edtEventLocation.setText(existingEvent.location)
@@ -317,9 +320,6 @@ class EventFragment : Fragment() , View.OnClickListener, OnMapReadyCallback{
             edtEventDesc.setText(existingEvent.cate)
             currentEventObj.loc = LatLng(existingEvent.latitLocation.toDouble(), existingEvent.longLocation.toDouble())
 
-            //fetch the image from the data base
-            edtFirstImage.load(existingEvent.icon1)
-            edtSecondImage.load(existingEvent.icon2)
         })
     }
 
