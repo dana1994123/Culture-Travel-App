@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
 import com.example.myapplication.managers.SharedPreferencesManager
 import com.example.myapplication.models.Payment
@@ -125,7 +126,7 @@ class PaymentFragment : Fragment(), View.OnClickListener {
                     this.savePurchaseToDB()
 
                     //navigate to the home page
-                    this.goToHome()
+                    findNavController().navigate(R.id.bookingConfirmation2)
 
                 }
             }
@@ -186,12 +187,12 @@ class PaymentFragment : Fragment(), View.OnClickListener {
     }
 
 
-    fun goToHome(){
-        val intentGoToHome = Intent(getActivity(), HomeActivity2::class.java)
-        getActivity()?.startActivity(intentGoToHome)
-
-
-
-    }
+//    fun goToHome(){
+//        val intentGoToHome = Intent(getActivity(), HomeActivity2::class.java)
+//        getActivity()?.startActivity(intentGoToHome)
+//
+//
+//
+//    }
 
 }
