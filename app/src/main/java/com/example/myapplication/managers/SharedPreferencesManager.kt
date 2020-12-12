@@ -20,6 +20,7 @@ object SharedPreferencesManager {
     val SELECTED_DATE ="SELECTED_DATE"
     val STAY_GUEST_NUMBER = "STAY_GUEST_NUMBER"
     val IMG_STAY = "IMG_STAY"
+    val USER_PICTURE = "USER_PICTURE"
 
 
 
@@ -64,6 +65,7 @@ object SharedPreferencesManager {
             remove(SELECTED_DATE)
             remove(STAY_GUEST_NUMBER)
             remove(IMG_STAY)
+            remove(USER_PICTURE)
             apply()
         }
     }

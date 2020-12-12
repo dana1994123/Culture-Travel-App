@@ -2,6 +2,7 @@ package com.example.myapplication.views
 
 import android.app.Activity
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
@@ -23,8 +24,10 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.NavController
+import coil.api.load
 import com.example.myapplication.R
 import com.example.myapplication.communication.Communicator
+import com.example.myapplication.managers.SharedPreferencesManager
 //import com.example.myapplication.LocationManager
 import com.example.myapplication.models.Guest
 import com.example.myapplication.ui.stay_over.StayOverFragment
@@ -47,6 +50,7 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener {
     private val REQUEST_GALLERY_PICTURE=172
     private lateinit var viewModel : ViewModels
     private lateinit var  currentUser : Guest
+    val currentImage = SharedPreferencesManager.read(SharedPreferencesManager.USER_PICTURE , "")
 
 
 
@@ -70,7 +74,7 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(setOf(
                 R.id.nav_home, R.id.nav_about, R.id.nav_trip_history,R.id.nav_contact,
-            R.id.nav_verified_user,R.id.eventFragment,R.id.stayOverFragment,R.id.action_viewProfile,R.id.fragment_camera), drawerLayout)
+            R.id.nav_verified_user,R.id.eventFragment,R.id.stayOverFragment,R.id.action_viewProfile), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
@@ -117,26 +121,23 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener {
         if(v != null){
             when(v.id){
                 R.id.imgProfilePic -> {
-                    val actionItems= arrayOf("Take a New Picture","Choose from Gallery","Cancel")
-                    val alertBuilder= AlertDialog.Builder(this)
+                    val actionItems = arrayOf("Take a New Picture", "Choose from Gallery", "Cancel")
+
+                    val alertBuilder = AlertDialog.Builder(this)
                     alertBuilder.setTitle("Select Profile Picture")
-                    alertBuilder.setItems(actionItems){dialog, index->
-                        if(actionItems.get(index).equals("Take a New Picture")){
-                            Log.d("HomeActivity","Taking new Picture")
-                            navController.navigate(R.id.action_nav_home_to_camera_fragment)
-                            this.drawerLayout.closeDrawer(Gravity.LEFT,true)
-
-
-                        }else if(actionItems.get(index).equals("Choose from Gallery")){
-                            Toast.makeText(this,"Choosing from gallery", Toast.LENGTH_SHORT).show()
+                    alertBuilder.setItems(actionItems){ dialog, index ->
+                        if (actionItems.get(index).equals("Take a New Picture")){
+                            Log.d("HomeActivity", "Taking new picture")
+                            this.navController.navigate(R.id.action_nav_home_to_fragment_camera)
+                            this.drawerLayout.closeDrawer(Gravity.LEFT, true)
+                        }else if (actionItems.get(index).equals("Choose from Gallery")){
+//                            Toast.makeText(this, "Choosing from gallery", Toast.LENGTH_SHORT).show()
                             this.selectFromGallery()
-
-
-                        }else if(actionItems.get(index).equals("Cancel")){
+                        }else if (actionItems.get(index).equals("Cancel")){
                             dialog.dismiss()
                         }
-
                     }
+
                     alertBuilder.show()
                 }
             }
@@ -154,6 +155,8 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener {
         if (resultCode == Activity.RESULT_OK){
             if (requestCode == this.REQUEST_GALLERY_PICTURE){
                 this.imgProfilePic.setImageURI(data?.data)
+                SharedPreferencesManager.write(SharedPreferencesManager.USER_PICTURE ,data?.data.toString() )
+                //then save it in the db
             }
         }
     }
@@ -165,9 +168,14 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener {
                 currentUser = it[0]
                 edtUserName.setText(currentUser.name)
                 edtEmail.setText(currentUser.email)
+                imgProfilePic.load(currentImage)
             }
         })
     }
+    //we need to save it in the db by updating the user info
+
+
+
 
 
 

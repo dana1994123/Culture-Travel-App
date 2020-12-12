@@ -32,9 +32,8 @@
             android:id="@+id/action_nav_home_to_eventFragment"
             app:destination="@id/eventFragment" />
         <action
-            android:id="@+id/action_nav_home_to_camera_fragment"
-            app:destination="@id/fragment_camera"
-            app:popUpTo="@layout/activity_home2"/>
+            android:id="@+id/action_nav_home_to_fragment_camera"
+            app:destination="@id/fragment_camera" />
 
     </fragment>
 
@@ -108,7 +107,7 @@
     <fragment
         android:id="@+id/fragment_camera"
         android:name="com.example.myapplication.ui.camera.CameraFragment"
-        android:label="fragment_camera"
+        android:label="Take Photo"
         tools:layout="@layout/fragment_camera" />
     <fragment
         android:id="@+id/hostFragment"

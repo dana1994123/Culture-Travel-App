@@ -12,5 +12,6 @@ data class Guest (
         var phoneNumber : String? ="",
         var language : String? = "",
         var verifiedStatus :Boolean = false,
-        var verifiedImage : String = ""
+        var verifiedImage : String = "",
+        var profileImg :String = ""
 )
