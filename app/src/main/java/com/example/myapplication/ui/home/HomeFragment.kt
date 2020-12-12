@@ -74,13 +74,13 @@ class HomeFragment : Fragment(),View.OnClickListener{
             when(v.id){
                 R.id.btnReadMore->{
                     //navigate to about us page
-                    findNavController().navigate(R.id.stayOverHistoryFragment)
+                    findNavController().navigate(R.id.nav_about)
                 }
                 R.id.btnFirstEvent->{
                     //save the event name in the shared prefrence
                     SharedPreferencesManager.write(SharedPreferencesManager.EVENT_NAME, txtFirstEvent.text.toString())
-//                   // val currentEvent = SharedPreferencesManager.read(SharedPreferencesManager.EVENT_NAME, "")
-//                    Log.e ("SHARED PREFRENCES" ,currentEvent.toString() )
+                    val currentEvent = SharedPreferencesManager.read(SharedPreferencesManager.EVENT_NAME, "")
+                    Log.e ("SHARED PREFRENCES" ,currentEvent.toString() )
                     findNavController().navigate(R.id.eventFragment)
                 }
                 btnSecondEvent.id->{
