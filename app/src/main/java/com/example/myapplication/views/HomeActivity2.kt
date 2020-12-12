@@ -13,6 +13,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -38,7 +39,7 @@ import kotlinx.android.synthetic.main.fragment_stay_over.*
 import kotlinx.android.synthetic.main.nav_header_main.*
 import kotlinx.android.synthetic.main.nav_header_main.edtEmail
 
-class HomeActivity2 : AppCompatActivity(),View.OnClickListener {
+class HomeActivity2 : AppCompatActivity(),View.OnClickListener  {
 
     private val TAG = this@HomeActivity2.toString()
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -70,14 +71,17 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener {
 
 
         drawerLayout= findViewById(R.id.drawer_layout)
+
+
         val navView: NavigationView = findViewById(R.id.nav_view)
+
 
         navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(setOf(
-                R.id.nav_home, R.id.nav_about, R.id.nav_contact,R.id.nav_booking_event,R.id.nav_stay_event,
-            R.id.nav_verified_user,R.id.eventFragment,R.id.stayOverFragment,R.id.action_viewProfile), drawerLayout)
+                R.id.nav_home, R.id.nav_about, R.id.nav_contact,
+            R.id.nav_verified_user,R.id.nav_stay_event ,R.id.nav_booking_event), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
@@ -112,6 +116,7 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
 
 
 
@@ -196,9 +201,6 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener {
 
         })
     }
-
-
-
 
 
 

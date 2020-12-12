@@ -63,9 +63,7 @@ class EventFragment : Fragment() , View.OnClickListener, OnMapReadyCallback{
     lateinit var edtEventDesc :TextView
     lateinit var btnBooking :Button
     lateinit var viewModel: ViewModels
-    private lateinit var hostListFetched: MutableList<Host>
     var currentEventName = SharedPreferencesManager.read(SharedPreferencesManager.EVENT_NAME, "")
-    var currentHost = SharedPreferencesManager.read(SharedPreferencesManager.HOST_NAME, "")
     var currentEmail = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL,"")
     private var bookingStatus :Boolean = true
 
