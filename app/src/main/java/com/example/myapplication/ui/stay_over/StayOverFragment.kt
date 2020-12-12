@@ -213,7 +213,8 @@ class StayOverFragment : Fragment(), View.OnClickListener {
                         selectedRadioButton = requireView().findViewById(rdgDates.checkedRadioButtonId)
                         selectedDate = selectedRadioButton.text.toString()
                         //pass the total to the stay over fragment
-                         SharedPreferencesManager.write(SharedPreferencesManager.IMG_STAY,existingStayOver.img1)
+
+                        SharedPreferencesManager.write(SharedPreferencesManager.IMG_STAY,existingStayOver.img1)
                         SharedPreferencesManager.write(SharedPreferencesManager.TOTAL_STAY_OVER,totalPay.toString())
                         SharedPreferencesManager.write(SharedPreferencesManager.SELECTED_DATE,selectedDate)
                         SharedPreferencesManager.write(SharedPreferencesManager.STAY_GUEST_NUMBER,"Adult : ${selectedAdults} , Child: ${selectedChildren}")

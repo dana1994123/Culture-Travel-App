@@ -12,6 +12,7 @@ import coil.api.load
 import com.example.myapplication.R
 import com.example.myapplication.managers.SharedPreferencesManager
 import com.example.myapplication.models.Host
+import com.example.myapplication.viewmodels.ViewModels
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,7 +36,7 @@ class HostFragment : Fragment() {
     private lateinit var edtEmail :TextView
     private lateinit var edtLocation :TextView
     private lateinit var edtAbout :TextView
-
+    private lateinit var viewModel: ViewModels
 
 
 
@@ -49,6 +50,12 @@ class HostFragment : Fragment() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel = ViewModels()
+        viewModel.getAllHosts()
+        this.populateHostProfile()
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -60,7 +67,6 @@ class HostFragment : Fragment() {
         edtEmail = root.findViewById(R.id.edtEmail)
         edtLocation =root.findViewById(R.id.edtLocation)
         edtAbout = root.findViewById(R.id.edtAbout)
-        this.populateHostProfile()
         return root
     }
 
@@ -82,10 +88,20 @@ class HostFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+        var existingHost = Host()
     }
-    private fun populateHostProfile(){
-        Log.e("host name: " , currentHostName.toString())
-        edtName.setText(currentHostName.toString())
-    }
+    private fun populateHostProfile() {
+        Log.e("host name: ", currentHostName.toString())
+            this.viewModel.hostList.observe(this.viewLifecycleOwner, {
+                if(it!=null) {
+                    existingHost = it[0]
+                }
+                edtName.setText(currentHostName.toString())
+                edtAbout.text = existingHost.about
+                edtLocation.text = existingHost.location
+                edtEmail.text = existingHost.email
+                profileImg.load(existingHost.img)
+            })
 
+        }
 }

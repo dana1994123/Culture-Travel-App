@@ -19,7 +19,7 @@ class ViewModels : ViewModel() {
         SharedPreferencesManager.read(SharedPreferencesManager.EVENT_NAME, "").toString()
     private val culture =
         SharedPreferencesManager.read(SharedPreferencesManager.CULTURE, "").toString()
-
+    private val hostName = SharedPreferencesManager.read(SharedPreferencesManager.HOST_NAME,"").toString()
 
     var guestList: MutableLiveData<List<Guest>> = MutableLiveData()
     var eventList: MutableLiveData<List<Event>> = MutableLiveData()
@@ -53,7 +53,7 @@ class ViewModels : ViewModel() {
 
     fun getAllHosts() {
         repo.fetchAllHosts()
-            .whereEqualTo("culture", culture)
+            .whereEqualTo("name", hostName)
             .addSnapshotListener { snapshot, error ->
                 var modifiedHostList: MutableList<Host> = mutableListOf()
                 if (error != null) {
