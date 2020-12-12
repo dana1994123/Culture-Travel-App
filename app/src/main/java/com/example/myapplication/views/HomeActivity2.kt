@@ -29,7 +29,6 @@ import coil.api.load
 import com.example.myapplication.R
 import com.example.myapplication.communication.Communicator
 import com.example.myapplication.managers.SharedPreferencesManager
-//import com.example.myapplication.LocationManager
 import com.example.myapplication.models.Guest
 import com.example.myapplication.ui.stay_over.StayOverFragment
 import com.example.myapplication.viewmodels.ViewModels
