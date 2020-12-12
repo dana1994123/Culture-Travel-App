@@ -5,40 +5,52 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+
+
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_marginTop="50dp"
-    >
-
-    <View
-        android:layout_marginTop="50dp"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/purple_700"/>
-
+    android:layout_marginTop="50dp">
 
     <LinearLayout
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="#FFFFFF">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/explore_nearby_event"
-            android:textSize="30sp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginBottom="10dp"
-            android:textColor="#eb5180"
-            android:layout_marginStart="10dp" />
-        <View
+        <LinearLayout
 
             android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/purple_700"/>
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/upcoming_event"
+                android:textSize="30sp"
+                android:textColor="#E91E63"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/it_is_in"
+                android:textColor="@color/black"
+                />
+
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"/>
+
+        </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -61,7 +73,7 @@
                             android:layout_marginStart="16dp"
                             android:textSize="20sp"
                             android:padding="20dp"
-                            android:textColor="@color/black"
+                            android:textColor="#E91E63"
                             android:layout_marginTop="16dp"
                             android:layout_marginBottom="0dp"
                             />
@@ -75,8 +87,8 @@
                             android:id="@+id/btnFirstEvent"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="60dp"
-                            android:text="Book Now"/>
+                            android:layout_marginStart="60dp"
+                            android:text="@string/book_now"/>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -89,7 +101,7 @@
                             android:text="@string/festival_du_voyageur"
                             android:layout_marginStart="16dp"
                             android:textSize="25sp"
-                            android:textColor="@color/black"
+                            android:textColor="#E91E63"
                             android:layout_marginTop="16dp"
                             android:layout_marginBottom="0dp"
                             android:padding="20dp"
@@ -100,14 +112,15 @@
                             android:layout_width="200dp"
                             android:layout_height="200dp"
                             android:layout_margin="20dp"
-                            android:src="@drawable/du"
-                            android:clickable="true"/>
+                            android:clickable="true"
+                            android:src="@drawable/du" />
+
                         <Button
                             android:id="@+id/btnSecondEvent"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="60dp"
-                            android:text="Book Now"/>
+                            android:layout_marginStart="60dp"
+                            android:text="@string/book_now"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -121,7 +134,7 @@
                             android:text="@string/winter_light"
                             android:layout_marginStart="8dp"
                             android:textSize="25sp"
-                            android:textColor="@color/black"
+                            android:textColor="#E91E63"
                             android:layout_marginTop="16dp"
                             android:layout_marginBottom="0dp"
                             android:padding="20dp"
@@ -136,8 +149,8 @@
                             android:id="@+id/btnThirdEvent"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="60dp"
-                            android:text="Book Now"/>
+                            android:layout_marginStart="60dp"
+                            android:text="@string/book_now"/>
                     </LinearLayout>
 
 
@@ -152,7 +165,7 @@
                             android:text="@string/northern_lights_festival"
                             android:layout_marginStart="16dp"
                             android:textSize="25sp"
-                            android:textColor="@color/black"
+                            android:textColor="#E91E63"
                             android:layout_marginTop="16dp"
                             android:layout_marginBottom="0dp"
                             android:padding="20dp"
@@ -167,8 +180,8 @@
                             android:id="@+id/btnFourthEvent"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="60dp"
-                            android:text="Book Now"/>
+                            android:layout_marginStart="60dp"
+                            android:text="@string/book_now"/>
                     </LinearLayout>
 
 
@@ -184,7 +197,7 @@
                             android:text="@string/tabestoon_festival"
                             android:layout_marginStart="16dp"
                             android:textSize="25sp"
-                            android:textColor="@color/black"
+                            android:textColor="#E91E63"
                             android:layout_marginTop="16dp"
                             android:layout_marginBottom="0dp"
                             android:padding="20dp"
@@ -200,8 +213,8 @@
                             android:id="@+id/btnFivthEvent"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="60dp"
-                            android:text="Book Now"/>
+                            android:layout_marginStart="60dp"
+                            android:text="@string/book_now"/>
                     </LinearLayout>
 
 
@@ -220,19 +233,19 @@
 
         android:layout_width="match_parent"
         android:layout_height="5dp"
-        android:background="@color/purple_700"/>
+        android:background="@color/black"/>
 
     <ImageView
         android:layout_width="393dp"
         android:layout_height="125dp"
-        android:src="@drawable/applogo" />
+        android:src="@drawable/logo_no" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/the_sky_is_the_limit"
         android:textSize="35sp"
-        android:layout_marginLeft="10dp"
-        android:textColor="#eb5180"/>
+        android:layout_marginStart="10dp"
+        android:textColor="#E91E63"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -254,7 +267,7 @@
         android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="5dp"
-        android:background="@color/purple_700"/>
+        android:background="@color/black"/>
 
 
     <LinearLayout
@@ -266,20 +279,20 @@
 
 
 
-        <!--to insert elements before the horizentalview-->
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="728dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="70dp"
             android:text="@string/explore_culture_with_fun"
-            android:textSize="30dp" />
+            android:textSize="30sp"
+            android:textColor="#E91E63"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="you can now have the apportunity to live other culture in your community"
+            android:layout_marginStart="10dp"
+            android:text="@string/you_can_now_have"
             android:textColor="@color/black"
             />
 
@@ -327,15 +340,15 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_margin="16dp"
-                        android:text="French \nCulture"
+                        android:text="@string/french_culture"
                         android:textColor="#eb5180"
-                        android:textSize="40dp" />
+                        android:textSize="40sp" />
                     <Button
                         android:id="@+id/frenchStayOverBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="25dp"
-                        android:text="Explore "
+                        android:text="@string/explore"
                         />
 
                 </LinearLayout>
@@ -347,7 +360,8 @@
                     android:layout_height="250dp"
                     android:layout_gravity="center"
                     android:layout_margin="32dp"
-                    android:src="@drawable/french" />
+                    android:src="@drawable/french"
+                    />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -359,16 +373,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="India \nCulture"
+                        android:text="@string/indian_culture"
                         android:layout_margin="16dp"
                         android:textColor="#eb5180"
-                        android:textSize="40dp" />
+                        android:textSize="40sp" />
                     <Button
                         android:id="@+id/indianStayOverBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="25dp"
-                        android:text="Explore " />
+                        android:text="@string/explore" />
                 </LinearLayout>
 
 
@@ -391,16 +405,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Italy \nCulture"
+                        android:text="@string/italian_culture"
                         android:textColor="#eb5180"
                         android:layout_margin="16dp"
-                        android:textSize="40dp" />
+                        android:textSize="40sp" />
                     <Button
                         android:id="@+id/italyStayOverBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="25dp"
-                        android:text="Explore " />
+                        android:text="@string/explore" />
                 </LinearLayout>
 
                 <ImageButton
@@ -409,17 +423,12 @@
                     android:layout_height="250dp"
                     android:layout_gravity="center"
                     android:src="@drawable/italy" />
+
             </LinearLayout>
         </LinearLayout>
 
+
     </HorizontalScrollView>
-
-
-    <View
-        android:layout_marginTop="32dp"
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:background="@color/purple_700"/>
 
     <LinearLayout
         android:layout_height="wrap_content"
@@ -430,7 +439,7 @@
 
         <TextView
             style="@style/shadoweffect"
-            android:layout_width="600dp"
+            android:layout_width="728dp"
             android:layout_height="wrap_content"
             android:padding="32dp"
             android:text=" Strength lies in differences, not in similarities. \nby Stephen R. Covey." />
@@ -438,7 +447,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clickable="false"
-            android:text="© 2020 Culture App All Rights Reserved"/>
+            android:text="@string/_2020_culture_app_all_rights_reserved"/>
 
     </LinearLayout>
 
@@ -449,5 +458,10 @@
         android:background="@android:color/darker_gray"/>
 
 </LinearLayout>
+
+
+
+
+
 
 </ScrollView>

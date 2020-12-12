@@ -14,9 +14,9 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="133dp"
-        android:layout_height="140dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="132dp"
+        android:layout_height="112dp"
+        android:layout_marginTop="64dp"
         android:src="@drawable/applogo"
         android:text="@string/login"
         android:textSize="60sp"
@@ -27,15 +27,15 @@
         android:id="@+id/tv_heading"
         android:layout_width="224dp"
         android:layout_height="82dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="92dp"
         android:gravity="center_horizontal"
-        android:text="SUPPORT\nCENTER"
+        android:text="@string/support_ncenter"
         android:textAlignment="center"
         android:textColor="#266698"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.32"
+        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
@@ -57,7 +57,7 @@
         android:layout_height="100dp"
         android:layout_marginTop="8dp"
         android:gravity="center_horizontal"
-        android:text="We are here to help you.\nGet in touch with our customer support team."
+        android:text="@string/we_are_here_to_help_you_nget_in_touch_with_our_customer_support_team"
         android:textAlignment="center"
         android:textColor="#65AFEA"
         android:textSize="24sp"
@@ -68,9 +68,10 @@
         tools:ignore="MissingConstraints" />
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="170dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/contactTxt"
         tools:context=".ui.support.ContactFragment">
 
@@ -82,14 +83,13 @@
             android:clickable="true"
             android:focusable="true"
             android:src="@drawable/icon_call"
-            app:maxImageSize="40dp"
-            tools:ignore="MissingConstraints" />
+            app:maxImageSize="40dp" />
 
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fabEmail"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="66dp"
             android:layout_gravity="bottom|center"
             android:layout_margin="80dp"
             android:layout_marginBottom="26dp"

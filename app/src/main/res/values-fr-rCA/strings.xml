@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Application de voyage culturel</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Mot de passe</string>
+    <string name="action_sign_in">Connexion ou Inscription</string>
+    <string name="action_sign_in_short">se connecter</string>
+    <string name="welcome">"Bienvenu !"</string>
+    <string name="invalid_username">\Pas un nom d\'utilisateur valide</string>
+    <string name="invalid_password">Le mot de passe doit contenir> 5 caractères</string>
+    <string name="login_failed">"Échec de la connexion"</string>
+    <string name="sign_in">Se connecter</string>
+    <string name="remember_me">Souviens-toi de moi</string>
+    <string name="create_an_account">Créer un compte</string>
+    <string name="forget_password">Mot de passe oublié</string>
+    <string name="title_activity_home2">AccueilActivité2</string>
+    <string name="navigation_drawer_open">Ouvrir le tiroir de navigation</string>
+    <string name="navigation_drawer_close">Fermer le panneau de navigation</string>
+    <string name="nav_header_title">Studio Android</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">En-tête de navigation</string>
+    <string name="action_settings">Réglages</string>
+
+    <string name="menu_home">Accueil</string>
+    <string name="error_empty_password">
+Le mot de passe ne peut pas être vide</string>
+    <string name="menu_gallery">
+Galerie</string>
+    <string name="menu_slideshow">Diaporama</string>
+    <string name="profile">Profil</string>
+    <string name="contact_us">Nous contacter</string>
+    <string name="login">S\'identifier</string>
+    <string name="full_name">
+Nom complet</string>
+    <string name="email_address">
+Adresse e-mail</string>
+    <string name="sign_up">S\'inscrire</string>
+    <string name="sign_up_to_get_started">Inscrivez-vous pour commencer!</string>
+    <string name="password">
+Mot de passe</string>
+    <string name="confirm_password">
+Confirmez le mot de passe</string>
+    <string name="sign_in_to_continue">Connectez-vous pour continuer!</string>
+    <string name="im_already_a_member_sign_in">Je suis déjà membre. Se connecter.</string>
+    <string name="go_near_and_explore_cultures">Approchez et explorez les cultures</string>
+    <string name="explore_culture_with_fun">Explorez la culture avec plaisir</string>
+    <string name="sub_title_hori">Activités interactives que vous pouvez faire ensemble, animées par des hôtes experts.</string>
+    <string name="the_sky_is_the_limit">Le ciel est la limite</string>
+    <string name="hello_blank_fragment">Bonjour fragment vierge</string>
+    <string name="name">Nom</string>
+    <string name="payment_info">Information de paiement</string>
+    <string name="card_number">Numéro de carte</string>
+    <string name="name_on_the_card">Nom sur la Carte</string>
+    <string name="cvv">CVV</string>
+    <string name="expiry_placeholder">Espace réservé d\'expiration</string>
+    <string name="confirm_pay"><![CDATA[Confirmer et payer]]></string>
+    <string name="fill_all_the_following_information">* Remplissez toutes les informations suivantes</string>
+    <string name="sign_out">Déconnexion</string>
+    <string name="view_profile">Voir le profil</string>
+    <string name="phone_number">Numéro de téléphone</string>
+    <string name="language">Langue</string>
+    <string name="save">sauver</string>
+    <string name="about_us">Sur</string>
+    <string name="pasta_making_lasagne">Fabrication de pâtes: Lasagnes</string>
+    <string name="what_you_will_do">Que vas tu faire?</string>
+    <string name="see_date">voir la date</string>
+    <string name="from_31_person">31 $ / personne</string>
+    <string name="select_dates">Sélectionnez des dates</string>
+    <string name="confirm_amp_pay"><![CDATA[CONFIRMER & PAYER]]></string>
+    <string name="thur_dec_3">Jeu.3 déc.</string>
+    <string name="fri_dec_4">Ven, 4 déc</string>
+    <string name="mon_dec_7">Lun 7 déc</string>
+    <string name="_6_00_am_8_00_am">6 h 00 à 8 h 00</string>
+    <string name="_35_person">35 $ ​​/ personne</string>
+    <string name="include">comprendre</string>
+    <string name="mystery_amp_culture_box"><![CDATA[boîte mystère et culture]]></string>
+    <string name="event_location">Lieu de l\'événement</string>
+    <string name="event_host">Rencontrez l\'hôte:</string>
+    <string name="event_duration">Durée de l\'événement</string>
+    <string name="event_language">Langue de l\'événement</string>
+    <string name="event_desc">événement desc</string>
+    <string name="username">Nom d\'utilisateur</string>
+    <string name="support">Soutien</string>
+    <string name="my_trip">Mon voyage</string>
+    <string name="verified_user">Utilisateur vérifié</string>
+    <string name="explore_nearby_event">Explorer l\'événement NearBy</string>
+    <string name="explore_all">Explorer tout</string>
+    <string name="read_more">Lire la suite</string>
+    <string name="about_home">Nous offrons une expérience exclusive que vous apprécierez absolument en découvrant d\'autres cultures lors de votre voyage dans le pays.</string>
+    <string name="dd_mm_yyyy">JJ / MM / AAAA</string>
+    <string name="s">##</string>
+    <string name="afrikadey">Festival Afrikadey</string>
+    <string name="festival_du_voyageur">Festival du Voyageur</string>
+    <string name="winter_light">Festival des lumières d\'hiver</string>
+    <string name="tabestoon_festival">Festival de Tabestoon</string>
+    <string name="northern_lights_festival">Festival des aurores boréales</string>
+    <string name="event_date">Date de l\'événement</string>
+    <string name="location">Emplacement:</string>
+    <string name="event_category">Catégorie d\'événement:</string>
+    <string name="thank_you">Merci!</string>
+    <string name="booking_history">Historique des réservations</string>
+    <string name="french_culture">français</string>
+    <string name="italian_culture">Italienne</string>
+    <string name="indian_culture">Indienne</string>
+    <string name="event_name">Nom de l\'événement</string>
+    <string name="remove_booking">Supprimer la réservation</string>
+    <string name="upcoming_event">Événement à venir</string>
+    <string name="explore_french">Explorez la culture française</string>
+    <string name="explore_indian">Explorez la culture indienne</string>
+    <string name="explore_italian">Explorez la culture italienne</string>
+    <string name="guests_allowed">Invités autorisés</string>
+    <string name="from_date">De</string>
+    <string name="meet_your_host">Rencontrez l\'hôte:</string>
+    <string name="dana">Dana</string>
+    <string name="number_of_days">Nombre de jours</string>
+    <string name="frequently_booked_together">Souvent réservé ensemble</string>
+    <string name="what_is_cmb">Qu\'est-ce que CMB?!</string>
+    <string name="guests">Invitées</string>
+    <string name="total_233">Total : </string>
+    <string name="adult">Adulte</string>
+    <string name="children">Enfants</string>
+    <string name="exlpore_french_culture">Explorez la culture française</string>
+    <string name="mystery_box_title">Boite mystère</string>
+
+    <string name="mystery_box_content">Pour 30 $ supplémentaires, vous pouvez ajouter de la nourriture ou des vêtements spéciaux en fonction de la culture de votre hôte</string>
+    <string name="verified">La vérification est la façon dont vous prouvez que votre compte est la présence authentique d\'une personne réelle.
+
+        Vous avez probablement vu de nombreux badges de vérification.
+        </string>
+    <string name="v2"> qui a confirmé que son compte en question est digne de confiance, ou du moins ils sont ce qu\'ils prétendent être.
+
+Ces badges sont conçus pour faire ressortir les vrais comptes afin que notre hôte puisse être sûr de parler avec la bonne personne.</string>
+    <string name="become_verified_user">Devenir un utilisateur vérifié</string>
+    <string name="verified_now">Vérifié maintenant</string>
+    <string name="click_to_continue">Cliquez pour continuer!</string>
+    <string name="it_is_in">C\'est entre vos mains. Venez nous rejoindre et amusez-vous</string>
+    <string name="you_can_now_have">vous pouvez maintenant avoir l\'opportunité de vivre une autre culture dans votre communauté</string>
+    <string name="_2020_culture_app_all_rights_reserved">© 2020 Culture App Tous droits réservés</string>
+    <string name="you_">Vous apprécierez chaque minute de cet événement. tout est sur nous, ÉVÉNEMENT GRATUIT, venez et amenez vos amis</string>
+    <string name="thanks_for">Merci d\'avoir vérifié, nous espérons que notre application pourra rendre votre journée un peu plus agréable.</string>
+    <string name="book_now">Reserve maintenant</string>
+    <string name="explore">Explorer</string>
+    <string name="about_me">À propos de moi</string>
+    <string name="guest_number">Numéro d\'invité</string>
+    <string name="date">Date:</string>
+    <string name="host_name">Nom d\'hôte:</string>
+    <string name="explore_french_culture">Explorez la culture française</string>
+
+    <string name="who_are_we">QUI SOMMES NOUS ?</string>
+    <string name="we_are_a_group_of_ambitious_individuals_n_trying_to_make_the_lives_of_people_across_the_world_more_peaceful_by_bringing_together_the_cultures_of_the_world_we_are_extremely_resolute_towards_our_goal_and_this_culturaltravel_app_is_a_small_beginning_for_achieving_it_this_app_will_provides_you_the_opportunity_to_connect_with_other_people_and_enjoy_their_traditional_and_cultural_activities_occuring_in_your_nearby_places">Nous sommes un groupe d\'individus ambitieux \ n essayant de rendre la vie des gens du monde entier plus pacifique en rassemblant les cultures du monde. Nous sommes extrêmement résolus à atteindre notre objectif et cette application CulturalTravel est un petit début pour y parvenir. Cette application vous donnera la possibilité de vous connecter avec d\'autres personnes et de profiter de leurs activités traditionnelles et culturelles se déroulant dans vos endroits à proximité.</string>
+    <string name="rate_us">ÉVALUEZ NOUS</string>
+    <string name="support_ncenter">CENTRE DE SOUTIEN</string>
+    <string name="we_are_here_to_help_you_nget_in_touch_with_our_customer_support_team">Nous sommes là pour vous aider. NContactez notre équipe d\'assistance client.</string>
+</resources>
