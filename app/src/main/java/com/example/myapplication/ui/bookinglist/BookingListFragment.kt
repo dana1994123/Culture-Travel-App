@@ -12,8 +12,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.adapters.BookingsAdapter
 import com.example.myapplication.adapters.OnItemClickListener
+import com.example.myapplication.adapters.StayBookingAdapter
 import com.example.myapplication.models.BookingEvent
-import com.example.myapplication.models.Event
+import com.example.myapplication.models.StayOverBooking
 import com.example.myapplication.viewmodels.ViewModels
 
 
@@ -23,9 +24,13 @@ class BookingListFragment : Fragment(), OnItemClickListener  , View.OnClickListe
     private lateinit var viewModel : ViewModels
 
     private lateinit var rvBooking : RecyclerView
-    private lateinit var viewAdapter: BookingsAdapter
+    private lateinit var viewEventAdapter: BookingsAdapter
+
+
     private lateinit var viewManager: RecyclerView.LayoutManager
+
     private lateinit var bookingsList: MutableList<BookingEvent>
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,8 +44,12 @@ class BookingListFragment : Fragment(), OnItemClickListener  , View.OnClickListe
         this.rvBooking = root.findViewById(R.id.rvBooking)
         this.bookingsList = mutableListOf()
 
-        this.viewAdapter = BookingsAdapter(this.requireContext(), this.bookingsList,this)
-        this.rvBooking.adapter = this.viewAdapter
+
+        this.viewEventAdapter = BookingsAdapter(this.requireContext(), this.bookingsList,this)
+
+        this.rvBooking.adapter = this.viewEventAdapter
+
+
 
         this.viewManager = LinearLayoutManager(this.requireContext())
         this.rvBooking.layoutManager = this.viewManager
@@ -71,7 +80,7 @@ class BookingListFragment : Fragment(), OnItemClickListener  , View.OnClickListe
             if (eventBookingsList != null){
                 bookingsList.clear()
                 bookingsList.addAll(eventBookingsList)
-                viewAdapter.notifyDataSetChanged()
+                viewEventAdapter.notifyDataSetChanged()
             }
         })
     }

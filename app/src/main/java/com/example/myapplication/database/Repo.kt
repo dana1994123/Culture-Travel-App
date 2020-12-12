@@ -91,6 +91,11 @@ class Repo {
         Log.e ("Collection refrence :" , collectionRefrence.id)
         return  collectionRefrence
     }
+    fun getBookingStayOver() : CollectionReference{
+        val collectionRefrence  :CollectionReference = db.collection(COLLECTION_SEVEN)
+        Log.e ("Collection refrence :" , collectionRefrence.id)
+        return  collectionRefrence
+    }
 
     fun deleteGuest(email:String){
         db.collection(COLLECTION_ONE).document(email).delete()

@@ -14,7 +14,6 @@ import com.example.myapplication.managers.SharedPreferencesManager
 import com.example.myapplication.models.Payment
 import com.example.myapplication.models.StayOver
 import com.example.myapplication.models.StayOverBooking
-import com.example.myapplication.ui.stay_over.StayOverFragment
 import com.example.myapplication.utils.DataValidations
 import com.example.myapplication.viewmodels.PaymentViewModel
 import com.example.myapplication.viewmodels.ViewModels
@@ -173,10 +172,10 @@ class PaymentFragment : Fragment(), View.OnClickListener {
     private fun saveTripToDb(){
         // if the payment is correct we have to save the trip in guest history
         //create a stayOverBooking obj
-        bookingStayOver.guestEmail = currentUserEmail.toString()
+        bookingStayOver.email = currentUserEmail.toString()
         bookingStayOver.culture = currentCulture.toString()
         bookingStayOver.total = " Cost: $ ${currentTotal}"
-        bookingStayOver.guestEmail = currentUserEmail.toString()
+        bookingStayOver.email = currentUserEmail.toString()
         bookingStayOver.hostName = currentHost.toString()
         bookingStayOver.img1Stay = currentiMGStay.toString()
         bookingStayOver.bookingDate = currentBookingDate.toString()

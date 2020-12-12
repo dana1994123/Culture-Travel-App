@@ -35,6 +35,9 @@
             android:id="@+id/action_nav_home_to_camera_fragment"
             app:destination="@id/fragment_camera"
             app:popUpTo="@layout/activity_home2"/>
+        <action
+            android:id="@+id/action_nav_home_to_stayOverHistoryFragment"
+            app:destination="@id/stayOverHistoryFragment" />
 
     </fragment>
 
@@ -115,5 +118,10 @@
         android:name="com.example.myapplication.ui.host.HostFragment"
         android:label="fragment_host"
         tools:layout="@layout/fragment_host" />
+    <fragment
+        android:id="@+id/stayOverHistoryFragment"
+        android:name="com.example.myapplication.ui.stayoverhistory.StayOverHistoryFragment"
+        android:label="fragment_stay_over_history"
+        tools:layout="@layout/fragment_stay_over_history" />
 
 </navigation>

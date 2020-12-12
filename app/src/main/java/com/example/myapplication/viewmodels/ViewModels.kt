@@ -263,6 +263,48 @@ class ViewModels : ViewModel() {
             }
 
     }
+
+
+
+    //method to get all the guest booking stayover and fetch it in his history
+    fun getBookingStayOver(){
+        repo.getBookingStayOver()
+            .whereEqualTo("email" , guestEmail)
+            .addSnapshotListener{snapshot , error ->
+                if (error != null){
+                    Log.e(TAG, "LISTING FAILED")
+                    this.stayOverBookinList.value = null
+                    return@addSnapshotListener
+                }
+                var modifiedBookingStayList: MutableList<StayOverBooking> = mutableListOf()
+
+                if (snapshot != null){
+                    for(documentChange in snapshot.documentChanges){
+                        var bookingStay = documentChange.document.toObject(StayOverBooking::class.java)
+                        Log.e(TAG, "event DOC CHANGED ")
+                        when(documentChange.type){
+                            DocumentChange.Type.ADDED ->{
+                                modifiedBookingStayList.add(bookingStay)
+                                Log.e(TAG, "event DOC added ")
+                            }
+                            DocumentChange.Type.MODIFIED->{
+
+                                Log.e(TAG, "event DOC modified ")
+
+                            }
+                            DocumentChange.Type.REMOVED ->{
+                                modifiedBookingStayList.remove(bookingStay)
+                                Log.e(TAG, "event DOC removed")
+                            }
+                        }
+                    }
+                    this.stayOverBookinList.value = modifiedBookingStayList
+                }else{
+                    Log.e(TAG,"BOOKING STAY not found")
+                }
+            }
+
+    }
     fun deleteBookingEvent(eventId: String){
         repo.deleteBookingEvent(eventId)
     }

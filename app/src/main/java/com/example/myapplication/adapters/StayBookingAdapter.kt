@@ -9,26 +9,20 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
 import com.example.myapplication.R
-import com.example.myapplication.models.BookingEvent
 import com.example.myapplication.models.StayOverBooking
-import kotlinx.android.synthetic.main.booking_history.view.*
-import kotlinx.android.synthetic.main.booking_history.view.edtEventDuration
 import kotlinx.android.synthetic.main.fragment_event.view.*
 import kotlinx.android.synthetic.main.stay_over_history.view.*
-import org.w3c.dom.Text
-import java.util.concurrent.TimeoutException
 
 /*
 user dana
 Student ID  991541439
 Name : Dana Aljamal 
 Date 2020-12-11
-*/
-class StayBookingAdapter(
+*/class StayBookingAdapter(
     val context: Context,
     val stayoverBookingList: MutableList<StayOverBooking>,
 
-) : RecyclerView.Adapter<StayBookingAdapter.BookingStayViewHolder>() {
+    ) : RecyclerView.Adapter<StayBookingAdapter.BookingStayViewHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -48,20 +42,18 @@ class StayBookingAdapter(
     }
 
     inner class BookingStayViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        var edtExploreCulture: TextView = itemView.edtExploreCulture
-        var imgstayover:ImageView = itemView.imgstayover
+//        var edtExploreCulture: TextView = itemView.edtExploreCulture
+//        var imgstayover: ImageView = itemView.imgstayover
         var edtHostName: TextView = itemView.edtHostName
         var edtDate :TextView = itemView.edtDate
         var edtstayGuestNumber :TextView = itemView.edtstayGuestNumber
 
         fun bind(overBooking: StayOverBooking){
-            edtExploreCulture.setText(overBooking.culture)
-            imgstayover.load(overBooking.img1Stay)
+//            edtExploreCulture.setText(overBooking.culture)
+//            imgstayover.load(overBooking.img1Stay)
             edtstayGuestNumber.setText(overBooking.stayGuestNumber)
             edtHostName.setText(overBooking.hostName)
         }
     }
 }
-
-
 
