@@ -8,6 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.view.children
+import androidx.core.view.get
 import androidx.navigation.fragment.findNavController
 import coil.api.load
 import com.example.myapplication.R
@@ -69,7 +71,7 @@ class StayOverFragment : Fragment(), View.OnClickListener {
     private lateinit var txtTotal: TextView
     private lateinit var bookBtn: Button
     private lateinit var mystryCheckBox: CheckBox
-
+    private lateinit var selectedRadioButton: RadioButton
 
 
 
@@ -172,7 +174,6 @@ class StayOverFragment : Fragment(), View.OnClickListener {
             dateRb1.text = existingStayOver.dates[0]
             dateRb2.text = existingStayOver.dates[1]
             dateRb3.text = existingStayOver.dates[2]
-
             //save the host name to use it the host fragment
             SharedPreferencesManager.write(SharedPreferencesManager.HOST_NAME, existingStayOver.host.name)
 
@@ -191,7 +192,6 @@ class StayOverFragment : Fragment(), View.OnClickListener {
 
         })
     }
-
     override fun onClick(v: View?) {
         if(v!=null){
             when(v.id){
@@ -209,7 +209,9 @@ class StayOverFragment : Fragment(), View.OnClickListener {
                 bookBtn.id ->{
                     //create an object of the stayOverBooking and save it in the Shared preference so
                     // we can save it in the payment fragment once the user confirm the payment
-                    if(totalPay != 0 ){
+                    if(totalPay != 0 && rdgDates.checkedRadioButtonId != -1){
+                        selectedRadioButton = requireView().findViewById(rdgDates.checkedRadioButtonId)
+                        selectedDate = selectedRadioButton.text.toString()
                         //pass the total to the stay over fragment
                          SharedPreferencesManager.write(SharedPreferencesManager.IMG_STAY,existingStayOver.img1)
                         SharedPreferencesManager.write(SharedPreferencesManager.TOTAL_STAY_OVER,totalPay.toString())
@@ -230,7 +232,6 @@ class StayOverFragment : Fragment(), View.OnClickListener {
                     alertBuilder.setTitle(getString(R.string.mystery_box_title))
                     alertBuilder.setMessage(getString(R.string.mystery_box_content))
                     alertBuilder.setPositiveButton(android.R.string.yes){dialog,which ->
-
                     }
                     alertBuilder.show()
                 }
