@@ -152,4 +152,6 @@ Ces badges sont conçus pour faire ressortir les vrais comptes afin que notre h�
     <string name="rate_us">ÉVALUEZ NOUS</string>
     <string name="support_ncenter">CENTRE DE SOUTIEN</string>
     <string name="we_are_here_to_help_you_nget_in_touch_with_our_customer_support_team">Nous sommes là pour vous aider. NContactez notre équipe d\'assistance client.</string>
+    <string name="booking_event">Booking Event</string>
+    <string name="stayover_booking">StayOver Booking</string>
 </resources>
