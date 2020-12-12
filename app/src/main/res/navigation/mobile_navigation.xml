@@ -34,6 +34,9 @@
         <action
             android:id="@+id/action_nav_home_to_fragment_camera"
             app:destination="@id/fragment_camera" />
+        <action
+            android:id="@+id/action_nav_home_to_stayOverHistoryFragment"
+            app:destination="@id/stayOverHistoryFragment" />
 
     </fragment>
 

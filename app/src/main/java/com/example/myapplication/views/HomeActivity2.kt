@@ -76,7 +76,7 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(setOf(
-                R.id.nav_home, R.id.nav_about, R.id.nav_trip_history,R.id.nav_contact,
+                R.id.nav_home, R.id.nav_about, R.id.nav_contact,R.id.nav_booking_event,R.id.nav_stay_event,
             R.id.nav_verified_user,R.id.eventFragment,R.id.stayOverFragment,R.id.action_viewProfile), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
@@ -106,6 +106,7 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener {
         menuInflater.inflate(R.menu.home_activity2, menu)
         return true
     }
+
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
@@ -167,9 +168,10 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener {
         if (resultCode == Activity.RESULT_OK){
             if (requestCode == this.REQUEST_GALLERY_PICTURE){
                 this.imgProfilePic.setImageURI(data?.data)
-                currentUser.profileImg = data?.data.toString()
+
 
                 //update user image  profile
+                currentUser.profileImg = data?.data.toString()
                 viewModel.updateGuest2(currentUser)
 
             }
@@ -181,22 +183,19 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener {
         viewModel.guestList.observe(this,{
             if(it != null){
                 currentUser = it[0]
-                edtUserName.setText(currentUser.name)
-                edtEmail.setText(currentUser.email)
-
-
-
-//                var imgUri = currentUser.profileImg.toUri()
-//                Log.e("image uri" , imgUri.toString())
-//                imgProfilePic.setImageURI(imgUri)
-
-
+            }
+            edtUserName.setText(currentUser.name)
+            edtEmail.setText(currentUser.email)
+            if(currentUser.profileImg == ""){
+                imgProfilePic.setImageResource(R.drawable.ic_profile)
+            }
+            else{
+                imgProfilePic.setImageURI(currentUser.profileImg.toUri())
 
             }
-        })
 
+        })
     }
-    //we need to save it in the db by updating the user info
 
 
 

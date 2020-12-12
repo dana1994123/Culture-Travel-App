@@ -22,9 +22,13 @@ import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
 import com.example.myapplication.managers.SharedPreferencesManager
+import com.example.myapplication.models.Guest
+import com.example.myapplication.ui.profile.ProfileFragment
+import com.example.myapplication.viewmodels.ViewModels
 import kotlinx.android.synthetic.main.fragment_camera.*
 import kotlinx.android.synthetic.main.nav_header_main.*
 import java.io.File
@@ -51,6 +55,8 @@ class CameraFragment : Fragment() , View.OnClickListener {
     private lateinit var btnCameraCapture : ImageButton
     private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE)
     private var imageCapture : ImageCapture? = null
+    val currentUserEmail  = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL , "")
+    private lateinit var viewModel :ViewModels
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,6 +65,9 @@ class CameraFragment : Fragment() , View.OnClickListener {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+        viewModel = ViewModels()
+        viewModel.fetchAllGuest()
+        this.getUser()
 
         if (allPermissionsGranted()){
             //good to go further
@@ -100,6 +109,7 @@ class CameraFragment : Fragment() , View.OnClickListener {
 
         private const val REQUEST_PERMISSION_CODE = 171
         private const val TAG = "CameraXFragment"
+        var currentUser = Guest()
     }
 
     private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
@@ -183,8 +193,9 @@ class CameraFragment : Fragment() , View.OnClickListener {
                         Log.e(TAG, "Image successfully saved at ${pictureURI}")
                         this@CameraFragment.requireActivity().imgProfilePic.setImageURI(pictureURI)
 
-                        //SAVE THE USER IMAGE IN THE SHARED PREFERENCE TO SAVE IT IN THE db
-                        SharedPreferencesManager.write(SharedPreferencesManager.USER_PICTURE , pictureURI.toString())
+                        //SAVE THE USER IMAGE IN THE DB
+                        currentUser.profileImg = pictureURI.toString()
+                        viewModel.updateGuest2(currentUser)
 
                         this@CameraFragment.saveToExternalStorage(pictureURI)
                         this@CameraFragment.findNavController().navigateUp()
@@ -229,5 +240,12 @@ class CameraFragment : Fragment() , View.OnClickListener {
         }else{
             Log.e(TAG, "Unable to access external storage.")
         }
+    }
+
+    fun getUser(){
+        this.viewModel.guestList.observe(this.requireActivity(), { matchedGuest ->
+            if (matchedGuest != null) {
+                currentUser = matchedGuest[0]
+            }})
     }
 }
