@@ -47,7 +47,7 @@
         android:text="@string/we_are_a_group_of_ambitious_individuals_n_trying_to_make_the_lives_of_people_across_the_world_more_peaceful_by_bringing_together_the_cultures_of_the_world_we_are_extremely_resolute_towards_our_goal_and_this_culturaltravel_app_is_a_small_beginning_for_achieving_it_this_app_will_provides_you_the_opportunity_to_connect_with_other_people_and_enjoy_their_traditional_and_cultural_activities_occuring_in_your_nearby_places"
         android:textAlignment="center"
         android:textColor="#816D6D"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/text_view"
         tools:ignore="MissingConstraints" />
