@@ -122,6 +122,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         super.onResume()
         viewModel = ViewModels()
         viewModel.fetchAllGuest()
+        btnSave.visibility = View.GONE
         this.populateProfile()
 
     }
@@ -167,6 +168,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         edtEmail.isEnabled = false
         edtPhoneNumber.isEnabled = false
         spnLang.isEnabled = false
+        btnSave.visibility = View.GONE
     }
 
     fun enableEdit(){
