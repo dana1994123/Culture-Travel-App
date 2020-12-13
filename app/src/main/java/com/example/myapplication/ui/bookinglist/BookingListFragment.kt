@@ -1,6 +1,7 @@
 package com.example.myapplication.ui.bookinglist
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -85,8 +86,25 @@ class BookingListFragment : Fragment(), OnItemClickListener  , View.OnClickListe
         })
     }
 
-    override fun onItemClicked(bookingEvent: BookingEvent) {
-        Toast.makeText(context, bookingEvent.event.toString(), Toast.LENGTH_SHORT).show()
+    override fun onItemClicked( position: Int) {
+        Log.e("position clicked" , position.toString() )
+        val alertBuilder = androidx.appcompat.app.AlertDialog.Builder(this.requireContext())
+        alertBuilder.setTitle("Confirm to Delete ")
+        alertBuilder.setMessage("Are you sure you want to delete?")
+        alertBuilder.setPositiveButton(android.R.string.yes){ dialog, which ->
+            val currentClicked = bookingsList[position]
+            viewModel.deleteBookingEvent(currentClicked.id)
+            bookingsList.removeAt(position)
+            viewEventAdapter.notifyDataSetChanged()
+            viewModel.getBookingEvent()
+        }
+
+        alertBuilder.setNegativeButton(android.R.string.no){ dialog, which ->
+            Toast.makeText(this.requireContext(), "Thank you for Confirm", Toast.LENGTH_LONG).show()
+        }
+
+
+        alertBuilder.show()
     }
 
     override fun onClick(v: View?) {
@@ -98,5 +116,7 @@ class BookingListFragment : Fragment(), OnItemClickListener  , View.OnClickListe
 
         }
     }
+
+
 }
 

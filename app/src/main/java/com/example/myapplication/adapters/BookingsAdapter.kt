@@ -36,29 +36,34 @@ class BookingsAdapter (
         return bookingsList.size
     }
 
-    override fun onBindViewHolder(holder:BookingsAdapter.BookingViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: BookingsAdapter.BookingViewHolder, position: Int) {
         holder.bind(bookingsList[position], itemClickListener)
     }
 
-    inner class BookingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    inner class BookingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var edtDate: TextView = itemView.edtDateEvent
         var edtEventName: TextView = itemView.edtEventName
         var edtEventLocation: TextView = itemView.edtEventLocation
         var edtEventDuration: TextView = itemView.edtEventDuration
 
-        fun bind(booking: BookingEvent, clickListener: OnItemClickListener){
+        fun bind(booking: BookingEvent, clickListener: OnItemClickListener) {
             edtDate.setText(booking.event.date.toString())
             edtEventName.setText(booking.event.name.toString())
             edtEventLocation.setText(booking.event.location.toString())
             edtEventDuration.setText(booking.event.duration.toString())
 
-            itemView.setOnClickListener{
-                clickListener.onItemClicked(booking)
+            itemView.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    clickListener.onItemClicked(position)
+                }
             }
         }
     }
+
+
 }
 
-interface OnItemClickListener{
-    fun onItemClicked(booking: BookingEvent)
+interface OnItemClickListener {
+    fun onItemClicked(position: Int)
 }

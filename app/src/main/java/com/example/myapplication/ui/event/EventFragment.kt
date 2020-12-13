@@ -168,9 +168,10 @@ class EventFragment : Fragment() , View.OnClickListener, OnMapReadyCallback{
         viewModel.fetchAllEvent()
         //create a method to populate the event by fetching the event to the fragment
         this.populateEvent ()
+        bookingEvent = BookingEvent()
 
-        viewModel.getBookingEvent()
-        bookingStatus =true
+        //viewModel.getBookingEvent()
+        //bookingStatus =true
 
 
     }
@@ -212,7 +213,7 @@ class EventFragment : Fragment() , View.OnClickListener, OnMapReadyCallback{
                     bookingEvent.email = currentEmail.toString()
                     bookingEvent.event = existingEvent
                     viewModel.addBookingEvent(bookingEvent)
-                    findNavController().navigate(R.id.bookingConfirmation2)
+                    findNavController().navigate(R.id.nav_booking_event)
                 }
 
             }
