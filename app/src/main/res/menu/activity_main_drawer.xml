@@ -16,11 +16,11 @@
     </group>
 
 
-    <item android:title="Booking History">
+    <item android:title="@string/booking_history">
         <menu>
             <item
                 android:id="@+id/nav_booking_event"
-                android:icon="@drawable/ic_history_24"
+                android:icon="@drawable/ic_baseline_history_toggle"
                 android:title="@string/booking_event" />
             <item
                 android:id="@+id/nav_stay_event"

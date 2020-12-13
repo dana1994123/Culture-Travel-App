@@ -20,9 +20,6 @@
             android:id="@+id/action_nav_home_to_nav_about"
             app:destination="@id/nav_about" />
         <action
-            android:id="@+id/action_nav_home_to_nav_trip_history"
-            app:destination="@id/nav_trip_history" />
-        <action
             android:id="@+id/action_nav_home_to_nav_contact"
             app:destination="@id/nav_contact" />
         <action
@@ -35,8 +32,11 @@
             android:id="@+id/action_nav_home_to_fragment_camera"
             app:destination="@id/fragment_camera" />
         <action
-            android:id="@+id/action_nav_home_to_stayOverHistoryFragment"
-            app:destination="@id/stayOverHistoryFragment" />
+            android:id="@+id/action_nav_home_to_nav_stayover_history_fragment"
+            app:destination="@id/nav_stay_event" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_trip_history"
+            app:destination="@id/nav_booking_event" />
 
     </fragment>
 
@@ -47,10 +47,14 @@
         tools:layout="@layout/verified_user" />
 
     <fragment
-        android:id="@+id/nav_trip_history"
+        android:id="@+id/nav_booking_event"
         android:name="com.example.myapplication.ui.bookinglist.BookingListFragment"
         android:label="Booking Event List"
-        tools:layout="@layout/fragment_booking_list" />
+        tools:layout="@layout/fragment_booking_list" >
+        <action
+            android:id="@+id/action_nav_trip_history_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
     <fragment
         android:id="@+id/nav_profile"
         android:name="com.example.myapplication.ui.profile.ProfileFragment"
@@ -72,9 +76,8 @@
         android:label="Event"
         tools:layout="@layout/fragment_event" >
         <action
-            android:id="@+id/action_eventFragment_to_bookingConfirmation2"
-            app:destination="@id/bookingConfirmation2"
-            app:popUpTo="@id/nav_home" />
+            android:id="@+id/action_eventFragment_to_nav_booking_event"
+            app:destination="@id/nav_booking_event" />
     </fragment>
     <fragment
         android:id="@+id/stayOverFragment"
@@ -91,8 +94,8 @@
         android:label="Confirmation"
         tools:layout="@layout/fragment_booking_confirmation">
         <action
-            android:id="@+id/action_bookingConfirmation2_to_nav_trip_history"
-            app:destination="@id/nav_trip_history" />
+            android:id="@+id/action_bookingConfirmation2_to_nav_stay_event"
+            app:destination="@id/nav_stay_event" />
     </fragment>
     <fragment
         android:id="@+id/paymentFragment"
@@ -103,8 +106,8 @@
             android:id="@+id/action_paymentFragment_to_hostFragment"
             app:destination="@id/hostFragment" />
         <action
-            android:id="@+id/action_paymentFragment_to_stayOverHistoryFragment"
-            app:destination="@id/stayOverHistoryFragment" />
+            android:id="@+id/action_paymentFragment_to_bookingConfirmation2"
+            app:destination="@id/bookingConfirmation2" />
     </fragment>
     <fragment
         android:id="@+id/fragment_camera"
@@ -117,9 +120,13 @@
         android:label="fragment_host"
         tools:layout="@layout/fragment_host" />
     <fragment
-        android:id="@+id/stayOverHistoryFragment"
+        android:id="@+id/nav_stay_event"
         android:name="com.example.myapplication.ui.stayoverhistory.StayOverHistoryFragment"
         android:label="Exploring Culture History"
-        tools:layout="@layout/fragment_stay_over_history" />
+        tools:layout="@layout/fragment_stay_over_history" >
+        <action
+            android:id="@+id/action_nav_stayover_history_fragment_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
 
 </navigation>
