@@ -68,7 +68,7 @@ class BookingConfirmation : Fragment(), View.OnClickListener {
         if(v!=null){
             when(v.id){
                 R.id.bookingHistoryBtn ->{
-                    findNavController().navigate(R.id.action_bookingConfirmation2_to_nav_trip_history)
+                    findNavController().navigate(R.id.nav_stay_event)
 
                 }
 

@@ -2,7 +2,6 @@ package com.example.myapplication.views
 
 import android.app.Activity
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
@@ -12,8 +11,6 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -26,12 +23,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.net.toUri
 import androidx.navigation.NavController
-import coil.api.load
 import com.example.myapplication.R
-import com.example.myapplication.communication.Communicator
-import com.example.myapplication.managers.SharedPreferencesManager
 import com.example.myapplication.models.Guest
-import com.example.myapplication.ui.stay_over.StayOverFragment
 import com.example.myapplication.viewmodels.ViewModels
 import kotlinx.android.synthetic.main.activity_sign_in.*
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -44,17 +37,12 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener  {
     private val TAG = this@HomeActivity2.toString()
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var navController: NavController
-    private lateinit var drawerLayout:DrawerLayout
-    private lateinit var name : TextView
+    private lateinit var drawerLayout: DrawerLayout
+    private lateinit var name: TextView
     private lateinit var email: TextView
     private lateinit var imgProfilePic: ImageView
-    private val REQUEST_GALLERY_PICTURE=172
-    private lateinit var viewModel : ViewModels
-
-
-
-
-
+    private val REQUEST_GALLERY_PICTURE = 172
+    private lateinit var viewModel: ViewModels
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -70,31 +58,38 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener  {
         viewModel.fetchAllGuest()
 
 
-        drawerLayout= findViewById(R.id.drawer_layout)
+        drawerLayout = findViewById(R.id.drawer_layout)
 
 
-        val navView: NavigationView = findViewById(R.id.nav_view)
+        val navigationView: NavigationView = findViewById(R.id.nav_view)
+        //navigationView.setNavigationItemSelectedListener(this)
+
 
 
         navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        appBarConfiguration = AppBarConfiguration(setOf(
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
                 R.id.nav_home, R.id.nav_about, R.id.nav_contact,
-            R.id.nav_verified_user,R.id.nav_stay_event ,R.id.nav_booking_event), drawerLayout)
+                R.id.nav_verified_user,R.id.nav_booking_event,R.id.nav_stay_event
+            ), drawerLayout
+        )
         setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+        navigationView.setupWithNavController(navController)
 
-        val headerLayout: View = navView.getHeaderView(0)
-        email= headerLayout.findViewById(R.id.edtEmail)
-        name= headerLayout.findViewById(R.id.edtUserName)
-        imgProfilePic=headerLayout.findViewById(R.id.imgProfilePic)
+        val headerLayout: View = navigationView.getHeaderView(0)
+
+        email = headerLayout.findViewById(R.id.edtEmail)
+        name = headerLayout.findViewById(R.id.edtUserName)
+        imgProfilePic = headerLayout.findViewById(R.id.imgProfilePic)
         imgProfilePic.setOnClickListener(this)
 
 
-
-
     }
+
+
+
     companion object{
          var  currentUser = Guest()
     }
@@ -140,7 +135,6 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener  {
             when(v.id){
                 R.id.imgProfilePic -> {
                     val actionItems = arrayOf("Take a New Picture", "Choose from Gallery", "Cancel")
-
                     val alertBuilder = AlertDialog.Builder(this)
                     alertBuilder.setTitle("Select Profile Picture")
                     alertBuilder.setItems(actionItems){ dialog, index ->
@@ -149,7 +143,6 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener  {
                             this.navController.navigate(R.id.action_nav_home_to_fragment_camera)
                             this.drawerLayout.closeDrawer(Gravity.LEFT, true)
                         }else if (actionItems.get(index).equals("Choose from Gallery")){
-//                            Toast.makeText(this, "Choosing from gallery", Toast.LENGTH_SHORT).show()
                             this.selectFromGallery()
                         }else if (actionItems.get(index).equals("Cancel")){
                             dialog.dismiss()
@@ -202,7 +195,15 @@ class HomeActivity2 : AppCompatActivity(),View.OnClickListener  {
         })
     }
 
-
+//    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+//        when (item.itemId) {
+//            R.id.nav_stayover_history_fragment -> {
+//                navController.navigate(R.id.nav_stay_event)
+//                // Handle the camera action
+//            }
+//        }
+//        return true
+//    }
 
 
 }

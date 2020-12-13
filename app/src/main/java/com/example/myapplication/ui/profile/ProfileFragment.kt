@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.net.toUri
 import androidx.lifecycle.MutableLiveData
 import com.example.myapplication.R
 import com.example.myapplication.managers.SharedPreferencesManager
@@ -35,12 +36,13 @@ class ProfileFragment : Fragment(), View.OnClickListener {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    lateinit var edtName: EditText
-    lateinit var edtPhoneNumber: EditText
-    lateinit var edtEmail :EditText
-    lateinit var btnSave: Button
-    lateinit var spnLang :Spinner
-    lateinit var fabEditProfile: FloatingActionButton
+    private lateinit var edtName: EditText
+    private lateinit var edtPhoneNumber: EditText
+    private lateinit var edtEmail :EditText
+    private lateinit var btnSave: Button
+    private lateinit var spnLang :Spinner
+    private lateinit var fabEditProfile: FloatingActionButton
+    private lateinit var profileImg :ImageView
 
     var selectedLang: String = ""
     var currentGuestrEmail = SharedPreferencesManager.read(SharedPreferencesManager.EMAIL, "")
@@ -73,6 +75,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         btnSave = root.btnSave
         spnLang = root.spnLang
         fabEditProfile = root.fabEditProfile
+        profileImg = root.findViewById(R.id.profileImg)
         this.disableEdit()
         this.initializeSpinner()
         selectedLang = resources.getStringArray(R.array.language_array).get(0)
@@ -132,6 +135,8 @@ class ProfileFragment : Fragment(), View.OnClickListener {
             edtEmail.setText(existingGuest.email)
             edtName.setText(existingGuest.name)
             edtPhoneNumber.setText(existingGuest.phoneNumber)
+            profileImg.setImageURI(existingGuest.profileImg.toUri())
+
             spnLang.setSelection(resources.getStringArray(R.array.language_array).indexOf(existingGuest.language))
 
         })
