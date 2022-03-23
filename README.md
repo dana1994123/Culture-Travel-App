@@ -14,9 +14,7 @@ We provides our user with all the services that let them live an exceptopnal exp
 When the user clicks the sign-in button it should verify the sign-in by looking to the DB if the user is available or not. 
 The shared preference is done already. While signup Activity have added the data validation. We have to save the user to the DB when he clicks to sign up and we. 
 
-<img width="398" alt="Screen Shot 2022-03-23 at 6 40 03 PM" src="https://user-images.githubusercontent.com/68449449/159811372-ddb29cfc-8368-4abe-b841-b408606def66.png">
-
-<img width="398" alt="Screen Shot 2022-03-23 at 6 50 08 PM" src="https://user-images.githubusercontent.com/68449449/159811428-6775fb72-31df-4f4f-a516-340a9f58fce9.png">
+<img width="398" alt="Screen Shot 2022-03-23 at 6 40 03 PM" src="https://user-images.githubusercontent.com/68449449/159811372-ddb29cfc-8368-4abe-b841-b408606def66.png"> <img width="398" alt="Screen Shot 2022-03-23 at 6 50 08 PM" src="https://user-images.githubusercontent.com/68449449/159811428-6775fb72-31df-4f4f-a516-340a9f58fce9.png">
 
 
 <h5>3- Event Fragment : </h5>
