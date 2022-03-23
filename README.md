@@ -57,10 +57,9 @@ Create the UI Write some information on how the user can be verified by attachin
 
 <h5>8- Host Fragment :</h5>
 We create UI similar to the guest fragment.
-<img width="398" alt="Screen Shot 2022-03-23 at 6 48 57 PM" src="https://user-<img width="398" alt="Screen Shot 2022-03-23 at 6 49 06 PM" src="https://user-images.githubusercontent.com/68449449/159811741-70d08bf9-d254-42ce-9922-26c2a690a480.png">
-images.githubusercontent.com/68449449/159811731-eb845a61-db36-4e79-9b72-886106edba13.png">.   <img width="398" alt="Screen Shot 2022-03-23 at 6 40 52 PM" src="https://user-images.githubusercontent.com/68449449/159811757-88ebbd73-79c7-436c-820d-63e48ad4ba81.png">.   
 
 
+<img width="398" alt="Screen Shot 2022-03-23 at 7 18 07 PM" src="https://user-images.githubusercontent.com/68449449/159812003-c207ed65-4b7a-4b92-8f1d-a7649d55b6e6.png">
 
 
 
@@ -69,17 +68,13 @@ We have to create the UI for it similar to the event fragment with these attribu
 Hostname, description, 3 images, and date check box as in date fragment, visitor number limit,  and other information you feel is gonna be useful and don’t forget to add it in the stayOver class as well. 
 We have to hardcoded 3 options for each culture, French, Italy, and India have the attribute that will be fetched based on the user choice in the Home Activity. 
 
-
-
-
-
-
-
+<img width="398" alt="Screen Shot 2022-03-23 at 6 40 52 PM" src="https://user-images.githubusercontent.com/68449449/159811757-88ebbd73-79c7-436c-820d-63e48ad4ba81.png">.   <img width="398" alt="Screen Shot 2022-03-23 at 6 47 43 PM" src="https://user-images.githubusercontent.com/68449449/159811894-c3f5d06a-4fa5-4752-8363-483fa62d8539.png">.  
+<img width="398" alt="Screen Shot 2022-03-23 at 6 49 06 PM" src="https://user-images.githubusercontent.com/68449449/159811906-1c7414cc-fffc-4ac2-871d-9f701605b5a2.png">
 
 
 
 
 <h2>Additional Features</h2>
-1-  We have to add 3 languages to our app by default it gonna be English and we have to add dark mode and landscape for every layout 
-2- Dark theme Mode 
+<h5>1-  We have to add 3 languages to our app by default it gonna be English and we have to add dark mode and landscape for every layout</h5>
+<h5>2- Dark theme Mode </h5>
 
