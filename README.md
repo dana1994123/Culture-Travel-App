@@ -46,6 +46,7 @@ Create an Ui as the attachment picture or any idea on your mind and when the fra
 <h5>6- Verified User :</h5>
 Create the UI Write some information on how the user can be verified by attaching a photo f his id and we will give him access to the camera add a button this button gives the user to access the camera and take the photo and once when the user is done with that we will change the verified status for the user. 
 
+<img width="398" alt="Screen Shot 2022-03-23 at 7 20 25 PM" src="https://user-images.githubusercontent.com/68449449/159812205-2b8a4aea-bdb4-433e-a4fa-514e90511a54.png">
 
 
 
