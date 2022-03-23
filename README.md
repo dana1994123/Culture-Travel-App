@@ -1,9 +1,10 @@
-# androidAppProject
+<h1>Culture Travel App</h1>
 
 <h2>About</h2>
-Sheridan courses app is the app that each stuent at Sheridan college needed for managing their student life. This app give the students access to their course, academic calender & many other features. 
 
-<h2>Features</h2>
+
+
+<h2>Details About Culture Travel App:</h2>
 
 <h5>1- Sign in activity : </h5>
 When the user clicks the sign-in button it should verify the sign-in by looking to the DB if the user is available or not. 
