@@ -25,41 +25,46 @@ We have to fetch the selected event from the Db that the user has chosen from th
 We will be hardcoded 5 events to the DB. 
 
 <img width="398" alt="Screen Shot 2022-03-23 at 6 40 31 PM" src="https://user-images.githubusercontent.com/68449449/159811477-ae0fadde-c67f-45f5-8f8f-1eeda69da838.png">.  <img width="398" alt="Screen Shot 2022-03-23 at 6 41 29 PM" src="https://user-images.githubusercontent.com/68449449/159811502-8583acf5-51f9-4212-b1e6-bde9f63f135e.png">.   
-<img width="398" alt="Screen Shot 2022-03-23 at 6 49 15 PM" src="https://user-images.githubusercontent.com/68449449/159811518-73420d27-5966-45c1-9b45-1e71b1e77443.png">
+<img width="398" alt="Screen Shot 2022-03-23 at 6 49 15 PM" src="https://user-images.githubusercontent.com/68449449/159811518-73420d27-5966-45c1-9b45-1e71b1e77443.png">. <img width="398" alt="Screen Shot 2022-03-23 at 6 49 24 PM" src="https://user-images.githubusercontent.com/68449449/159811574-9dac241d-1e66-4295-b4ea-7d9835eeb4ae.png">
+
 
 
 
 <h5>4- Payment Fragment : </h5>
-We have to validate the data that the user entered and if it validates we have to add the event booking to the DB 
+We have to validate the data that the user entered and if it validates we have to add the event booking to the DB.
+
+<img width="398" alt="Screen Shot 2022-03-23 at 6 48 27 PM" src="https://user-images.githubusercontent.com/68449449/159811595-b494da52-ca6e-4a8a-bdcb-3aca383f4e24.png">
 
 
 
 
 <h5>5- BookingList Fragment :</h5>
 Create an Ui as the attachment picture or any idea on your mind and when the fragment loaded we have to fetch all the event booking and the stay over that the user been done. 
+<img width="398" alt="Screen Shot 2022-03-23 at 6 41 43 PM" src="https://user-images.githubusercontent.com/68449449/159811618-d15445ac-e05b-4d1e-a55a-c46be9c9bd0d.png">
 
 
 <h5>6- Verified User :</h5>
 Create the UI Write some information on how the user can be verified by attaching a photo f his id and we will give him access to the camera add a button this button gives the user to access the camera and take the photo and once when the user is done with that we will change the verified status for the user. 
 
 
+
+
  <h5>7- About us fragment :</h5>
-Just the Ui or anything you think it is useful
+
+<img width="398" alt="Screen Shot 2022-03-23 at 6 47 17 PM" src="https://user-images.githubusercontent.com/68449449/159811675-d392c296-98ff-483c-bb4c-98d6ad94341e.png">
 
 
 
-<h5>8- NearByEvent Fragment :</h5>
-This fragment will be accessed from the Home Activity when the user clicks explore all. Where in this fragment we will show the user a map with markup for where exactly each of the 4 events happening. We have to create the Ui for this fragment I will be sending the picture. 
-
-
-
-<h5>9- Host Fragment :</h5>
+<h5>8- Host Fragment :</h5>
 We create UI similar to the guest fragment.
+<img width="398" alt="Screen Shot 2022-03-23 at 6 48 57 PM" src="https://user-<img width="398" alt="Screen Shot 2022-03-23 at 6 49 06 PM" src="https://user-images.githubusercontent.com/68449449/159811741-70d08bf9-d254-42ce-9922-26c2a690a480.png">
+images.githubusercontent.com/68449449/159811731-eb845a61-db36-4e79-9b72-886106edba13.png">.   <img width="398" alt="Screen Shot 2022-03-23 at 6 40 52 PM" src="https://user-images.githubusercontent.com/68449449/159811757-88ebbd73-79c7-436c-820d-63e48ad4ba81.png">.   
 
 
 
 
-<h5>10- StayOver fragment : </h5>
+
+<h5>9- StayOver fragment : </h5>
 We have to create the UI for it similar to the event fragment with these attribute : 
 Hostname, description, 3 images, and date check box as in date fragment, visitor number limit,  and other information you feel is gonna be useful and don’t forget to add it in the stayOver class as well. 
 We have to hardcoded 3 options for each culture, French, Italy, and India have the attribute that will be fetched based on the user choice in the Home Activity. 
