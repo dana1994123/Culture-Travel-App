@@ -3,20 +3,19 @@
 
 <h2>About</h2>
 We provides our user with all the services that let them live an exceptopnal experience to learn more about others culture. We have included in our app culture events section that is happening near the user location and the ability to book a seat for this event through our application. In addition, a stay over at one host to live their live and learn about their cullture and tradition. 
+
 <img width="398" alt="Screen Shot 2022-03-23 at 6 38 35 PM" src="https://user-images.githubusercontent.com/68449449/159811448-820eac95-8729-4744-bc78-e1362235a0d5.png">
 
 
 
 <h2>Details About Culture Travel App:</h2>
 
-<h5>1- Sign in activity : </h5>
+<h5>1- Sign in activity & Sign up activity: </h5>
 When the user clicks the sign-in button it should verify the sign-in by looking to the DB if the user is available or not. 
-The shared preference is done already. 
+The shared preference is done already. While signup Activity have added the data validation. We have to save the user to the DB when he clicks to sign up and we. 
 
 <img width="398" alt="Screen Shot 2022-03-23 at 6 40 03 PM" src="https://user-images.githubusercontent.com/68449449/159811372-ddb29cfc-8368-4abe-b841-b408606def66.png">
 
-<h5>2- Sign up activity : </h5>
-We have added the data validation. We have to save the user to the DB when he clicks to sign up and we. 
 <img width="398" alt="Screen Shot 2022-03-23 at 6 50 08 PM" src="https://user-images.githubusercontent.com/68449449/159811428-6775fb72-31df-4f4f-a516-340a9f58fce9.png">
 
 
