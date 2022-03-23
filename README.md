@@ -45,55 +45,27 @@ This fragment will be accessed from the Home Activity when the user clicks explo
 <img width="253" alt="Screen Shot 2020-11-15 at 01 05 22" src="https://user-images.githubusercontent.com/72468026/99178429-f7fcc600-26e0-11eb-94d9-0f96f3e24d5e.png">
 
 9- Host Fragment :
-We create UI similar to the guest fragment added these field to it :
-var name :String = "" ,
-var about :String = "",
-var language : String = "",
-var location :String ="",
-var workExperience :String = ""
+We create UI similar to the guest fragment.
 
 
-<h2>Initial Prototype</h2>
-<img width="1213" alt="Screen Shot 2022-02-27 at 8 22 03 PM" src="https://user-images.githubusercontent.com/68449449/155909584-c9f71adb-5c7c-4edb-99fe-872dc2fa137d.png">
 
 
-<br>
-<h2>Navigation Prototype</h2>
-
-
-<img width="1213" alt="Screen Shot 2022-02-27 at 8 21 55 PM" src="https://user-images.githubusercontent.com/68449449/155909592-843c3fb5-77f4-4e36-b39a-555346e4adb1.png">
-
-
-<h2>Demo Video </h2>
-<a href="https://youtu.be/SbnTSyzNlJo">Video</a> <br>
-
-<h2>Links</h2>
-<a href="https://github.com/dana1994123/SheridanCoursesApp.git">Github Repository</a> <br>
-<a href="https://www.figma.com/file/N7Ax5OZHyuanLsAleBo4Pn/Sheridan-Course-App-V2?node-id=0%3A1">Figma Link</a> <br>
-<a href="https://youtu.be/SbnTSyzNlJo">Video Demo</a> <br>
-
-<img width="272" alt="Screen Shot 2020-11-15 at 01 04 56" src="https://user-images.githubusercontent.com/72468026/99178425-f3d0a880-26e0-11eb-92cf-0527792b0111.png">
-<img width="274" alt="Screen Shot 2020-11-15 at 01 19 58" src="https://user-images.githubusercontent.com/72468026/99178441-0f3bb380-26e1-11eb-8b7d-ca7cd2908947.png">
-<img width="273" alt="Screen Shot 2020-11-15 at 01 20 57" src="https://user-images.githubusercontent.com/72468026/99178445-1662c180-26e1-11eb-811c-93039305f608.png">
-<img width="275" alt="Screen Shot 2020-11-15 at 01 10 11" src="https://user-images.githubusercontent.com/72468026/99178447-195db200-26e1-11eb-948d-14553aca0196.png">
-
-StayOver fragment : 
+10- StayOver fragment : 
 We have to create the UI for it similar to the event fragment with these attribute : 
 Hostname, description, 3 images, and date check box as in date fragment, visitor number limit,  and other information you feel is gonna be useful and don’t forget to add it in the stayOver class as well. 
 We have to hardcoded 3 options for each culture, French, Italy, and India have the attribute that will be fetched based on the user choice in the Home Activity. 
 
-We have to add the pay button that will navigate to the payment page and send the stayOver information along. 
-
-
-
-
-
-We will be hardcoded 4 hosts to our app so please prepare these information on a word file and don’t hard codded in the Ui
 
 
 
 
 
 
-Note: We have to add 3 languages to our app by default it gonna be English and we have to add dark mode and landscape for every layout
+
+
+
+
+<h2>Additional Features</h2>
+1-  We have to add 3 languages to our app by default it gonna be English and we have to add dark mode and landscape for every layout 
+2- Dark theme Mode 
 
