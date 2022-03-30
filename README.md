@@ -73,6 +73,6 @@ We have to hardcoded 3 options for each culture, French, Italy, and India have t
 
 
 <h2>Additional Features</h2>
-<h5>1-  We have to add 3 languages to our app by default it gonna be English and we have to add dark mode and landscape for every layout</h5>
+<h5>1-  We have added 3 languages to our app by default it gonna be English </h5>
 <h5>2- Dark theme Mode </h5>
 
